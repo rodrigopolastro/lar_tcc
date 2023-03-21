@@ -1,9 +1,5 @@
 -- Lar Database
 
-DROP DATABASE lar;
-CREATE DATABASE lar;
-USE lar;
-
 CREATE TABLE Users (
     user_id INTEGER PRIMARY KEY,
     email VARCHAR(120),
@@ -94,6 +90,8 @@ ALTER TABLE Belongings ADD CONSTRAINT FK_Belongings_3
     FOREIGN KEY (fk_furniture_id)
     REFERENCES Furniture (furniture_id)
     ON DELETE SET NULL;
+
+---------------------------------------------------------------
 
 -- Adding 'name' columns on floors, rooms and furniture tables
 ALTER TABLE floors ADD floor_number INTEGER;
