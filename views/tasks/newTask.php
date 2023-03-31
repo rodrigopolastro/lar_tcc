@@ -1,9 +1,12 @@
 <?php
-require_once "./model/databaseConnection.php";
-require_once "./select_stuff.php";
+//Absolute path instead of relative one
+require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
+require_once findPath('controllers/tasksController.php');
 
-$rooms  = getAllRooms();
-$furniture = getAllFurniture();
+// to populate furniture and room selects 
+require_once findPath('controllers/furnitureController.php');
+require_once findPath('controllers/roomsController.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -15,9 +18,9 @@ $furniture = getAllFurniture();
   <title>Document</title>
 </head>
 <body>
-  <form method="post" action="./task_created.php">
+  <form method="post" action="/htdocsDirectories/lar_tcc/views/tasks/showTasks.php?operation=createTask">
     <label for="task_name">Nome da Tarefa</label>
-    <input type="text" name="task_name" id="">
+    <input type="text" name="task_name" id="" >
     <br>
     <label for="task_description">Descrição da Tarefa</label>
     <input type="text" name="task_description" id="">
@@ -38,19 +41,21 @@ $furniture = getAllFurniture();
       <label for="select_room_id">Cômodo</label>
     <select name="select_room_id" id="">
       <?php
-        foreach ($rooms as $room){
-          echo "<option value=$room[room_id]> $room[room_name] </option>";
-        }
-      ?>
+        if(isset($rooms)):
+          foreach ($rooms as $room): ?>
+            <option value="<?= $room['room_id'] ?>"> <?= $room['room_name'] ?> </option>";
+          <?php endforeach ?>
+        <?php endif ?>
     </select>
     <br>
     <label for="select_furniture_id">Móvel</label>
     <select name="select_furniture_id" id="">
-      <?php
-        foreach ($furniture as $pieceOfFurniture){
-          echo "<option value=$pieceOfFurniture[furniture_id]> $pieceOfFurniture[furniture_name] </option>";
-        }
-      ?>
+    <?php
+        if(isset($furniture)):
+          foreach ($furniture as $pieceOfFurniture): ?>
+            <option value="<?= $pieceOfFurniture['furniture_id'] ?>"> <?= $pieceOfFurniture['furniture_name'] ?> </option>";
+          <?php endforeach ?>
+        <?php endif ?>
     </select>
     <br><br>
     <button type="submit">Enviar</button>
