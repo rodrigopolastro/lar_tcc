@@ -3,19 +3,17 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
 require_once findPath('models/furnitureQueries.php');
 
-  // Using 'filter_input' instead of the array $_GET because the code breaks when the array is empty
-  $operation = filter_input(INPUT_GET, 'operation');
+  switch ($operation) {
+    case 'selectPieceOfFurniture':
+      break;
+    
+    case 'insertFurniture':
+      break;
 
-  
-  if($operation == 'editTask'){
-    $furniture = getAllFurniture();
+    case 'updateFurniture':
+      break;  
+
+    case 'deleteFurniture':
+      break;
   }
-  
-  if($operation == 'newTask'){
-    $furniture = getAllFurniture();
-  }
-  
-  if ($operation == 'selectAll') {
-    $furniture = getAllFurniture();
-  }
-  ?>
+?>

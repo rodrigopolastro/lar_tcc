@@ -3,15 +3,17 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
 require_once findPath('models/roomsQueries.php');
 
-  // Using 'filter_input' instead of the array $_GET because the code breaks when the array is empty
-  $operation = filter_input(INPUT_GET, 'operation');
+  switch ($operation) {
+    case 'selectRoom':
+      break;
+    
+    case 'insertRoom':
+      break;
 
-  if($operation == 'editTask'){
-    $rooms = getAllRooms();
+    case 'updateRoom':
+      break;  
+
+    case 'deleteRoom':
+      break;
   }
-
-  if($operation == 'newTask'){ 
-    $rooms = getAllRooms();
-  }
-
 ?>
