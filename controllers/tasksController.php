@@ -3,19 +3,27 @@
   require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
   require_once findPath('models/tasksQueries.php');
 
-  $task_id          = filter_input(INPUT_POST, 'task_id');
-  $task_name        = filter_input(INPUT_POST, 'task_name');
-  $task_description = filter_input(INPUT_POST, 'task_description');
-  $due_date         = filter_input(INPUT_POST, 'due_date');
-  $fk_house_id      = filter_input(INPUT_POST, 'fk_house_id');
-  $fk_room_id       = filter_input(INPUT_POST, 'fk_room_id');
-  $fk_furniture_id  = filter_input(INPUT_POST, 'fk_furniture_id');
-
   switch ($operation) {
     case 'selectTask':
       break;
     
     case 'insertTask':
+      //New tasks are created according to the current filters applied.
+      //This will be implemented using AJAX, but for now everything is null
+      $task_name = 'Nova tarefa';
+      $task_description = null;
+      $due_date         = null;
+      $fk_house_id      = null;
+      $fk_room_id       = null;
+      $fk_furniture_id  = null;
+      createTask(
+        $task_name, 
+        $task_description, 
+        $due_date, 
+        $fk_house_id, 
+        $fk_room_id, 
+        $fk_furniture_id
+      );
       break;
 
     case 'updateTask':
