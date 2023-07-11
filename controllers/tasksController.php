@@ -10,7 +10,7 @@
     case 'insertTask':
       //New tasks are created according to the current filters applied.
       //This will be implemented using AJAX, but for now everything is null
-      $task_name = 'Nova tarefa';
+      $task_name = 'Nova Tarefa';
       $task_description = null;
       $due_date         = null;
       $fk_house_id      = null;
@@ -30,6 +30,8 @@
       break;  
 
     case 'deleteTask':
+      $task_id = filter_input(INPUT_POST, 'task_id');
+      deleteTask($task_id);
       break;
 
     default:
