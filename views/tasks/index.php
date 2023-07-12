@@ -17,6 +17,7 @@
   //Loading views
   require findPath('views/components/header.php');
   require findPath('views/tileset/tileset.php');
+  require findPath('views/tasks/tasksMenu.php')
 ?>
   <form action="." method="post">
     <input type="hidden" name="operation" value="insertTask">
