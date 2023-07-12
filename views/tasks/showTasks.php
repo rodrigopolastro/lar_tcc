@@ -10,8 +10,13 @@
     </details>
     <form action="." method="post">
       <input type="hidden" name="task_id" value="<?= $task['task_id'] ?>">
-      <input type="hidden" name="operation" value="completeTask">
-      <input type="submit" value="Concluir tarefa">
+      <?php if(isTaskCompleted($task['task_id'])[0]): ?>
+        <input type="hidden" name="operation" value="uncompleteTask">
+        <input type="submit" value="Marcar como não concluída">
+      <?php else : ?>
+        <input type="hidden" name="operation" value="completeTask">
+        <input type="submit" value="Concluir tarefa">
+      <?php endif ?>
     </form>
     <form action="." method="post">
       <input type="hidden" name="task_id" value="<?= $task['task_id'] ?>">
