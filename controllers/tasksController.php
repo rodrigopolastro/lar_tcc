@@ -38,17 +38,14 @@
       completeTask($task_id);
       break;
 
-    case 'uncompleteTask':
+    case 'setTaskUncompleted':
       $task_id = filter_input(INPUT_POST, 'task_id');
-      uncompleteTask($task_id);
+      setTaskUncompleted($task_id);
       break;
 
     case 'deleteTask':
       $task_id = filter_input(INPUT_POST, 'task_id');
       deleteTask($task_id);
       break;
-
-    default:
-      $tasks = getAllTasks();
   }
 ?>
