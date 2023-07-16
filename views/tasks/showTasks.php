@@ -34,8 +34,6 @@
 </div>
 <h1>Tarefas</h1>
 <?php 
-$is_completed = FALSE;
-$uncompleted_tasks = getAllTasks($is_completed);
 foreach ($uncompleted_tasks as $uncompleted_task): ?>
   <div>
     <details>
@@ -53,17 +51,12 @@ foreach ($uncompleted_tasks as $uncompleted_task): ?>
       <input type="hidden" name="operation" value="deleteTask">
       <input type="submit" value="Excluir Tarefa">
     </form>
-    <form action="." method="post">
-      <input type="hidden" name="task_id" value="<?= $uncompleted_task['task_id'] ?>">
-      <input type="hidden" name="operation" value="editTask">
-      <input type="submit" value="Editar Tarefa">
-    </form>
+    <input type="button" value="Editar Tarefa" onclick="requestTaskInfo(<?= $uncompleted_task['task_id'] ?>)" 
+           data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   </div>
 <?php endforeach ?>
 <h2>Tarefas Concluídas</h2>
 <?php 
-$is_completed = TRUE;
-$completed_tasks = getAllTasks($is_completed);
 foreach ($completed_tasks as $completed_task): ?>
   <div>
     <details>
@@ -81,10 +74,39 @@ foreach ($completed_tasks as $completed_task): ?>
       <input type="hidden" name="operation" value="deleteTask">
       <input type="submit" value="Excluir Tarefa">
     </form>
-    <form action="." method="post">
-      <input type="hidden" name="task_id" value="<?= $completed_task['task_id'] ?>">
-      <input type="hidden" name="operation" value="editTask">
-      <input type="submit" value="Editar Tarefa">
-    </form>
+    <input type="submit" value="Editar Tarefa" onclick="requestTaskInfo(<?= $completed_task['task_id'] ?>)" 
+           data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   </div>
 <?php endforeach ?>  
+
+<script>
+  function requestTaskInfo(editingTaskId) {
+    httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = displayTaskInfo;
+    httpRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
+    httpRequest.setRequestHeader(
+      "Content-Type",
+      "application/x-www-form-urlencoded",
+    );
+    httpRequest.send("operation=selectTask&task_id=" + editingTaskId);
+  }
+
+  function displayTaskInfo() {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        if (httpRequest.status === 200) { 
+          const response = JSON.parse(httpRequest.responseText);
+          const name_input        = document.getElementById('modal_task_name_input');
+          const description_input = document.getElementById('modal_task_description_input');
+          const due_date_input    = document.getElementById('modal_task_due_date_input');
+          const due_time_input    = document.getElementById('modal_task_due_time_input');
+
+          name_input.value        = response.task_name;
+          description_input.value = response.task_description;
+          due_date_input.value    = response.due_date;
+          due_time_input.value    = response.due_time;
+        } else {
+          alert("There was a problem with the request.");
+        }
+      }
+  }
+</script>

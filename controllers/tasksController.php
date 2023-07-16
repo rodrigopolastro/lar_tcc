@@ -3,8 +3,24 @@
   require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
   require_once findPath('models/tasksQueries.php');
 
+  if(isset($_POST['operation'])){
+    $operation = $_POST['operation'];
+  } else {
+    $operation = 'selectAllTasks';
+  }
+
   switch ($operation) {
+    case 'selectAllTasks':
+      $is_completed = FALSE;
+      $uncompleted_tasks = getAllTasks($is_completed);
+      $is_completed = TRUE;
+      $completed_tasks = getAllTasks($is_completed);
+      break;
+
     case 'selectTask':
+      $task_id = $_POST['task_id'];
+      $task = getTaskById($task_id);
+      echo json_encode($task);
       break;
     
     case 'insertTask':

@@ -6,9 +6,6 @@
   //In the future, this value will be taken from the login and signup pages.
   $logged_user_id = 1;
 
-  // Using 'filter_input' instead of the array $_GET because the code breaks when the array is empty 
-  $operation = filter_input(INPUT_POST, 'operation');
-
   //Loading controllers
   require findPath('controllers/tasksController.php');
   require findPath('controllers/roomsController.php');
