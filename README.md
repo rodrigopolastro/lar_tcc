@@ -23,6 +23,14 @@ O projeto se trata de um sistema de listas de tarefas voltado à gestão e organ
 - **VIEWS:** - Toda a parte visual da aplicação, incluindo componentes individuis, páginas e arquivos css
 
 - **CONTROLLERS:** Intermediação entre as views e os models. Recebe as requests do usuário e realiza a query necessária contida nos models.
+
+## Atualizações 'on-the-fly' utilizando AJAX 
+Para atualizar certas páginas com dados do servidor sem que toda a página seja recarregada(tornando, então a aplicação mais rápida e interativa), utilizamos a técnica de Asynchronous Javascript and XML (AJAX).
+
+- **GERAR MODAL COM DADOS DA TAREFA A SER EDITADA:** Ao clicar no botão de edição de uma tarefa, o id da tarefa é passado como parâmetro para uma função que enviará uma request HTTP ao controller das tarefas, que por sua vez buscará no banco de dados as informações da tarefa em questão e as retornará em formato JSON. Por fim, os atributos 'value' dos inputs dos dados da tarefa são carregados com os resultados retornados.
+
+- **FILTRAR A EXIBIÇAO DE TAREFAS POR MEIO DE MENUS DE OPÇÕES:** *A fazer...*
+
 ____
 ### Desenvolvido por
 - Arthur de Lima
