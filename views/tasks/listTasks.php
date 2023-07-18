@@ -32,85 +32,8 @@
     </form>
   </div>
 </div>
+
 <h1>Tarefas</h1>
-<?php 
-foreach ($uncompleted_tasks as $uncompleted_task): ?>
-  <div>
-    <details>
-      <summary><?= $uncompleted_task['task_name']; ?></summary>
-      <h5>Data de Realização: <?= $uncompleted_task['due_date'] ?></h5>
-      <p><?= $uncompleted_task['task_description'] ?></p>
-    </details>
-    <form action="." method="post">
-      <input type="hidden" name="task_id" value="<?= $uncompleted_task['task_id'] ?>">
-      <input type="hidden" name="operation" value="completeTask">
-      <input type="submit" value="Concluir tarefa">
-    </form>
-    <form action="." method="post">
-      <input type="hidden" name="task_id" value="<?= $uncompleted_task['task_id'] ?>">
-      <input type="hidden" name="operation" value="deleteTask">
-      <input type="submit" value="Excluir Tarefa">
-    </form>
-    <input type="button" value="Editar Tarefa" onclick="requestTaskInfo(<?= $uncompleted_task['task_id'] ?>)" 
-           data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  </div>
-<?php endforeach ?>
+<div class="" id="uncompletedTasksList"></div>
 <h2>Tarefas Concluídas</h2>
-<?php 
-foreach ($completed_tasks as $completed_task): ?>
-  <div>
-    <details>
-      <summary><?= $completed_task['task_name']; ?></summary>
-      <h5>Data de Realização: <?= $completed_task['due_date'] ?></h5>
-      <p><?= $completed_task['task_description'] ?></p>
-    </details>
-    <form action="." method="post">
-      <input type="hidden" name="task_id" value="<?= $completed_task['task_id'] ?>">
-      <input type="hidden" name="operation" value="setTaskUncompleted">
-      <input type="submit" value="Marcar como Não Concluída">
-    </form>
-    <form action="." method="post">
-      <input type="hidden" name="task_id" value="<?= $completed_task['task_id'] ?>">
-      <input type="hidden" name="operation" value="deleteTask">
-      <input type="submit" value="Excluir Tarefa">
-    </form>
-    <input type="submit" value="Editar Tarefa" onclick="requestTaskInfo(<?= $completed_task['task_id'] ?>)" 
-           data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  </div>
-<?php endforeach ?>  
-
-<script>
-  function requestTaskInfo(editingTaskId) {
-    httpRequest = new XMLHttpRequest();
-    httpRequest.onreadystatechange = displayTaskInfo;
-    httpRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
-    httpRequest.setRequestHeader(
-      "Content-Type",
-      "application/x-www-form-urlencoded",
-    );
-    httpRequest.send("operation=selectTask&task_id=" + editingTaskId);
-  }
-
-  function displayTaskInfo() {
-    // Request Made
-    if (httpRequest.readyState === XMLHttpRequest.DONE) { 
-      // Status 200 = Request OK
-      if (httpRequest.status === 200) {                
-        // Convert response from JSON format to a javascript object
-        const response = JSON.parse(httpRequest.responseText);
-        const name_input        = document.getElementById('modalTaskNameInput');
-        const description_input = document.getElementById('modalTaskDescriptionInput');
-        const due_date_input    = document.getElementById('modalTaskDueDateInput');
-        const due_time_input    = document.getElementById('modalTaskDueTimeInput');
-
-        // Assign task values to inputs
-        name_input.value        = response.task_name;
-        description_input.value = response.task_description;
-        due_date_input.value    = response.due_date;
-        due_time_input.value    = response.due_time;
-      } else {
-        alert("There was a problem with the request.");
-      }
-    }
-  }
-</script>
+<div class="" id="completedTasksList"></div>

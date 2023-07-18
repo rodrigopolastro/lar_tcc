@@ -2,16 +2,21 @@
 require_once findPath('database/databaseConnection.php');
 
 // ============== SELECT QUERIES ==============
-function getAllTasks($is_completed){
+function getTasks($fk_room_id, $due_date){
   global $connection;
   $statement = $connection->prepare(
-    "SELECT * FROM tasks WHERE is_completed = :is_completed"
+    // If parameter is NULL, select all;
+    // If parameter IS NOT NULL, select WHERE field = parameter.
+    "SELECT * FROM tasks 
+    WHERE (:fk_room_id IS NULL OR fk_room_id = :fk_room_id) 
+    AND   (:due_date IS NULL OR due_date = :due_date)"
     );
 
-  $statement->bindValue(':is_completed', $is_completed);
+  $statement->bindValue(':fk_room_id', $fk_room_id);
+  $statement->bindValue(':due_date', $due_date);
   $statement->execute();
   
-  $results = $statement->fetchAll();
+  $results = $statement->fetchAll(PDO::FETCH_ASSOC); #Return array indexed by column (only)
   return $results;
 }
 
@@ -24,7 +29,7 @@ function getTaskById($task_id){
   $statement->bindValue(':task_id',$task_id);
   $statement->execute();
 
-  $results = $statement->fetch();
+  $results = $statement->fetch(PDO::FETCH_ASSOC); #Return array indexed by column (only)
   return $results;
 }
 
@@ -37,7 +42,7 @@ function countTasks(){
      FROM tasks"
     );
 
-  $results = $statement->fetch();
+  $results = $statement->fetch(PDO::FETCH_ASSOC); #Return array indexed by column (only)
   return $results;
 }
 

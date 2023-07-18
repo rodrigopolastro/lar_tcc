@@ -1,14 +1,16 @@
 <div class="tasks-menu">
   <h3>Filtros</h3>
-  <label for="select-date"></label>
-  <select name="select-date" id="">
-    <option value="yesterday">Ontem</option>
-    <option value="today">Hoje</option>
-    <option value="tomorrow">Amanhã</option>
+  <label for="selectTaskDate">Data</label>
+  <select id="selectTaskDate"> 
+    <option value="any">Qualquer Data</option>
+    <option value="2023/07/16">Ontem</option>
+    <option value="2023/07/17">Hoje</option>
+    <option value="2023/07/18">Amanhã</option>
     <option value="other">Outro</option>
   </select>
-  <label for="select-room_id"></label>
-  <select name="select_room_id" id="">
+  <label for="selectTaskRoomId">Cômodo</label>
+  <select id="selectTaskRoomId">
+    <option value="any">Todos os Cômodos</option>
     <?php
       $rooms = getAllRooms();
       foreach ($rooms as $room): ?>
@@ -21,4 +23,9 @@
     $tasks_number = countTasks();
   ?>
   <h2><?= $tasks_number['completed_tasks'] . '/' . $tasks_number['all_tasks'] ?></h2>
+  <form action="." method="post">
+    <input type="hidden" name="operation" value="insertTask">
+    <input type="submit" value="Adicionar Tarefa">
+  </form>
+  <br>
 </div>
