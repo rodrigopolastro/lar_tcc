@@ -19,10 +19,11 @@
   </select>
 
   <h4>Tarefas Concluídas</h4>
-  <?php
-    $tasks_number = countTasks();
-  ?>
-  <h2><?= $tasks_number['completed_tasks'] . '/' . $tasks_number['all_tasks'] ?></h2>
+  <h2 id="taskCounter">
+    <span id="completedTasksNumber"></span>
+    /
+    <span id="tasksNumber"></span>
+  </h2>
   <form action="." method="post">
     <input type="hidden" name="operation" value="insertTask">
     <input type="submit" value="Adicionar Tarefa">

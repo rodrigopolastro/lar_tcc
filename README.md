@@ -27,10 +27,12 @@ O projeto se trata de um sistema de listas de tarefas voltado à gestão e organ
 ## Atualizações 'on-the-fly' utilizando AJAX 
 Para atualizar certas páginas com dados do servidor sem que toda a página seja recarregada(tornando, então a aplicação mais rápida e interativa), utilizamos a técnica de Asynchronous Javascript and XML (AJAX).
 
-- **GERAR MODAL COM DADOS DA TAREFA A SER EDITADA:** Ao clicar no botão de edição de uma tarefa, o id da tarefa é passado como parâmetro para uma função que enviará uma request HTTP ao controller das tarefas, que por sua vez buscará no banco de dados as informações da tarefa em questão e as retornará em formato JSON. Por fim, os atributos 'value' dos inputs dos dados da tarefa são carregados com os resultados retornados.
+- **GERAR MODAL COM DADOS DA TAREFA A SER EDITADA:** (*getTaskForEdition.js*) Ao clicar no botão de edição de uma tarefa, o id da tarefa é passado como parâmetro para uma função que enviará uma request HTTP ao controller das tarefas, que por sua vez buscará no banco de dados as informações da tarefa em questão e as retornará em formato JSON. Por fim, os atributos 'value' dos inputs dos dados da tarefa (contidos no modal bootstrap) são carregados com os resultados retornados. 
 
-- **FILTRAR A EXIBIÇAO DE TAREFAS POR MEIO DE MENUS DE OPÇÕES:** *A fazer...*
+- **FILTRAR A EXIBIÇAO DE TAREFAS POR MEIO DE MENUS DE OPÇÕES:** (*generateTaskList.js*) O evento 'change' do select para a data e cômodo da tarefa envia uma request HTTP para o controller das tarefas com esses valores. Assim, a consulta ao banco de dados é realizada com um 'filtro' e os elementos HTML das tarefas são geradas dinamicamente via javascript. **OBS: Para gerar elementos já estilizados via javascript mais facilmente, o helper *elementWithAttributes.js* foi criado.**
 
+- **ATUALIZAR QUANTIDADE DE TAREFAS REALIZADAS:** Mesma lógica do uso anterior: Conforme o filtro muda, o javascript faz uma requisição ao controller enviando dados, o controller instrui o model para buscar no banco de dados e os resultados encontrados são carregados no elemento HTML contador via manipulação do DOM.
+ 
 ____
 ### Desenvolvido por
 - Arthur de Lima

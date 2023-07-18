@@ -1,5 +1,9 @@
 const selectTaskDate = document.getElementById('selectTaskDate');
 const selectTaskRoom  = document.getElementById('selectTaskRoomId');
+
+const uncompletedTasksList = document.getElementById('uncompletedTasksList');
+const completedTasksList   = document.getElementById('completedTasksList');
+
 selectTaskDate.addEventListener('change', filterTasks);
 selectTaskRoom.addEventListener('change', filterTasks);
 
@@ -8,29 +12,26 @@ function filterTasks(){
   due_date = selectTaskDate.value;
   room_id = selectTaskRoom.value;
 
-
-  httpRequest = new XMLHttpRequest();
-  httpRequest.onreadystatechange = listFilteredTasks;
-  httpRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
-  httpRequest.setRequestHeader(
+  filterHttpRequest = new XMLHttpRequest();
+  filterHttpRequest.onreadystatechange = listFilteredTasks;
+  filterHttpRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
+  filterHttpRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",
   );
-  httpRequest.send("operation=selectTasks&" +
+  filterHttpRequest.send("operation=selectTasks&" +
                     "due_date=" + due_date + 
                     "&room_id=" + room_id);
 }
 
 function listFilteredTasks() {
   // Request Made
-  if (httpRequest.readyState === XMLHttpRequest.DONE) { 
+  if (filterHttpRequest.readyState === XMLHttpRequest.DONE) { 
     // Status 200 = Request OK
-    if (httpRequest.status === 200) {              
+    if (filterHttpRequest.status === 200) {              
       // Convert response from JSON format to a javascript object
-      const filteredTasks = JSON.parse(httpRequest.responseText);
-      const uncompletedTasksList = document.getElementById('uncompletedTasksList');
-      const completedTasksList   = document.getElementById('completedTasksList');
-
+      const filteredTasks = JSON.parse(filterHttpRequest.responseText);
+      
       // Remove current tasks beforing loading new ones
       Array.from(uncompletedTasksList.children).forEach(task => task.remove());
       Array.from(completedTasksList.children).forEach(task => task.remove());

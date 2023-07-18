@@ -33,14 +33,22 @@ function getTaskById($task_id){
   return $results;
 }
 
-function countTasks(){
+function countTasks($fk_room_id, $due_date){
   global $connection;
-  $statement = $connection->query(
+  $statement = $connection->prepare(
+    // For counting completed tasks, only count task_id if the expression is satisfied,
+    // otherwise count NULL
     "SELECT 
       COUNT(task_id) AS all_tasks, 
-      COUNT(CASE WHEN is_completed = TRUE THEN task_id END) AS completed_tasks
-     FROM tasks"
+      COUNT(IF(is_completed = TRUE, task_id, NULL)) AS completed_tasks
+    FROM tasks
+    WHERE (:fk_room_id IS NULL OR fk_room_id = :fk_room_id) 
+    AND   (:due_date IS NULL OR due_date = :due_date)" 
     );
+
+  $statement->bindValue(':fk_room_id', $fk_room_id);
+  $statement->bindValue(':due_date', $due_date);
+  $statement->execute();
 
   $results = $statement->fetch(PDO::FETCH_ASSOC); #Return array indexed by column (only)
   return $results;
