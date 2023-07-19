@@ -1,8 +1,8 @@
 <?php
   // 'mktime' function arguments order: hour, minute, second, month, day, year
-  $yesterday = date("d/m/y", mktime(0, 0, 0, date("m"), date("d") - 1, 0));
-  $tomorrow  = date("d/m/y", mktime(0, 0, 0, date("m"), date("d") + 1, 0));
-  $today     = date("d/m/y");
+  $yesterday = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d") - 1, date("Y")));
+  $tomorrow  = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d") + 1, date("Y")));
+  $today     = date("Y-m-d");
 ?>
 <div class="tasks-menu">
   <h3>Filtros</h3>
