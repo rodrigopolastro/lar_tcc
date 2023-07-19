@@ -31,7 +31,7 @@ Para atualizar certas páginas com dados do servidor sem que toda a página seja
 
 - **FILTRAR A EXIBIÇAO DE TAREFAS POR MEIO DE MENUS DE OPÇÕES:** (*generateTaskList.js*) O evento 'change' do select para a data e cômodo da tarefa envia uma request HTTP para o controller das tarefas com esses valores. Assim, a consulta ao banco de dados é realizada com um 'filtro' e os elementos HTML das tarefas são geradas dinamicamente via javascript. **OBS: Para gerar elementos já estilizados via javascript mais facilmente, o helper *elementWithAttributes.js* foi criado.**
 
-- **ATUALIZAR QUANTIDADE DE TAREFAS REALIZADAS:** Mesma lógica do uso anterior: Conforme o filtro muda, o javascript faz uma requisição ao controller enviando dados, o controller instrui o model para buscar no banco de dados e os resultados encontrados são carregados no elemento HTML contador via manipulação do DOM.
+- **ATUALIZAR QUANTIDADE DE TAREFAS REALIZADAS:** Mesma lógica do uso anterior: Conforme o filtro muda, o javascript faz uma requisição ao controller enviando dados, o controller instrui o model para buscar no banco de dados e os resultados encontrados são carregados no elemento HTML responsável pela contagem via manipulação do DOM.
  
 ____
 ### Desenvolvido por

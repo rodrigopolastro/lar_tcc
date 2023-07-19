@@ -1,12 +1,18 @@
+<?php
+  // 'mktime' function arguments order: hour, minute, second, month, day, year
+  $yesterday = date("d/m/y", mktime(0, 0, 0, date("m"), date("d") - 1, 0));
+  $tomorrow  = date("d/m/y", mktime(0, 0, 0, date("m"), date("d") + 1, 0));
+  $today     = date("d/m/y");
+?>
 <div class="tasks-menu">
   <h3>Filtros</h3>
   <label for="selectTaskDate">Data</label>
   <select id="selectTaskDate"> 
     <option value="any">Qualquer Data</option>
-    <option value="2023/07/16">Ontem</option>
-    <option value="2023/07/17">Hoje</option>
-    <option value="2023/07/18">Amanhã</option>
-    <option value="other">Outro</option>
+    <option value="<?= $yesterday ?>">Ontem</option>
+    <option value="<?= $today ?>">Hoje</option>
+    <option value="<?= $tomorrow ?>">Amanhã</option>
+    <option value="other">Outra Data</option>
   </select>
   <label for="selectTaskRoomId">Cômodo</label>
   <select id="selectTaskRoomId">
