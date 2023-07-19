@@ -73,18 +73,29 @@ function createTask($task_name, $task_description, $due_date, $due_time, $is_com
   $statement->execute();
 }
 
-function updateTask($task_id, $task_name, $task_description, $due_date, $fk_house_id, $fk_room_id, $fk_furniture_id){
-  $sql = "UPDATE tasks SET
-          task_name = '$task_name',
-          task_description = '$task_description',
-          due_date = '$due_date', 
-          fk_house_id = '$fk_house_id', 
-          fk_room_id = '$fk_room_id', 
-          fk_furniture_id = '$fk_furniture_id'
-          WHERE task_id = '$task_id'";
-  
+function updateTask($task_id, $task_name, $task_description, $due_date, $due_time, $fk_house_id, $fk_room_id, $fk_furniture_id){
   global $connection;
-  $connection->prepare($sql)->execute();
+  $statement = $connection->prepare(
+    "UPDATE tasks SET
+      task_name        = :task_name,
+      task_description = :task_description,
+      due_date         = :due_date, 
+      due_time         = :due_time, 
+      fk_house_id      = :fk_house_id, 
+      fk_room_id       = :fk_room_id, 
+      fk_furniture_id  = :fk_furniture_id
+    WHERE task_id = :task_id"
+    );  
+
+  $statement->bindValue(':task_id',$task_id);
+  $statement->bindValue(':task_name',$task_name);
+  $statement->bindValue(':task_description',$task_description);
+  $statement->bindValue(':due_date',$due_date);
+  $statement->bindValue(':due_time',$due_time);
+  $statement->bindValue(':fk_house_id',$fk_house_id);
+  $statement->bindValue(':fk_room_id',$fk_room_id);
+  $statement->bindValue(':fk_furniture_id',$fk_furniture_id);
+  $statement->execute();
 }
 
 function completeTask($task_id){

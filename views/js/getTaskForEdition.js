@@ -18,12 +18,15 @@ function displayTaskInfo() {
     if (httpRequest.status === 200) {                
       // Convert response from JSON format to a javascript object
       const editingTask = JSON.parse(httpRequest.responseText);
+
+      const task_id_input     = document.getElementById('hiddenTaskIdInput');
       const name_input        = document.getElementById('modalTaskNameInput');
       const description_input = document.getElementById('modalTaskDescriptionInput');
       const due_date_input    = document.getElementById('modalTaskDueDateInput');
       const due_time_input    = document.getElementById('modalTaskDueTimeInput');
 
       // Assign task values to inputs
+      task_id_input.value     = editingTask.task_id;
       name_input.value        = editingTask.task_name;
       description_input.value = editingTask.task_description;
       due_date_input.value    = editingTask.due_date;

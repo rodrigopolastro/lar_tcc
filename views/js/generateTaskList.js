@@ -65,12 +65,7 @@ function listFilteredTasks() {
         const deleteTaskId    = createElementWithAttributes('input', {type: 'hidden', name: 'task_id', value: task.task_id});
         const deleteOperation = createElementWithAttributes('input', {type: 'hidden', name: 'operation', value: 'deleteTask'});
         const deleteSubmit    = createElementWithAttributes('input', {type: 'submit', value: 'Excluir Tarefa'}); 
-            
-        const buttonEditTask = createElementWithAttributes('input', {type: 'button', value:'Editar Tarefa', onclick:"requestTaskInfo(" + task.task_id + ")"});
-        // Bootstrap attributes for triggering modal
-        buttonEditTask.dataset.bsToggle = 'modal';
-        buttonEditTask.dataset.bsTarget = '#staticBackdrop';
-        
+                    
         // Stablish hierarchy between elements
         taskDiv.appendChild(taskName).appendChild(taskNameText);
         taskDiv.appendChild(taskDescription).appendChild(taskDescriptionText);
@@ -86,7 +81,14 @@ function listFilteredTasks() {
         formDeleteTask.appendChild(deleteSubmit);
         taskDiv.appendChild(formDeleteTask);
 
-        taskDiv.appendChild(buttonEditTask);
+        // Only uncompleted tasks can be edited
+        if(task.is_completed == false){
+          const buttonEditTask = createElementWithAttributes('input', {type: 'button', value:'Editar Tarefa', onclick:"requestTaskInfo(" + task.task_id + ")"});
+          // Bootstrap attributes for triggering modal
+          buttonEditTask.dataset.bsToggle = 'modal';
+          buttonEditTask.dataset.bsTarget = '#staticBackdrop';
+          taskDiv.appendChild(buttonEditTask);
+        }
 
         // Append taskDiv to respective list
         if(task.is_completed == false){

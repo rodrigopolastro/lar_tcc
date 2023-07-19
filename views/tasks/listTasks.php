@@ -1,30 +1,49 @@
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <form>
+    <form action="." method="post">
+      <input type="hidden" name="operation" value="updateTask">
+      <input type="hidden" name="task_id" id="hiddenTaskIdInput" value="escreve">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Tarefa</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <label for="task_name">Nome da Tarefa</label>
+            <label for="modalTaskNameInput">Nome da Tarefa</label>
             <input type="text" name="task_name" id="modalTaskNameInput">
             <br>
-            <label for="task_description">Descrição da Tarefa</label>
+            <label for="modalTaskDescriptionInput">Descrição da Tarefa</label>
             <input type="text" name="task_description" id="modalTaskDescriptionInput">
             <br>
-            <label for="due_date">Data de Realização</label>
+            <label for="editTaskRoomId">Cômodo</label>
+            <select id="editTaskRoomId" name="room_id">
+              <option value="no-room">Nenhum Cômodo</option>
+              <?php
+                $rooms = getAllRooms();
+                foreach ($rooms as $room): ?>
+                  <option value="<?= $room['room_id'] ?>"> <?= $room['room_name'] ?> </option>";
+                <?php endforeach ?>
+            </select>
+            <label for="editTaskFurnitureId">Móvel</label>
+            <select id="editTaskFurnitureId" name="furniture_id">
+              <option value="no-furniture">Nenhum Móvel</option>
+              <?php
+                $furniture = getAllFurniture();
+                foreach ($furniture as $pieceOfFurniture): ?>
+                  <option value="<?= $pieceOfFurniture['furniture_id'] ?>"> <?= $pieceOfFurniture['furniture_name'] ?> </option>";
+                <?php endforeach ?>
+            </select>
+            <br>
+            <label for="modalTaskDueDateInput">Data de Realização</label>
             <input type="date" name="due_date" id="modalTaskDueDateInput">
-            <label for="due_time">Horário</label>
+            <label for="modalTaskDueTimeInput">Horário</label>
             <input type="time" name="due_time" id="modalTaskDueTimeInput">
         </div>
         <div class="modal-footer">
           <!-- button to discard changes on task -->
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <!-- button to save changes on task -->
-            <input type="hidden" name="task_id" value="">
-            <input type="hidden" name="operation" value="updateTask">
             <input type="submit" value="Salvar Alterações">
           </form>
         </div>
