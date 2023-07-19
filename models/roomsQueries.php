@@ -3,15 +3,13 @@ require_once findPath('database/databaseConnection.php');
 
 // ============== SELECT QUERIES ==============
 function getAllRooms(){
-  $sql = "SELECT *
-          FROM rooms";
-
   global $connection;
-  $result = $connection->query($sql);
+  $statement = $connection->query(
+    "SELECT * FROM rooms"
+  );
 
-  if ($result->rowCount() > 0) {
-    return $result->fetchAll();
-  }
+  $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+  return $results;
 }
 
 // ============== ACTION QUERIES ==============

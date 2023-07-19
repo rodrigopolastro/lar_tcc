@@ -6,9 +6,6 @@
   //In the future, this value will be taken from the login and signup pages.
   $logged_user_id = 1;
 
-  // Using 'filter_input' instead of the array $_GET because the code breaks when the array is empty 
-  $operation = filter_input(INPUT_POST, 'operation');
-
   //Loading controllers
   require findPath('controllers/tasksController.php');
   require findPath('controllers/roomsController.php');
@@ -17,11 +14,11 @@
   //Loading views
   require findPath('views/components/header.php');
   require findPath('views/tileset/tileset.php');
-  require findPath('views/tasks/tasksMenu.php')
+  require findPath('views/tasks/tasksMenu.php');
+  require findPath('views/tasks/listTasks.php');
 ?>
-  <form action="." method="post">
-    <input type="hidden" name="operation" value="insertTask">
-    <input type="submit" value="Adicionar Tarefa">
-  </form>
-  <?php require findPath('views/tasks/showTasks.php'); ?>
-  <?php require findPath('views/components/footer.php'); ?>
+<script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/js/getTaskForEdition.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/js/generateTaskList.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/js/countTasks.js"></script>
+<?php require findPath('views/components/footer.php'); ?>

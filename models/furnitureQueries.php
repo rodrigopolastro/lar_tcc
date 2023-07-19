@@ -2,16 +2,14 @@
 require_once findPath('database/databaseConnection.php');
 
 // ============== SELECT QUERIES ==============
-function getAllFurniture(){   
-  $sql = "SELECT *
-            FROM furniture";
-  
+function getAllFurniture(){ 
   global $connection;
-  $result = $connection->query($sql);
-  
-  if ($result->rowCount() > 0) {
-    return $result->fetchAll();
-  }
+  $statement = $connection->query(
+    "SELECT * FROM furniture"
+  );
+
+  $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+  return $results;
 }
 
 // ============== ACTION QUERIES ==============
