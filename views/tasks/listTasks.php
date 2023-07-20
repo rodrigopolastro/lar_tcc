@@ -56,3 +56,4 @@
 <div class="" id="uncompletedTasksList"></div>
 <h2>Tarefas Concluídas</h2>
 <div class="" id="completedTasksList"></div>
+</div>

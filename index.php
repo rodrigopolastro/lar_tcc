@@ -1,15 +1,22 @@
 <?php
+  //Absolute path instead of relative one
+  require $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
+
   //Variable to track current user in order to present the appropriate data.
   //In the future, this value will be taken from the login and signup pages.
-  $logged_user_id = 1;
-  $mode = filter_input(INPUT_POST, 'mode');
+  if(isset($_POST['user_id'])){
+    $logged_user_id = $_POST['user_id'];
+  }
+  if(isset($_POST['mode'])){
+    $mode = $_POST['mode']; 
+  }
 
   if(isset($logged_user_id)){
-    if($mode == 'construction'){
-      header('Location: /htdocsDirectories/lar_tcc/views/construction/');
-      exit();
-    } else {
+    if($mode == 'tasks'){
       header('Location: /htdocsDirectories/lar_tcc/views/tasks/');
+      exit();
+    } else { # mode == 'construction'
+      header('Location: /htdocsDirectories/lar_tcc/views/construction/');
       exit();
     }
   }
@@ -26,7 +33,10 @@
 <body>
   <header> 
     <h1> Organize seu Lar! </h1>
+    <h3>Por enquanto, o login sempre passa o user_id = 1</h3>
     <form action="." method="post">
+      <input type="hidden" name="mode" value="tasks">
+      <input type="hidden" name="user_id" value="<?= $logged_user_id ?>">
       <input type="submit" value="Login">
     </form>
     <form action="." method="post">
@@ -39,7 +49,6 @@
   <h3> Um aplicativo de tarefas voltado a organização da casa!</h3>
   <h3> Simples, intuitivo e com um diagrama de personalização dinâmico!</h3>
   <img src="https://placeholder.co/500" alt="">
-<hr>
 <?php require findPath('views/components/footer.php'); ?>
  
 

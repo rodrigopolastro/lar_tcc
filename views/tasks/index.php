@@ -13,12 +13,12 @@
 
   //Loading views
   require findPath('views/components/header.php');
-  require findPath('views/tileset/tileset.php');
+  require findPath('views/tasks/houseDiagram.php');
   require findPath('views/tasks/tasksMenu.php');
   require findPath('views/tasks/listTasks.php');
 ?>
 <script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
-<script src="/htdocsDirectories/lar_tcc/views/js/getTaskForEdition.js"></script>
-<script src="/htdocsDirectories/lar_tcc/views/js/generateTaskList.js"></script>
-<script src="/htdocsDirectories/lar_tcc/views/js/countTasks.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/tasks/js/getTaskForEdition.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/tasks/js/generateTaskList.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/tasks/js/countTasks.js"></script>
 <?php require findPath('views/components/footer.php'); ?>

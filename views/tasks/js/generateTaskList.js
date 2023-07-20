@@ -83,7 +83,8 @@ function listFilteredTasks() {
 
         // Only uncompleted tasks can be edited
         if(task.is_completed == false){
-          const buttonEditTask = createElementWithAttributes('input', {type: 'button', value:'Editar Tarefa', onclick:"requestTaskInfo(" + task.task_id + ")"});
+          const buttonEditTask = createElementWithAttributes('button', {onclick:"requestTaskInfo(" + task.task_id + ")", class:"btn btn-success"});
+          buttonEditTask.innerHTML = 'Editar Tarefa';
           // Bootstrap attributes for triggering modal
           buttonEditTask.dataset.bsToggle = 'modal';
           buttonEditTask.dataset.bsTarget = '#staticBackdrop';
