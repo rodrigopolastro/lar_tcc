@@ -14,5 +14,9 @@
   require findPath('views/components/header.php');
   require findPath('views/construction/houseDiagramEditor.php');
   require findPath('views/construction/tilesetMenu.php');
-  require findPath('views/components/footer.php'); 
 ?>
+<script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/construction/js/generateRoomsList.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/construction/js/createRoom.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/construction/js/generateFurnitureList.js"></script>
+<?php require findPath('views/components/footer.php'); ?>
