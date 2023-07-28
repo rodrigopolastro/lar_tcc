@@ -1,23 +1,23 @@
 // This id comes from the 'onclick' event of the 'edit task'
 // This same button triggers the modal in which the task info will be displayed
 function requestTaskInfo(editingTaskId) {
-  httpRequest = new XMLHttpRequest();
-  httpRequest.onreadystatechange = displayTaskInfo;
-  httpRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
-  httpRequest.setRequestHeader(
+  getTaskRequest = new XMLgetTaskRequest();
+  getTaskRequest.onreadystatechange = displayTaskInfo;
+  getTaskRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
+  getTaskRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",
   );
-  httpRequest.send("operation=selectTask&task_id=" + editingTaskId);
+  getTaskRequest.send("operation=selectTask&task_id=" + editingTaskId);
 }
 
 function displayTaskInfo() {
   // Request Made
-  if (httpRequest.readyState === XMLHttpRequest.DONE) { 
+  if (getTaskRequest.readyState === XMLgetTaskRequest.DONE) { 
     // Status 200 = Request OK
-    if (httpRequest.status === 200) {                
+    if (getTaskRequest.status === 200) {                
       // Convert response from JSON format to a javascript object
-      const editingTask = JSON.parse(httpRequest.responseText);
+      const editingTask = JSON.parse(getTaskRequest.responseText);
 
       const task_id_input     = document.getElementById('hiddenTaskIdInput');
       const name_input        = document.getElementById('modalTaskNameInput');
@@ -32,7 +32,7 @@ function displayTaskInfo() {
       due_date_input.value    = editingTask.due_date;
       due_time_input.value    = editingTask.due_time;
     } else {
-      alert("There was a problem with the request.");
+      alert("There was a problem with the 'getTask' request.");
     }
   }
 }

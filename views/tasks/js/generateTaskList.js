@@ -4,39 +4,40 @@ const selectTaskRoom  = document.getElementById('selectTaskRoomId');
 const uncompletedTasksList = document.getElementById('uncompletedTasksList');
 const completedTasksList   = document.getElementById('completedTasksList');
 
-selectTaskDate.addEventListener('change', filterTasks);
-selectTaskRoom.addEventListener('change', filterTasks);
+selectTaskDate.addEventListener('change', requestFilteredTasks);
+selectTaskRoom.addEventListener('change', requestFilteredTasks);
 
-document.body.onload = filterTasks();
-function filterTasks(){
+document.body.onload = requestFilteredTasks();
+
+function requestFilteredTasks(){
   due_date = selectTaskDate.value;
   room_id = selectTaskRoom.value;
 
-  filterHttpRequest = new XMLHttpRequest();
-  filterHttpRequest.onreadystatechange = listFilteredTasks;
-  filterHttpRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
-  filterHttpRequest.setRequestHeader(
+  filterTasksRequest = new XMLHttpRequest();
+  filterTasksRequest.onreadystatechange = listFilteredTasks;
+  filterTasksRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
+  filterTasksRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",
   );
-  filterHttpRequest.send("operation=selectTasks&" +
-                    "due_date=" + due_date + 
-                    "&room_id=" + room_id);
+  filterTasksRequest.send("operation=selectTasks&" +
+                          "due_date=" + due_date + 
+                          "&room_id=" + room_id);
 }
 
 function listFilteredTasks() {
+  // Remove current tasks beforing loading new ones
+  Array.from(uncompletedTasksList.children).forEach(task => task.remove());
+  Array.from(completedTasksList.children).forEach(task => task.remove());
+  // OBS: The 'Array.from()' is called to convert the HTMLCollection returned 
+  // from .children - which is an 'array-like' object - to an actual array
+  
   // Request Made
-  if (filterHttpRequest.readyState === XMLHttpRequest.DONE) { 
+  if (filterTasksRequest.readyState === XMLHttpRequest.DONE) { 
     // Status 200 = Request OK
-    if (filterHttpRequest.status === 200) {              
+    if (filterTasksRequest.status === 200) {              
       // Convert response from JSON format to a javascript object
-      const filteredTasks = JSON.parse(filterHttpRequest.responseText);
-      
-      // Remove current tasks beforing loading new ones
-      Array.from(uncompletedTasksList.children).forEach(task => task.remove());
-      Array.from(completedTasksList.children).forEach(task => task.remove());
-      // OBS: The 'Array.from()' is called to convert the HTMLCOllection returned 
-      // from .children - which is an 'array-like' object - to an actual array
+      const filteredTasks = JSON.parse(filterTasksRequest.responseText);
 
       // Generate html elements for each task
       filteredTasks.forEach(task => {
@@ -99,7 +100,7 @@ function listFilteredTasks() {
         }
       })
     } else {
-      alert("There was a problem with the request.");
+      alert("There was a problem with the 'filterTasks' request.");
     }
   }
 }
