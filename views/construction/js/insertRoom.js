@@ -1,32 +1,36 @@
 const createRoomButton = document.getElementById('createRoomButton');
 const roomNameInput    = document.getElementById('roomNameInput');
+const roomTileInput    = document.getElementById('roomTileInput');
 
 createRoomButton.addEventListener('click', insertRoomRequest);
 
+var room_name, tile_path;
+
 function insertRoomRequest(){
-  var room_name = roomNameInput.value;
-  var room_tile = 'https://placeholder.co/100';
+  room_name = roomNameInput.value;
+  tile_path = roomTileInput.src;
 
   createRoomRequest = new XMLHttpRequest();
-  createRoomRequest.onreadystatechange = getCreatedRoomId(room_name, room_tile);
+  createRoomRequest.onreadystatechange = displayCreatedRoom;
   createRoomRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/roomsController.php");
   createRoomRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",
   );
   createRoomRequest.send("operation=insertRoom" + 
-                        "&room_name=" + room_name)
+                        "&room_name=" + room_name +
+                        "&tile_path=" + tile_path);
 }
 
-function getCreatedRoomId(room_name, room_tile){
+function displayCreatedRoom(){
+  // alert(createRoomRequest.readyState);
   if (createRoomRequest.readyState === XMLHttpRequest.DONE) { 
     if (createRoomRequest.status === 200) {              
-      alert(createRoomRequest.responseText);
       createdRoomId = createRoomRequest.responseText;     
-      creataafdasdfeRoomDiv(createdRoomId, room_name, room_tile);
-
+      createRoomDiv(createdRoomId, room_name, tile_path);
     } else {
       alert("There was a problem with the 'listRooms' request.");
     }
   }
 }
+

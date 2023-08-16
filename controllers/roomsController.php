@@ -16,10 +16,10 @@
       
       case 'insertRoom':
         $room_name = $_POST['room_name'];
-        $created_room_id = createRoom($room_name);
-        // echo "operation: " . $operation;
-        // echo "id: " . $created_room_id;
-        echo "ta ai: " . $created_room_id;
+        $tile_path = $_POST['tile_path'];
+
+        $created_room_id = createRoom($room_name, $tile_path);
+        echo $created_room_id;
         break;
 
       case 'updateRoom':

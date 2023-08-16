@@ -16,7 +16,7 @@
   require findPath('views/construction/tilesetMenu.php');
 ?>
 <script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/construction/js/createRoomDiv.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/construction/js/insertRoom.js"></script>
 <script src="/htdocsDirectories/lar_tcc/views/construction/js/generateRoomsList.js"></script>
-<script src="/htdocsDirectories/lar_tcc/views/construction/js/createRoom.js"></script>
-<script src="/htdocsDirectories/lar_tcc/views/construction/js/generateFurnitureList.js"></script>
 <?php require findPath('views/components/footer.php'); ?>
