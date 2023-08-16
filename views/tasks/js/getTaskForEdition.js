@@ -1,7 +1,7 @@
 // This id comes from the 'onclick' event of the 'edit task'
 // This same button triggers the modal in which the task info will be displayed
 function requestTaskInfo(editingTaskId) {
-  getTaskRequest = new XMLgetTaskRequest();
+  getTaskRequest = new XMLHttpRequest();
   getTaskRequest.onreadystatechange = displayTaskInfo;
   getTaskRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
   getTaskRequest.setRequestHeader(
@@ -13,7 +13,7 @@ function requestTaskInfo(editingTaskId) {
 
 function displayTaskInfo() {
   // Request Made
-  if (getTaskRequest.readyState === XMLgetTaskRequest.DONE) { 
+  if (getTaskRequest.readyState === XMLHttpRequest.DONE) { 
     // Status 200 = Request OK
     if (getTaskRequest.status === 200) {                
       // Convert response from JSON format to a javascript object

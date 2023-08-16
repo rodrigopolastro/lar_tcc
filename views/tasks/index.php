@@ -20,5 +20,4 @@
 <script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
 <script src="/htdocsDirectories/lar_tcc/views/tasks/js/getTaskForEdition.js"></script>
 <script src="/htdocsDirectories/lar_tcc/views/tasks/js/generateTaskList.js"></script>
-<script src="/htdocsDirectories/lar_tcc/views/tasks/js/countTasks.js"></script>
 <?php require findPath('views/components/footer.php'); ?>

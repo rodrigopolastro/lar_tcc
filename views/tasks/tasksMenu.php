@@ -18,7 +18,8 @@
     </select>
     <label for="selectTaskRoomId">Cômodo</label>
     <select id="selectTaskRoomId">
-      <option value="any">Todos os Cômodos</option>
+      <option value="any">Qualquer Cômodo</option>
+      <option value="noRoom">Sem Cômodo</option>
       <?php
         $rooms = getAllRooms();
         foreach ($rooms as $room): ?>
@@ -27,10 +28,10 @@
     </select>
 
     <h4>Tarefas Concluídas</h4>
-    <h2 id="taskCounter">
-      <span id="completedTasksNumber"></span>
+    <h2 id="tasksCounter">
+      <span id="completedTasksCounter"></span>
       /
-      <span id="tasksNumber"></span>
+      <span id="allTasksCounter"></span>
     </h2>
     <form action="." method="post">
       <input type="hidden" name="operation" value="insertTask">

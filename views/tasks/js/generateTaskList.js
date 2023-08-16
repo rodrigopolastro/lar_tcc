@@ -4,6 +4,9 @@ const selectTaskRoom  = document.getElementById('selectTaskRoomId');
 const uncompletedTasksList = document.getElementById('uncompletedTasksList');
 const completedTasksList   = document.getElementById('completedTasksList');
 
+const completedTasksCounter = document.getElementById('completedTasksCounter');
+const allTasksCounter       = document.getElementById('allTasksCounter');
+
 selectTaskDate.addEventListener('change', requestFilteredTasks);
 selectTaskRoom.addEventListener('change', requestFilteredTasks);
 
@@ -39,8 +42,13 @@ function listFilteredTasks() {
       // Convert response from JSON format to a javascript object
       const filteredTasks = JSON.parse(filterTasksRequest.responseText);
 
+      let allTasksNumber = 0;
+      let completedTasksNumber = 0;
+
       // Generate html elements for each task
       filteredTasks.forEach(task => {
+        allTasksNumber += 1;
+
         const taskDiv = createElementWithAttributes('div', {});
 
         const taskName        = createElementWithAttributes('h4', {});
@@ -50,18 +58,11 @@ function listFilteredTasks() {
         const taskDescriptionText = document.createTextNode(task.task_description);
         const taskDueDateText     = document.createTextNode('Data de Realização: ' + task.due_date);
           
-        const formCompleteTask    = createElementWithAttributes('form', {method: 'post', action: '.'});
+        const formCompleteTask  = createElementWithAttributes('form', {method: 'post', action: '.'});
         const completeTaskId    = createElementWithAttributes('input', {type: 'hidden', name: 'task_id', value: task.task_id});
         const completeOperation = createElementWithAttributes('input', {type: 'hidden', name: 'operation'});
         const completeSubmit    = createElementWithAttributes('input', {type: 'submit'});
-        if (task.is_completed == false){
-          completeOperation.value = 'completeTask';
-          completeSubmit.value = 'Concluir Tarefa';
-        } else {
-          completeOperation.value = 'setTaskUncompleted';
-          completeSubmit.value = 'Marcar como não concluída';
-        }
-
+        
         const formDeleteTask  = createElementWithAttributes('form', {method: 'post', action: '.'});
         const deleteTaskId    = createElementWithAttributes('input', {type: 'hidden', name: 'task_id', value: task.task_id});
         const deleteOperation = createElementWithAttributes('input', {type: 'hidden', name: 'operation', value: 'deleteTask'});
@@ -82,26 +83,29 @@ function listFilteredTasks() {
         formDeleteTask.appendChild(deleteSubmit);
         taskDiv.appendChild(formDeleteTask);
 
-        // Only uncompleted tasks can be edited
-        if(task.is_completed == false){
+        if (task.is_completed == true){
+          completedTasksNumber += 1;
+          completeOperation.value = 'setTaskUncompleted';
+          completeSubmit.value = 'Marcar como não concluída';
+          completedTasksList.appendChild(taskDiv);
+        } else { 
+          // Only uncompleted tasks can be edited
           const buttonEditTask = createElementWithAttributes('button', {onclick:"requestTaskInfo(" + task.task_id + ")", class:"btn btn-success"});
           buttonEditTask.innerHTML = 'Editar Tarefa';
           // Bootstrap attributes for triggering modal
           buttonEditTask.dataset.bsToggle = 'modal';
           buttonEditTask.dataset.bsTarget = '#staticBackdrop';
           taskDiv.appendChild(buttonEditTask);
-        }
 
-        // Append taskDiv to respective list
-        if(task.is_completed == false){
+          completeOperation.value = 'completeTask';
+          completeSubmit.value = 'Concluir Tarefa';
           uncompletedTasksList.appendChild(taskDiv);
-        } else {
-          completedTasksList.appendChild(taskDiv);
         }
       })
+      completedTasksCounter.innerHTML = completedTasksNumber;
+      allTasksCounter.innerHTML       = allTasksNumber;
     } else {
       alert("There was a problem with the 'filterTasks' request.");
     }
   }
 }
-

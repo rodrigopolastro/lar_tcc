@@ -10,10 +10,12 @@
         $room_id = $_POST['room_id'];
         $due_date = $_POST['due_date'];
 
-        if($room_id == "any"){ $room_id = null; }
-        if($due_date == "any"){ $due_date = null; }
-  
-        $filtered_tasks = getTasks($room_id, $due_date);
+        if($room_id == "noRoom"){ 
+          $filtered_tasks = getTasksWithNoRoom($due_date); 
+        } else {
+          $filtered_tasks = getTasks($room_id, $due_date);
+        }
+        
         echo json_encode($filtered_tasks);
         break;
   
@@ -21,17 +23,6 @@
         $task_id = $_POST['task_id'];
         $task = getTaskById($task_id);
         echo json_encode($task);
-        break;
-
-      case 'countTasks':
-        $room_id = $_POST['room_id'];
-        $due_date = $_POST['due_date'];
-
-        if($room_id == "any"){ $room_id = null; }
-        if($due_date == "any"){ $due_date = null; }
-
-        $tasks_number = countTasks($room_id, $due_date);
-        echo json_encode($tasks_number);
         break;
       
       case 'insertTask':
