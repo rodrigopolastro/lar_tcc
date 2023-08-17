@@ -7,14 +7,15 @@ const completedTasksList   = document.getElementById('completedTasksList');
 const completedTasksCounter = document.getElementById('completedTasksCounter');
 const allTasksCounter       = document.getElementById('allTasksCounter');
 
+var dueDate, roomId;
+
 selectTaskDate.addEventListener('change', requestFilteredTasks);
 selectTaskRoom.addEventListener('change', requestFilteredTasks);
-
 document.body.onload = requestFilteredTasks();
 
 function requestFilteredTasks(){
-  due_date = selectTaskDate.value;
-  room_id = selectTaskRoom.value;
+  dueDate = selectTaskDate.value;
+  roomId = selectTaskRoom.value;
 
   filterTasksRequest = new XMLHttpRequest();
   filterTasksRequest.onreadystatechange = listFilteredTasks;
@@ -24,8 +25,8 @@ function requestFilteredTasks(){
     "application/x-www-form-urlencoded",
   );
   filterTasksRequest.send("operation=selectTasks&" +
-                          "due_date=" + due_date + 
-                          "&room_id=" + room_id);
+                          "due_date=" + dueDate + 
+                          "&room_id=" + roomId);
 }
 
 function listFilteredTasks() {
