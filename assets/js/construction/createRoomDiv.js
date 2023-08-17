@@ -1,12 +1,11 @@
 const roomsList = document.getElementById('roomsList');
 
 function createRoomDiv(roomId, roomName, roomTileImage){
-  // alert("criando div: " + roomName);
   const roomDiv = createElementWithAttributes('div', {});
 
   const roomNameElement  = createElementWithAttributes('h4', {});
   const roomNameText     = document.createTextNode(roomId + "-" + roomName);
-  const roomTile         = createElementWithAttributes('img', {src: roomTileImage, onclick:''});
+  const roomTile         = createElementWithAttributes('img', {src: findTilePath(roomTileImage), onclick:'', class:'tile-image'});
   const buttonDeleteRoom = createElementWithAttributes('button', {onclick:'', class:'btn btn-danger'});
   const buttonEditRoom   = createElementWithAttributes('button', {onclick:'', class:'btn btn-success'});
 

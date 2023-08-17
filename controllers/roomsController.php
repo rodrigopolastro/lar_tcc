@@ -16,9 +16,9 @@
       
       case 'insertRoom':
         $room_name = $_POST['room_name'];
-        $tile_path = $_POST['tile_path'];
+        $tile_name = $_POST['tile_name'];
 
-        $created_room_id = createRoom($room_name, $tile_path);
+        $created_room_id = createRoom($room_name, $tile_name);
         echo $created_room_id;
         break;
 
