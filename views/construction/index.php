@@ -25,5 +25,6 @@
 <script src="/htdocsDirectories/lar_tcc/assets/js/construction/sectionSelector.js"></script>
 <!-- AJAX Requests -->
 <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/insertRoom.js"></script>
+<script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/deleteRoom.js"></script>
 <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectRooms.js"></script>
 <?php require findPath('views/components/footer.php'); ?>

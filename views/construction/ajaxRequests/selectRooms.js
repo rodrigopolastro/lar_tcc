@@ -19,7 +19,7 @@ function listRooms(){
         createRoomDiv(room.room_id, room.room_name, room.tile_name);
       })
     } else {
-      alert("There was a problem with the 'listRooms' request.");
+      alert("There was a problem with the 'selectRooms' request.");
     }
   }
 }

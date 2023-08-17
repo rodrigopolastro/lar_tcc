@@ -34,4 +34,14 @@ function createRoom($room_name, $tile_name){
 
   return $connection->lastInsertId();
 }
+
+function deleteRoom($room_id){
+  global $connection;
+  $statement = $connection->prepare(
+    "DELETE FROM rooms WHERE room_id = :room_id"
+    );
+
+  $statement->bindValue(':room_id', $room_id);
+  $statement->execute();
+}
 ?>

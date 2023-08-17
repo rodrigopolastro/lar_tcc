@@ -4,6 +4,6 @@ function findTilePath(tileName){
 }
 
 const placeholderTileName = "placeholderTile.png";
-function isPlaceholderTile(tileName){
-  return (tileName == placeholderTileName);
+function isTileSelected(tileName){
+  return (tileName != placeholderTileName);
 }

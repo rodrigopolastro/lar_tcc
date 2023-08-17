@@ -26,6 +26,8 @@
         break;  
 
       case 'deleteRoom':
+        $room_id = $_POST['room_id'];
+        deleteRoom($room_id);
         break;
     }
   }
