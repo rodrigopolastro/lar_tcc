@@ -16,8 +16,11 @@ createRoomButton.addEventListener('click', () => {
   //It returns true if tileName is different than the placeholderTileName
   if(isTileSelected(tileName)){
     roomName = roomNameInput.value;
-    // TO-DO: Check if roomName is unique among current user rooms
-    // if(isRoomNameValid(roomName)){}
+    //TO DO: if(isRoomNameValid(roomName)){}
+
+    // It must return false (roomName invalid) if:
+    // 1)roomName variable is empty (and inform it) 
+    // 2)the current user already has a room with the given name
     insertRoom();
   } else {
     alert("Selecione um piso!");
@@ -44,12 +47,17 @@ function insertRoom(){
 
 function displayCreatedRoom(){
   if (insertRoomRequest.readyState === XMLHttpRequest.DONE) { 
-    if (insertRoomRequest.status === 200) {              
-      createdRoomId = insertRoomRequest.responseText;     
-      createRoomDiv(createdRoomId, roomName, tileName);
-
-      displayPlaceholderTile();
-      roomNameInput.value = "";
+    if (insertRoomRequest.status === 200) {   
+      const response = JSON.parse(insertRoomRequest.responseText);
+      if(response.is_room_created){
+        createdRoomId = response.value;
+           
+        createRoomDiv(createdRoomId, roomName, tileName);
+        displayPlaceholderTile();
+        roomNameInput.value = "";
+      } else {
+        alert("Erro na criação do cômodo: " + response.value);
+      }
     } else {
       alert("There was a problem with the 'insertRoom' request.");
     }
