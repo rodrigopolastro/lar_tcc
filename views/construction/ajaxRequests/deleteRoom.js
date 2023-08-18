@@ -1,5 +1,3 @@
-var roomId;
-
 function deleteRoom(deletingRoomId){
   roomId = deletingRoomId;
   deleteRoomRequest = new XMLHttpRequest();

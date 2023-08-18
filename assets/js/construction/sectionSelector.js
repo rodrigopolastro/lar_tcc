@@ -1,8 +1,3 @@
-const roomsSection      = document.getElementById('roomsSection');
-const furnitureSection  = document.getElementById('furnitureSection');
-const roomsSectionButton     = document.getElementById('roomsSectionButton');
-const furnitureSectionButton = document.getElementById('furnitureSectionButton');
-
 roomsSectionButton.addEventListener('click', () => {
   // Make rooms section visible and 
   // furniture section invisible

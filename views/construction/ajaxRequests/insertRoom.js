@@ -1,19 +1,5 @@
-const createRoomButton = document.getElementById('createRoomButton');
-const roomNameInput    = document.getElementById('roomNameInput');
-const roomTileInput    = document.getElementById('roomTileInput');
-var roomName, tileId, tileName;
-
-document.body.onload = displayPlaceholderTile();
-
-roomTileInput.addEventListener('click', () => {
-  tileId = 7;
-  tileName = 'tile6.png';
-  roomTileInput.src = findTilePath(tileName);
-  alert("Opening tile options.");
-});
-
 createRoomButton.addEventListener('click', () => {
-  //Function defined in 'helpers/roomTilePath.js'
+  //'isTileSelected' function is defined in 'helpers/roomTilePath.js'
   //It returns true if tileName is different than the placeholderTileName
   if(isTileSelected(tileName)){
     roomName = roomNameInput.value;
@@ -27,11 +13,6 @@ createRoomButton.addEventListener('click', () => {
     alert("Selecione um piso!");
   }
 });
-
-function displayPlaceholderTile(){
-  tileName = placeholderTileName;
-  roomTileInput.src = findTilePath(tileName);
-}
 
 function insertRoom(){
   insertRoomRequest = new XMLHttpRequest();

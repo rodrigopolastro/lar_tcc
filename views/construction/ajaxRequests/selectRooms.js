@@ -1,4 +1,5 @@
 document.body.onload = selectRooms();
+
 function selectRooms(){
   selectRoomsRequest = new XMLHttpRequest();
   selectRoomsRequest.onreadystatechange = listRooms;

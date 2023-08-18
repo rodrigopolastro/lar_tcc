@@ -1,5 +1,3 @@
-const roomsList = document.getElementById('roomsList');
-
 function createRoomDiv(roomId, roomName, roomTileImage){
   const roomDiv = createElementWithAttributes('div', {});
   roomDiv.dataset.roomId = roomId;
