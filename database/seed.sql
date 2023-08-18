@@ -1,3 +1,5 @@
+USE lar;
+
 -- Create initial values for database
 INSERT INTO Houses(house_id) VALUES (1);
 
