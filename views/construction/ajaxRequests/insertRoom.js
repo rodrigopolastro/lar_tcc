@@ -1,11 +1,12 @@
 const createRoomButton = document.getElementById('createRoomButton');
 const roomNameInput    = document.getElementById('roomNameInput');
 const roomTileInput    = document.getElementById('roomTileInput');
-var roomName, tileName;
+var roomName, tileId, tileName;
 
 document.body.onload = displayPlaceholderTile();
 
 roomTileInput.addEventListener('click', () => {
+  tileId = 7;
   tileName = 'tile6.png';
   roomTileInput.src = findTilePath(tileName);
   alert("Opening tile options.");
@@ -42,7 +43,7 @@ function insertRoom(){
   );
   insertRoomRequest.send("operation=insertRoom" + 
                         "&room_name=" + roomName +
-                        "&tile_name=" + tileName);
+                        "&tile_id=" + tileId);
 }
 
 function displayCreatedRoom(){

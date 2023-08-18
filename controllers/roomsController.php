@@ -16,14 +16,14 @@
       
       case 'insertRoom':
         $room_name = $_POST['room_name'];
-        $tile_name = $_POST['tile_name'];
+        $tile_id   = $_POST['tile_id'];
         $house_id  = 1;
 
         //TO DO: wrap this block with a if condition:
         //only create a new room if user does not have a room with given name, 
         //so another method is necessary here.
         try {
-          $created_room_id = createRoom($room_name, $tile_name, $house_id);
+          $created_room_id = createRoom($room_name, $tile_id, $house_id);
           $is_room_created = true;
           $response = ["is_room_created" => $is_room_created, 
                        "value" => $created_room_id];
