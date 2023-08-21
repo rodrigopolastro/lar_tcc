@@ -22,7 +22,8 @@
         $tile_id   = $_POST['tile_id'];
         $house_id  = 1;
 
-        //TO DO: Only create a new room if user does not have a room with given name        try {
+        //TO DO: Only create a new room if user does not have a room with given name
+        try {
           $created_room_id = createRoom($room_name, $tile_id, $house_id);
           $response = [
             "is_room_created" => true, 
