@@ -8,12 +8,12 @@
     <div class="d-flex align-items-center">
       <label for="roomName">Nome do Cômodo</label>
       <input type="text" id="roomNameInput">
-      <div id="roomTileInputDiv" tabindex="0" role="button" data-bs-toggle="popover" data-bs-trigger="focus"
-        class="tile-image" 
-        data-bs-title="Pisos Disponíveis" 
-        data-bs-content="Lista dos pisos aqui">
+      <div id="roomTileInputDiv" class="tile-image" role="button" data-bs-toggle="popover" tabindex="0">
         <!-- the 'src' attribute is filled with the placeholder image by javascript -->
         <img src="" alt="" id="roomTileInputImg" class="w-100">
+      </div>
+      <div hidden>
+        <div id="popoverContent"></div>
       </div>
     </div>
     <h1>Cômodos criados</h1>
@@ -25,5 +25,4 @@
     <h1>Móveis</h1>
     <div id="furnitureList"><!-- This is filled dinamically by javascript --></div>
   </div>
-
 </div>
