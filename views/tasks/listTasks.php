@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-lg">
     <form action="." method="post">
       <input type="hidden" name="operation" value="updateTask">
-      <input type="hidden" name="task_id" id="hiddenTaskIdInput" value="escreve">
+      <input type="hidden" name="task_id" id="hiddenTaskIdInput" value="">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Tarefa</h1>
@@ -18,7 +18,7 @@
             <br>
             <label for="editTaskRoomId">Cômodo</label>
             <select id="editTaskRoomId" name="room_id">
-              <option value="no-room">Nenhum Cômodo</option>
+              <option value="noRoom">Nenhum Cômodo</option>
               <?php
                 $rooms = getAllRooms();
                 foreach ($rooms as $room): ?>
@@ -27,11 +27,11 @@
             </select>
             <label for="editTaskFurnitureId">Móvel</label>
             <select id="editTaskFurnitureId" name="furniture_id">
-              <option value="no-furniture">Nenhum Móvel</option>
+              <option value="noFurniture">Nenhum Móvel</option>
               <?php
                 $furniture = getAllFurniture();
-                foreach ($furniture as $pieceOfFurniture): ?>
-                  <option value="<?= $pieceOfFurniture['furniture_id'] ?>"> <?= $pieceOfFurniture['furniture_name'] ?> </option>";
+                foreach ($furniture as $piece_of_furniture): ?>
+                  <option value="<?= $piece_of_furniture['furniture_id'] ?>"> <?= $piece_of_furniture['furniture_name'] ?> </option>";
                 <?php endforeach ?>
             </select>
             <br>
@@ -56,3 +56,4 @@
 <div class="" id="uncompletedTasksList"></div>
 <h2>Tarefas Concluídas</h2>
 <div class="" id="completedTasksList"></div>
+</div>
