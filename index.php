@@ -1,6 +1,7 @@
 <?php
   //Variable to track current user in order to present the appropriate data.
   //In the future, this value will be taken from the login and signup pages.
+  //change the "logged_user_id" for the "$_SESSION['user_id']"
   $logged_user_id = 1;
   $mode = filter_input(INPUT_POST, 'mode');
 
