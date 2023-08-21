@@ -12,6 +12,9 @@
         break;
 
       case 'selectRoom':
+        $room_id = $_POST['room_id'];
+        $room = getRoomById($room_id);
+        echo json_encode($room);
         break;
       
       case 'insertRoom':
@@ -19,24 +22,38 @@
         $tile_id   = $_POST['tile_id'];
         $house_id  = 1;
 
-        //TO DO: wrap this block with a if condition:
-        //only create a new room if user does not have a room with given name, 
-        //so another method is necessary here.
-        try {
+        //TO DO: Only create a new room if user does not have a room with given name        try {
           $created_room_id = createRoom($room_name, $tile_id, $house_id);
-          $is_room_created = true;
-          $response = ["is_room_created" => $is_room_created, 
-                       "value" => $created_room_id];
+          $response = [
+            "is_room_created" => true, 
+            "value" => $created_room_id
+          ];
         } catch (PDOException $exception) {
-          $is_room_created = false;
-          $response = ["is_room_created" => $is_room_created, 
-                       "value" => $exception->getMessage()];
+          $response = [
+            "is_room_created" => false, 
+            "value" => $exception->getMessage()
+          ];
         } finally {
           echo json_encode($response);
         }
         break;
 
       case 'updateRoom':
+        $room_id = $_POST['room_id'];
+        $tile_id = $_POST['tile_id'];
+        $room_name = $_POST['room_name'];
+
+        try{
+          updateRoom($room_id, $tile_id, $room_name);
+          $response = ["is_room_updated" => true];
+        } catch (PDOException $exception){
+          $response = [
+            "is_room_updated" => false, 
+            "value" => $exception->getMessage()
+          ];
+        } finally{
+          echo json_encode($response);
+        }
         break;  
 
       case 'deleteRoom':

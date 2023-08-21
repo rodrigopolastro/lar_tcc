@@ -18,8 +18,32 @@
     </div>
     <h1>Cômodos criados</h1>
     <button id="createRoomButton">Criar Cômodo</button>
-    <div id="roomsList"><!-- This is filled dinamically by javascript --></div>
-  </div>
+    <!-- Room list is filled dinamically by javascript -->
+    <div id="roomsList">
+      <!-- Editing room Modal -->
+      <div class="modal fade" id="editingRoomModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Cômodo</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <label for="modalRoomNameInput">Nome do Cômodo</label>
+              <input type="text" id="modalRoomNameInput">
+              <label for="modalRoomTileInputImg">Piso Atual</label>
+              <img src="" alt="" id="modalRoomTileInputImg" class="tile-image">
+              <h3>Pisos Disponíveis</h3>
+              <div id="modalTilesList"></div>
+            <div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button id="modalUpdateRoomButton" type="button" data-bs-dismiss="modal" class="btn btn-primary">Salvar Alterações</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   
   <div id="furnitureSection" class="d-none">
     <h1>Móveis</h1>

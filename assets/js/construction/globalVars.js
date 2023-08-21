@@ -15,6 +15,12 @@ const furnitureSection       = document.getElementById('furnitureSection');
 const furnitureList          = document.getElementById('furnitureList');
 const popoverContent = document.getElementById('popoverContent');
 
+//Editing room modal
+const modalUpdateRoomButton = document.getElementById('modalUpdateRoomButton');
+const modalRoomNameInput    = document.getElementById('modalRoomNameInput');
+const modalRoomTileInputImg = document.getElementById('modalRoomTileInputImg');
+const modalTilesList        = document.getElementById('modalTilesList');
+
 // Vars required for room creation, deletion and edition
 var roomId, roomName, tileId, tileName;
 

@@ -1,7 +1,8 @@
 function deleteRoom(deletingRoomId){
   roomId = deletingRoomId;
+
   deleteRoomRequest = new XMLHttpRequest();
-  deleteRoomRequest.onreadystatechange = removeDeletedTaskDiv;
+  deleteRoomRequest.onreadystatechange = removeDeletedRoomDiv;
   deleteRoomRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/roomsController.php");
   deleteRoomRequest.setRequestHeader(
       "Content-Type",
@@ -11,11 +12,10 @@ function deleteRoom(deletingRoomId){
                         "&room_id=" + roomId);
 }
 
-function removeDeletedTaskDiv(){
+function removeDeletedRoomDiv(){
   if (deleteRoomRequest.readyState === XMLHttpRequest.DONE) { 
-    if (deleteRoomRequest.status === 200) { 
-      let attributeValue = "[data-room-id='" + roomId + "']"
-      const deletedRoom = document.querySelector(attributeValue);
+    if (deleteRoomRequest.status === 200) {  
+      const deletedRoom = document.querySelector("[data-room-id='" + roomId + "']");
       deletedRoom.remove();
     } else {
       alert("There was a problem with the 'deleteRoom' request.");
