@@ -1,8 +1,8 @@
 <?php
-  // 'mktime' function arguments order: hour, minute, second, month, day, year
-  $yesterday = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d") - 1, date("Y")));
-  $tomorrow  = date("Y-m-d", mktime(0, 0, 0, date("m"), date("d") + 1, date("Y")));
-  $today     = date("Y-m-d");
+  $date = new DateTimeImmutable('now', new DateTimeZone('America/Sao_Paulo'));
+  $today     = $date->format('Y-m-d');
+  $yesterday = $date->sub(new DateInterval('P1D'))->format('Y-m-d');
+  $tomorrow  = $date->add(new DateInterval('P1D'))->format('Y-m-d');
 ?>
 <!-- This div wraps the task-menu and the task-list -->
 <div class="tasks-section">
