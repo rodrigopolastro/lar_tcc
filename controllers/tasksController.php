@@ -36,51 +36,45 @@
       case 'insertTask':
         //New tasks are created according to the current filters applied.
         //This will be implemented using AJAX, but for now everything is null
-        $task_name = 'Nova Tarefa';
-        $task_description = null;
-        $due_date         = null;
-        $due_time         = null;
-        $is_completed     = FALSE;
-        $house_id         = 1;
-        $room_id          = null;
-        $furniture_id     = null;
-        createTask(
-          $task_name, 
-          $task_description, 
-          $due_date, 
-          $due_time,
-          $is_completed,
-          $house_id, 
-          $room_id, 
-          $furniture_id
-        );
+        $task = [
+          "task_name"        => 'Nova Tarefa',
+          "task_description" => null,
+          "due_date"         => null,
+          "due_time"         => null,
+          "is_completed"     => FALSE,
+          "fk_house_id"      => 1,
+          "fk_room_id"       => null,
+          "fk_furniture_id"  => null
+        ];
+
+        createTask($task);
         break;
   
       case 'updateTask':
-        $task_id          = $_POST['task_id'];
-        $task_name        = $_POST['task_name'];
-        $task_description = $_POST['task_description'];
-        $due_date         = $_POST['due_date'];
-        $due_time         = $_POST['due_time'];
-        $house_id      = 1;
-        $room_id       = $_POST['room_id'];
-        $furniture_id  = $_POST['furniture_id'];
-        
-        if($room_id == "no-room"){ $room_id = null; }
-        if($furniture_id == "no-furniture"){ $furniture_id = null; }
-        if(empty($due_date)){ $due_date = null; }
-        if(empty($due_time)){ $due_time = null; }
-        updateTask(
-          $task_id,
-          $task_name, 
-          $task_description, 
-          $due_date, 
-          $due_time,
-          $house_id, 
-          $room_id, 
-          $furniture_id
-          // 70, 'mudadaDenovo', 'outra descrição', '2023-07-19', null, 1, 1, 1
-        );
+        $task = [
+          "task_id"          => $_POST['task_id'],
+          "task_name"        => $_POST['task_name'],
+          "task_description" => $_POST['task_description'],
+          "due_date"         => $_POST['due_date'],
+          "due_time"         => $_POST['due_time'],
+          "fk_room_id"       => $_POST['room_id'],
+          "fk_furniture_id"  => $_POST['furniture_id']
+        ];
+
+        if($_POST['room_id'] == "noRoom"){ 
+          $task['fk_room_id'] = null; 
+        }
+        if($_POST['furniture_id'] == "noFurniture"){ 
+          $task['fk_furniture_id'] = null; 
+        }
+        if(empty($_POST['due_date'])){ 
+          $task['due_date'] = null; 
+        }
+        if(empty($_POST['due_time'])){ 
+          $task['due_time'] = null; 
+        }
+
+        updateTask($task);
         break;  
   
       case 'completeTask':

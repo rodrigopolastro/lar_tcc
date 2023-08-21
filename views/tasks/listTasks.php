@@ -18,7 +18,7 @@
             <br>
             <label for="editTaskRoomId">Cômodo</label>
             <select id="editTaskRoomId" name="room_id">
-              <option value="no-room">Nenhum Cômodo</option>
+              <option value="noRoom">Nenhum Cômodo</option>
               <?php
                 $rooms = getAllRooms();
                 foreach ($rooms as $room): ?>
@@ -27,7 +27,7 @@
             </select>
             <label for="editTaskFurnitureId">Móvel</label>
             <select id="editTaskFurnitureId" name="furniture_id">
-              <option value="no-furniture">Nenhum Móvel</option>
+              <option value="noFurniture">Nenhum Móvel</option>
               <?php
                 $furniture = getAllFurniture();
                 foreach ($furniture as $piece_of_furniture): ?>

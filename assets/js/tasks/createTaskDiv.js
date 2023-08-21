@@ -47,7 +47,7 @@ function createTaskDiv(task){
     completedTasksList.appendChild(taskDiv);
   } else { 
     // Only uncompleted tasks can be edited
-    const buttonEditTask = createElementWithAttributes('button', {onclick:"requestTaskInfo(" + task.task_id + ")", class:"btn btn-success"});
+    const buttonEditTask = createElementWithAttributes('button', {onclick:"selectOneTask(" + task.task_id + ")", class:"btn btn-success"});
     buttonEditTask.innerHTML = 'Editar Tarefa';
     // Bootstrap attributes for triggering modal
     buttonEditTask.dataset.bsToggle = 'modal';

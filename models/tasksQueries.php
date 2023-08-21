@@ -60,25 +60,25 @@ function getTaskById($task_id){
 }
 
   // ============== ACTION QUERIES ==============
-function createTask($task_name, $task_description, $due_date, $due_time, $is_completed, $fk_house_id, $fk_room_id, $fk_furniture_id){   
+function createTask($task){   
   global $connection;
   $statement = $connection->prepare(
     "INSERT INTO tasks (task_name, task_description, due_date, due_time, is_completed, fk_house_id, fk_room_id, fk_furniture_id)  
                VALUES (:task_name,:task_description,:due_date,:due_time,:is_completed,:fk_house_id,:fk_room_id,:fk_furniture_id)"
     );
 
-  $statement->bindValue(':task_name',$task_name);
-  $statement->bindValue(':task_description',$task_description);
-  $statement->bindValue(':due_date',$due_date);
-  $statement->bindValue(':due_time',$due_time);
-  $statement->bindValue(':is_completed',$is_completed);
-  $statement->bindValue(':fk_house_id',$fk_house_id);
-  $statement->bindValue(':fk_room_id',$fk_room_id);
-  $statement->bindValue(':fk_furniture_id',$fk_furniture_id);
+  $statement->bindValue(':task_name',        $task['task_name']);
+  $statement->bindValue(':task_description', $task['task_description']);
+  $statement->bindValue(':due_date',         $task['due_date']);
+  $statement->bindValue(':due_time',         $task['due_time']);
+  $statement->bindValue(':is_completed',     $task['is_completed']);
+  $statement->bindValue(':fk_house_id',      $task['fk_house_id']);
+  $statement->bindValue(':fk_room_id',       $task['fk_room_id']);
+  $statement->bindValue(':fk_furniture_id',  $task['fk_furniture_id']);
   $statement->execute();
 }
 
-function updateTask($task_id, $task_name, $task_description, $due_date, $due_time, $fk_house_id, $fk_room_id, $fk_furniture_id){
+function updateTask($task){
   global $connection;
   $statement = $connection->prepare(
     "UPDATE tasks SET
@@ -86,20 +86,18 @@ function updateTask($task_id, $task_name, $task_description, $due_date, $due_tim
       task_description = :task_description,
       due_date         = :due_date, 
       due_time         = :due_time, 
-      fk_house_id      = :fk_house_id, 
       fk_room_id       = :fk_room_id, 
       fk_furniture_id  = :fk_furniture_id
     WHERE task_id = :task_id"
     );  
 
-  $statement->bindValue(':task_id',$task_id);
-  $statement->bindValue(':task_name',$task_name);
-  $statement->bindValue(':task_description',$task_description);
-  $statement->bindValue(':due_date',$due_date);
-  $statement->bindValue(':due_time',$due_time);
-  $statement->bindValue(':fk_house_id',$fk_house_id);
-  $statement->bindValue(':fk_room_id',$fk_room_id);
-  $statement->bindValue(':fk_furniture_id',$fk_furniture_id);
+  $statement->bindValue(':task_id',          $task['task_id']);
+  $statement->bindValue(':task_name',        $task['task_name']);
+  $statement->bindValue(':task_description', $task['task_description']);
+  $statement->bindValue(':due_date',         $task['due_date']);
+  $statement->bindValue(':due_time',         $task['due_time']);
+  $statement->bindValue(':fk_room_id',       $task['fk_room_id']);
+  $statement->bindValue(':fk_furniture_id',  $task['fk_furniture_id']);
   $statement->execute();
 }
 

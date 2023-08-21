@@ -15,9 +15,9 @@
       <div hidden>
         <div id="popoverContent"></div>
       </div>
+      <button id="createRoomButton">Criar Cômodo</button>
     </div>
     <h1>Cômodos criados</h1>
-    <button id="createRoomButton">Criar Cômodo</button>
     <!-- Room list is filled dinamically by javascript -->
     <div id="roomsList">
       <!-- Editing room Modal -->
