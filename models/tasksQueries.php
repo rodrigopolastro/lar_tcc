@@ -7,8 +7,19 @@ function getTasks($fk_room_id, $due_date){
   $statement = $connection->prepare(
     // If parameter is 'any', select all;
     // If parameter is has any different value, select WHERE field = parameter.
-    "SELECT * FROM tasks 
-    WHERE (:fk_room_id = 'any' OR fk_room_id = :fk_room_id) 
+    "SELECT 
+      task_id,
+      task_name,
+      task_description,
+      due_date,
+      due_time,
+      is_completed,
+      room_name,
+      furniture_name
+    FROM tasks 
+    LEFT JOIN rooms ON rooms.room_id = tasks.fk_room_id
+    LEFT JOIN furniture ON furniture.furniture_id = tasks.fk_furniture_id
+    WHERE (:fk_room_id = 'any' OR tasks.fk_room_id = :fk_room_id) 
     AND   (:due_date = 'any' OR due_date = :due_date)"
     );
 

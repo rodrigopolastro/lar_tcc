@@ -10,13 +10,21 @@
         $room_id = $_POST['room_id'];
         $due_date = $_POST['due_date'];
 
-        if($room_id == "noRoom"){ 
-          $filtered_tasks = getTasksWithNoRoom($due_date); 
-        } else {
-          $filtered_tasks = getTasks($room_id, $due_date);
-        }
-        
-        echo json_encode($filtered_tasks);
+        try{
+          if($room_id == "noRoom"){ $filtered_tasks = getTasksWithNoRoom($due_date); }
+                             else { $filtered_tasks = getTasks($room_id, $due_date); }           
+          $response = [
+            "successful_query" => true,
+            "value" => $filtered_tasks
+          ];
+        } catch (PDOException $exception){
+          $response = [
+            "successful_query" => false,
+            "value" => $exception->getMessage()
+          ];
+        } finally {
+          echo json_encode($response);
+        }       
         break;
   
       case 'selectTask':

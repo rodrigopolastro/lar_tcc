@@ -17,6 +17,7 @@
   require findPath('views/tasks/tasksMenu.php');
   require findPath('views/tasks/listTasks.php');
 ?>
+<script src="/htdocsDirectories/lar_tcc/assets/js/tasks/createTaskDiv.js"></script>
 <script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
 <script src="/htdocsDirectories/lar_tcc/views/tasks/js/getTaskForEdition.js"></script>
 <script src="/htdocsDirectories/lar_tcc/views/tasks/js/generateTaskList.js"></script>
