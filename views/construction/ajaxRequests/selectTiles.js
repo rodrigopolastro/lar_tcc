@@ -1,4 +1,4 @@
-document.body.onload = selectTiles();
+document.body.onload = selectTiles;
 
 function selectTiles(){
   selectTilesRequest = new XMLHttpRequest();
@@ -9,7 +9,7 @@ function selectTiles(){
     "application/x-www-form-urlencoded",
   );
   selectTilesRequest.send("operation=selectTiles" +
-                         "&placeholderTile=" + placeholderTileName);
+                         "&placeholderTile=" + PLACEHOLDER_TILE_NAME);
 }
 
 function listTiles(){

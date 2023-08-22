@@ -1,14 +1,14 @@
 function findTilePath(tileName){
-  return (tilesDirectory + tileName);
+  return (TILES_DIRECTORY + tileName);
 }
 
 function isTileSelected(tileName){
-  return (tileName != placeholderTileName);
+  return (tileName != PLACEHOLDER_TILE_NAME);
 }
 
-document.body.onload = displayPlaceholderTile();
+document.body.onload = displayPlaceholderTile;
 
 function displayPlaceholderTile(){
-  tileName = placeholderTileName;
+  tileName = PLACEHOLDER_TILE_NAME;
   roomTileInputImg.src = findTilePath(tileName);
 }

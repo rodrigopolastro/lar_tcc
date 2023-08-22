@@ -1,4 +1,4 @@
-document.body.onload = selectRooms();
+document.body.onload = selectRooms;
 
 function selectRooms(){
   selectRoomsRequest = new XMLHttpRequest();

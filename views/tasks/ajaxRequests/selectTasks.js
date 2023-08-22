@@ -1,6 +1,6 @@
 selectTaskDate.addEventListener('change', selectTasks);
 selectTaskRoom.addEventListener('change', selectTasks);
-document.body.onload = selectTasks();
+document.body.onload = selectTasks;
 
 function selectTasks(){
   dueDate = selectTaskDate.value;
@@ -29,7 +29,7 @@ function listFilteredTasks() {
     if (selectTasksRequest.status === 200) {              
       const response = JSON.parse(selectTasksRequest.responseText);
 
-      if(response.successful_query){
+      if(response.is_query_successful){
         let allTasksNumber = 0;
         let completedTasksNumber = 0;
   
