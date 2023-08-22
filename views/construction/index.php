@@ -7,10 +7,10 @@
   $logged_user_id = 1;
 
   //Loading views
-  require findPath('views/components/header.php');
-  require findPath('views/construction/houseDiagramEditor.php');
-  require findPath('views/construction/tilesetMenu.php');
-  require findPath('views/components/footer.php');
+  require findPath('views/components/header.html');
+  require findPath('views/construction/houseDiagramEditor.html');
+  require findPath('views/construction/tilesetMenu.html');
+  require findPath('views/components/footer.html');
 ?>
   <!-- Includes bootstrap javascript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

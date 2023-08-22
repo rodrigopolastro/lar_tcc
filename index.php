@@ -49,6 +49,6 @@
   <h3> Um aplicativo de tarefas voltado a organização da casa!</h3>
   <h3> Simples, intuitivo e com um diagrama de personalização dinâmico!</h3>
   <img src="https://placeholder.co/500" alt="">
-<?php require findPath('views/components/footer.php'); ?>
+<?php require findPath('views/components/footer.html'); ?>
  
 
