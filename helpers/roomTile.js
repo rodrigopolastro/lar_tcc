@@ -1,3 +1,5 @@
+window.addEventListener('load', displayPlaceholderTile);
+
 function findTilePath(tileName){
   return (TILES_DIRECTORY + tileName);
 }
@@ -5,8 +7,6 @@ function findTilePath(tileName){
 function isTileSelected(tileName){
   return (tileName != PLACEHOLDER_TILE_NAME);
 }
-
-document.body.onload = displayPlaceholderTile;
 
 function displayPlaceholderTile(){
   tileName = PLACEHOLDER_TILE_NAME;

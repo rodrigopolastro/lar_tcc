@@ -1,4 +1,4 @@
-document.body.onload = selectTiles;
+window.addEventListener('load', selectTiles);
 
 function selectTiles(){
   selectTilesRequest = new XMLHttpRequest();
@@ -18,8 +18,8 @@ function listTiles(){
       const tiles = JSON.parse(selectTilesRequest.responseText);
 
       tiles.forEach(tile => {
-        createTileDiv(tile.tile_id, tile.tile_name, popoverContent, roomTileInputImg);
-        createTileDiv(tile.tile_id, tile.tile_name, modalTilesList, modalRoomTileInputImg);
+        createTileImg(tile, popoverContent, roomTileInputImg);
+        createTileImg(tile, modalTilesList, modalRoomTileInputImg);
       })
        
       const popover = new bootstrap.Popover(roomTileInputDiv, {

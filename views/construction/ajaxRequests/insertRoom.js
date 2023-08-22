@@ -33,8 +33,13 @@ function displayCreatedRoom(){
       const response = JSON.parse(insertRoomRequest.responseText);
       if(response.is_room_created){
         createdRoomId = response.value;
-           
-        createRoomDiv(createdRoomId, roomName, tileName);
+        const room = {
+          room_id: createdRoomId,
+          room_name: roomName,
+          tile_id: tileId,
+          tile_name: tileName
+        }
+        createRoomDiv(room);
         displayPlaceholderTile();
         roomNameInput.value = "";
       } else {

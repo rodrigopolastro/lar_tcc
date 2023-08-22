@@ -1,6 +1,6 @@
+window.addEventListener('load', selectTasks);
 selectTaskDate.addEventListener('change', selectTasks);
 selectTaskRoom.addEventListener('change', selectTasks);
-document.body.onload = selectTasks;
 
 function selectTasks(){
   dueDate = selectTaskDate.value;

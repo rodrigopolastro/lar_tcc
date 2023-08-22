@@ -8,6 +8,7 @@ function getAllRooms(){
     "SELECT 
       room_id, 
       room_name, 
+      fk_tile_id,
       tile_name 
     FROM rooms
     INNER JOIN tiles ON tiles.tile_id = rooms.fk_tile_id"

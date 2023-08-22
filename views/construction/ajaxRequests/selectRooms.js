@@ -1,4 +1,4 @@
-document.body.onload = selectRooms;
+window.addEventListener('load', selectRooms);
 
 function selectRooms(){
   selectRoomsRequest = new XMLHttpRequest();
@@ -13,12 +13,10 @@ function selectRooms(){
 
 function listRooms(){
   if (selectRoomsRequest.readyState === XMLHttpRequest.DONE) { 
-    if (selectRoomsRequest.status === 200) {   
+    if (selectRoomsRequest.status === 200) {
       const rooms = JSON.parse(selectRoomsRequest.responseText);
       
-      rooms.forEach(room => {
-        createRoomDiv(room.room_id, room.room_name, room.tile_name);
-      })
+      rooms.forEach(room => { createRoomDiv(room); })
     } else {
       alert("There was a problem with the 'selectRooms' request.");
     }
