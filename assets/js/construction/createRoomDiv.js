@@ -4,9 +4,11 @@ function createRoomDiv(room){
 
   const roomNameElement  = createElementWithAttributes('h4', {});
   const roomNameText     = document.createTextNode(room.room_name);
-  const roomTile         = createElementWithAttributes('img', {src: findTilePath(room.tile_name), class:'tile-image'});
+  const roomTile         = createElementWithAttributes('img', {src: findTilePath(room.tile_name), class:'tile-image room-tile'});
   const buttonDeleteRoom = createElementWithAttributes('button', {class:'btn btn-danger'});
   const buttonEditRoom   = createElementWithAttributes('button', {class:'btn btn-success'});
+
+  roomTile.addEventListener('click', function(){ setRoomToPaint(room.room_id, room.tile_name, roomTile) });
 
   buttonDeleteRoom.addEventListener('click', function(){ deleteRoom(room.room_id) });
   buttonDeleteRoom.innerHTML = 'Excluir Cômodo';

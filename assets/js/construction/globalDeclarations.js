@@ -36,10 +36,11 @@ const modalRoomNameInput    = document.getElementById('modalRoomNameInput');
 const modalRoomTileInputImg = document.getElementById('modalRoomTileInputImg');
 const modalTilesList        = document.getElementById('modalTilesList');
 
-
+// House Diagram Editor
 const clearCanvasButton   = document.getElementById('clearCanvasButton');
-const deleteTilesButton   = document.getElementById('deleteTilesButton');
+const eraserModeButton   = document.getElementById('eraserModeButton');
 const eraserModeIndicator = document.getElementById('eraserModeIndicator');
+const saveDiagramButton   = document.getElementById('saveDiagramButton');
 const houseDiagram        = document.getElementById('houseDiagram');
 
 //============== GLOBAL VARIABLES ==============//

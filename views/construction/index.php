@@ -21,6 +21,7 @@
   <!-- Helper Functions -->
   <script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
   <script src="/htdocsDirectories/lar_tcc/helpers/roomTile.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/helpers/getCoordsInElement.js"></script>
 
   <!-- General Javascript -->
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/sectionSelector.js"></script>
