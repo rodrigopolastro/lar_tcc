@@ -7,11 +7,11 @@ INSERT INTO Users(fk_house_id, user_email, user_password, first_name, last_name)
 VALUES (1, 'rodrigosilva@gmail.com', '12345', 'Rodrigo', 'Silva');
 
 INSERT INTO Rooms(fk_house_id, room_name) VALUES 
-    (1, 'Cozinha'),
-    (1, 'Quarto'),
-    (1, 'Sala de Estar'),
-    (1, 'Sala de Jantar'),
-    (1, 'Banheiro');
+    (1, 'Cozinha', 2),
+    (1, 'Quarto', 3),
+    (1, 'Sala de Estar', 4),
+    (1, 'Sala de Jantar', 5),
+    (1, 'Banheiro', 6);
 
 INSERT INTO Furniture(fk_room_id, furniture_name) VALUES
     (1, 'Geladeira'),
