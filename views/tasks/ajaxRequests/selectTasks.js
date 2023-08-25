@@ -18,6 +18,8 @@ function selectTasks(){
                           "&room_id=" + roomId);
 }
 
+let allTasksNumber = 0;
+let completedTasksNumber = 0;
 function listFilteredTasks() {
   // Remove current tasks beforing loading new ones
   Array.from(uncompletedTasksList.children).forEach(task => task.remove());
@@ -30,8 +32,6 @@ function listFilteredTasks() {
       const response = JSON.parse(selectTasksRequest.responseText);
 
       if(response.is_query_successful){
-        let allTasksNumber = 0;
-        let completedTasksNumber = 0;
   
         const filteredTasks = response.value;
         filteredTasks.forEach(task => {

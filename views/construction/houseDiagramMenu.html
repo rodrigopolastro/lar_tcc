@@ -18,10 +18,10 @@
         </div>
         <button id="createRoomButton">Criar Cômodo</button>
       </div>
+      <h1>Cômodos criados</h1>
+      <!-- Room list is filled dinamically by javascript -->
+      <div id="roomsList">
     </div>
-    <h1>Cômodos criados</h1>
-    <!-- Room list is filled dinamically by javascript -->
-    <div id="roomsList">
       <!-- Editing room Modal -->
       <div class="modal fade" id="editingRoomModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
@@ -48,11 +48,12 @@
           </div>
         </div>
 
-        <div id="furnitureSection" class="d-none">
-          <h1>Móveis</h1>
-          <div id="furnitureList"><!-- This is filled dinamically by javascript --></div>
-        </div>
+        
       </div>
+    </div>
+    <div id="furnitureSection" class="d-none">
+      <h1>Móveis</h1>
+      <div id="furnitureList"><!-- This is filled dinamically by javascript --></div>
     </div>
   </div>
 <!-- This last div closes the box what wraps the house diagram editor and menu -->
