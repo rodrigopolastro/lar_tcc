@@ -1,9 +1,7 @@
-// TO DO:
-// - Room Tile updated changes diagram tiles for that room
-
 var isMouseDown = false;
 var isEraserModeOn = false;
 var selectedRoomId, tileImgElement;
+var canvas = houseDiagram.getContext("2d");
 var houseTiles = {
   //STRUCTURE:
   //"x-y": roomId
@@ -11,7 +9,6 @@ var houseTiles = {
   //Ex:
   //"0-0": 3 => Position 0-0 (top left corner) belongs to the room with id=3
 };
-var canvas = houseDiagram.getContext("2d");
 
 // Initialization
 window.addEventListener('load', () => {

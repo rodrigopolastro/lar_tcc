@@ -25,11 +25,12 @@ function updateDiagramAndRoomsList(){
       const response = JSON.parse(updateRoomRequest.responseText);
 
       if(response.is_room_updated){
-        // updateTilesOfRoom(roomId);
-
         const updatedRoom = document.querySelector("[data-room-id='" + roomId + "']");
         updatedRoom.querySelector('h4').innerHTML = roomName;
         updatedRoom.querySelector('img').src = findTilePath(tileName);
+        
+        //Reload diagram with new room tile
+        loadDiagram();
       } else {
         alert("Erro na edição do cômodo: " + response.value);
       }
