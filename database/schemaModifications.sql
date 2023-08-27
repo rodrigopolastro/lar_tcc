@@ -38,3 +38,6 @@ ALTER TABLE Rooms
       ON DELETE RESTRICT
   -- a tile cannot be deleted if there is a room associated to it
 
+-- (005) Add 'diagram_positions' JSON field in 'Houses' table
+ALTER TABLE Houses
+  ADD diagram_positions JSON

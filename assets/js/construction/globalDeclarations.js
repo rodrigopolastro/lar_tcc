@@ -37,8 +37,8 @@ const modalRoomTileInputImg = document.getElementById('modalRoomTileInputImg');
 const modalTilesList        = document.getElementById('modalTilesList');
 
 // House Diagram Editor
-const clearCanvasButton   = document.getElementById('clearCanvasButton');
-const eraserModeButton   = document.getElementById('eraserModeButton');
+const clearDiagramButton  = document.getElementById('clearDiagramButton');
+const eraserModeButton    = document.getElementById('eraserModeButton');
 const eraserModeIndicator = document.getElementById('eraserModeIndicator');
 const saveDiagramButton   = document.getElementById('saveDiagramButton');
 const houseDiagram        = document.getElementById('houseDiagram');

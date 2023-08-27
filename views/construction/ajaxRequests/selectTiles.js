@@ -9,7 +9,7 @@ function selectTiles(){
     "application/x-www-form-urlencoded",
   );
   selectTilesRequest.send("operation=selectTiles" +
-                         "&placeholderTile=" + PLACEHOLDER_TILE_NAME);
+                         "&placeholder_tile=" + PLACEHOLDER_TILE_NAME);
 }
 
 function listTiles(){

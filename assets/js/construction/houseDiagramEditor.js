@@ -1,19 +1,44 @@
-var isMouseDown = false;
-var isEraserModeOn = false;
-var selectedRoomId, selectedTile, tileImgElement;
-var houseTiles = {}
-var canvas = houseDiagram.getContext("2d");
-
 // TO DO:
-// - Save button stores houseTiles object into database
 // - Room Tile updated changes diagram tiles for that room
+// - Save button stores houseTiles object into database
 // - Room deleted removes diagram tiles for that room
 
+var isMouseDown = false;
+var isEraserModeOn = false;
+var selectedRoomId, tileImgElement;
+var houseTiles = {
+  //STRUCTURE:
+  //"x-y": roomId
+  
+  //Ex:
+  //"0-0": 3 => Position 0-0 (top left corner) belongs to the room with id=3
+};
+var canvas = houseDiagram.getContext("2d");
+
+// Initialization
 window.addEventListener('load', () => {
   houseDiagram.width = CANVAS_WIDTH;
   houseDiagram.height = CANVAS_HEIGHT;
 });
 
+// Canvas clicked
+houseDiagram.addEventListener("mousedown", (event) => {
+   isMouseDown = true;
+   updateCanvas(event);
+});
+houseDiagram.addEventListener("mousemove", (event) => {
+   if (isMouseDown) {
+    updateCanvas(event);
+   }
+});
+houseDiagram.addEventListener("mouseup", () => {
+   isMouseDown = false;
+});
+houseDiagram.addEventListener("mouseleave", () => {
+   isMouseDown = false;
+});
+
+// House Editor Options
 eraserModeButton.addEventListener('click', () => {
   if(isEraserModeOn){
     isEraserModeOn = false;
@@ -24,9 +49,14 @@ eraserModeButton.addEventListener('click', () => {
   }
 });
 
-function setRoomToPaint(clickedRoomId, clickedRoomTileName, clickedTileImg){
+clearDiagramButton.addEventListener('click', () => {
+  houseTiles = {};
+  canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+});
+
+// Triggered when a tile image is clicked in the rooms list
+function setRoomToPaint(clickedRoomId, clickedTileImg){
   selectedRoomId = clickedRoomId;
-  selectedTile   = clickedRoomTileName;
   tileImgElement = clickedTileImg;
 
   //Update the UI to show selected tile
@@ -37,7 +67,6 @@ function setRoomToPaint(clickedRoomId, clickedRoomTileName, clickedTileImg){
   tileImgElement.classList.add("selected-tile");
 }
 
-// //Handler for placing new tiles on the map
 function updateCanvas(mouseEvent) {
   if(tileImgElement){
     let positionClicked = getCoordsInElement(mouseEvent);
@@ -50,53 +79,51 @@ function updateCanvas(mouseEvent) {
       houseTiles[key] = selectedRoomId;
       addTile(positionClicked[0], positionClicked[1]);
     }
-  document.getElementById("here").innerHTML = JSON.stringify(houseTiles);
   } else {
     alert('selecione um piso para pintar!')
   }
 }
 
-function removeTile(x, y){
+function addTile(positionX, positionY){
+  canvas.drawImage(
+    tileImgElement,         //Image element to grab
+    positionX * TILE_SIZE,  //X position in the canvas
+    positionY * TILE_SIZE,  //Y position in the canvas
+    TILE_SIZE,              //Final width of image in canvas
+    TILE_SIZE               //Final height of image in canvas
+  )
+}
+
+function removeTile(positionX, positionY){
   canvas.clearRect(
-    x * TILE_SIZE, 
-    y * TILE_SIZE, 
+    positionX * TILE_SIZE, 
+    positionY * TILE_SIZE, 
     TILE_SIZE, 
     TILE_SIZE
   );
 }
 
-function addTile(x, y){
-  canvas.drawImage(
-    tileImgElement, //Image element to grab
-    x * TILE_SIZE,  //X position in the canvas
-    y * TILE_SIZE,  //Y position in the canvas
-    TILE_SIZE,      //Final width of image in canvas
-    TILE_SIZE       //Final height of image in canvas
-  )
+function loadDiagram(){
+  canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  // Iterate over houseTiles and draw its tiles into canvas
+  Object.entries(houseTiles).forEach(([key, value]) => {
+    let roomDiv = document.querySelector("[data-room-id='" + value + "']");
+    let roomImg = roomDiv.querySelector("img");
+
+    // //Determine x/y position of this placement from key ("3-4" -> x=3, y=4)
+    let positionX = Number(key.split("-")[0]);
+    let positionY = Number(key.split("-")[1]);
+
+    canvas.drawImage(
+      roomImg, 
+      positionX * TILE_SIZE,  
+      positionY * TILE_SIZE, 
+      TILE_SIZE,     
+      TILE_SIZE       
+    );
+  });
 }
 
-// //Bind mouse events for painting (or removing) tiles on click/drag
-houseDiagram.addEventListener("mousedown", (event) => {
-   isMouseDown = true;
-   updateCanvas(event);
-});
-houseDiagram.addEventListener("mouseup", () => {
-   isMouseDown = false;
-});
-houseDiagram.addEventListener("mouseleave", () => {
-   isMouseDown = false;
-});
-
-houseDiagram.addEventListener("mousemove", (event) => {
-   if (isMouseDown) {
-    updateCanvas(event);
-   }
-});
-
-//Reset state to empty
-clearCanvasButton.addEventListener('click', () => {
-  houseTiles = {};
-  canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-});
 
 
