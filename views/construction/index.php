@@ -30,13 +30,13 @@
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor.js"></script>
 
   <!-- AJAX Requests -->
+  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectTiles.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/updateDiagramPositions.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectDiagramPositions.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/insertRoom.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/deleteRoom.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectRooms.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectOneRoom.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/updateRoom.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectTiles.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/updateDiagramPositions.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectDiagramPositions.js"></script>
 </body>
 </html>

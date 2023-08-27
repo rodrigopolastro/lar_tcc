@@ -1,5 +1,3 @@
-window.addEventListener('load', selectDiagramPositions);
-
 function selectDiagramPositions(){
   diagramPositionsRequest = new XMLHttpRequest();
   diagramPositionsRequest.onreadystatechange = sla;

@@ -2,7 +2,7 @@ function deleteRoom(deletingRoomId){
   roomId = deletingRoomId;
 
   deleteRoomRequest = new XMLHttpRequest();
-  deleteRoomRequest.onreadystatechange = removeDeletedRoomDiv;
+  deleteRoomRequest.onreadystatechange = removeFromDiagramAndRoomsList;
   deleteRoomRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/roomsController.php");
   deleteRoomRequest.setRequestHeader(
       "Content-Type",
@@ -12,11 +12,16 @@ function deleteRoom(deletingRoomId){
                         "&room_id=" + roomId);
 }
 
-function removeDeletedRoomDiv(){
+function removeFromDiagramAndRoomsList(){
   if (deleteRoomRequest.readyState === XMLHttpRequest.DONE) { 
     if (deleteRoomRequest.status === 200) {  
-      const deletedRoom = document.querySelector("[data-room-id='" + roomId + "']");
-      deletedRoom.remove();
+      //Remove deleted room tiles from diagram
+      removeTilesFromRoom(roomId);
+      //Save changes in database
+      updateDiagramPositions();
+
+      const deletedRoomDiv = document.querySelector("[data-room-id='" + roomId + "']");
+      deletedRoomDiv.remove();
     } else {
       alert("There was a problem with the 'deleteRoom' request.");
     }

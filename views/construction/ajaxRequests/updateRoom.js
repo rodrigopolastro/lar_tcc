@@ -7,7 +7,7 @@ modalUpdateRoomButton.addEventListener('click', () => {
 
 function updateRoom(){
   updateRoomRequest = new XMLHttpRequest();
-  updateRoomRequest.onreadystatechange = updateEditedRoomDiv;
+  updateRoomRequest.onreadystatechange = updateDiagramAndRoomsList;
   updateRoomRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/roomsController.php");
   updateRoomRequest.setRequestHeader(
       "Content-Type",
@@ -19,12 +19,14 @@ function updateRoom(){
                         "&room_name=" + roomName);
 }
 
-function updateEditedRoomDiv(){
+function updateDiagramAndRoomsList(){
   if (updateRoomRequest.readyState === XMLHttpRequest.DONE) { 
     if (updateRoomRequest.status === 200) { 
       const response = JSON.parse(updateRoomRequest.responseText);
 
       if(response.is_room_updated){
+        // updateTilesOfRoom(roomId);
+
         const updatedRoom = document.querySelector("[data-room-id='" + roomId + "']");
         updatedRoom.querySelector('h4').innerHTML = roomName;
         updatedRoom.querySelector('img').src = findTilePath(tileName);

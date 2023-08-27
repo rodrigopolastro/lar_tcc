@@ -1,7 +1,5 @@
 // TO DO:
 // - Room Tile updated changes diagram tiles for that room
-// - Save button stores houseTiles object into database
-// - Room deleted removes diagram tiles for that room
 
 var isMouseDown = false;
 var isEraserModeOn = false;
@@ -101,6 +99,15 @@ function removeTile(positionX, positionY){
     TILE_SIZE, 
     TILE_SIZE
   );
+}
+
+function removeTilesFromRoom(roomId){
+  Object.entries(houseTiles).forEach(([key, value]) => {
+    if(value == roomId){
+      delete houseTiles[key];
+    }
+  });
+  loadDiagram();
 }
 
 function loadDiagram(){
