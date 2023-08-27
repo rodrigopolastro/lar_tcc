@@ -51,6 +51,10 @@ clearDiagramButton.addEventListener('click', () => {
 
 // Triggered when a tile image is clicked in the rooms list
 function setRoomToPaint(clickedRoomId, clickedTileImg){
+  // Disable eraser mode before anything else
+  isEraserModeOn = false;
+  eraserModeIndicator.innerHTML = 'OFF'
+
   selectedRoomId = clickedRoomId;
   tileImgElement = clickedTileImg;
 
