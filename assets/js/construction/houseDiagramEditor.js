@@ -68,21 +68,21 @@ function setRoomToPaint(clickedRoomId, clickedTileImg){
 }
 
 function updateCanvas(mouseEvent) {
-  if(tileImgElement){
-    let positionClicked = getCoordsInElement(mouseEvent);
-    let key = positionClicked[0] + "-" + positionClicked[1];
-    
-    if(isEraserModeOn){
-      delete houseTiles[key];
-      removeTile(positionClicked[0], positionClicked[1]);
+  let positionClicked = getCoordsInElement(mouseEvent);
+  let key = positionClicked[0] + "-" + positionClicked[1];
+  
+  if(isEraserModeOn){
+    delete houseTiles[key];
+    removeTile(positionClicked[0], positionClicked[1]);
     } else {
-      houseTiles[key] = selectedRoomId;
-      addTile(positionClicked[0], positionClicked[1]);
+      if(tileImgElement){
+        houseTiles[key] = selectedRoomId;
+        addTile(positionClicked[0], positionClicked[1]);
+      } else {
+        alert('selecione um piso para pintar!')
     }
-  } else {
-    alert('selecione um piso para pintar!')
   }
-}
+} 
 
 function addTile(positionX, positionY){
   canvas.drawImage(
