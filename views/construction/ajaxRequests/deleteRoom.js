@@ -15,13 +15,19 @@ function deleteRoom(deletingRoomId){
 function removeFromDiagramAndRoomsList(){
   if (deleteRoomRequest.readyState === XMLHttpRequest.DONE) { 
     if (deleteRoomRequest.status === 200) {  
-      //Remove deleted room tiles from diagram
-      removeTilesFromRoom(roomId);
-      //Save changes in database
-      updateDiagramPositions();
+      const response = JSON.parse(deleteRoomRequest.responseText);
 
-      const deletedRoomDiv = document.querySelector("[data-room-id='" + roomId + "']");
-      deletedRoomDiv.remove();
+      if(response.is_room_deleted){
+        //Remove deleted room tiles from diagram
+        removeTilesFromRoom(roomId);
+        //Save diagram changes in database
+        updateDiagramPositions();
+        //Delete room div
+        const deletedRoomDiv = document.querySelector("[data-room-id='" + roomId + "']");
+        deletedRoomDiv.remove();
+      } else {
+        alert("Ocorreu um erro na exclusão do cômodo: room_id inválido");
+      }
     } else {
       alert("There was a problem with the 'deleteRoom' request.");
     }

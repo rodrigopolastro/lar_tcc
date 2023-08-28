@@ -76,5 +76,7 @@ function deleteRoom($room_id){
 
   $statement->bindValue(':room_id', $room_id);
   $statement->execute();
+
+  return $statement->rowCount();
 }
 ?>

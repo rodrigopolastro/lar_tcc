@@ -51,10 +51,6 @@ clearDiagramButton.addEventListener('click', () => {
 
 // Triggered when a tile image is clicked in the rooms list
 function setRoomToPaint(clickedRoomId, clickedTileImg){
-  // Disable eraser mode before anything else
-  isEraserModeOn = false;
-  eraserModeIndicator.innerHTML = 'OFF'
-
   selectedRoomId = clickedRoomId;
   tileImgElement = clickedTileImg;
 
@@ -64,6 +60,10 @@ function setRoomToPaint(clickedRoomId, clickedTileImg){
     lastSelectedTile.classList.remove("selected-tile");
   }
   tileImgElement.classList.add("selected-tile");
+
+  // Disable eraser mode
+  isEraserModeOn = false;
+  eraserModeIndicator.innerHTML = 'OFF'
 }
 
 function updateCanvas(mouseEvent) {
@@ -108,10 +108,10 @@ function removeTilesFromRoom(roomId){
       delete houseTiles[key];
     }
   });
-  loadDiagram();
+  reloadDiagram();
 }
 
-function loadDiagram(){
+function reloadDiagram(){
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
   // Iterate over houseTiles and draw its tiles into canvas

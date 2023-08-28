@@ -4,7 +4,7 @@ function createRoomDiv(room){
 
   const roomNameElement  = createElementWithAttributes('h4', {});
   const roomNameText     = document.createTextNode(room.room_name);
-  const roomTile         = createElementWithAttributes('img', {src: findTilePath(room.tile_name), class:'tile-image room-tile'});
+  const roomTile         = createElementWithAttributes('img', {src: findTilePath(room.tile_name), class:'tile-image'});
   const buttonDeleteRoom = createElementWithAttributes('button', {class:'btn btn-danger'});
   const buttonEditRoom   = createElementWithAttributes('button', {class:'btn btn-success'});
 
@@ -17,7 +17,6 @@ function createRoomDiv(room){
   buttonEditRoom.innerHTML = 'Editar Cômodo';
   buttonEditRoom.dataset.bsToggle = 'modal';
   buttonEditRoom.dataset.bsTarget = '#editingRoomModal';
-
 
   roomDiv.appendChild(roomNameElement).appendChild(roomNameText);
   roomDiv.appendChild(roomTile);

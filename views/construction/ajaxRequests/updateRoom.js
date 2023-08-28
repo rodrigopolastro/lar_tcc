@@ -30,7 +30,7 @@ function updateDiagramAndRoomsList(){
         updatedRoom.querySelector('img').src = findTilePath(tileName);
         
         //Reload diagram with new room tile
-        loadDiagram();
+        reloadDiagram();
       } else {
         alert("Erro na edição do cômodo: " + response.value);
       }
