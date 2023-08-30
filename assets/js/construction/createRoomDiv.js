@@ -8,7 +8,7 @@ function createRoomDiv(room){
   const buttonDeleteRoom = createElementWithAttributes('button', {class:'btn btn-danger'});
   const buttonEditRoom   = createElementWithAttributes('button', {class:'btn btn-success'});
 
-  roomTile.addEventListener('click', function(){ setRoomToPaint(room.room_id, roomTile) });
+  roomTile.addEventListener('mousedown', function(){ setRoomToPaint(room.room_id, roomTile) });
 
   buttonDeleteRoom.addEventListener('click', function(){ deleteRoom(room.room_id) });
   buttonDeleteRoom.innerHTML = 'Excluir Cômodo';

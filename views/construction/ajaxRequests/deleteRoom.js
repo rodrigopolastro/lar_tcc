@@ -18,13 +18,15 @@ function removeFromDiagramAndRoomsList(){
       const response = JSON.parse(deleteRoomRequest.responseText);
 
       if(response.is_room_deleted){
-        //Remove deleted room tiles from diagram
-        removeTilesFromRoom(roomId);
-        //Save diagram changes in database
-        updateDiagramPositions();
         //Delete room div
         const deletedRoomDiv = document.querySelector("[data-room-id='" + roomId + "']");
         deletedRoomDiv.remove();
+        
+        //Remove deleted room tiles from diagram
+        removeTilesFromRoom(roomId);
+        
+        //Save diagram changes in database
+        updateDiagramPositions();
       } else {
         alert("Ocorreu um erro na exclusão do cômodo: room_id inválido");
       }

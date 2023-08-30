@@ -10,13 +10,13 @@ var houseTiles = {
   //"0-0": 3 => Position 0-0 (top left corner) belongs to the room with id=3
 };
 
-// Initialization
+//============== INITIALIZATION ==============//
 window.addEventListener('load', () => {
   houseDiagram.width = CANVAS_WIDTH;
   houseDiagram.height = CANVAS_HEIGHT;
 });
 
-// Canvas clicked
+//============== CANVAS EVENTS ==============//
 houseDiagram.addEventListener("mousedown", (event) => {
    isMouseDown = true;
    updateCanvas(event);
@@ -33,38 +33,23 @@ houseDiagram.addEventListener("mouseleave", () => {
    isMouseDown = false;
 });
 
-// House Editor Options
-eraserModeButton.addEventListener('click', () => {
-  if(isEraserModeOn){
-    isEraserModeOn = false;
-    eraserModeIndicator.innerHTML = 'OFF'
-  } else {
-    isEraserModeOn = true;
-    eraserModeIndicator.innerHTML = 'ON'
-  }
-});
-
+//============== DIAGRAM EDITOR EVENTS ==============//
 clearDiagramButton.addEventListener('click', () => {
   houseTiles = {};
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 });
 
-// Triggered when a tile image is clicked in the rooms list
-function setRoomToPaint(clickedRoomId, clickedTileImg){
-  selectedRoomId = clickedRoomId;
-  tileImgElement = clickedTileImg;
-
-  //Update the UI to show selected tile
-  let lastSelectedTile = document.querySelector(".selected-tile");
-  if (lastSelectedTile) {
-    lastSelectedTile.classList.remove("selected-tile");
+eraserModeButton.addEventListener('click', function() {
+  if(isEraserModeOn){
+    setEraserMode(false);
+    highlightSelectedTile();
+  } else {
+    setEraserMode(true);
+    removeLastTileHightlight();
   }
-  tileImgElement.classList.add("selected-tile");
+});
 
-  // Disable eraser mode
-  isEraserModeOn = false;
-  eraserModeIndicator.innerHTML = 'OFF'
-}
+//============== CANVAS MODIFICATION FUNCTIONS ==============//
 
 function updateCanvas(mouseEvent) {
   let positionClicked = getCoordsInElement(mouseEvent);
@@ -108,6 +93,8 @@ function removeTilesFromRoom(roomId){
       delete houseTiles[key];
     }
   });
+  selectedRoomId = null;
+  tileImgElement = null;
   reloadDiagram();
 }
 
@@ -133,5 +120,40 @@ function reloadDiagram(){
   });
 }
 
+//============== CANVAS OPTIONS FUNCTIONS ==============//
 
+// Triggered when a tile image is clicked in the rooms list
+function setRoomToPaint(clickedRoomId, clickedTileImg){
+  selectedRoomId = clickedRoomId;
+  tileImgElement = clickedTileImg;
+  
+  //Update UI to highlight selected tile
+  removeLastTileHightlight();
+  highlightSelectedTile();
 
+  // Disable eraser mode
+  setEraserMode(false);
+}
+
+function setEraserMode(setTo){
+  if(setTo === true){
+    isEraserModeOn = true;
+    eraserModeIndicator.innerHTML = 'ON'
+  } else {
+    isEraserModeOn = false;
+    eraserModeIndicator.innerHTML = 'OFF'
+  }
+}
+
+function highlightSelectedTile(){ 
+  if(tileImgElement){
+    tileImgElement.classList.add("selected-tile");
+  }
+}
+
+function removeLastTileHightlight(){
+  let selectedTile = document.querySelector(".selected-tile");
+  if (selectedTile) {
+    selectedTile.classList.remove("selected-tile");
+  }
+}
