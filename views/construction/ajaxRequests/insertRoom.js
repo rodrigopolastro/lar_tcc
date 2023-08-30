@@ -29,7 +29,7 @@ function displayCreatedRoom(){
       
       if(response.is_room_created){
         createRoomDiv({
-          room_id: createdRoomId,
+          room_id: response.value,
           room_name: roomName,
           tile_id: tileId,
           tile_name: tileName
