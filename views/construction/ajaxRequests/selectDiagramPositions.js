@@ -1,4 +1,4 @@
-//This function is called in 'selectTiles' request because the diagram can only
+//This function is called in 'selectRooms' request because the diagram can only
 //be loaded after all the tile images (in rooms list) are generated
 function selectDiagramPositions(){
   diagramPositionsRequest = new XMLHttpRequest();

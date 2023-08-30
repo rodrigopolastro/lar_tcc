@@ -21,9 +21,7 @@ function listTiles(){
         createTileImg(tile, popoverContent, roomTileInputImg);
         createTileImg(tile, modalTilesList, modalRoomTileInputImg);
       })
-      //The diagram can only be loaded after all the tile elements are created
-      selectDiagramPositions();
-       
+      
       const popover = new bootstrap.Popover(roomTileInputDiv, {
         html: true, //CRUCIAL LINE -> otherwise the 'content' will be treated as plain text
         trigger: 'focus',
