@@ -38,6 +38,6 @@
       <hr>
     </div>
   </header>
-  <main class="d-flex">
+  <main class="d-flex container">
 <!-- The header file only opens the 'html', 'body' and 'main' tags, 
      which will be closed in the footer file. -->
