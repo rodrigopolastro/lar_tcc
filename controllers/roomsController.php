@@ -6,6 +6,7 @@
   if(isset($_POST['operation'])){
     $operation = $_POST['operation'];
     switch ($operation) {
+      //==== SELECT QUERIES ====
       case 'selectRooms':
         $rooms = getAllRooms();
         echo json_encode($rooms);
@@ -17,12 +18,12 @@
         echo json_encode($room);
         break;
       
+      //==== ACTION QUERIES ====
       case 'insertRoom':
         $room_name = $_POST['room_name'];
         $tile_id   = $_POST['tile_id'];
         $house_id  = 1;
 
-        //TO DO: Only create a new room if user does not have a room with given name
         try {
           $created_room_id = createRoom($room_name, $tile_id, $house_id);
           $response = [
@@ -52,14 +53,21 @@
             "is_room_updated" => false, 
             "value" => $exception->getMessage()
           ];
-        } finally{
+        } finally {
           echo json_encode($response);
         }
         break;  
 
       case 'deleteRoom':
         $room_id = $_POST['room_id'];
-        deleteRoom($room_id);
+
+        $roomDeleted = deleteRoom($room_id);
+        if($roomDeleted == 1){
+          $response = ["is_room_deleted" => true];
+        } else {
+          $response = ["is_room_deleted" => false];
+        }
+        echo json_encode($response);
         break;
     }
   }

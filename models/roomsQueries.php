@@ -8,6 +8,7 @@ function getAllRooms(){
     "SELECT 
       room_id, 
       room_name, 
+      fk_tile_id,
       tile_name 
     FROM rooms
     INNER JOIN tiles ON tiles.tile_id = rooms.fk_tile_id"
@@ -75,5 +76,7 @@ function deleteRoom($room_id){
 
   $statement->bindValue(':room_id', $room_id);
   $statement->execute();
+
+  return $statement->rowCount();
 }
 ?>

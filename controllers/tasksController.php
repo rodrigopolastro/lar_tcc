@@ -14,12 +14,12 @@
           if($room_id == "noRoom"){ $filtered_tasks = getTasksWithNoRoom($due_date); }
                              else { $filtered_tasks = getTasks($room_id, $due_date); }           
           $response = [
-            "successful_query" => true,
+            "is_query_successful" => true,
             "value" => $filtered_tasks
           ];
         } catch (PDOException $exception){
           $response = [
-            "successful_query" => false,
+            "is_query_successful" => false,
             "value" => $exception->getMessage()
           ];
         } finally {

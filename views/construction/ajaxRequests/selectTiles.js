@@ -1,4 +1,4 @@
-document.body.onload = selectTiles();
+window.addEventListener('load', selectTiles);
 
 function selectTiles(){
   selectTilesRequest = new XMLHttpRequest();
@@ -9,7 +9,7 @@ function selectTiles(){
     "application/x-www-form-urlencoded",
   );
   selectTilesRequest.send("operation=selectTiles" +
-                         "&placeholderTile=" + placeholderTileName);
+                         "&placeholder_tile=" + PLACEHOLDER_TILE_NAME);
 }
 
 function listTiles(){
@@ -18,10 +18,10 @@ function listTiles(){
       const tiles = JSON.parse(selectTilesRequest.responseText);
 
       tiles.forEach(tile => {
-        createTileDiv(tile.tile_id, tile.tile_name, popoverContent, roomTileInputImg);
-        createTileDiv(tile.tile_id, tile.tile_name, modalTilesList, modalRoomTileInputImg);
+        createTileImg(tile, popoverContent, roomTileInputImg);
+        createTileImg(tile, modalTilesList, modalRoomTileInputImg);
       })
-       
+      
       const popover = new bootstrap.Popover(roomTileInputDiv, {
         html: true, //CRUCIAL LINE -> otherwise the 'content' will be treated as plain text
         trigger: 'focus',
