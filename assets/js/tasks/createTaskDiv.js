@@ -13,7 +13,7 @@ function createTaskDiv(task){
   const innerTaskDiv07 = createElementWithAttributes('div', {class: 'col'});
   const innerTaskDiv08 = createElementWithAttributes('div', {class: 'col'});
 
-  const taskName        = createElementWithAttributes('h4', {});
+  const taskName        = createElementWithAttributes('h4', {class: 'mt-1 mb-1'});
   const taskDescription = createElementWithAttributes('p', {});
   const taskDueDate     = createElementWithAttributes('p', {});
   const taskRoom        = createElementWithAttributes('p', {});
@@ -28,7 +28,7 @@ function createTaskDiv(task){
   const formCompleteTask  = createElementWithAttributes('form', {method: 'post', action: '.'});
   const completeTaskId    = createElementWithAttributes('input', {type: 'hidden', name: 'task_id', value: task.task_id});
   const completeOperation = createElementWithAttributes('input', {type: 'hidden', name: 'operation'});
-  const completeSubmit    = createElementWithAttributes('input', {type: 'submit', class: 'row border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 ms-1', style: 'width: 30px'});
+  const completeSubmit    = createElementWithAttributes('input', {type: 'submit', class: 'row border border-4 shadow-sm rounded-4 ms-1 mt-1 mb-1', style: 'width: 33px'});
 
   const formDeleteTask  = createElementWithAttributes('form', {method: 'post', action: '.'});
   const deleteTaskId    = createElementWithAttributes('input', {type: 'hidden', name: 'task_id', value: task.task_id});
@@ -68,7 +68,7 @@ function createTaskDiv(task){
     completedTasksNumber += 1;
     completeOperation.value = 'setTaskUncompleted';
     completeSubmit.value = '';
-    completeSubmit.classList.add('bg-danger')
+    completeSubmit.classList.add('bg-success')
     completedTasksList.appendChild(taskDiv);
   } else { 
     // Only uncompleted tasks can be edited
