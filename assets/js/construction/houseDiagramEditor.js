@@ -2,13 +2,21 @@ var isMouseDown = false;
 var isEraserModeOn = false;
 var selectedRoomId, tileImgElement;
 var canvas = houseDiagram.getContext("2d");
-var houseTiles = {
-  //STRUCTURE:
-  //"x-y": roomId
-  
-  //Ex:
-  //"0-0": 3 => Position 0-0 (top left corner) belongs to the room with id=3
-};
+
+
+var layers = [
+  //Bottom => Tiles and Walls
+  {
+    //STRUCTURE:
+    //"x-y": roomId
+    
+    //Ex:
+    //"0-0": 3 => Position 0-0 (top left corner) belongs to the room with id=3
+  }, 
+
+  //Top => Furniture
+  {}
+];
 
 //============== INITIALIZATION ==============//
 window.addEventListener('load', () => {
@@ -18,12 +26,24 @@ window.addEventListener('load', () => {
 
 //============== CANVAS EVENTS ==============//
 houseDiagram.addEventListener("mousedown", (event) => {
-   isMouseDown = true;
-   updateCanvas(event);
+  switch (currentSection) {
+    case 'roomsSection':
+      isMouseDown = true;
+      updateDiagramTiles(event);
+      break;
+  
+    case 'furnitureSection':
+      if(selectedFurniture){
+        updateDiagramFurniture(event, selectedFurniture);
+      } else {
+        alert('selecione um móvel!')
+      }
+      break;
+    }
 });
 houseDiagram.addEventListener("mousemove", (event) => {
    if (isMouseDown) {
-    updateCanvas(event);
+    updateDiagramTiles(event);
    }
 });
 houseDiagram.addEventListener("mouseup", () => {
@@ -51,7 +71,7 @@ eraserModeButton.addEventListener('click', function() {
 
 //============== CANVAS MODIFICATION FUNCTIONS ==============//
 
-function updateCanvas(mouseEvent) {
+function updateDiagramTiles(mouseEvent) {
   let positionClicked = getCoordsInElement(mouseEvent);
   let key = positionClicked[0] + "-" + positionClicked[1];
   
@@ -67,6 +87,22 @@ function updateCanvas(mouseEvent) {
     }
   }
 } 
+
+function updateDiagramFurniture(mouseEvent, furniture){
+  alert('chegou aqui mano')
+  let positionClicked = getCoordsInElement(mouseEvent);
+  let key = positionClicked[0] + "-" + positionClicked[1];  
+
+  let positionX = positionClicked[0];
+  let positionY = positionClicked[1] - (furniture.height - 1)
+  canvas.drawImage(
+    furniture.imgElement,         
+    positionX * TILE_SIZE,  //X position in the canvas
+    positionY * TILE_SIZE,  //Y position in the canvas
+    furniture.width * TILE_SIZE,              //Final width of image in canvas
+    furniture.height * TILE_SIZE               //Final height of image in canvas
+  )
+}
 
 function addTile(positionX, positionY){
   canvas.drawImage(
