@@ -28,6 +28,7 @@
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/createRoomDiv.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/createTileImg.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/furnitureEditor.js"></script>
 
   <!-- AJAX Requests -->
   <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectTiles.js"></script>
