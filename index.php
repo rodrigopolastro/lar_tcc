@@ -42,6 +42,7 @@
     <form action="." method="post">
       <input type="submit" value="Cadastre-se">
     </form>
+    <a href="./codepenTilesetMapEditor/index.html">Área de Testes do Diagrama (Tileset Map Editor from Codepen)</a>
     <hr>
   </header>
   <main>
