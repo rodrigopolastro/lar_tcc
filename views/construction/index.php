@@ -34,10 +34,10 @@
   <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectTiles.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/updateDiagramPositions.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectDiagramPositions.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/insertRoom.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/deleteRoom.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectRooms.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectOneRoom.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/updateRoom.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/rooms/insertRoom.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/rooms/deleteRoom.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/rooms/selectRooms.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/rooms/selectOneRoom.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/rooms/updateRoom.js"></script>
 </body>
 </html>

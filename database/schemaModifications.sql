@@ -41,3 +41,18 @@ ALTER TABLE Rooms
 -- (005) Add 'diagram_positions' JSON field in 'Houses' table
 ALTER TABLE Houses
   ADD diagram_positions JSON;
+
+-- (00) Create 'Furniture_Images' table and populate it
+CREATE TABLE Furniture_Images (
+  furniture_image_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  furniture_image_name VARCHAR(255),
+  default_room_name VARCHAR(255), -- value used within the system for loading the correct images Ex: "kitchen"
+  default_room_display_name VARCHAR(255) -- what is displayed for the user Ex: "Cozinha"
+);
+
+INSERT INTO Furniture_Images (default_room_name, default_room_display_name) VALUES
+  (,)
+  (,);
+
+-- a 'categoria' ou o cômodo padrão ao qual pertence um certo móvel deve ser uma string ou uma chave estrangeira??
+-- se for uma chave estrangeira, preciso criar uma tabela chamada 'default_rooms' ou algo assim, que terá apenas uma coluna com o nome do cômodo
