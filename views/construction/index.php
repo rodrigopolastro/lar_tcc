@@ -24,11 +24,12 @@
   <script src="/htdocsDirectories/lar_tcc/helpers/getCoordsInElement.js"></script>
 
   <!-- General Javascript -->
-  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/sectionSelector.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/createRoomDiv.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/createTileImg.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/furnitureEditor.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagram/mainFunctions.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/sectionSelector.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagram/roomsFunctions.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagram/furnitureFunctions.js"></script>
 
   <!-- AJAX Requests -->
   <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectTiles.js"></script>

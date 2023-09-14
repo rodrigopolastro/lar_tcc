@@ -1,3 +1,7 @@
+window.addEventListener('load', () => {
+  currentSection = 'roomsSection'
+});
+
 roomsSectionButton.addEventListener('click', () => {
   // Make rooms section visible and 
   // furniture section invisible

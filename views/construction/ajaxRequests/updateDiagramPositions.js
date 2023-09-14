@@ -1,23 +1,23 @@
 saveDiagramButton.addEventListener('click', updateDiagramPositions);
 
 function updateDiagramPositions(){
-  updateHouseTilesRequest = new XMLHttpRequest();
-  updateHouseTilesRequest.onreadystatechange = informDiagramSave;
-  updateHouseTilesRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tilesController.php");
-  updateHouseTilesRequest.setRequestHeader(
+  updateDiagramPositionsRequest = new XMLHttpRequest();
+  updateDiagramPositionsRequest.onreadystatechange = informDiagramSave;
+  updateDiagramPositionsRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tilesController.php");
+  updateDiagramPositionsRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",
   );
-  updateHouseTilesRequest.send("operation=updateDiagramPositions" + 
-                              "&diagram_positions=" + JSON.stringify(houseTiles));
+  updateDiagramPositionsRequest.send("operation=updateDiagramPositions" + 
+                              "&diagram_positions=" + JSON.stringify(diagramPositions));
 }
 
 function informDiagramSave(){
-  if (updateHouseTilesRequest.readyState === XMLHttpRequest.DONE) { 
-    if (updateHouseTilesRequest.status === 200) {  
+  if (updateDiagramPositionsRequest.readyState === XMLHttpRequest.DONE) { 
+    if (updateDiagramPositionsRequest.status === 200) {  
       alert("Diagrama salvo com sucesso!");
     } else {
-      alert("There was a problem with the 'updateHouseTilesRequest' request.");
+      alert("There was a problem with the 'updateDiagramPositionsRequest' request.");
     }
   }
 }

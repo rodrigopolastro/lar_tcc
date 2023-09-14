@@ -46,9 +46,3 @@ const houseDiagram        = document.getElementById('houseDiagram');
 //============== GLOBAL VARIABLES ==============//
 // Vars required for Rooms CRUD
 var roomId, roomName, tileId, tileName;
-
-var currentSection, currentLayer;
-
-const chairImg = document.getElementById("chairImg");
-const benchImg = document.getElementById("benchImg");
-const selectedFurniture = {};
