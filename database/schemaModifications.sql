@@ -18,12 +18,21 @@ CREATE TABLE Tiles (
 
 INSERT INTO Tiles (tile_name) VALUES
   ('placeholderTile.png'),
-  ('tile1.png'),
-  ('tile2.png'),
-  ('tile3.png'),
-  ('tile4.png'),
-  ('tile5.png'),
-  ('tile6.png');
+  ('tile01.png'),
+  ('tile02.png'),
+  ('tile03.png'),
+  ('tile04.png'),
+  ('tile05.png'),
+  ('tile06.png');
+  ('tile07.png'),
+  ('tile08.png'),
+  ('tile09.png'),
+  ('tile10.png'),
+  ('tile11.png'),
+  ('tile12.png'),
+  ('tile13.png'),
+  ('tile14.png'),
+  ('tile15.png');
 
 -- (004) Change field 'tile_name' for 'tile_id' in 'Rooms' table
 ALTER TABLE Rooms 
