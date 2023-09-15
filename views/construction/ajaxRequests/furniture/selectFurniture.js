@@ -15,7 +15,7 @@ function listFurniture(){
   if (selectFurnitureRequest.readyState === XMLHttpRequest.DONE) { 
     if (selectFurnitureRequest.status === 200) {
       const furniture = JSON.parse(selectFurnitureRequest.responseText);
-      rooms.forEach(room => { createRoomDiv(room); })
+      furniture.forEach(room => { createRoomDiv(room); })
 
       //The diagram can only be loaded after all the rooms elements are created
       selectDiagramPositions();

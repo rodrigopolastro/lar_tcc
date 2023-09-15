@@ -1,7 +1,6 @@
 // Triggered when a furniture image is clicked in the rooms list
 function setFurnitureToPaint(clickedFurnitureImg, clickedFurnitureWidth, clickedFurnitureHeight){
-  // alert('chegou na seleção de móveis')
-  furnitureImgElement    = clickedFurnitureImg;
+  furnitureImgElement = clickedFurnitureImg;
   furnitureWidth  = clickedFurnitureWidth;
   furnitureHeight = clickedFurnitureHeight;
 

@@ -2,6 +2,7 @@
 
 // rootTilePath helper 
 const TILES_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/tiles/";
+const FURNITURE_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/furniture/";
 const PLACEHOLDER_TILE_NAME = "placeholderTile.png";
 
 // Canvas

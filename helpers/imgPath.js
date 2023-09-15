@@ -1,5 +1,4 @@
-window.addEventListener('load', displayPlaceholderTile);
-
+//Tiles Images
 function findTilePath(tileName){
   return (TILES_DIRECTORY + tileName);
 }
@@ -11,4 +10,11 @@ function isTileSelected(tileName){
 function displayPlaceholderTile(){
   tileName = PLACEHOLDER_TILE_NAME;
   roomTileInputImg.src = findTilePath(tileName);
+}
+
+window.addEventListener('load', displayPlaceholderTile);
+
+//Furniture Images
+function findFurniturePath(defaultRoomName, furnitureName){
+  return (FURNITURE_DIRECTORY + defaultRoomName + "/" + furnitureName);
 }

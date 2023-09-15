@@ -118,6 +118,7 @@ function updateDiagramFurniture(mouseEvent){
           furnitureWidth * TILE_SIZE,              //Final width of image in canvas
           furnitureHeight * TILE_SIZE               //Final height of image in canvas
         );
+        diagramPositions.furniture[key] = "teste";
       } else {
         alert('selecione um móvel para inserir!')
     }
@@ -144,6 +145,24 @@ function reloadDiagram(){
       TILE_SIZE       
     );
   });
+
+  Object.entries(diagramPositions.furniture).forEach(([key, value]) => {
+    let positionX = Number(key.split("-")[0]);
+    let positionY = Number(key.split("-")[1]);
+    let furnitureImage = document.querySelector("#furnitureList").querySelector("img");
+    let furnitureWidth = furnitureImage.dataset.tilesWidth;
+    let furnitureHeight = furnitureImage.dataset.tilesHeight;
+
+    if(value == "teste"){
+      canvas.drawImage(
+        furnitureImage, 
+        positionX * TILE_SIZE,  
+        positionY * TILE_SIZE, 
+        TILE_SIZE,     
+        TILE_SIZE       
+      );
+    }
+  })
 }
 
 

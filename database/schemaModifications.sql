@@ -42,17 +42,45 @@ ALTER TABLE Rooms
 ALTER TABLE Houses
   ADD diagram_positions JSON;
 
--- (00) Create 'Furniture_Images' table and populate it
+-- (006) Create 'Furniture_Images' table and populate it
 CREATE TABLE Furniture_Images (
-  furniture_image_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  furniture_image_name VARCHAR(255),
-  default_room_name VARCHAR(255), -- value used within the system for loading the correct images Ex: "kitchen"
+  furniture_image_id INTEGER PRIMARY KEY AUTO_INCREMENT, 
+  furniture_image_name VARCHAR(255), 
+  tiles_width INTEGER,
+  tiles_height INTEGER,
+  default_room_name VARCHAR(255),        -- value used within the system for loading the correct images Ex: "kitchen"
   default_room_display_name VARCHAR(255) -- what is displayed for the user Ex: "Cozinha"
 );
 
-INSERT INTO Furniture_Images (default_room_name, default_room_display_name) VALUES
-  (,)
-  (,);
+-- Bathroom furniture
+INSERT INTO Furniture_Images 
+  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("bathroom", "Banheiro", "banheira01.png", "Banheira", );
 
--- a 'categoria' ou o cômodo padrão ao qual pertence um certo móvel deve ser uma string ou uma chave estrangeira??
--- se for uma chave estrangeira, preciso criar uma tabela chamada 'default_rooms' ou algo assim, que terá apenas uma coluna com o nome do cômodo
+-- Bedroom furniture
+INSERT INTO Furniture_Images 
+  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("bedroom", "Banheiro", "armarioPequeno01Front.png", ""),
+  ("bedroom", "Banheiro", "armarioPequeno02Front.png", "");
+
+-- Dining Room furniture
+INSERT INTO Furniture_Images 
+  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("diningRoom","Sala de Jantar","mesa01", ""),
+  ("diningRoom","Sala de Jantar","mesa02", "");
+
+-- Living Room furniture
+INSERT INTO Furniture_Images 
+  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("livingRoom", "Sala de Estar", "sofa1Back.png", "Sofá Marrom"),
+  ("livingRoom", "Sala de Estar", "sofa1Front.png", "Sofá Marrom");
+
+INSERT INTO Furniture_Images 
+  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("kitchen", "Cozinha", "fogão01.png", "Fogão"),
+  ("kitchen", "Cozinha", "piaCompleta.png", "Pia Completa");
+
+-- Other furniture
+INSERT INTO Furniture_Images 
+  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("other", "Outro", "estantePequena01.png", "Estante Pequena");  
