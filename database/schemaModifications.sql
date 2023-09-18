@@ -48,31 +48,31 @@ CREATE TABLE Furniture_Images (
   furniture_image_name VARCHAR(255), 
   tiles_width INTEGER,
   tiles_height INTEGER,
-  default_room_name VARCHAR(255),        -- value used within the system for loading the correct images Ex: "kitchen"
-  default_room_display_name VARCHAR(255) -- what is displayed for the user Ex: "Cozinha"
+  default_room_name VARCHAR(255),        -- value used within the system for grouping the furniture. Ex: "kitchen"
+  default_room_display_name VARCHAR(255) -- what is displayed for the user. Ex: "Cozinha"
 );
 
 -- Bathroom furniture
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("bathroom", "Banheiro", "banheira01.png", "Banheira", );
+  ("bathroom", "Banheiro", "banheira01.png", "Banheira", 2, 1);
 
 -- Bedroom furniture
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("bedroom", "Banheiro", "armarioPequeno01Front.png", ""),
-  ("bedroom", "Banheiro", "armarioPequeno02Front.png", "");
+  ("bedroom", "Banheiro", "armarioPequeno01Front.png", "Armário Pequeno Marrom", 1, 2),
+  ("bedroom", "Banheiro", "armarioPequeno02Front.png", "Armário Pequeno Branco", 1, 2);
 
 -- Dining Room furniture
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("diningRoom","Sala de Jantar","mesa01", ""),
-  ("diningRoom","Sala de Jantar","mesa02", "");
+  ("diningRoom","Sala de Jantar","mesa01", "Mesa de Madeira Marrom", 2, 2),
+  ("diningRoom","Sala de Jantar","mesa02", "Mesa de Madeira Branca", 2, 2);
 
 -- Living Room furniture
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("livingRoom", "Sala de Estar", "sofa1Back.png", "Sofá Marrom"),
+  ("livingRoom", "Sala de Estar", "sofa1Back.png", "Sofá Marrom", ),
   ("livingRoom", "Sala de Estar", "sofa1Front.png", "Sofá Marrom");
 
 INSERT INTO Furniture_Images 
