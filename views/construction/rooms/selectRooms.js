@@ -17,8 +17,7 @@ function listRooms(){
       const rooms = JSON.parse(selectRoomsRequest.responseText);
       rooms.forEach(room => { createRoomDiv(room); })
 
-      //The diagram can only be loaded after all the rooms elements are created
-      selectDiagramPositions();
+      selectFurniture();
     } else {
       alert("There was a problem with the 'selectRooms' request.");
     }

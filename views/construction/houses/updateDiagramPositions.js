@@ -3,7 +3,7 @@ saveDiagramButton.addEventListener('click', updateDiagramPositions);
 function updateDiagramPositions(){
   updateDiagramPositionsRequest = new XMLHttpRequest();
   updateDiagramPositionsRequest.onreadystatechange = informDiagramSave;
-  updateDiagramPositionsRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tilesController.php");
+  updateDiagramPositionsRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/housesController.php");
   updateDiagramPositionsRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

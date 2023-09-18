@@ -1,5 +1,6 @@
 function createFurnitureImg(furniture){
   const furnitureImage = createElementWithAttributes('img', {
+    //Search furniture image by its name in the respective room folder
     src: findFurniturePath(furniture.default_room_name, furniture.image_name), 
     class:''
   });

@@ -2,7 +2,6 @@ var isMouseDown = false;
 var isEraserModeOn = false;
 var selectedRoomId, tileImgElement;
 var furnitureImgElement, furnitureWidth, furnitureHeight;
-var currentSection, currentLayer;
 var canvas = houseDiagram.getContext("2d");
 
 var diagramPositions = {

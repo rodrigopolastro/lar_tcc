@@ -3,7 +3,7 @@ window.addEventListener('load', selectTiles);
 function selectTiles(){
   selectTilesRequest = new XMLHttpRequest();
   selectTilesRequest.onreadystatechange = listTiles;
-  selectTilesRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tilesController.php");
+  selectTilesRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/imagesController.php");
   selectTilesRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

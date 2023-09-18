@@ -24,21 +24,29 @@
   <script src="/htdocsDirectories/lar_tcc/helpers/getCoordsInElement.js"></script>
 
   <!-- General Javascript -->
-  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/createRoomDiv.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/createTileImg.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagram/mainFunctions.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/sectionSelector.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagram/roomsFunctions.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagram/furnitureFunctions.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/mainFunctions.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/roomsFunctions.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/furnitureFunctions.js"></script>
+  
+  <!-- ROOMS -->
+  <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/createRoomDiv.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/insertRoom.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/deleteRoom.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/selectRooms.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/selectOneRoom.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/updateRoom.js"></script>
+  
+  <!-- FURNITURE -->
 
-  <!-- AJAX Requests -->
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectTiles.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/updateDiagramPositions.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/selectDiagramPositions.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/rooms/insertRoom.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/rooms/deleteRoom.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/rooms/selectRooms.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/rooms/selectOneRoom.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/ajaxRequests/rooms/updateRoom.js"></script>
+  <!-- FURNITURE AND TILES IMAGES -->
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/selectTiles.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/selectFurnitureImages.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/createTileImg.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/createFurnitureImg.js"></script>
+  
+  <!-- HOUSES -->
+  <script src="/htdocsDirectories/lar_tcc/views/construction/houses/updateDiagramPositions.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/houses/selectDiagramPositions.js"></script>
 </body>
 </html>

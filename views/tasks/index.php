@@ -28,7 +28,7 @@
   <script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
 
   <!-- General Javascript -->
-  <script src="/htdocsDirectories/lar_tcc/assets/js/tasks/createTaskDiv.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/tasks/createTaskDiv.js"></script>
 
   <!-- AJAX Requests -->
   <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/selectTasks.js"></script>

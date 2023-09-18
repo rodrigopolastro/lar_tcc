@@ -46,10 +46,11 @@ ALTER TABLE Houses
 CREATE TABLE Furniture_Images (
   furniture_image_id INTEGER PRIMARY KEY AUTO_INCREMENT, 
   furniture_image_name VARCHAR(255), 
+  furniture_display_name VARCHAR(255),
+  default_room_name VARCHAR(255),         -- value used within the system for grouping the furniture. Ex: "kitchen"
+  default_room_display_name VARCHAR(255), -- what is displayed for the user. Ex: "Cozinha"
   tiles_width INTEGER,
-  tiles_height INTEGER,
-  default_room_name VARCHAR(255),        -- value used within the system for grouping the furniture. Ex: "kitchen"
-  default_room_display_name VARCHAR(255) -- what is displayed for the user. Ex: "Cozinha"
+  tiles_height INTEGER
 );
 
 -- Bathroom furniture
@@ -72,15 +73,15 @@ INSERT INTO Furniture_Images
 -- Living Room furniture
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("livingRoom", "Sala de Estar", "sofa1Back.png", "Sofá Marrom", ),
-  ("livingRoom", "Sala de Estar", "sofa1Front.png", "Sofá Marrom");
+  ("livingRoom", "Sala de Estar", "sofa1Back.png", "Sofá Marrom", 4, 2),
+  ("livingRoom", "Sala de Estar", "sofa1Front.png", "Sofá Marrom", 4, 2);
 
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("kitchen", "Cozinha", "fogão01.png", "Fogão"),
-  ("kitchen", "Cozinha", "piaCompleta.png", "Pia Completa");
+  ("kitchen", "Cozinha", "fogão01.png", "Fogão", 2, 2),
+  ("kitchen", "Cozinha", "piaCompleta.png", "Pia Completa", 5, 2);
 
 -- Other furniture
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("other", "Outro", "estantePequena01.png", "Estante Pequena");  
+  ("other", "Outro", "estantePequena01.png", "Estante Pequena",2, 1);  

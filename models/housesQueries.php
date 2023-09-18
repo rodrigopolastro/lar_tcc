@@ -2,23 +2,6 @@
 require_once findPath('database/databaseConnection.php');
 
 // ============== SELECT QUERIES ==============
-function getAllTiles($placeholder_tile){
-  global $connection;
-  $statement = $connection->prepare(
-    "SELECT 
-      tile_id, 
-      tile_name 
-    FROM tiles 
-    WHERE tile_name != :placeholder_tile"
-  );
-
-  $statement->bindValue(':placeholder_tile', $placeholder_tile);
-  $statement->execute();
-
-  $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-  return $results;
-}
-
 function getDiagramPositions($house_id){
   global $connection;
   $statement = $connection->prepare(
@@ -34,6 +17,7 @@ function getDiagramPositions($house_id){
   return $results;
 }
 
+// ============== ACTION QUERIES ==============
 function updateDiagramPositions($house_id, $diagram_positions){
   global $connection;
   $statement = $connection->prepare(

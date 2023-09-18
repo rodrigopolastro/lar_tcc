@@ -47,3 +47,6 @@ const houseDiagram        = document.getElementById('houseDiagram');
 //============== GLOBAL VARIABLES ==============//
 // Vars required for Rooms CRUD
 var roomId, roomName, tileId, tileName;
+
+//House Diagram variables
+var currentSection, currentLayer;
