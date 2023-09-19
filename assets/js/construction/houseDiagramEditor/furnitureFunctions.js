@@ -1,5 +1,6 @@
 // Triggered when a furniture image is clicked in the rooms list
-function setFurnitureToPaint(clickedFurnitureImg, clickedFurnitureWidth, clickedFurnitureHeight){
+function setFurnitureToPaint(clickedFurnitureId, clickedFurnitureImg, clickedFurnitureWidth, clickedFurnitureHeight){
+  selectedFurnitureId = clickedFurnitureId;
   furnitureImgElement = clickedFurnitureImg;
   furnitureWidth  = clickedFurnitureWidth;
   furnitureHeight = clickedFurnitureHeight;

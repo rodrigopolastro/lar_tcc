@@ -61,14 +61,14 @@ INSERT INTO Furniture_Images
 -- Bedroom furniture
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("bedroom", "Banheiro", "armarioPequeno01Front.png", "Armário Pequeno Marrom", 1, 2),
-  ("bedroom", "Banheiro", "armarioPequeno02Front.png", "Armário Pequeno Branco", 1, 2);
+  ("bedroom", "Banheiro", "armarioPequeno01Front.png", "Armário Pequeno Marrom", 1, 1),
+  ("bedroom", "Banheiro", "armarioPequeno02Front.png", "Armário Pequeno Branco", 1, 1);
 
 -- Dining Room furniture
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("diningRoom","Sala de Jantar","mesa01", "Mesa de Madeira Marrom", 2, 2),
-  ("diningRoom","Sala de Jantar","mesa02", "Mesa de Madeira Branca", 2, 2);
+  ("diningRoom","Sala de Jantar","mesa01.png", "Mesa de Madeira Marrom", 2, 2),
+  ("diningRoom","Sala de Jantar","mesa02.png", "Mesa de Madeira Branca", 2, 2);
 
 -- Living Room furniture
 INSERT INTO Furniture_Images 
@@ -79,9 +79,9 @@ INSERT INTO Furniture_Images
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
   ("kitchen", "Cozinha", "fogão01.png", "Fogão", 2, 2),
-  ("kitchen", "Cozinha", "piaCompleta.png", "Pia Completa", 5, 2);
+  ("kitchen", "Cozinha", "piaCompleta.png", "Pia Completa", 4, 2);
 
 -- Other furniture
 INSERT INTO Furniture_Images 
   (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("other", "Outro", "estantePequena01.png", "Estante Pequena",2, 1);  
+  ("other", "Outro", "estantePequena01.png", "Estante Pequena", 2, 2);  

@@ -24,10 +24,10 @@
   <script src="/htdocsDirectories/lar_tcc/helpers/getCoordsInElement.js"></script>
 
   <!-- General Javascript -->
-  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/sectionSelector.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/mainFunctions.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/roomsFunctions.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/furnitureFunctions.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/sectionSelector.js"></script>
   
   <!-- ROOMS -->
   <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/createRoomDiv.js"></script>

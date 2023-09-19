@@ -48,5 +48,3 @@ const houseDiagram        = document.getElementById('houseDiagram');
 // Vars required for Rooms CRUD
 var roomId, roomName, tileId, tileName;
 
-//House Diagram variables
-var currentSection, currentLayer;

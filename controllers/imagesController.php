@@ -15,6 +15,8 @@
         break;     
         
       case 'selectFurnitureImages':
+        $furniture_images = getAllFurnitureImages();
+        echo json_encode($furniture_images);
         break;         
     }
   }

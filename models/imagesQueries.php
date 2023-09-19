@@ -5,7 +5,14 @@ require_once findPath('database/databaseConnection.php');
 function getAllFurnitureImages(){ 
   global $connection;
   $statement = $connection->prepare(
-    "SELECT * FROM furniture"
+    "SELECT 
+      furniture_image_id,
+      furniture_image_name,
+      furniture_display_name,
+      default_room_name,
+      tiles_width,
+      tiles_height
+    FROM furniture_images"
   );
   
   $statement->execute();

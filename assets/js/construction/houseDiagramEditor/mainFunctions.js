@@ -1,8 +1,10 @@
+//============== INITIALIZATION ==============//
 var isMouseDown = false;
 var isEraserModeOn = false;
 var selectedRoomId, tileImgElement;
-var furnitureImgElement, furnitureWidth, furnitureHeight;
+var selectedFurnitureId, furnitureImgElement, furnitureWidth, furnitureHeight;
 var canvas = houseDiagram.getContext("2d");
+var currentLayer = 'tiles';
 
 var diagramPositions = {
   tiles:{
@@ -17,7 +19,6 @@ var diagramPositions = {
   topWalls:{}
 }
 
-//============== INITIALIZATION ==============//
 window.addEventListener('load', () => {
   houseDiagram.width = CANVAS_WIDTH;
   houseDiagram.height = CANVAS_HEIGHT;
@@ -25,8 +26,8 @@ window.addEventListener('load', () => {
 
 //============== CANVAS EVENTS ==============//
 houseDiagram.addEventListener("mousedown", (event) => {
-  switch (currentSection) {
-    case 'roomsSection':
+  switch (currentLayer) {
+    case 'tiles':
       isMouseDown = true;
       if(tileImgElement){
         updateDiagramTiles(event);
@@ -35,7 +36,7 @@ houseDiagram.addEventListener("mousedown", (event) => {
       }
       break;
   
-    case 'furnitureSection':
+    case 'furniture':
       if(furnitureImgElement){
         updateDiagramFurniture(event);
       } else {
@@ -83,7 +84,6 @@ function setEraserMode(setTo){
 }
 
 //============== CANVAS MODIFICATION FUNCTIONS ==============//
-
 function updateDiagramTiles(mouseEvent) {
   let positionClicked = getCoordsInElement(mouseEvent);
   let key = positionClicked[0] + "-" + positionClicked[1];
@@ -106,7 +106,7 @@ function updateDiagramFurniture(mouseEvent){
   if(isEraserModeOn){
     // delete diagramPositions[key];
     // removeTile(positionClicked[0], positionClicked[1]);
-    alert('apagando móvel');
+    alert('apagando móvel (num fais nada inda)');
     } else {
       if(furnitureImgElement){
         // diagramPositions[key] = selectedRoomId;
@@ -117,7 +117,7 @@ function updateDiagramFurniture(mouseEvent){
           furnitureWidth * TILE_SIZE,              //Final width of image in canvas
           furnitureHeight * TILE_SIZE               //Final height of image in canvas
         );
-        diagramPositions.furniture[key] = "teste";
+        diagramPositions.furniture[key] = selectedFurnitureId;
       } else {
         alert('selecione um móvel para inserir!')
     }
@@ -127,7 +127,7 @@ function updateDiagramFurniture(mouseEvent){
 function reloadDiagram(){
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-  // Iterate over diagramPositions and draw its tiles into canvas
+  //LOAD TILES
   Object.entries(diagramPositions.tiles).forEach(([key, value]) => {
     let roomDiv = document.querySelector("[data-room-id='" + value + "']");
     let roomImg = roomDiv.querySelector("img");
@@ -146,21 +146,19 @@ function reloadDiagram(){
   });
 
   Object.entries(diagramPositions.furniture).forEach(([key, value]) => {
-    let positionX = Number(key.split("-")[0]);
-    let positionY = Number(key.split("-")[1]);
-    let furnitureImage = document.querySelector("#furnitureList").querySelector("img");
+    let furnitureImage = document.querySelector("[data-furniture-image-id='" + value + "']");
     let furnitureWidth = furnitureImage.dataset.tilesWidth;
     let furnitureHeight = furnitureImage.dataset.tilesHeight;
+    let positionX = Number(key.split("-")[0]);
+    let positionY = Number(key.split("-")[1]) - (furnitureHeight - 1);
 
-    if(value == "teste"){
-      canvas.drawImage(
-        furnitureImage, 
-        positionX * TILE_SIZE,  
-        positionY * TILE_SIZE, 
-        TILE_SIZE,     
-        TILE_SIZE       
-      );
-    }
+    canvas.drawImage(
+      furnitureImage, 
+      positionX * TILE_SIZE,  
+      positionY * TILE_SIZE, 
+      furnitureWidth * TILE_SIZE,     
+      furnitureHeight * TILE_SIZE       
+    );
   })
 }
 
