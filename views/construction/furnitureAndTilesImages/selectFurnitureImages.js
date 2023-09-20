@@ -1,25 +1,24 @@
 // window.addEventListener('load', selectFurniture);
 
-function selectFurniture(){
-  selectFurnitureRequest = new XMLHttpRequest();
-  selectFurnitureRequest.onreadystatechange = listFurniture;
-  selectFurnitureRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/imagesController.php");
-  selectFurnitureRequest.setRequestHeader(
+function selectFurnitureImages(){
+  selectFurnitureImagesRequest = new XMLHttpRequest();
+  selectFurnitureImagesRequest.onreadystatechange = listFurnitureImages;
+  selectFurnitureImagesRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/imagesController.php");
+  selectFurnitureImagesRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",
   );
-  selectFurnitureRequest.send("operation=selectFurnitureImages");
+  selectFurnitureImagesRequest.send("operation=selectFurnitureImages");
 }
 
-function listFurniture(){
-  if (selectFurnitureRequest.readyState === XMLHttpRequest.DONE) { 
-    if (selectFurnitureRequest.status === 200) {
-      // alert(selectFurnitureRequest.responseText)
-      const furniture = JSON.parse(selectFurnitureRequest.responseText);
-      furniture.forEach(furniture => { createFurnitureImg(furniture); })
+function listFurnitureImages(){
+  if (selectFurnitureImagesRequest.readyState === XMLHttpRequest.DONE) { 
+    if (selectFurnitureImagesRequest.status === 200) {
+      const furnitureImages = JSON.parse(selectFurnitureImagesRequest.responseText);
+      furnitureImages.forEach(furniture => { createFurnitureImg(furniture); })
 
-      // //The diagram can only be loaded after all the rooms and furniture image elements are created. 
-      // //For this reason, the rooms request calls the furniture request and this one loads the diagram.
+      //The diagram can only be loaded after all the rooms and furniture image elements are created. 
+      //For this reason, the rooms request calls the furniture request and this one loads the diagram.
       selectDiagramPositions();
     } else {
       alert("There was a problem with the 'selectRooms' request.");

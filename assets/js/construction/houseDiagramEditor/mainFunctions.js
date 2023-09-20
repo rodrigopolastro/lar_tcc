@@ -59,7 +59,12 @@ houseDiagram.addEventListener("mouseleave", () => {
 
 //============== DIAGRAM EDITOR EVENTS ==============//
 clearDiagramButton.addEventListener('click', () => {
-  diagramPositions = {};
+  diagramPositions = {
+    tiles:{},
+    walls:{},
+    furniture:{},
+    topWalls:{}
+  };
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 });
 

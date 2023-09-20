@@ -1,7 +1,7 @@
 USE lar;
 
 -- Create initial values for database
-INSERT INTO Houses(diagram_positions) VALUES ('{}');
+INSERT INTO Houses(diagram_positions) VALUES ('{ "tiles":{}, "walls":{}, "furniture":{}, "topWalls":{} }');
 
 INSERT INTO Users(fk_house_id, user_email, user_password, first_name, last_name) 
 VALUES (1, 'rodrigosilva@gmail.com', '12345', 'Rodrigo', 'Silva');
