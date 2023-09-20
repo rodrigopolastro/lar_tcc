@@ -1,5 +1,3 @@
-// window.addEventListener('load', selectFurniture);
-
 function selectFurnitureImages(){
   selectFurnitureImagesRequest = new XMLHttpRequest();
   selectFurnitureImagesRequest.onreadystatechange = listFurnitureImages;

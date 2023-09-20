@@ -1,5 +1,5 @@
-//This function is called in 'selectRooms' request because the diagram can only
-//be loaded after all the tile images (in rooms list) are generated
+//The diagram can only be loaded after all the rooms and furniture image elements are created. 
+//For this reason, the rooms request calls the furniture request and this one loads the diagram.
 function selectDiagramPositions(){
   diagramPositionsRequest = new XMLHttpRequest();
   diagramPositionsRequest.onreadystatechange = loadDiagram;

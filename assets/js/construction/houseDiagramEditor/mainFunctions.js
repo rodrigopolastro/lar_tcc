@@ -6,20 +6,20 @@ var selectedFurnitureId, furnitureImgElement, furnitureWidth, furnitureHeight;
 var canvas = houseDiagram.getContext("2d");
 var currentLayer = 'tiles';
 
-//This initializaion is only for reading purposes, because
-//the variable is actually filled with the data from the database.
+
+//STRUCTURE: //layer["x-y"]: objectId
+//EXAMPLE:  //tiles["0-0"]: 3 => Position 0-0 (top left corner) belongs to the room with id=3
 var diagramPositions = {
-  tiles:{
-    //STRUCTURE:
-    //"x-y": roomId
-    
-    //Ex:
-    //"0-0": 3 => Position 0-0 (top left corner) belongs to the room with id=3
-  },
+  tiles:{},
   walls:{},
-  furniture:{},
+  furniture:{
+    startingPositions:{},
+    allPositions:{}
+  },
   topWalls:{}
-}
+};
+//OBS:This initializaion is only for reading purposes, because
+//the variable is actually filled with the data from the database.
 
 window.addEventListener('load', () => {
   houseDiagram.width = CANVAS_WIDTH;
@@ -65,9 +65,8 @@ clearDiagramButton.addEventListener('click', () => {
     tiles:{},
     walls:{},
     furniture:{
-      //does it work? (if it does, remember to update the 'clearDiagram' function and the 'seed.sql' file)
-      // startingPosition:[],
-      // allPositions:{}
+      startingPositions:{},
+      allPositions:{}
     },
     topWalls:{}
   };
@@ -116,10 +115,32 @@ function updateDiagramFurniture(mouseEvent){
     // removeTile(positionClicked[0], positionClicked[1]);
     alert('apagando móvel (num fais nada inda)');
   } else {
-    //Here I have to set all the 
-    diagramPositions.furniture[key] = selectedFurnitureId;
+    diagramPositions.furniture.startingPositions[key] = selectedFurnitureId;
+    occupyAllPositionsOfFurniture(positionClicked) //Function to avoid furniture overflow
   }
   reloadDiagram();
+}
+
+function occupyAllPositionsOfFurniture(positionClicked){
+  //Ex: A 4x2 object is clicked on the bottom-left corner position (positionClicked=[0,19]) .
+  //It must: (width=4, height=2)
+  //- Occupy height=2 lines with width=4 tiles each.
+  //- Line 1 (last line):        "0-19", "1-19", "2-19", "3-19"
+  //- Line 2 (penultimate line): "0-18", "1-18", "2-18", "3-18"
+
+  let furnitureImage = document.querySelector("[data-furniture-image-id='" + selectedFurnitureId + "']");
+  let furnitureWidth = furnitureImage.dataset.tilesWidth;
+  let furnitureHeight = furnitureImage.dataset.tilesHeight;
+
+  for(let j=0; j<furnitureHeight; j++){
+    let column = positionClicked[1] - j;
+
+    for(let i=0; i<furnitureWidth; i++){
+      let line = positionClicked[0] + i;
+      let key = line + "-" + column; 
+      diagramPositions.furniture.allPositions[key] = selectedFurnitureId;
+    }
+  }
 }
 
 function reloadDiagram(){
@@ -143,8 +164,8 @@ function reloadDiagram(){
     );
   });
 
-  //LOAD FURNITURE
-  Object.entries(diagramPositions.furniture).forEach(([key, value]) => {
+  //LOAD FURNITURE (on their starting positions)
+  Object.entries(diagramPositions.furniture.startingPositions).forEach(([key, value]) => {
     let furnitureImage = document.querySelector("[data-furniture-image-id='" + value + "']");
     let furnitureWidth = furnitureImage.dataset.tilesWidth;
     let furnitureHeight = furnitureImage.dataset.tilesHeight;
