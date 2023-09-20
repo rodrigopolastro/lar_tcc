@@ -6,6 +6,8 @@ var selectedFurnitureId, furnitureImgElement, furnitureWidth, furnitureHeight;
 var canvas = houseDiagram.getContext("2d");
 var currentLayer = 'tiles';
 
+//This initializaion is only for reading purposes, because
+//the variable is actually filled with the data from the database.
 var diagramPositions = {
   tiles:{
     //STRUCTURE:
@@ -62,7 +64,11 @@ clearDiagramButton.addEventListener('click', () => {
   diagramPositions = {
     tiles:{},
     walls:{},
-    furniture:{},
+    furniture:{
+      //does it work? (if it does, remember to update the 'clearDiagram' function and the 'seed.sql' file)
+      // startingPosition:[],
+      // allPositions:{}
+    },
     topWalls:{}
   };
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -105,28 +111,15 @@ function updateDiagramFurniture(mouseEvent){
   let positionClicked = getCoordsInElement(mouseEvent);
   let key = positionClicked[0] + "-" + positionClicked[1];  
 
-  let positionX = positionClicked[0];
-  let positionY = positionClicked[1] - (furnitureHeight - 1);
-
   if(isEraserModeOn){
     // delete diagramPositions[key];
     // removeTile(positionClicked[0], positionClicked[1]);
     alert('apagando móvel (num fais nada inda)');
-    } else {
-      if(furnitureImgElement){
-        // diagramPositions[key] = selectedRoomId;
-        canvas.drawImage(
-          furnitureImgElement,         
-          positionX * TILE_SIZE,  //X position in the canvas
-          positionY * TILE_SIZE,  //Y position in the canvas
-          furnitureWidth * TILE_SIZE,              //Final width of image in canvas
-          furnitureHeight * TILE_SIZE               //Final height of image in canvas
-        );
-        diagramPositions.furniture[key] = selectedFurnitureId;
-      } else {
-        alert('selecione um móvel para inserir!')
-    }
+  } else {
+    //Here I have to set all the 
+    diagramPositions.furniture[key] = selectedFurnitureId;
   }
+  reloadDiagram();
 }
 
 function reloadDiagram(){
@@ -150,12 +143,17 @@ function reloadDiagram(){
     );
   });
 
+  //LOAD FURNITURE
   Object.entries(diagramPositions.furniture).forEach(([key, value]) => {
     let furnitureImage = document.querySelector("[data-furniture-image-id='" + value + "']");
     let furnitureWidth = furnitureImage.dataset.tilesWidth;
     let furnitureHeight = furnitureImage.dataset.tilesHeight;
+
     let positionX = Number(key.split("-")[0]);
-    let positionY = Number(key.split("-")[1]) - (furnitureHeight - 1);
+
+    //Load image from bottom to top (which is more intuitive for the user) instead of 
+    //the default top to bottom canvas approach
+    let positionY = Number(key.split("-")[1]) - (furnitureHeight - 1); 
 
     canvas.drawImage(
       furnitureImage, 
