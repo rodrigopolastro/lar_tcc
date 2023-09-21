@@ -6,8 +6,7 @@ var selectedFurnitureId, furnitureImgElement, furnitureWidth, furnitureHeight;
 var canvas = houseDiagram.getContext("2d");
 var currentLayer = 'tiles';
 
-
-//STRUCTURE: //layer["x-y"]: objectId
+//STRUCTURE: //layer["x-y"]: imageId
 //EXAMPLE:  //tiles["0-0"]: 3 => Position 0-0 (top left corner) belongs to the room with id=3
 var diagramPositions = {
   tiles:{},
@@ -18,7 +17,7 @@ var diagramPositions = {
   },
   topWalls:{}
 };
-//OBS:This initializaion is only for reading purposes, because
+//OBS: This initializaion above is only for reading purposes, because
 //the variable is actually filled with the data from the database.
 
 window.addEventListener('load', () => {
@@ -77,9 +76,11 @@ eraserModeButton.addEventListener('click', function() {
   if(isEraserModeOn){
     setEraserMode(false);
     highlightSelectedTile();
+    highlightSelectedFurniture();
   } else {
     setEraserMode(true);
     removeLastTileHightlight();
+    removeLastFurnitureHightlight();
   }
 });
 
@@ -115,32 +116,46 @@ function updateDiagramFurniture(mouseEvent){
     // removeTile(positionClicked[0], positionClicked[1]);
     alert('apagando móvel (num fais nada inda)');
   } else {
-    diagramPositions.furniture.startingPositions[key] = selectedFurnitureId;
-    occupyAllPositionsOfFurniture(positionClicked) //Function to avoid furniture overflow
+    if(areFurniturePositionsAvailable(positionClicked)){
+      diagramPositions.furniture.startingPositions[key] = selectedFurnitureId;
+    }
   }
   reloadDiagram();
 }
 
-function occupyAllPositionsOfFurniture(positionClicked){
+function areFurniturePositionsAvailable(positionClicked){
+  let furnitureImage = document.querySelector("[data-furniture-image-id='" + selectedFurnitureId + "']");
+  let furnitureWidth = furnitureImage.dataset.tilesWidth;
+  let furnitureHeight = furnitureImage.dataset.tilesHeight;
+
+  let positions = [];
+
   //Ex: A 4x2 object is clicked on the bottom-left corner position (positionClicked=[0,19]) .
   //It must: (width=4, height=2)
   //- Occupy height=2 lines with width=4 tiles each.
   //- Line 1 (last line):        "0-19", "1-19", "2-19", "3-19"
   //- Line 2 (penultimate line): "0-18", "1-18", "2-18", "3-18"
-
-  let furnitureImage = document.querySelector("[data-furniture-image-id='" + selectedFurnitureId + "']");
-  let furnitureWidth = furnitureImage.dataset.tilesWidth;
-  let furnitureHeight = furnitureImage.dataset.tilesHeight;
-
   for(let j=0; j<furnitureHeight; j++){
-    let column = positionClicked[1] - j;
-
+    let line = positionClicked[1] - j;
     for(let i=0; i<furnitureWidth; i++){
-      let line = positionClicked[0] + i;
-      let key = line + "-" + column; 
-      diagramPositions.furniture.allPositions[key] = selectedFurnitureId;
+      let column = positionClicked[0] + i;
+      let key = column + "-" + line; 
+      if(line < 0 || column > NUMBER_OF_COLUMNS - 1){
+        return false;
+      }
+      if(diagramPositions.furniture.allPositions.hasOwnProperty(key)){
+        return false;
+      } 
+      positions.push(key);
     }
   }
+  
+  //Only return true (allow furniture insertion) if all
+  //the positions it will occupy are available.
+  for(position of positions){
+    diagramPositions.furniture.allPositions[position] = selectedFurnitureId;
+  }
+  return true;
 }
 
 function reloadDiagram(){
