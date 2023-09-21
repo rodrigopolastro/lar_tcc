@@ -26,3 +26,56 @@ function removeLastFurnitureHightlight(){
     selectedFurniture.classList.remove("selected-furniture");
   }
 }
+
+function areFurniturePositionsAvailable(positionClicked){
+  let furnitureImage = document.querySelector("[data-furniture-image-id='" + selectedFurnitureId + "']");
+  let furnitureWidth = furnitureImage.dataset.tilesWidth;
+  let furnitureHeight = furnitureImage.dataset.tilesHeight;
+
+  let positions = [];
+
+  //Ex: A 4x2 object is clicked on the bottom-left corner position (positionClicked=[0,19]) .
+  //It must: (width=4, height=2)
+  //- Occupy height=2 lines with width=4 tiles each.
+  //- Line 1 (last line):        "0-19", "1-19", "2-19", "3-19"
+  //- Line 2 (penultimate line): "0-18", "1-18", "2-18", "3-18"
+  for(let j=0; j<furnitureHeight; j++){
+    let line = positionClicked[1] - j;
+    for(let i=0; i<furnitureWidth; i++){
+      let column = positionClicked[0] + i;
+      let key = column + "-" + line; 
+      if(line < 0 || column > NUMBER_OF_COLUMNS - 1){
+        return false;
+      }
+      if(diagramPositions.furniture.allPositions.hasOwnProperty(key)){
+        return false;
+      } 
+      positions.push(key);
+    }
+  }
+  
+  //Only return true (allow furniture insertion) if all
+  //the positions it will occupy are available.
+  for(position of positions){
+    diagramPositions.furniture.allPositions[position] = selectedFurnitureId;
+  }
+  return true;
+}
+
+function deleteFurnitureFromDiagram(key){
+  let clickedFurnitureId = diagramPositions.furniture.allPositions[key];
+
+  let startingPositions = diagramPositions.furniture.startingPositions;
+  Object.keys(startingPositions).forEach((key) => {
+    if(startingPositions[key] == clickedFurnitureId){
+      delete diagramPositions.furniture.startingPositions[key];
+    }
+  });
+
+  let allPositions = diagramPositions.furniture.allPositions;
+  Object.keys(allPositions).forEach((key) => {
+    if(allPositions[key] == clickedFurnitureId){
+      delete diagramPositions.furniture.allPositions[key];
+    }
+  });
+}
