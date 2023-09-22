@@ -44,6 +44,7 @@
   <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/selectFurnitureImages.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/createTileImg.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/createFurnitureImg.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/createDefaultRoomsList.js"></script>
   
   <!-- HOUSES -->
   <script src="/htdocsDirectories/lar_tcc/views/construction/houses/updateDiagramPositions.js"></script>

@@ -12,11 +12,12 @@ function selectFurnitureImages(){
 function listFurnitureImages(){
   if (selectFurnitureImagesRequest.readyState === XMLHttpRequest.DONE) { 
     if (selectFurnitureImagesRequest.status === 200) {
+      createDefaultRoomsList();
       const furnitureImages = JSON.parse(selectFurnitureImagesRequest.responseText);
       furnitureImages.forEach(furnitureImg => { createFurnitureImg(furnitureImg); })
 
-      //The diagram can only be loaded after all the rooms and furniture image elements are created. 
-      //For this reason, the rooms request calls the furniture request and this one loads the diagram.
+      // //The diagram can only be loaded after all the rooms and furniture image elements are created. 
+      // //For this reason, the rooms request calls the furniture request and this one loads the diagram.
       selectDiagramPositions();
     } else {
       alert("There was a problem with the 'selectRooms' request.");

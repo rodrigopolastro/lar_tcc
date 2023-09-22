@@ -17,15 +17,7 @@ function createFurnitureImg(furnitureImg){
     )
   });
 
-  let listToAdd;
-  switch(furnitureImg.default_room_name){
-    case "kitchen":    listToAdd = kitchenFurniture;    break;
-    case "livingRoom": listToAdd = livingRoomFurniture; break;
-    case "diningRoom": listToAdd = diningRoomFurniture; break;
-    case "bedroom":    listToAdd = bedroomFurniture;    break;
-    case "bathroom":   listToAdd = bathroomFurniture;   break;
-    case "other":      listToAdd = otherFurniture;      break;
-  }
-
+  let listId = furnitureImg.default_room_name + "Furniture";
+  let listToAdd = document.getElementById(listId);
   listToAdd.appendChild(furnitureImage);
 }

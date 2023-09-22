@@ -1,5 +1,15 @@
 //============== CONSTANTS ==============//
 
+// Default rooms list (assign portuguese names for internal variables in english)
+const DEFAULT_ROOMS = {
+  kitchen:    "Cozinha",
+  livingRoom: "Sala de Estar",
+  diningRoom: "Sala de Jantar",
+  bedroom:    "Quarto",
+  bathroom:   "Banheiro",
+  other:      "Outro"
+}
+
 // rootTilePath helper 
 const TILES_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/tiles/";
 const FURNITURE_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/furniture/";
@@ -32,12 +42,7 @@ const myFurnitureSection = document.getElementById('myFurnitureSection');
 const myFurnitureList    = document.getElementById('myFurnitureList');
 
 // All Furniture Section
-const kitchenFurniture    = document.getElementById('kitchenFurniture');
-const livingRoomFurniture = document.getElementById('livingRoomFurniture');
-const diningRoomFurniture = document.getElementById('diningRoomFurniture');
-const bedroomFurniture    = document.getElementById('bedroomFurniture');
-const bathroomFurniture   = document.getElementById('bathroomFurniture');
-const otherFurniture      =document.getElementById('otherFurniture');
+const allFurnitureSection = document.getElementById('allFurnitureSection');
 
 // Editing room modal
 const modalUpdateRoomButton = document.getElementById('modalUpdateRoomButton');
