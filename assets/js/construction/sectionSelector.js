@@ -1,17 +1,26 @@
-roomsSectionButton.addEventListener('click', () => {
-  // Make rooms section visible and 
-  // furniture section invisible
-  roomsSection.classList.remove('d-none');
-  furnitureSection.classList.add('d-none');
+myRoomsSectionButton.addEventListener('click', () => {
+  myRoomsSection.classList.remove('d-none');
+
+  myFurnitureSection.classList.add('d-none');
+  allFurnitureSection.classList.add('d-none');
 
   currentLayer = 'tiles';
 });
 
-furnitureSectionButton.addEventListener('click', () => {
-  // Make furniture section visible and 
-  // rooms section invisible
-  furnitureSection.classList.remove('d-none');
-  roomsSection.classList.add('d-none');
+myFurnitureSectionButton.addEventListener('click', () => {
+  myFurnitureSection.classList.remove('d-none');
+
+  myRoomsSection.classList.add('d-none');
+  allFurnitureSection.classList.add('d-none');
 
   currentLayer = 'furniture';
+});
+
+allFurnitureSectionButton.addEventListener('click', () => {
+  allFurnitureSection.classList.remove('d-none');
+
+  myRoomsSection.classList.add('d-none');
+  myFurnitureSection.classList.add('d-none');
+
+  currentLayer = 'none'
 });

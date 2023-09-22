@@ -13,7 +13,7 @@ function listFurnitureImages(){
   if (selectFurnitureImagesRequest.readyState === XMLHttpRequest.DONE) { 
     if (selectFurnitureImagesRequest.status === 200) {
       const furnitureImages = JSON.parse(selectFurnitureImagesRequest.responseText);
-      furnitureImages.forEach(furniture => { createFurnitureImg(furniture); })
+      furnitureImages.forEach(furnitureImg => { createFurnitureImg(furnitureImg); })
 
       //The diagram can only be loaded after all the rooms and furniture image elements are created. 
       //For this reason, the rooms request calls the furniture request and this one loads the diagram.

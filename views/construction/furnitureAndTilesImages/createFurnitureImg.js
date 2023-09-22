@@ -1,21 +1,31 @@
-function createFurnitureImg(furniture){
+function createFurnitureImg(furnitureImg){
   const furnitureImage = createElementWithAttributes('img', {
     //Search furniture image by its name in the respective room folder
-    src: findFurniturePath(furniture.default_room_name, furniture.furniture_image_name), 
+    src: findFurniturePath(furnitureImg.default_room_name, furnitureImg.furniture_image_name), 
     class:''
   });
-  furnitureImage.dataset.furnitureImageId = furniture.furniture_image_id;
-  furnitureImage.dataset.tilesWidth        = furniture.tiles_width;
-  furnitureImage.dataset.tilesHeight       = furniture.tiles_height;
+  furnitureImage.dataset.furnitureImageId  = furnitureImg.furniture_image_id;
+  furnitureImage.dataset.tilesWidth        = furnitureImg.tiles_width;
+  furnitureImage.dataset.tilesHeight       = furnitureImg.tiles_height;
 
   furnitureImage.addEventListener('click', function() {
     setFurnitureToPaint(
-      furniture.furniture_image_id, 
+      furnitureImg.furniture_image_id, 
       furnitureImage, 
-      furniture.tiles_width, 
-      furniture.tiles_height
+      furnitureImg.tiles_width, 
+      furnitureImg.tiles_height
     )
   });
 
-  furnitureList.appendChild(furnitureImage);
+  let listToAdd;
+  switch(furnitureImg.default_room_name){
+    case "kitchen":    listToAdd = kitchenFurniture;    break;
+    case "livingRoom": listToAdd = livingRoomFurniture; break;
+    case "diningRoom": listToAdd = diningRoomFurniture; break;
+    case "bedroom":    listToAdd = bedroomFurniture;    break;
+    case "bathroom":   listToAdd = bathroomFurniture;   break;
+    case "other":      listToAdd = otherFurniture;      break;
+  }
+
+  listToAdd.appendChild(furnitureImage);
 }

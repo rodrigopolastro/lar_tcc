@@ -44,6 +44,10 @@ houseDiagram.addEventListener("mousedown", (event) => {
         alert('selecione um móvel para inserir!');
       }
       break;
+
+    case 'none':
+      alert('Você precisa adicionar móveis à sua coleção!');
+      break;
     }
 });
 houseDiagram.addEventListener("mousemove", (event) => {

@@ -15,11 +15,11 @@ const CANVAS_HEIGHT = NUMBER_OF_COLUMNS * TILE_SIZE;
 //============== OBJECTS ==============//
 
 // Section Selector
-const roomsSectionButton     = document.getElementById('roomsSectionButton');
-const furnitureSectionButton = document.getElementById('furnitureSectionButton');
+const myRoomsSectionButton     = document.getElementById('myRoomsSectionButton');
+const myFurnitureSectionButton = document.getElementById('myFurnitureSectionButton');
 
 // Rooms Section
-const roomsSection     = document.getElementById('roomsSection');
+const myRoomsSection     = document.getElementById('myRoomsSection');
 const roomNameInput    = document.getElementById('roomNameInput');
 const roomTileInputDiv = document.getElementById('roomTileInputDiv');
 const roomTileInputImg = document.getElementById('roomTileInputImg');
@@ -27,9 +27,17 @@ const createRoomButton = document.getElementById('createRoomButton');
 const popoverContent   = document.getElementById('popoverContent');
 const roomsList        = document.getElementById('roomsList');
 
-// Furniture Section
-const furnitureSection = document.getElementById('furnitureSection');
-const furnitureList    = document.getElementById('furnitureList');
+// My Furniture Section
+const myFurnitureSection = document.getElementById('myFurnitureSection');
+const myFurnitureList    = document.getElementById('myFurnitureList');
+
+// All Furniture Section
+const kitchenFurniture    = document.getElementById('kitchenFurniture');
+const livingRoomFurniture = document.getElementById('livingRoomFurniture');
+const diningRoomFurniture = document.getElementById('diningRoomFurniture');
+const bedroomFurniture    = document.getElementById('bedroomFurniture');
+const bathroomFurniture   = document.getElementById('bathroomFurniture');
+const otherFurniture      =document.getElementById('otherFurniture');
 
 // Editing room modal
 const modalUpdateRoomButton = document.getElementById('modalUpdateRoomButton');
