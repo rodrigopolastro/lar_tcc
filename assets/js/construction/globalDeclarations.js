@@ -14,6 +14,7 @@ const DEFAULT_ROOMS = {
 const TILES_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/tiles/";
 const FURNITURE_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/furniture/";
 const PLACEHOLDER_TILE_NAME = "placeholderTile.png";
+const PLACEHOLDER_FURNITURE_NAME = "placeholderFurniture.png";
 
 // Canvas
 const TILE_SIZE = 32;
@@ -29,17 +30,22 @@ const myRoomsSectionButton     = document.getElementById('myRoomsSectionButton')
 const myFurnitureSectionButton = document.getElementById('myFurnitureSectionButton');
 
 // Rooms Section
-const myRoomsSection     = document.getElementById('myRoomsSection');
+const myRoomsSection   = document.getElementById('myRoomsSection');
 const roomNameInput    = document.getElementById('roomNameInput');
 const roomTileInputDiv = document.getElementById('roomTileInputDiv');
 const roomTileInputImg = document.getElementById('roomTileInputImg');
 const createRoomButton = document.getElementById('createRoomButton');
-const popoverContent   = document.getElementById('popoverContent');
 const roomsList        = document.getElementById('roomsList');
+const tilesPopoverContent = document.getElementById('tilesPopoverContent');
 
 // My Furniture Section
-const myFurnitureSection = document.getElementById('myFurnitureSection');
-const myFurnitureList    = document.getElementById('myFurnitureList');
+const myFurnitureSection    = document.getElementById('myFurnitureSection');
+const furnitureNameInput    = document.getElementById('furnitureNameInput');
+const furnitureInputDiv     = document.getElementById('furnitureInputDiv');
+const furnitureInputImg     = document.getElementById('furnitureInputImg');
+const createFurnitureButton = document.getElementById('createFurnitureButton');
+const myFurnitureList       = document.getElementById('myFurnitureList');
+const furniturePopoverContent = document.getElementById('furniturePopoverContent');
 
 // All Furniture Section
 const allFurnitureSection = document.getElementById('allFurnitureSection');
@@ -59,5 +65,7 @@ const houseDiagram        = document.getElementById('houseDiagram');
 
 //============== GLOBAL VARIABLES ==============//
 // Vars required for Rooms CRUD
-var roomId, roomName, tileId, tileName;
+var roomId, roomName, 
+    tileId, tileName,
+    furnitureId, furnitureName;
 

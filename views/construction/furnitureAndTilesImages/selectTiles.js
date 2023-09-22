@@ -18,16 +18,20 @@ function listTiles(){
       const tiles = JSON.parse(selectTilesRequest.responseText);
 
       tiles.forEach(tile => {
-        createTileImg(tile, popoverContent, roomTileInputImg);
+        createTileImg(tile, tilesPopoverContent, roomTileInputImg);
         createTileImg(tile, modalTilesList, modalRoomTileInputImg);
       })
       
-      const popover = new bootstrap.Popover(roomTileInputDiv, {
+      const tilesPopover = new bootstrap.Popover(roomTileInputDiv, {
         html: true, //CRUCIAL LINE -> otherwise the 'content' will be treated as plain text
         trigger: 'focus',
         title: 'Pisos Disponíveis',
-        content: popoverContent
+        content: tilesPopoverContent
       });
+
+      roomTileInputDiv.addEventListener('click', () => {
+        tilesPopoverContent.classList.remove('d-none');
+      })
     } else {
       alert("There was a problem with the 'selectTiles' request.");
     }
