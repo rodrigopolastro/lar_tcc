@@ -44,6 +44,11 @@ function areFurniturePositionsAvailable(positionClicked){
     for(let i=0; i<furnitureWidth; i++){
       let column = positionClicked[0] + i;
       let key = column + "-" + line; 
+      
+      // Does not allow furniture insertion in an empty space (with no tile)
+      if(!diagramPositions.tiles.hasOwnProperty(key)){
+        return false;
+      }
       if(line < 0 || column > NUMBER_OF_COLUMNS - 1){
         return false;
       }
