@@ -35,7 +35,6 @@ function displayCreatedRoom(){
           tile_name: tileName
         });
         displayPlaceholderTile();
-        roomNameInput.value = "";
       } else {
         alert("Erro na criação do cômodo: " + response.value);
       }

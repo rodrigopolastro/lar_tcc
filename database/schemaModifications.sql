@@ -47,41 +47,47 @@ CREATE TABLE Furniture_Images (
   furniture_image_id INTEGER PRIMARY KEY AUTO_INCREMENT, 
   furniture_image_name VARCHAR(255), 
   furniture_display_name VARCHAR(255),
-  default_room_name VARCHAR(255),         -- value used within the system for grouping the furniture. Ex: "kitchen"
-  default_room_display_name VARCHAR(255), -- what is displayed for the user. Ex: "Cozinha"
+  default_room_name VARCHAR(255),
   tiles_width INTEGER,
   tiles_height INTEGER
 );
 
 -- Bathroom furniture
 INSERT INTO Furniture_Images 
-  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("bathroom", "Banheiro", "banheira01.png", "Banheira", 2, 1);
+  (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("bathroom", "banheira01.png", "Banheira", 2, 1);
 
 -- Bedroom furniture
 INSERT INTO Furniture_Images 
-  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("bedroom", "Banheiro", "armarioPequeno01Front.png", "Armário Pequeno Marrom", 1, 1),
-  ("bedroom", "Banheiro", "armarioPequeno02Front.png", "Armário Pequeno Branco", 1, 1);
+  (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("bedroom", "armarioPequeno01Front.png", "Armário Pequeno Marrom", 1, 1),
+  ("bedroom", "armarioPequeno02Front.png", "Armário Pequeno Branco", 1, 1);
 
 -- Dining Room furniture
 INSERT INTO Furniture_Images 
-  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("diningRoom","Sala de Jantar","mesa01.png", "Mesa de Madeira Marrom", 2, 2),
-  ("diningRoom","Sala de Jantar","mesa02.png", "Mesa de Madeira Branca", 2, 2);
+  (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("diningRoom", "mesa01.png", "Mesa de Madeira Marrom", 2, 2),
+  ("diningRoom", "mesa02.png", "Mesa de Madeira Branca", 2, 2);
 
 -- Living Room furniture
 INSERT INTO Furniture_Images 
-  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("livingRoom", "Sala de Estar", "sofa1Back.png", "Sofá Marrom", 4, 2),
-  ("livingRoom", "Sala de Estar", "sofa1Front.png", "Sofá Marrom", 4, 2);
+  (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("livingRoom", "sofa1Back.png", "Sofá Marrom", 4, 2),
+  ("livingRoom", "sofa1Front.png", "Sofá Marrom", 4, 2);
 
 INSERT INTO Furniture_Images 
-  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("kitchen", "Cozinha", "fogão01.png", "Fogão", 2, 2),
-  ("kitchen", "Cozinha", "piaCompleta.png", "Pia Completa", 4, 2);
+  (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("kitchen", "fogão01.png", "Fogão", 2, 2),
+  ("kitchen", "piaCompleta.png", "Pia Completa", 4, 2);
 
 -- Other furniture
 INSERT INTO Furniture_Images 
-  (default_room_name, default_room_display_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("other", "Outro", "estantePequena01.png", "Estante Pequena", 2, 2);  
+  (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+  ("other", "estantePequena01.png", "Estante Pequena", 2, 2);  
+
+-- (007) Add furniture_image foreign key to furniture table
+ALTER TABLE Furniture
+  ADD FOREIGN KEY (fk_furniture_image_id) 
+      REFERENCES Furniture_Images (furniture_image_id) 
+      ON DELETE RESTRICT; 
+  -- a furniture_image cannot be deleted if there is a user's furniture associated to it

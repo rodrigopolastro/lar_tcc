@@ -1,3 +1,4 @@
+DROP DATABASE lar;
 CREATE DATABASE lar;
 USE lar;
 
