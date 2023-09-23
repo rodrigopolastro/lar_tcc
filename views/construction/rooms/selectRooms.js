@@ -19,7 +19,7 @@ function listRooms(){
 
       //The diagram can only be loaded after all the rooms and furniture image elements are created. 
       //For this reason, the rooms request calls the furniture request and this one loads the diagram.
-      selectFurnitureImages();
+      selectFurniture();
     } else {
       alert("There was a problem with the 'selectRooms' request.");
     }

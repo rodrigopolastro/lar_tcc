@@ -6,10 +6,16 @@
   if(isset($_POST['operation'])){
     $operation = $_POST['operation'];
     switch ($operation) {
+      case 'selectFurniture':
+        $furniture = getAllFurniture();
+        echo json_encode($furniture);
+        break;
+
       case 'selectPieceOfFurniture':
         break;
       
       case 'insertFurniture':
+        
         break;
 
       case 'updateFurniture':

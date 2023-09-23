@@ -2,7 +2,6 @@
     <div id="sectionSelector">
       <button id="myRoomsSectionButton" class="btn btn-success">Cômodos</button>
       <button id="myFurnitureSectionButton" class="btn btn-success">Móveis</button>
-      <button id="allFurnitureSectionButton" class="btn btn-primary">Móveis Disponíveis</button>
     </div>
     <div id="myRoomsSection" class="">
       <h2>Novo cômodo</h2>
@@ -26,27 +25,11 @@
       <h1>Meus Cômodos</h1>
       <div id="roomsList"><!-- Room list is filled dinamically by javascript --></div>
     </div>
-
+    
     <div id="myFurnitureSection" class="d-none">
-      <h2>Novo móvel</h2>
-      <div class="d-flex align-items-center">
-        <label for="furnitureNameInput">Nome do Móvel</label>
-        <input type="text" name="" id="furnitureNameInput">
-        <div id="furnitureInputDiv" class="" role="button" data-bs-toggle="popover" tabindex="0">
-          <!-- the 'src' attribute is filled with the placeholder image by javascript -->
-          <img src="" alt="" id="furnitureInputImg" class="w-100">
-        </div>
-        <div id="furniturePopoverContent" class="d-none"></div>
-        <button id="createFurnitureButton">Criar Móvel</button>
-      </div>
+      <button id="createFurnitureButton" data-bs-toggle="modal" data-bs-target="#createRoomModal">Criar Móvel</button>
       <h1>Meus Móveis</h1>
       <div id="myFurnitureList"><!-- My furniture list is filled dinamically by javascript --></div>
-    </div>
-
-    
-    <div id="allFurnitureSection" class="d-none">
-      <h1>Móveis Disponíveis</h1>
-      <!-- All furniture list is filled dinamically by javascript -->
     </div>
 
     <!-- Editing room Modal -->
@@ -68,6 +51,28 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
             <button id="modalUpdateRoomButton" type="button" data-bs-dismiss="modal" class="btn btn-primary">Salvar Alterações</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Creating room Modal -->
+    <div class="modal fade" id="createRoomModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Novo Móvel</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <label for="furnitureNameInput">Nome do Móvel</label>
+            <input type="text" id="furnitureNameInput">
+            <h3>Móveis Disponíveis</h3>
+            <div id="allFurnitureList"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button id="modalCreateFurnitureButton" type="button" data-bs-dismiss="modal" class="btn btn-primary">Criar Móvel</button>
           </div>
         </div>
       </div>

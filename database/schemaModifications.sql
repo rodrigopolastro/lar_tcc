@@ -87,6 +87,9 @@ INSERT INTO Furniture_Images
 
 -- (007) Add furniture_image foreign key to furniture table
 ALTER TABLE Furniture
+  ADD fk_furniture_image_id INTEGER;
+
+ALTER TABLE Furniture
   ADD FOREIGN KEY (fk_furniture_image_id) 
       REFERENCES Furniture_Images (furniture_image_id) 
       ON DELETE RESTRICT; 

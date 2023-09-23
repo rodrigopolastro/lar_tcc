@@ -5,7 +5,15 @@ require_once findPath('database/databaseConnection.php');
 function getAllFurniture(){ 
   global $connection;
   $statement = $connection->prepare(
-    "SELECT * FROM furniture"
+    "SELECT 
+      furniture_id,
+      furniture_name,
+      furniture_image_name,
+      default_room_name,
+      tiles_width,
+      tiles_height
+    FROM furniture
+    INNER JOIN furniture_images ON furniture_image_id = fk_furniture_image_id"
   );
   
   $statement->execute();

@@ -41,14 +41,9 @@ const tilesPopoverContent = document.getElementById('tilesPopoverContent');
 // My Furniture Section
 const myFurnitureSection    = document.getElementById('myFurnitureSection');
 const furnitureNameInput    = document.getElementById('furnitureNameInput');
-const furnitureInputDiv     = document.getElementById('furnitureInputDiv');
 const furnitureInputImg     = document.getElementById('furnitureInputImg');
 const createFurnitureButton = document.getElementById('createFurnitureButton');
 const myFurnitureList       = document.getElementById('myFurnitureList');
-const furniturePopoverContent = document.getElementById('furniturePopoverContent');
-
-// All Furniture Section
-const allFurnitureSection = document.getElementById('allFurnitureSection');
 
 // Editing room modal
 const modalUpdateRoomButton = document.getElementById('modalUpdateRoomButton');
@@ -67,5 +62,5 @@ const houseDiagram        = document.getElementById('houseDiagram');
 // Vars required for Rooms CRUD
 var roomId, roomName, 
     tileId, tileName,
-    furnitureId, furnitureName;
+    furnitureImageId, furnitureImageName;
 

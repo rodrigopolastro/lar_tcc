@@ -5,20 +5,9 @@ function createDefaultRoomsList(){
     const defaultRoomTitle = createElementWithAttributes('h3', {});
     const defaultRoomTitleText = document.createTextNode(displayName);
     
-    furniturePopoverContent
+    allFurnitureList
     .appendChild(defaultRoomDiv)
     .appendChild(defaultRoomTitle)
     .appendChild(defaultRoomTitleText);
-  })
-
-  const furniturePopover = new bootstrap.Popover(furnitureInputDiv, {
-    html: true, //CRUCIAL LINE -> otherwise the 'content' will be treated as plain text
-    trigger: 'focus',
-    title: 'Móveis Disponíveis',
-    content: furniturePopoverContent
-  });
-
-  furnitureInputDiv.addEventListener('click', () => {
-    furniturePopoverContent.classList.remove('d-none');
-  })
+  }) 
 }

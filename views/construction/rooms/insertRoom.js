@@ -1,5 +1,5 @@
 createRoomButton.addEventListener('click', () => {
-  //'isTileSelected' function is defined in 'helpers/roomTilePath.js'
+  //'isTileSelected' function is defined in 'helpers/imgPath.js'
   //It returns true if tileName is different than the PLACEHOLDER_TILE_NAME
   if(isTileSelected(tileName)){
     roomName = roomNameInput.value;

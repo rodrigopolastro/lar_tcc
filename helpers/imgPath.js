@@ -14,18 +14,18 @@ function displayPlaceholderTile(){
 window.addEventListener('load', displayPlaceholderTile);
 
 //FURNITURE IMAGES
-function findFurniturePath(defaultRoomName, furnitureName){
-  return (FURNITURE_DIRECTORY + defaultRoomName + "/" + furnitureName);
+function findFurniturePath(defaultRoomName, furnitureImageName){
+  return (FURNITURE_DIRECTORY + defaultRoomName + "/" + furnitureImageName);
 }
 
-function isFurnitureSelected(furnitureName){
-  return (furnitureName != PLACEHOLDER_FURNITURE_NAME);
-}
+// function isFurnitureSelected(furnitureImageName){
+//   return (furnitureImageName != PLACEHOLDER_FURNITURE_NAME);
+// }
 
-function displayPlaceholderFurniture(){
-  furnitureName = PLACEHOLDER_FURNITURE_NAME;
-  furnitureInputImg.src = FURNITURE_DIRECTORY + furnitureName;
-}
-window.addEventListener('load', displayPlaceholderFurniture);
+// function displayPlaceholderFurniture(){
+//   furnitureImageName = PLACEHOLDER_FURNITURE_NAME;
+//   furnitureInputImg.src = FURNITURE_DIRECTORY + furnitureImageName;
+// }
+// window.addEventListener('load', displayPlaceholderFurniture);
 
 

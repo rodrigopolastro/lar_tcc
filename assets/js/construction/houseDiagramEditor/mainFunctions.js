@@ -148,9 +148,10 @@ function reloadDiagram(){
 
   //LOAD FURNITURE (on their starting positions)
   Object.entries(diagramPositions.furniture.startingPositions).forEach(([key, value]) => {
-    let furnitureImage = document.querySelector("[data-furniture-image-id='" + value + "']");
-    let furnitureWidth = furnitureImage.dataset.tilesWidth;
-    let furnitureHeight = furnitureImage.dataset.tilesHeight;
+    let furnitureDiv    = document.querySelector("[data-furniture-id='" + value + "']");
+    let furnitureWidth  = furnitureDiv.dataset.tilesWidth;
+    let furnitureHeight = furnitureDiv.dataset.tilesHeight;
+    let furnitureImage  = furnitureDiv.querySelector("img");
 
     let positionX = Number(key.split("-")[0]);
 

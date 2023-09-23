@@ -28,10 +28,6 @@ function removeLastFurnitureHightlight(){
 }
 
 function areFurniturePositionsAvailable(positionClicked){
-  let furnitureImage = document.querySelector("[data-furniture-image-id='" + selectedFurnitureId + "']");
-  let furnitureWidth = furnitureImage.dataset.tilesWidth;
-  let furnitureHeight = furnitureImage.dataset.tilesHeight;
-
   let positions = [];
 
   //Ex: A 4x2 object is clicked on the bottom-left corner position (positionClicked=[0,19]) .

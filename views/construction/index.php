@@ -38,6 +38,10 @@
   <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/updateRoom.js"></script>
   
   <!-- FURNITURE -->
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/createFurnitureDiv.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/insertFurniture.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/selectFurniture.js"></script>
+
 
   <!-- FURNITURE AND TILES IMAGES -->
   <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/selectTiles.js"></script>
