@@ -23,7 +23,7 @@ INSERT INTO Tiles (tile_name) VALUES
   ('tile03.png'),
   ('tile04.png'),
   ('tile05.png'),
-  ('tile06.png');
+  ('tile06.png'),
   ('tile07.png'),
   ('tile08.png'),
   ('tile09.png'),
