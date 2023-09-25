@@ -2,6 +2,7 @@
     <div id="sectionSelector">
       <button id="myRoomsSectionButton" class="btn btn-success">Cômodos</button>
       <button id="myFurnitureSectionButton" class="btn btn-success">Móveis</button>
+      <button id="allFurnitureSectionButton" class="btn btn-primary">Móveis Disponíveis</button>
     </div>
     <div id="myRoomsSection" class="">
       <h2>Novo cômodo</h2>
@@ -27,9 +28,15 @@
     </div>
     
     <div id="myFurnitureSection" class="d-none">
-      <button id="createFurnitureButton" data-bs-toggle="modal" data-bs-target="#createRoomModal">Criar Móvel</button>
       <h1>Meus Móveis</h1>
       <div id="myFurnitureList"><!-- My furniture list is filled dinamically by javascript --></div>
+    </div>
+
+    <div id="allFurnitureSection" class="d-none">
+      <label for="furnitureNameInput">Nome do Móvel</label>
+      <input type="text" id="furnitureNameInput">
+      <h1>Móveis Disponíveis</h1>
+      <div id="allFurnitureList"><!-- All furniture list is filled dinamically by javascript --></div>
     </div>
 
     <!-- Editing room Modal -->
@@ -55,28 +62,5 @@
         </div>
       </div>
     </div>
-
-    <!-- Creating room Modal -->
-    <div class="modal fade" id="createRoomModal" tabindex="-1">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5">Novo Móvel</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <label for="furnitureNameInput">Nome do Móvel</label>
-            <input type="text" id="furnitureNameInput">
-            <h3>Móveis Disponíveis</h3>
-            <div id="allFurnitureList"></div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button id="modalCreateFurnitureButton" type="button" data-bs-dismiss="modal" class="btn btn-primary">Criar Móvel</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div> 
 </div> <!-- Closes the box what wraps the house diagram editor and menu -->

@@ -1,10 +1,4 @@
 //============== INITIALIZATION ==============//
-var isMouseDown = false;
-var isEraserModeOn = false;
-var selectedRoomId, tileImgElement;
-var selectedFurnitureId, furnitureImgElement, furnitureWidth, furnitureHeight;
-var canvas = houseDiagram.getContext("2d");
-var currentLayer = 'tiles';
 
 //STRUCTURE: //layer["x-y"]: imageId
 //EXAMPLE:  //tiles["0-0"]: 3 => Position 0-0 (top left corner) belongs to the room with id=3
@@ -39,7 +33,17 @@ houseDiagram.addEventListener("mousedown", (event) => {
   
     case 'furniture':
       if(furnitureImgElement || isEraserModeOn){
-        updateDiagramFurniture(event);
+        //It first registers the selected image as a user furniture and then updates the diagram
+        let positionClicked = getCoordsInElement(event);
+        if(areFurniturePositionsAvailable(positionClicked)){
+          // alert('dá pra criar')
+          furnitureName = furnitureNameInput.value;
+          insertFurniture();
+          // diagramPositions.furniture.startingPositions[key] = createdFurnitureId;
+        }
+        // furnitureRoomId = diagramPositions.tiles(positionClicked[0]);
+        // insertFurniture(); 
+        // updateDiagramFurniture(event);
       } else {
         alert('selecione um móvel para inserir!');
       }
@@ -111,19 +115,19 @@ function updateDiagramTiles(mouseEvent) {
   reloadDiagram();
 } 
 
-function updateDiagramFurniture(mouseEvent){
-  let positionClicked = getCoordsInElement(mouseEvent);
-  let key = positionClicked[0] + "-" + positionClicked[1]; 
+// function updateDiagramFurniture(mouseEvent){
+//   let positionClicked = getCoordsInElement(mouseEvent);
+//   let key = positionClicked[0] + "-" + positionClicked[1]; 
   
-  if(isEraserModeOn){
-    deleteFurnitureFromDiagram(key);
-  } else {
-    if(areFurniturePositionsAvailable(positionClicked)){
-      diagramPositions.furniture.startingPositions[key] = selectedFurnitureId;
-    }
-  }
-  reloadDiagram();
-}
+//   if(isEraserModeOn){
+//     deleteFurnitureFromDiagram(key);
+//   } else {
+//     if(areFurniturePositionsAvailable(positionClicked)){
+//       diagramPositions.furniture.startingPositions[key] = createdFurnitureId;
+//     }
+//   }
+//   reloadDiagram();
+// }
 
 function reloadDiagram(){
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);

@@ -15,7 +15,23 @@
         break;
       
       case 'insertFurniture':
-        
+        $furniture_name     = $_POST['furniture_name'];
+        $furniture_image_id = $_POST['furniture_image_id'];
+
+        try {
+          $created_furniture_id = createFurniture($furniture_name, $furniture_image_id);
+          $response = [
+            "is_furniture_created" => true, 
+            "value" => $created_furniture_id
+          ];
+        } catch (PDOException $exception) {
+          $response = [
+            "is_furniture_created" => false, 
+            "value" => $exception->getMessage()
+          ];
+        } finally {
+          echo json_encode($response);
+        }
         break;
 
       case 'updateFurniture':

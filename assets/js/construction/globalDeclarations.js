@@ -40,9 +40,6 @@ const tilesPopoverContent = document.getElementById('tilesPopoverContent');
 
 // My Furniture Section
 const myFurnitureSection    = document.getElementById('myFurnitureSection');
-const furnitureNameInput    = document.getElementById('furnitureNameInput');
-const furnitureInputImg     = document.getElementById('furnitureInputImg');
-const createFurnitureButton = document.getElementById('createFurnitureButton');
 const myFurnitureList       = document.getElementById('myFurnitureList');
 
 // Editing room modal
@@ -50,6 +47,12 @@ const modalUpdateRoomButton = document.getElementById('modalUpdateRoomButton');
 const modalRoomNameInput    = document.getElementById('modalRoomNameInput');
 const modalRoomTileInputImg = document.getElementById('modalRoomTileInputImg');
 const modalTilesList        = document.getElementById('modalTilesList');
+
+// All Furniture Section
+const allFurnitureSection = document.getElementById('allFurnitureSection');
+const allFurnitureList    = document.getElementById('allFurnitureList');
+const furnitureNameInput    = document.getElementById('furnitureNameInput');
+const furnitureInputImg     = document.getElementById('furnitureInputImg');
 
 // House Diagram Editor
 const clearDiagramButton  = document.getElementById('clearDiagramButton');
@@ -62,5 +65,15 @@ const houseDiagram        = document.getElementById('houseDiagram');
 // Vars required for Rooms CRUD
 var roomId, roomName, 
     tileId, tileName,
-    furnitureImageId, furnitureImageName;
+    furnitureName,
+    furnitureImageId, furnitureImageName, furnitureRoomId;
 
+//House Diagram (Canvas) variables
+var canvas = houseDiagram.getContext("2d");
+var isMouseDown = false;
+var isEraserModeOn = false;
+var currentLayer = 'tiles';
+var selectedRoomId, tileImgElement;
+var createdFurnitureId;
+var selectedFurnitureImageId, furnitureImgElement, furnitureWidth, furnitureHeight;
+var furnitureName;

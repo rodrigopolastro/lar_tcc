@@ -1,16 +1,26 @@
-function createFurnitureImg(furnitureImg){
-  const furnitureImage = createElementWithAttributes('img', {
+function createFurnitureImg(furnitureImage){
+  const furnitureImgElement = createElementWithAttributes('img', {
     //Search furniture image by its name in the respective room folder
-    src: findFurniturePath(furnitureImg.default_room_name, furnitureImg.furniture_image_name), 
+    src: findFurniturePath(furnitureImage.default_room_name, furnitureImage.furniture_image_name), 
     class:''
   });
 
-  furnitureImage.addEventListener('click', function() {
-    furnitureImageId = furnitureImg.furniture_image_id;
-    furnitureNameInput.value = furnitureImg.furniture_display_name;
+  // furnitureImage.addEventListener('click', function() {
+  //   furnitureImageId = furnitureImg.furniture_image_id;
+  // });
+  
+  furnitureImgElement.addEventListener('click', function() {
+    furnitureNameInput.value = furnitureImage.furniture_display_name;
+    setFurnitureToPaint(
+      furnitureImage.furniture_image_id, 
+      furnitureImgElement, 
+      furnitureImage.tiles_width, 
+      furnitureImage.tiles_height
+    )
   });
 
-  let listId = furnitureImg.default_room_name + "Furniture";
+  //These lists are created in 'createDefaultRoomsList' file
+  let listId = furnitureImage.default_room_name + "Furniture";
   let listToAdd = document.getElementById(listId);
-  listToAdd.appendChild(furnitureImage);
+  listToAdd.appendChild(furnitureImgElement);
 }

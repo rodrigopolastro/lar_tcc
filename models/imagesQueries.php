@@ -9,7 +9,9 @@ function getAllFurnitureImages(){
       furniture_image_id,
       furniture_image_name,
       furniture_display_name,
-      default_room_name
+      default_room_name,
+      tiles_width,
+      tiles_height
     FROM furniture_images"
   );
   

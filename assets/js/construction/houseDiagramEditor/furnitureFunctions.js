@@ -1,10 +1,9 @@
 // Triggered when a furniture image is clicked in the rooms list
 function setFurnitureToPaint(clickedFurnitureId, clickedFurnitureImg, clickedFurnitureWidth, clickedFurnitureHeight){
-  selectedFurnitureId = clickedFurnitureId;
-  furnitureImgElement = clickedFurnitureImg;
-  furnitureWidth  = clickedFurnitureWidth;
-  furnitureHeight = clickedFurnitureHeight;
-
+  selectedFurnitureImageId = clickedFurnitureId;
+  furnitureImgElement      = clickedFurnitureImg;
+  furnitureWidth           = clickedFurnitureWidth;
+  furnitureHeight          = clickedFurnitureHeight;
   //Update UI to highlight selected tile
   removeLastFurnitureHightlight();
   highlightSelectedFurniture();
@@ -28,8 +27,14 @@ function removeLastFurnitureHightlight(){
 }
 
 function areFurniturePositionsAvailable(positionClicked){
+  let tileKey = positionClicked[0] + "-" + positionClicked[1];
+  let clickedRoomId = diagramPositions.tiles[tileKey];
+  // alert(clickedRoomId)
+  if (!clickedRoomId){
+    return false;
+  }
   let positions = [];
-
+  // alert(clickedRoomId)
   //Ex: A 4x2 object is clicked on the bottom-left corner position (positionClicked=[0,19]) .
   //It must: (width=4, height=2)
   //- Occupy height=2 lines with width=4 tiles each.
@@ -45,9 +50,18 @@ function areFurniturePositionsAvailable(positionClicked){
       if(!diagramPositions.tiles.hasOwnProperty(key)){
         return false;
       }
+
+      // Block furniture insertion if it occupies two or more different rooms
+      if(diagramPositions.tiles[key] != clickedRoomId){
+        return false;
+      }
+
+      // Block furniture insertion if does not fit into the diagram
       if(line < 0 || column > NUMBER_OF_COLUMNS - 1){
         return false;
       }
+
+      // Block furniture insertion if there is another furniture on those positions
       if(diagramPositions.furniture.allPositions.hasOwnProperty(key)){
         return false;
       } 
@@ -55,11 +69,12 @@ function areFurniturePositionsAvailable(positionClicked){
     }
   }
   
+  // for(position of positions){
+  //   diagramPositions.furniture.allPositions[position] = createdFurnitureId;
+  // }
+
   //Only return true (allow furniture insertion) if all
   //the positions it will occupy are available.
-  for(position of positions){
-    diagramPositions.furniture.allPositions[position] = selectedFurnitureId;
-  }
   return true;
 }
 

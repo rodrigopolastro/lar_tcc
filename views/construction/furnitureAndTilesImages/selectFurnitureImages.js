@@ -16,7 +16,7 @@ function listFurnitureImages(){
     if (selectFurnitureImagesRequest.status === 200) {
       createDefaultRoomsList();
       const furnitureImages = JSON.parse(selectFurnitureImagesRequest.responseText);
-      furnitureImages.forEach(furnitureImg => { createFurnitureImg(furnitureImg); })
+      furnitureImages.forEach(furnitureImage => { createFurnitureImg(furnitureImage); })
     } else {
       alert("There was a problem with the 'selectRooms' request.");
     }

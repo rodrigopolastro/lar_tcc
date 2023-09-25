@@ -9,9 +9,7 @@ function getAllFurniture(){
       furniture_id,
       furniture_name,
       furniture_image_name,
-      default_room_name,
-      tiles_width,
-      tiles_height
+      default_room_name
     FROM furniture
     INNER JOIN furniture_images ON furniture_image_id = fk_furniture_image_id"
   );
@@ -30,5 +28,19 @@ function getPieceOfFurnitureById($furniture_id){
     
   return $results->fetch();
 }
+
 // ============== ACTION QUERIES ==============
+function createFurniture($furniture_name, $fk_furniture_image_id){   
+  global $connection;
+  $statement = $connection->prepare(
+    "INSERT INTO furniture (furniture_name, fk_furniture_image_id) 
+               VALUES     (:furniture_name,:fk_furniture_image_id)"
+    );
+
+  $statement->bindValue(':furniture_name',$furniture_name);
+  $statement->bindValue(':fk_furniture_image_id',$fk_furniture_image_id);
+  $statement->execute();
+
+  return $connection->lastInsertId();
+}
 ?>
