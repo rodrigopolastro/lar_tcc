@@ -87,19 +87,18 @@ function registerFurniturePositions(createdFurnitureId){
   reloadDiagram();
 }
 
-function removeFurnitureFromDiagram(key){
-  let clickedFurnitureId = diagramPositions.furniture.allPositions[key];
+function removeFurnitureFromDiagram(furnitureId){
 
   let startingPositions = diagramPositions.furniture.startingPositions;
   Object.keys(startingPositions).forEach((key) => {
-    if(startingPositions[key] == clickedFurnitureId){
+    if(startingPositions[key] == furnitureId){
       delete diagramPositions.furniture.startingPositions[key];
     }
   });
 
   let allPositions = diagramPositions.furniture.allPositions;
   Object.keys(allPositions).forEach((key) => {
-    if(allPositions[key] == clickedFurnitureId){
+    if(allPositions[key] == furnitureId){
       delete diagramPositions.furniture.allPositions[key];
     }
   });

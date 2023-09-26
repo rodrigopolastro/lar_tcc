@@ -1,7 +1,11 @@
 //============== INITIALIZATION ==============//
 
-//STRUCTURE: //layer["x-y"]: imageId
-//EXAMPLE:  //tiles["0-0"]: 3 => Position 0-0 (top left corner) belongs to the room with id=3
+//STRUCTURE: 
+//  KEY   = "x-y" (coordinates in the diagram, both being integer numbers representing the tiles lines and colmns)
+//  VALUE = Tiles => roomId;
+//          Walls and TopWalls => imageId;
+//          Furniture => furnitureId (user furniture, not the furniture image)
+
 var diagramPositions = {
   tiles:{},
   walls:{},
@@ -68,6 +72,7 @@ clearDiagramButton.addEventListener('click', () => {
     topWalls:{}
   };
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  deleteAllFurniture();
 });
 
 eraserModeButton.addEventListener('click', function() {
@@ -110,14 +115,16 @@ function updateDiagramFurniture(mouseEvent){
   let key = positionClicked[0] + "-" + positionClicked[1]; 
   
   if(isEraserModeOn){
-    furnitureId = diagramPositions.tiles[key]
+    //Request to delete user furniture before removing it from the diagram
+    furnitureId = diagramPositions.furniture.allPositions[key]
     deleteFurniture(furnitureId);
   } else {
     if(areFurniturePositionsAvailable(positionClicked)){
+        //Data required for the furniture creation
         createdFurnitureStartingPosition = key;
         furnitureRoomId = diagramPositions.tiles[key]
         furnitureName = furnitureNameInput.value;
-        //Request to create user furniture and before adding it to the diagram
+        //Request to register user furniture before adding it to the diagram
         insertFurniture(); 
     }
   }
@@ -146,7 +153,6 @@ function reloadDiagram(){
 
   //LOAD FURNITURE (on their starting positions)
   Object.entries(diagramPositions.furniture.startingPositions).forEach(([key, value]) => {
-    console.log(value);
     let furnitureDiv    = document.querySelector("[data-furniture-id='" + value + "']");
     let furnitureWidth  = furnitureDiv.dataset.tilesWidth;
     let furnitureHeight = furnitureDiv.dataset.tilesHeight;

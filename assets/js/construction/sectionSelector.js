@@ -22,6 +22,6 @@ myFurnitureSectionButton.addEventListener('click', () => {
   myRoomsSection.classList.add('d-none');
   allFurnitureSection.classList.add('d-none');
 
-  currentLayer = 'none';
+  currentLayer = 'furniture';
 });
 

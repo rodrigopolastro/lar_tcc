@@ -70,4 +70,13 @@ function deleteFurniture($furniture_id){
 
   return $statement->rowCount();
 }
+
+function deleteAllFurniture(){
+  global $connection;
+  $statement = $connection->prepare(
+    "DELETE FROM furniture"
+    );
+
+  $statement->execute();
+}
 ?>

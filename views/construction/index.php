@@ -40,6 +40,7 @@
   <!-- FURNITURE -->
   <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/createFurnitureDiv.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/deleteFurniture.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/deleteAllFurniture.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/insertFurniture.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/selectFurniture.js"></script>
 
