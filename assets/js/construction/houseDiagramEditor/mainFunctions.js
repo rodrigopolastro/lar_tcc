@@ -33,17 +33,7 @@ houseDiagram.addEventListener("mousedown", (event) => {
   
     case 'furniture':
       if(furnitureImgElement || isEraserModeOn){
-        //It first registers the selected image as a user furniture and then updates the diagram
-        let positionClicked = getCoordsInElement(event);
-        if(areFurniturePositionsAvailable(positionClicked)){
-          // alert('dá pra criar')
-          furnitureName = furnitureNameInput.value;
-          insertFurniture();
-          // diagramPositions.furniture.startingPositions[key] = createdFurnitureId;
-        }
-        // furnitureRoomId = diagramPositions.tiles(positionClicked[0]);
-        // insertFurniture(); 
-        // updateDiagramFurniture(event);
+        updateDiagramFurniture(event);
       } else {
         alert('selecione um móvel para inserir!');
       }
@@ -115,19 +105,23 @@ function updateDiagramTiles(mouseEvent) {
   reloadDiagram();
 } 
 
-// function updateDiagramFurniture(mouseEvent){
-//   let positionClicked = getCoordsInElement(mouseEvent);
-//   let key = positionClicked[0] + "-" + positionClicked[1]; 
+function updateDiagramFurniture(mouseEvent){
+  let positionClicked = getCoordsInElement(mouseEvent);
+  let key = positionClicked[0] + "-" + positionClicked[1]; 
   
-//   if(isEraserModeOn){
-//     deleteFurnitureFromDiagram(key);
-//   } else {
-//     if(areFurniturePositionsAvailable(positionClicked)){
-//       diagramPositions.furniture.startingPositions[key] = createdFurnitureId;
-//     }
-//   }
-//   reloadDiagram();
-// }
+  if(isEraserModeOn){
+    furnitureId = diagramPositions.tiles[key]
+    deleteFurniture(furnitureId);
+  } else {
+    if(areFurniturePositionsAvailable(positionClicked)){
+        createdFurnitureStartingPosition = key;
+        furnitureRoomId = diagramPositions.tiles[key]
+        furnitureName = furnitureNameInput.value;
+        //Request to create user furniture and before adding it to the diagram
+        insertFurniture(); 
+    }
+  }
+}
 
 function reloadDiagram(){
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -152,6 +146,7 @@ function reloadDiagram(){
 
   //LOAD FURNITURE (on their starting positions)
   Object.entries(diagramPositions.furniture.startingPositions).forEach(([key, value]) => {
+    console.log(value);
     let furnitureDiv    = document.querySelector("[data-furniture-id='" + value + "']");
     let furnitureWidth  = furnitureDiv.dataset.tilesWidth;
     let furnitureHeight = furnitureDiv.dataset.tilesHeight;

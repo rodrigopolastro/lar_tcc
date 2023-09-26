@@ -26,15 +26,18 @@ function removeLastFurnitureHightlight(){
   }
 }
 
+//Only return true (allow furniture insertion) if all
+//the positions the furniture will occupy are available.
 function areFurniturePositionsAvailable(positionClicked){
   let tileKey = positionClicked[0] + "-" + positionClicked[1];
   let clickedRoomId = diagramPositions.tiles[tileKey];
-  // alert(clickedRoomId)
   if (!clickedRoomId){
+    console.log('ERRO: Espaço vazio clicado.')
     return false;
   }
-  let positions = [];
-  // alert(clickedRoomId)
+
+  furniturePositions = [];
+
   //Ex: A 4x2 object is clicked on the bottom-left corner position (positionClicked=[0,19]) .
   //It must: (width=4, height=2)
   //- Occupy height=2 lines with width=4 tiles each.
@@ -48,37 +51,43 @@ function areFurniturePositionsAvailable(positionClicked){
       
       // Does not allow furniture insertion in an empty space (with no tile)
       if(!diagramPositions.tiles.hasOwnProperty(key)){
+        console.log('ERRO: Espaço vazio em alguma outra posição.')
         return false;
       }
-
+      
       // Block furniture insertion if it occupies two or more different rooms
       if(diagramPositions.tiles[key] != clickedRoomId){
+        console.log('ERRO: Dois ou mais cômodos diferentes.')
         return false;
       }
-
+      
       // Block furniture insertion if does not fit into the diagram
       if(line < 0 || column > NUMBER_OF_COLUMNS - 1){
+        console.log('ERRO: Limites do diagrama excedidos.')
         return false;
       }
-
+      
       // Block furniture insertion if there is another furniture on those positions
       if(diagramPositions.furniture.allPositions.hasOwnProperty(key)){
+        console.log('ERRO: Já há um móvel ocupando essa posição.')
         return false;
       } 
-      positions.push(key);
+      furniturePositions.push(key);
     }
   }
-  
-  // for(position of positions){
-  //   diagramPositions.furniture.allPositions[position] = createdFurnitureId;
-  // }
-
-  //Only return true (allow furniture insertion) if all
-  //the positions it will occupy are available.
   return true;
 }
 
-function deleteFurnitureFromDiagram(key){
+function registerFurniturePositions(createdFurnitureId){
+  diagramPositions.furniture.startingPositions[createdFurnitureStartingPosition] = createdFurnitureId;
+  for(position of furniturePositions){
+    diagramPositions.furniture.allPositions[position] = createdFurnitureId;
+  }
+
+  reloadDiagram();
+}
+
+function removeFurnitureFromDiagram(key){
   let clickedFurnitureId = diagramPositions.furniture.allPositions[key];
 
   let startingPositions = diagramPositions.furniture.startingPositions;
@@ -94,4 +103,6 @@ function deleteFurnitureFromDiagram(key){
       delete diagramPositions.furniture.allPositions[key];
     }
   });
+
+  reloadDiagram();
 }

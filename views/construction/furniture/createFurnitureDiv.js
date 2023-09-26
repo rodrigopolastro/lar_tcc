@@ -1,8 +1,8 @@
 function createFurnitureDiv(furniture){
   const furnitureDiv = createElementWithAttributes('div', {});
   furnitureDiv.dataset.furnitureId = furniture.furniture_id;
-  // furnitureDiv.dataset.tilesWidth = furniture.tiles_width;
-  // furnitureDiv.dataset.tilesHeight = furniture.tiles_height;
+  furnitureDiv.dataset.tilesWidth = furniture.tiles_width;
+  furnitureDiv.dataset.tilesHeight = furniture.tiles_height;
   
   const furnitureNameElement  = createElementWithAttributes('h4', {});
   const furnitureNameText     = document.createTextNode(furniture.furniture_name);

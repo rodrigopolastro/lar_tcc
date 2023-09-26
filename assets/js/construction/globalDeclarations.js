@@ -66,7 +66,7 @@ const houseDiagram        = document.getElementById('houseDiagram');
 var roomId, roomName, 
     tileId, tileName,
     furnitureName,
-    furnitureImageId, furnitureImageName, furnitureRoomId;
+    furnitureImageId, furnitureImageName, furnitureRoomId, furnitureId;
 
 //House Diagram (Canvas) variables
 var canvas = houseDiagram.getContext("2d");
@@ -74,6 +74,8 @@ var isMouseDown = false;
 var isEraserModeOn = false;
 var currentLayer = 'tiles';
 var selectedRoomId, tileImgElement;
-var createdFurnitureId;
 var selectedFurnitureImageId, furnitureImgElement, furnitureWidth, furnitureHeight;
 var furnitureName;
+
+var createdFurnitureId;
+var furniturePositions, createdFurnitureStartingPosition;

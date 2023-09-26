@@ -1,32 +1,31 @@
 //This function is called when the diagram is clicked and a furniture image is selected
 function insertFurniture(){
   insertFurnitureRequest = new XMLHttpRequest();
-  insertFurnitureRequest.onreadystatechange = displayCreatedFurniture;
+  insertFurnitureRequest.onreadystatechange = addFurnitureToDiagram;
   insertFurnitureRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/furnitureController.php");
   insertFurnitureRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",
   );
-  alert('name=' + furnitureName + 'id image=' + selectedFurnitureImageId)
+  // alert('name=' + furnitureName + 'id image=' + selectedFurnitureImageId)
   insertFurnitureRequest.send("operation=insertFurniture" + 
                              "&furniture_name=" + furnitureName +
-                             "&furniture_image_id=" + selectedFurnitureImageId);
+                             "&furniture_image_id=" + selectedFurnitureImageId+
+                             "&room_id=" + furnitureRoomId);
 }
 
-function displayCreatedFurniture(){
+function addFurnitureToDiagram(){
   if (insertFurnitureRequest.readyState === XMLHttpRequest.DONE) { 
     if (insertFurnitureRequest.status === 200) { 
-      // alert(insertFurnitureRequest.responseText)  
+      // console.log(insertFurnitureRequest.responseText)  
       const response = JSON.parse(insertFurnitureRequest.responseText);
-      
       if(response.is_furniture_created){
-        createdFurnitureId = response.value;
-        createFurnitureDiv({
-          furniture_id: createdFurnitureId,
-          furniture_name: furnitureName,
-          a: selectedFurnitureImageId,
-          // tile_name: tileName
-        });
+        let furniture = response.value;
+        createFurnitureDiv(furniture);
+        registerFurniturePositions(furniture.furniture_id);
+
+        //Get created furniture info to display its div
+        // selectPieceOfFurniture(createdFurnitureId);
       } else {
         alert("Erro na criação do móvel: " + response.value);
       }
