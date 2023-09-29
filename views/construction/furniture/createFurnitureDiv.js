@@ -15,6 +15,7 @@ function createFurnitureDiv(furniture){
   editFurnitureButton.innerHTML = 'Editar Móvel';
   
   const deleteFurnitureButton = createElementWithAttributes('button', {class:'btn btn-danger'});
+  deleteFurnitureButton.addEventListener('click', function(){ deleteFurniture(furniture.furniture_id) });
   deleteFurnitureButton.innerHTML = 'Excluir Móvel';
 
   furnitureDiv.appendChild(furnitureNameElement).appendChild(furnitureNameText);
