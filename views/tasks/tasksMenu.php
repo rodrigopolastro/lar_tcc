@@ -10,7 +10,8 @@
     <!-- colocar div com bootstrap dentro dessa de cima -->
     <div class="m-3 row">
         <h3>Filtros</h3>
-      <div class="col me-5">
+      <div class="col me-5 align-items-center d-flex">
+        <img src="../../assets/images/icons/sun.png" class="me-2">
         <label for="selectTaskDate"></label>
         <select id="selectTaskDate" class="rounded-3"> 
           <option value="any">Qualquer Data</option>
@@ -20,7 +21,8 @@
           <option value="other">Outra Data</option>
         </select>
       </div>
-      <div class="col">
+      <div class="col align-items-center d-flex">
+        <img src="../../assets/images/icons/room.png" class="me-2">
         <label for="selectTaskRoomId"></label>
         <select id="selectTaskRoomId" class="rounded-3">
           <option value="any">Qualquer Cômodo</option>

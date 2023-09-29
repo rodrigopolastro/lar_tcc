@@ -33,7 +33,7 @@ function createTaskDiv(task){
   const taskDueDateText     = document.createTextNode('Data: ' + task.due_date + ' | Hora: ' + task.due_time);
   const taskRoomText        = document.createTextNode("Cômodo: " + task.room_name);
   const taskFurnitureText   = document.createTextNode("Móvel: " + task.furniture_name);
-  const taskCollapseText    = document.createTextNode('descer');
+  const taskCollapseImg    = createElementWithAttributes('input', {type: 'image', src: '../../assets/images/icons/arrow.png'});  
 
   const formCompleteTask  = createElementWithAttributes('form', {method: 'post', action: '.'});
   const completeTaskId    = createElementWithAttributes('input', {type: 'hidden', name: 'task_id', value: task.task_id});
@@ -43,7 +43,7 @@ function createTaskDiv(task){
   const formDeleteTask  = createElementWithAttributes('form', {method: 'post', action: '.'});
   const deleteTaskId    = createElementWithAttributes('input', {type: 'hidden', name: 'task_id', value: task.task_id});
   const deleteOperation = createElementWithAttributes('input', {type: 'hidden', name: 'operation', value: 'deleteTask'});
-  const deleteSubmit    = createElementWithAttributes('input', {type: 'submit', value: 'Excluir Tarefa', class: 'row border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2'});     
+  const deleteSubmit    = createElementWithAttributes('input', {type: 'image', src: '../../assets/images/icons/trash.png', value: 'Excluir Tarefa', class:'ms-2'});     
 
   // Stablish hierarchy between elements
   taskDiv.appendChild(outerTaskDiv01);
@@ -60,7 +60,7 @@ function createTaskDiv(task){
   innerTaskDiv01.appendChild(formCompleteTask);
   innerTaskDiv02.appendChild(taskName).appendChild(taskNameText);
 
-  innerTaskDiv03.appendChild(taskCollapse).appendChild(taskCollapseText);
+  innerTaskDiv03.appendChild(taskCollapse).appendChild(taskCollapseImg);
 
   outerTaskDiv02.appendChild(innerTaskDiv04);
   outerTaskDiv02.appendChild(innerTaskDiv05);
@@ -91,12 +91,13 @@ function createTaskDiv(task){
     completedTasksList.appendChild(taskDiv);
   } else { 
     // Only uncompleted tasks can be edited
-    const buttonEditTask = createElementWithAttributes('button', {onclick:"selectOneTask(" + task.task_id + ")", class: 'row border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2'});
-    buttonEditTask.innerHTML = 'Editar Tarefa';
+    const buttonEditTask = createElementWithAttributes('button', {onclick:"selectOneTask(" + task.task_id + ")", class: 'border border-0 btn btn-link'});
+    const buttonEditImage  = createElementWithAttributes('img', {src: '../../assets/images/icons/pen.png',});
     // Bootstrap attributes for triggering modal
     buttonEditTask.dataset.bsToggle = 'modal';
     buttonEditTask.dataset.bsTarget = '#staticBackdrop';
     innerTaskDiv06.appendChild(buttonEditTask);
+    buttonEditTask.appendChild(buttonEditImage);
 
     completeOperation.value = 'completeTask';
     completeSubmit.value = '';
