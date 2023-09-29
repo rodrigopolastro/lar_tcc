@@ -1,6 +1,6 @@
 function createTaskDiv(task){
 
-  const taskDiv             = createElementWithAttributes('div', {class: 'row border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 mb-2'});
+  const taskDiv             = createElementWithAttributes('div', {class: 'border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 mb-2'});
   const outerTaskDiv01      = createElementWithAttributes('div', {class: 'row'});
   const outerTaskDiv02      = createElementWithAttributes('div', {class: 'row'});
   const outerTaskDiv03      = createElementWithAttributes('div', {class: 'row'});
