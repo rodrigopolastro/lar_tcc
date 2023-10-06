@@ -1,5 +1,5 @@
 function createTileImg(tile, parentElement, tileDisplayElement){
-  const tileImage = createElementWithAttributes('img', {src: findTilePath(tile.tile_name), class:'tile-image'});
+  const tileImage = createElementWithAttributes('img', {src: findTilePath(tile.tile_name), class:'tile-image ms-3 mb-3'});
 
   tileImage.addEventListener('click', function() {
     setRoomTile(tile.tile_id, tile.tile_name, tileDisplayElement)
