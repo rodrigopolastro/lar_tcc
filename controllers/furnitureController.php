@@ -12,6 +12,9 @@
         break;
 
       case 'selectPieceOfFurniture':
+        $furniture_id = $_POST['furniture_id'];
+        $furniture = getPieceOfFurnitureById($furniture_id);
+        echo json_encode($furniture);
         break;
       
       case 'insertFurniture':
@@ -38,6 +41,20 @@
         break;
 
       case 'updateFurniture':
+        $furniture_id = $_POST['furniture_id'];
+        $furniture_name = $_POST['furniture_name'];
+        
+        try{
+          updateFurniture($furniture_id, $furniture_name);
+          $response = ["is_furniture_updated" => true];
+        } catch (PDOException $exception){
+          $response = [
+            "is_furniture_updated" => false, 
+            "value" => $exception->getMessage()
+          ];
+        } finally {
+          echo json_encode($response);
+        }
         break;  
 
       case 'deleteFurniture':

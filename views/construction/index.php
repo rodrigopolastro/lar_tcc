@@ -43,6 +43,8 @@
   <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/deleteAllFurniture.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/insertFurniture.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/selectFurniture.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/selectPieceOfFurniture.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/updateFurniture.js"></script>
 
 
   <!-- FURNITURE AND TILES IMAGES -->

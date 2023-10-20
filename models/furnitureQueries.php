@@ -59,6 +59,18 @@ function createFurniture($furniture_name, $fk_furniture_image_id, $fk_room_id){
   return $connection->lastInsertId();
 }
 
+function updateFurniture($furniture_id, $furniture_name){
+  global $connection;
+  $statement = $connection->prepare(
+    "UPDATE furniture SET furniture_name = :furniture_name
+     WHERE furniture_id = :furniture_id"
+    );  
+
+  $statement->bindValue(':furniture_id',$furniture_id);
+  $statement->bindValue(':furniture_name',$furniture_name);
+  $statement->execute();
+}
+
 function deleteFurniture($furniture_id){
   global $connection;
   $statement = $connection->prepare(

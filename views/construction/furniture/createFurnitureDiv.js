@@ -12,7 +12,10 @@ function createFurnitureDiv(furniture){
   });
 
   const editFurnitureButton   = createElementWithAttributes('button', {class:'btn btn-success'});
+  editFurnitureButton.addEventListener('click', function(){ selectPieceOfFurniture(furniture.furniture_id) });
   editFurnitureButton.innerHTML = 'Editar Móvel';
+  editFurnitureButton.dataset.bsToggle = 'modal';
+  editFurnitureButton.dataset.bsTarget = '#editingFurnitureModal';
   
   const deleteFurnitureButton = createElementWithAttributes('button', {class:'btn btn-danger'});
   deleteFurnitureButton.addEventListener('click', function(){ deleteFurniture(furniture.furniture_id) });

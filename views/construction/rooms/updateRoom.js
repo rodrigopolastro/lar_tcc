@@ -35,7 +35,7 @@ function updateDiagramAndRoomsList(){
         alert("Erro na edição do cômodo: " + response.value);
       }
     } else {
-      alert("There was a problem with the 'editRoom' request.");
+      alert("There was a problem with the 'updateRoom' request.");
     }
   }
 }

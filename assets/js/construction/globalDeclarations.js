@@ -48,6 +48,10 @@ const modalRoomNameInput    = document.getElementById('modalRoomNameInput');
 const modalRoomTileInputImg = document.getElementById('modalRoomTileInputImg');
 const modalTilesList        = document.getElementById('modalTilesList');
 
+// Editing furniture modal
+const modalFurnitureImg       = document.getElementById('modalFurnitureImg');
+const modalFurnitureNameInput = document.getElementById('modalFurnitureNameInput');
+
 // All Furniture Section
 const allFurnitureSection = document.getElementById('allFurnitureSection');
 const allFurnitureList    = document.getElementById('allFurnitureList');
