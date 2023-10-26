@@ -22,6 +22,7 @@ myFurnitureSectionButton.addEventListener('click', () => {
   myRoomsSection.classList.add('d-none');
   allFurnitureSection.classList.add('d-none');
 
-  currentLayer = 'furniture';
+  //This section is only for listing the already added furniture, not to add new ones
+  currentLayer = 'none';
 });
 

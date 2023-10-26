@@ -26,7 +26,7 @@ function removeFromDiagramAndRoomsList(){
         removeTilesFromRoom(roomId);
         
         //Save diagram changes in database
-        updateDiagramPositions();
+        // updateDiagramPositions();
       } else {
         alert("Ocorreu um erro na exclusão do cômodo: room_id inválido");
       }

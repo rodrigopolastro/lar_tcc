@@ -22,7 +22,6 @@ function removeFromDiagramAndFurnitureList(){
         deletedFurnitureDiv.remove();
         
         removeFurnitureFromDiagram(furnitureId);
-        updateDiagramPositions();
       } else {
         alert("Ocorreu um erro na exclusão do cômodo: furniture_id inválido");
       }

@@ -4,6 +4,16 @@
     <button id="eraserModeButton">
       Modo Borracha: <span id="eraserModeIndicator">OFF</span>
     </button>
-    <button id="saveDiagramButton">Salvar Diagrama</button>
+    <!-- 
+      IT'S NOT LONGER POSSIBLE TO SAVE THE CHANGES MANUALLY:
+      <button id="saveDiagramButton">Salvar Diagrama</button>
+    -->
+    <!-- 
+      EXPLANATION:
+        For now, every action in the diagram is automatically saved on the database,
+        what makes them irreversible. Althought that's not the most user-friendly 
+        approach, this change is necessary for the current development of the project,
+        but the "save button feature" can return in future updates. 
+    --> 
     <canvas id="houseDiagram"></canvas>
   </div>

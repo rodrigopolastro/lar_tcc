@@ -23,9 +23,6 @@ function addFurnitureToDiagram(){
         let furniture = response.value;
         createFurnitureDiv(furniture);
         registerFurniturePositions(furniture.furniture_id);
-
-        //Get created furniture info to display its div
-        // selectPieceOfFurniture(createdFurnitureId);
       } else {
         alert("Erro na criação do móvel: " + response.value);
       }

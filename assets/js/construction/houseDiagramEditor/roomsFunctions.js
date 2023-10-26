@@ -19,7 +19,9 @@ function removeTilesFromRoom(roomId){
   });
   selectedRoomId = null;
   tileImgElement = null;
+
   reloadDiagram();
+  updateDiagramPositions();
 }
 
 //Update the UI to show selected tile

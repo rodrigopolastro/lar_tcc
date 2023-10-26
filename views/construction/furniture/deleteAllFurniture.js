@@ -15,6 +15,7 @@ function deleteAllFurniture(){
       if (deleteAllFurnitureRequest.status === 200) {  
         Array.from(myFurnitureList.children).forEach(furniture => furniture.remove());
         updateDiagramPositions();
+        // reloadDiagram();
       } else {
         alert("There was a problem with the 'deleteAllFurniture' request.");
       }

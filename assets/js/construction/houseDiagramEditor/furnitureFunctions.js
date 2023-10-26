@@ -32,7 +32,7 @@ function areFurniturePositionsAvailable(positionClicked){
   let tileKey = positionClicked[0] + "-" + positionClicked[1];
   let clickedRoomId = diagramPositions.tiles[tileKey];
   if (!clickedRoomId){
-    console.log('ERRO: Espaço vazio clicado.')
+    console.log('ERRO NA INSERÇÃO DO MÓVEL: Espaço vazio clicado.')
     return false;
   }
 
@@ -49,27 +49,27 @@ function areFurniturePositionsAvailable(positionClicked){
       let column = positionClicked[0] + i;
       let key = column + "-" + line; 
       
-      // Does not allow furniture insertion in an empty space (with no tile)
+      // Block furniture insertion in an empty space (with no tile)
       if(!diagramPositions.tiles.hasOwnProperty(key)){
-        console.log('ERRO: Espaço vazio em alguma outra posição.')
+        console.log('ERRO NA INSERÇÃO DO MÓVEL: Espaço vazio em alguma outra posição.')
         return false;
       }
       
       // Block furniture insertion if it occupies two or more different rooms
       if(diagramPositions.tiles[key] != clickedRoomId){
-        console.log('ERRO: Dois ou mais cômodos diferentes.')
+        console.log('ERRO NA INSERÇÃO DO MÓVEL: Dois ou mais cômodos diferentes.')
         return false;
       }
       
       // Block furniture insertion if does not fit into the diagram
       if(line < 0 || column > NUMBER_OF_COLUMNS - 1){
-        console.log('ERRO: Limites do diagrama excedidos.')
+        console.log('ERRO NA INSERÇÃO DO MÓVEL: Limites do diagrama excedidos.')
         return false;
       }
       
       // Block furniture insertion if there is another furniture on those positions
       if(diagramPositions.furniture.allPositions.hasOwnProperty(key)){
-        console.log('ERRO: Já há um móvel ocupando essa posição.')
+        console.log('ERRO NA INSERÇÃO DO MÓVEL: Já há um móvel ocupando essa posição.')
         return false;
       } 
       furniturePositions.push(key);
@@ -85,6 +85,7 @@ function registerFurniturePositions(createdFurnitureId){
   }
 
   reloadDiagram();
+  updateDiagramPositions();
 }
 
 function removeFurnitureFromDiagram(furnitureId){
@@ -104,4 +105,5 @@ function removeFurnitureFromDiagram(furnitureId){
   });
 
   reloadDiagram();
+  updateDiagramPositions();
 }

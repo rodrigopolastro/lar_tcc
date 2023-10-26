@@ -1,3 +1,5 @@
+var lastPositionClicked=[];
+
 //============== INITIALIZATION ==============//
 
 //STRUCTURE: 
@@ -29,7 +31,7 @@ houseDiagram.addEventListener("mousedown", (event) => {
     case 'tiles':
       isMouseDown = true;
       if(tileImgElement || isEraserModeOn){
-        updateDiagramTiles(event);
+        updateDiagramTiles(event);   
       } else {
         alert('selecione um piso para pintar!');
       }
@@ -37,7 +39,7 @@ houseDiagram.addEventListener("mousedown", (event) => {
   
     case 'furniture':
       if(furnitureImgElement || isEraserModeOn){
-        updateDiagramFurniture(event);
+        updateDiagramFurniture(event); 
       } else {
         alert('selecione um móvel para inserir!');
       }
@@ -72,7 +74,7 @@ clearDiagramButton.addEventListener('click', () => {
     topWalls:{}
   };
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-  deleteAllFurniture();
+  deleteAllFurniture(); //Delete furniture from database (and reload diagram)
 });
 
 eraserModeButton.addEventListener('click', function() {
@@ -97,17 +99,28 @@ function setEraserMode(setTo){
   }
 }
 
+//OBS: the 'saveButton' click event is defined on 'updateDiagramPositions' AJAX request file
+
 //============== CANVAS MODIFICATION FUNCTIONS ==============//
 function updateDiagramTiles(mouseEvent) {
   let positionClicked = getCoordsInElement(mouseEvent);
-  let key = positionClicked[0] + "-" + positionClicked[1];
-  
-  if(isEraserModeOn){
-    delete diagramPositions.tiles[key];
-  } else {
-    diagramPositions.tiles[key] = selectedRoomId;
+
+  //Only reloads diagram if a new tile is clicked. (avoid new canvas reloads 
+  //and diagram requests for every possible pixel in a tile since we're listening to the 'mousemove' event)
+  if(positionClicked[0] != lastPositionClicked[0] || positionClicked[1] != lastPositionClicked[1]){
+    // console.log(lastPositionClicked)
+    // console.log(positionClicked)
+    lastPositionClicked = positionClicked;
+    let key = positionClicked[0] + "-" + positionClicked[1];
+    
+    if(isEraserModeOn){
+      delete diagramPositions.tiles[key];
+    } else {
+      diagramPositions.tiles[key] = selectedRoomId;
+    }
+    reloadDiagram();           
+    updateDiagramPositions();
   }
-  reloadDiagram();
 } 
 
 function updateDiagramFurniture(mouseEvent){
