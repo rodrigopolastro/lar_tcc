@@ -105,8 +105,13 @@ function setEraserMode(setTo){
 function updateDiagramTiles(mouseEvent) {
   let positionClicked = getCoordsInElement(mouseEvent);
 
+  
   //Only reloads diagram if a new tile is clicked. (avoid new canvas reloads 
   //and diagram requests for every possible pixel in a tile since we're listening to the 'mousemove' event)
+
+  //BROOOOOOOOO
+  //Pleeease make apply early returns here.
+  //Those 4 nested IFs are hurting my soul
   if(positionClicked[0] != lastPositionClicked[0] || positionClicked[1] != lastPositionClicked[1]){
     // console.log(lastPositionClicked)
     // console.log(positionClicked)
@@ -114,12 +119,22 @@ function updateDiagramTiles(mouseEvent) {
     let key = positionClicked[0] + "-" + positionClicked[1];
     
     if(isEraserModeOn){
-      delete diagramPositions.tiles[key];
+      if(diagramPositions.tiles.hasOwnProperty(key)){
+        if(!diagramPositions.furniture.allPositions.hasOwnProperty(key)){
+          delete diagramPositions.tiles[key];
+          reloadDiagram();           
+          updateDiagramPositions();
+        } else {
+          console.log('ERRO NA DELEÇÃO DO PISO: Há um móvel sobre este piso.')
+        }
+      } else {
+        console.log('ERRO NA DELEÇÃO DO PISO: Não há nenhum piso na posição selecionada')
+      }
     } else {
       diagramPositions.tiles[key] = selectedRoomId;
+      reloadDiagram();           
+      updateDiagramPositions();
     }
-    reloadDiagram();           
-    updateDiagramPositions();
   }
 } 
 

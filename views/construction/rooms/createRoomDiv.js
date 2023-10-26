@@ -10,7 +10,13 @@ function createRoomDiv(room){
 
   roomTile.addEventListener('mousedown', function(){ setRoomToPaint(room.room_id, roomTile) });
 
-  buttonDeleteRoom.addEventListener('click', function(){ deleteRoom(room.room_id) });
+  buttonDeleteRoom.addEventListener('click', function(){ 
+    //IMPORTANT: 
+    //This button must trigger a confirmation modal listing:
+    // - all the furniture associated with this room (that will be deleted)
+    // - all the tasks associated with this room (that will no longer have a room, i.e. fk_room_id => NULL)
+    deleteRoom(room.room_id) 
+  });
   buttonDeleteRoom.innerHTML = 'Excluir Cômodo';
 
   buttonEditRoom.addEventListener('click', function(){ selectOneRoom(room.room_id) });
