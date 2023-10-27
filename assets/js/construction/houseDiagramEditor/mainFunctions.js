@@ -131,9 +131,13 @@ function updateDiagramTiles(mouseEvent) {
         console.log('ERRO NA DELEÇÃO DO PISO: Não há nenhum piso na posição selecionada')
       }
     } else {
-      diagramPositions.tiles[key] = selectedRoomId;
-      reloadDiagram();           
-      updateDiagramPositions();
+      if(!diagramPositions.furniture.allPositions.hasOwnProperty(key)){
+        diagramPositions.tiles[key] = selectedRoomId;
+        reloadDiagram();           
+        updateDiagramPositions();
+      } else {
+        console.log('ERRO NA INSERÇÃO DO PISO: Há um móvel sobre esta posição!')
+      }
     }
   }
 } 
