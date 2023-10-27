@@ -141,20 +141,24 @@ function updateDiagramTiles(mouseEvent) {
 function updateDiagramFurniture(mouseEvent){
   let positionClicked = getCoordsInElement(mouseEvent);
   let key = positionClicked[0] + "-" + positionClicked[1]; 
-  
-  if(isEraserModeOn){
-    //Request to delete user furniture before removing it from the diagram
-    furnitureId = diagramPositions.furniture.allPositions[key]
-    deleteFurniture(furnitureId);
-  } else {
-    if(areFurniturePositionsAvailable(positionClicked)){
-        //Data required for the furniture creation
-        createdFurnitureStartingPosition = key;
-        furnitureRoomId = diagramPositions.tiles[key]
-        furnitureName = furnitureNameInput.value;
-        //Request to register user furniture before adding it to the diagram
-        insertFurniture(); 
+
+  if(diagramPositions.tiles.hasOwnProperty(key)){
+    if(isEraserModeOn){
+      //Delete user furniture from database before removing it from the diagram
+      furnitureId = diagramPositions.furniture.allPositions[key]
+      if(furnitureId){ deleteFurniture(furnitureId) };
+    } else {
+      if(areFurniturePositionsAvailable(positionClicked)){
+          //Data required for the furniture creation
+          createdFurnitureStartingPosition = key;
+          furnitureRoomId = diagramPositions.tiles[key]
+          furnitureName = furnitureNameInput.value;
+          //Request to register user furniture before adding it to the diagram
+          insertFurniture(); 
+      }
     }
+  } else {
+    console.log('ERRO NA MODIFICAÇÃO DO MÓVEL: Espaço vazio clicado.')
   }
 }
 

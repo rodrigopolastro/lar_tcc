@@ -31,10 +31,6 @@ function removeLastFurnitureHightlight(){
 function areFurniturePositionsAvailable(positionClicked){
   let tileKey = positionClicked[0] + "-" + positionClicked[1];
   let clickedRoomId = diagramPositions.tiles[tileKey];
-  if (!clickedRoomId){
-    console.log('ERRO NA INSERÇÃO DO MÓVEL: Espaço vazio clicado.')
-    return false;
-  }
 
   furniturePositions = [];
 
