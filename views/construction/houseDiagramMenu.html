@@ -63,6 +63,25 @@
       </div>
     </div>
 
+    <!-- Modal to confirm room deletion -->
+    <div class="modal fade" id="deletingRoomModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Excluir Cômodo</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <h5 id="deletingRoomMessage"></h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button id="modalDeleteRoomButton" type="button" data-bs-dismiss="modal" class="btn btn-danger">Excluir Cômodo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Editing furniture Modal -->
     <div class="modal fade" id="editingFurnitureModal" tabindex="-1">
       <div class="modal-dialog modal-lg">

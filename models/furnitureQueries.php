@@ -22,6 +22,28 @@ function getAllFurniture(){
   return $results;
 }
 
+function getFurnitureByRoomId($room_id){ 
+  global $connection;
+  $statement = $connection->prepare(
+    "SELECT 
+      furniture_id,
+      furniture_name,
+      furniture_image_name,
+      default_room_name,
+      tiles_width,
+      tiles_height
+    FROM furniture
+    INNER JOIN furniture_images ON furniture_image_id = fk_furniture_image_id
+    WHERE fk_room_id = :room_id"
+  );
+  
+  $statement->bindValue(':room_id',$room_id);
+  $statement->execute();
+
+  $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+  return $results;
+}
+
 function getPieceOfFurnitureById($furniture_id){
   global $connection;
   $statement = $connection->prepare(

@@ -35,6 +35,7 @@
   <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/deleteRoom.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/selectRooms.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/selectOneRoom.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/selectFurnitureOfRoom.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/updateRoom.js"></script>
   
   <!-- FURNITURE -->

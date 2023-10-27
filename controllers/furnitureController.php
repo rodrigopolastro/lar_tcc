@@ -11,6 +11,12 @@
         echo json_encode($furniture);
         break;
 
+      case 'selectFurnitureOfRoom':
+        $room_id = $_POST['room_id'];
+        $furniture = getFurnitureByRoomId($room_id);
+        echo json_encode($furniture);
+        break;
+
       case 'selectPieceOfFurniture':
         $furniture_id = $_POST['furniture_id'];
         $furniture = getPieceOfFurnitureById($furniture_id);

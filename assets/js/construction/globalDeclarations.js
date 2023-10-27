@@ -48,6 +48,11 @@ const modalRoomNameInput    = document.getElementById('modalRoomNameInput');
 const modalRoomTileInputImg = document.getElementById('modalRoomTileInputImg');
 const modalTilesList        = document.getElementById('modalTilesList');
 
+// Deleting room modal
+const modalDeleteRoomButton = document.getElementById('modalDeleteRoomButton');
+const deletingRoomMessage   = document.getElementById('deletingRoomMessage');
+const deletingRoomTasks     = document.getElementById('deletingRoomTasks');
+
 // Editing furniture modal
 const modalFurnitureImg       = document.getElementById('modalFurnitureImg');
 const modalFurnitureNameInput = document.getElementById('modalFurnitureNameInput');
