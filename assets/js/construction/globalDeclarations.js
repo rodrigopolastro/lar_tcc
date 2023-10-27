@@ -1,8 +1,20 @@
 //============== CONSTANTS ==============//
 
+// Default rooms list (assign portuguese names for internal variables in english)
+const DEFAULT_ROOMS = {
+  kitchen:    "Cozinha",
+  livingRoom: "Sala de Estar",
+  diningRoom: "Sala de Jantar",
+  bedroom:    "Quarto",
+  bathroom:   "Banheiro",
+  other:      "Outro"
+}
+
 // rootTilePath helper 
 const TILES_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/tiles/";
+const FURNITURE_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/furniture/";
 const PLACEHOLDER_TILE_NAME = "placeholderTile.png";
+const PLACEHOLDER_FURNITURE_NAME = "placeholderFurniture.png";
 
 // Canvas
 const TILE_SIZE = 32;
@@ -14,27 +26,42 @@ const CANVAS_HEIGHT = NUMBER_OF_COLUMNS * TILE_SIZE;
 //============== OBJECTS ==============//
 
 // Section Selector
-const roomsSectionButton     = document.getElementById('roomsSectionButton');
-const furnitureSectionButton = document.getElementById('furnitureSectionButton');
+const myRoomsSectionButton     = document.getElementById('myRoomsSectionButton');
+const myFurnitureSectionButton = document.getElementById('myFurnitureSectionButton');
 
 // Rooms Section
-const roomsSection     = document.getElementById('roomsSection');
+const myRoomsSection   = document.getElementById('myRoomsSection');
 const roomNameInput    = document.getElementById('roomNameInput');
 const roomTileInputDiv = document.getElementById('roomTileInputDiv');
 const roomTileInputImg = document.getElementById('roomTileInputImg');
 const createRoomButton = document.getElementById('createRoomButton');
-const popoverContent   = document.getElementById('popoverContent');
 const roomsList        = document.getElementById('roomsList');
+const tilesPopoverContent = document.getElementById('tilesPopoverContent');
 
-// Furniture Section
-const furnitureSection = document.getElementById('furnitureSection');
-const furnitureList    = document.getElementById('furnitureList');
+// My Furniture Section
+const myFurnitureSection    = document.getElementById('myFurnitureSection');
+const myFurnitureList       = document.getElementById('myFurnitureList');
 
 // Editing room modal
 const modalUpdateRoomButton = document.getElementById('modalUpdateRoomButton');
 const modalRoomNameInput    = document.getElementById('modalRoomNameInput');
 const modalRoomTileInputImg = document.getElementById('modalRoomTileInputImg');
 const modalTilesList        = document.getElementById('modalTilesList');
+
+// Deleting room modal
+const modalDeleteRoomButton = document.getElementById('modalDeleteRoomButton');
+const deletingRoomMessage   = document.getElementById('deletingRoomMessage');
+const deletingRoomTasks     = document.getElementById('deletingRoomTasks');
+
+// Editing furniture modal
+const modalFurnitureImg       = document.getElementById('modalFurnitureImg');
+const modalFurnitureNameInput = document.getElementById('modalFurnitureNameInput');
+
+// All Furniture Section
+const allFurnitureSection = document.getElementById('allFurnitureSection');
+const allFurnitureList    = document.getElementById('allFurnitureList');
+const furnitureNameInput    = document.getElementById('furnitureNameInput');
+const furnitureInputImg     = document.getElementById('furnitureInputImg');
 
 // House Diagram Editor
 const clearDiagramButton  = document.getElementById('clearDiagramButton');
@@ -45,7 +72,19 @@ const houseDiagram        = document.getElementById('houseDiagram');
 
 //============== GLOBAL VARIABLES ==============//
 // Vars required for Rooms CRUD
-var roomId, roomName, tileId, tileName;
+var roomId, roomName, 
+    tileId, tileName,
+    furnitureName,
+    furnitureImageId, furnitureImageName, furnitureRoomId, furnitureId;
 
+//House Diagram (Canvas) variables
+var canvas = houseDiagram.getContext("2d");
+var isMouseDown = false;
+var isEraserModeOn = false;
+var currentLayer = 'tiles';
+var selectedRoomId, tileImgElement;
+var selectedFurnitureImageId, furnitureImgElement, furnitureWidth, furnitureHeight;
+var furnitureName;
 
-
+var createdFurnitureId;
+var furniturePositions, createdFurnitureStartingPosition;

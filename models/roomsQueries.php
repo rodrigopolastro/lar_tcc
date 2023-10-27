@@ -25,7 +25,8 @@ function getRoomById($room_id){
   $statement = $connection->prepare(
     "SELECT  
       room_name, 
-      tile_name 
+      tile_name,
+      fk_tile_id
     FROM rooms
     INNER JOIN tiles ON tiles.tile_id = rooms.fk_tile_id
     WHERE room_id = :room_id"

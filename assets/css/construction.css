@@ -6,6 +6,10 @@
   outline: 10px solid red;
 }
 
+.selected-furniture{
+  outline: 10px solid blue;
+}
+
 #houseDiagram{
   outline: 2px solid black;
   background: #f4f8f9;

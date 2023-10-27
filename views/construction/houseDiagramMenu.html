@@ -1,88 +1,130 @@
   <div id="houseDiagramMenu" class="w-75">
     <div id="sectionSelector">
-      <button id="roomsSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Modificar Cômodos</button>
-      <button id="furnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Modificar Móveis</button>
+      <button id="myRoomsSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus Cômodos</button>
+      <button id="myFurnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus Móveis</button>
+      <button id="allFurnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Adicionar Móveis</button>
     </div>
-    <div id="roomsSection" class="">
+    <div id="myRoomsSection" class="">
       <h2>Novo cômodo</h2>
       <div class="d-flex align-items-center border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 pt-2 pb-2 pe-2 row">
-        <label for="roomNameInput" class="col">Nome do Cômodo</label>
-        <input type="text" id="roomNameInput" class="col">
+        <label for="roomNameInput">Nome do Cômodo</label>
+        <select name="" id="roomNameInput">
+          <option value="kitchen">Cozinha</option>
+          <option value="livingRoom">Sala de Estar</option>
+          <option value="diningRoom'">Sala de Jantar</option>
+          <option value="bedroom">Quarto</option>
+          <option value="bathroom">Banheiro</option>
+          <option value="other">Outro</option> <!-- This one opens a text input when selected -->
+        </select>
         <div id="roomTileInputDiv" class="tile-image" role="button" data-bs-toggle="popover" tabindex="0">
           <!-- the 'src' attribute is filled with the placeholder image by javascript -->
           <img src="" alt="" id="roomTileInputImg" class="w-100 rounded-2">
         </div>
-        <!-- Div to hide the popover content -->
-        <div hidden>
-          <div id="popoverContent"></div>
-        </div>
         <button id="createRoomButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1 col">Criar Cômodo</button>
+        <div id="tilesPopoverContent" class="d-none"></div>
       </div>
-      <h1>Cômodos criados</h1>
-      <!-- Room list is filled dinamically by javascript -->
-      <div id="roomsList"></div>
+      <h1>Meus cômodos</h1>
+      <div id="roomsList"><!-- Room list is filled dinamically by javascript --></div>
+    </div>
+
+    <div id="myFurnitureSection" class="d-none">
+      <h1>Meus Móveis</h1>
+      <div id="myFurnitureList"><!-- My furniture list is filled dinamically by javascript --></div>
+    </div>
+
+    <div id="allFurnitureSection" class="d-none">
+      <label for="furnitureNameInput">Nome do Móvel</label>
+      <input type="text" id="furnitureNameInput">
+      <h1>Móveis Disponíveis</h1>
+      <div id="allFurnitureList"><!-- All furniture list is filled dinamically by javascript --></div>
+    </div>
+    
       <!-- Editing room Modal -->
       <div class="modal fade" id="editingRoomModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
-            <div class="modal-header row m-0">
-              <div class="col"></div>
-              <div class="col-lg-5">
-                <h1 class="modal-title fs-1 text-center">Modo de Edição</h1>
-              </div>
-              <div class="col d-flex flex-row-reverse">
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
+            <div class="modal-header">
+              <h1 class="modal-title fs-5">Editar Cômodo</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-              <div class="row d-flex align-items-center mb-5">
-                <div class="col d-flex justify-content-center">
-                  <label for="modalRoomNameInput">Nome do Cômodo:</label>
-                </div>
-                <div class="col d-flex justify-content-center">
-                  <input type="text" id="modalRoomNameInput">
-                </div>
-                <div class="col d-flex justify-content-center">
-                  <label for="modalRoomTileInputImg">Piso Atual:</label>
-                </div>
-                <div class="col d-flex justify-content-center">
-                  <img src="" alt="" id="modalRoomTileInputImg" class="tile-image">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <h3 class="text-center">Textura do Piso</h3>
-                  
-                  <div id="modalTilesList" class="collapse">
-                    <!-- RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO DIOGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO -->
-                    <!-- remova a class="collapse" da div acima -->
-                    <!-- faça o que está sendo representado abaixo no arquivo createTileImg.js-->
-                    <!-- <div> "aqui vai as 9 primeiras imagens dos pisos (faz seu código lá), talvez nem seja necessário uma div aqui"  </div> -->
-                    <!-- <div id="banana" class="collapse"> "aqui vai o resto das imagens, 6 atualmente" </div> -->
-                  </div>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Textura da Parede</h3>
-                </div>
-                <div class="d-flex justify-content-center">
-                  <a href="#modalTilesList" class="btn" data-bs-toggle="collapse">descer</a>
-                  <!-- No href acima substitua "#modalTilesList" por o que foi colocado no id da div com o resto -->
-                  <!-- das imagens, que seguindo o exemplo seria href="#banana" -->
+              <label for="modalRoomNameInput">Nome do Cômodo</label>
+              <input type="text" id="modalRoomNameInput">
+              <label for="modalRoomTileInputImg">Piso Atual</label>
+              <img src="" alt="" id="modalRoomTileInputImg" class="tile-image">
+              <h3>Pisos Disponíveis</h3>
+              <div id="modalTilesList"></div>
+              <div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  <button id="modalUpdateRoomButton" type="button" data-bs-dismiss="modal" class="btn btn-primary">Salvar
+                    Alterações</button>
                 </div>
               </div>
-              <div class="modal-footer row">
-                <button type="button" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 col mx-5" data-bs-dismiss="modal" id="modalUpdateRoomButton">Salvar</button>
-                <button type="button" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 col mx-5" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+
+    <!-- Editing room Modal -->
+    <div class="modal fade" id="editingRoomModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header row m-0">
+            <div class="col"></div>
+            <div class="col-lg-5">
+              <h1 class="modal-title fs-1 text-center">Modo de Edição</h1>
+            </div>
+            <div class="col d-flex flex-row-reverse">
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="row d-flex align-items-center mb-5">
+              <div class="col d-flex justify-content-center">
+                <label for="modalRoomNameInput">Nome do Cômodo:</label>
               </div>
+              <div class="col d-flex justify-content-center">
+                <input type="text" id="modalRoomNameInput">
+              </div>
+              <div class="col d-flex justify-content-center">
+                <label for="modalRoomTileInputImg">Piso Atual:</label>
+              </div>
+              <div class="col d-flex justify-content-center">
+                <img src="" alt="" id="modalRoomTileInputImg" class="tile-image">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <h3 class="text-center">Textura do Piso</h3>
+                
+                <div id="modalTilesList" class="collapse">
+                  <!-- RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO DIOGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO -->
+                  <!-- remova a class="collapse" da div acima -->
+                  <!-- faça o que está sendo representado abaixo no arquivo createTileImg.js-->
+                  <!-- <div> "aqui vai as 9 primeiras imagens dos pisos (faz seu código lá), talvez nem seja necessário uma div aqui"  </div> -->
+                  <!-- <div id="banana" class="collapse"> "aqui vai o resto das imagens, 6 atualmente" </div> -->
+                </div>
+              </div>
+              <div class="col">
+                <h3 class="text-center">Textura da Parede</h3>
+              </div>
+              <div class="d-flex justify-content-center">
+                <a href="#modalTilesList" class="btn" data-bs-toggle="collapse">descer</a>
+                <!-- No href acima substitua "#modalTilesList" por o que foi colocado no id da div com o resto -->
+                <!-- das imagens, que seguindo o exemplo seria href="#banana" -->
+              </div>
+            </div>
+            <div class="modal-footer row">
+              <button type="button" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 col mx-5" data-bs-dismiss="modal" id="modalUpdateRoomButton">Salvar</button>
+              <button type="button" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 col mx-5" data-bs-dismiss="modal">Cancelar</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div id="furnitureSection" class="d-none">
-      <h1>Móveis</h1>
-      <div id="furnitureList"><!-- This is filled dinamically by javascript --></div>
-    </div>
-  </div>
-<!-- This last div closes the box what wraps the house diagram editor and menu -->
-</div> 
+  </div> 
+</div> <!-- Closes the box what wraps the house diagram editor and menu -->
