@@ -18,14 +18,3 @@ function findFurniturePath(defaultRoomName, furnitureName){
   return (FURNITURE_DIRECTORY + defaultRoomName + "/" + furnitureName);
 }
 
-// function isFurnitureSelected(furnitureName){
-//   return (furnitureName != PLACEHOLDER_FURNITURE_NAME);
-// }
-
-// function displayPlaceholderFurniture(){
-//   furnitureName = PLACEHOLDER_FURNITURE_NAME;
-//   furnitureInputImg.src = FURNITURE_DIRECTORY + furnitureName;
-// }
-// window.addEventListener('load', displayPlaceholderFurniture);
-
-

@@ -13,7 +13,7 @@ function createFurnitureDiv(furniture){
 
   const editFurnitureButton   = createElementWithAttributes('button', {class:'btn btn-success'});
   editFurnitureButton.addEventListener('click', function(){ selectPieceOfFurniture(furniture.furniture_id) });
-  editFurnitureButton.innerHTML = 'Editar Móvel';
+  editFurnitureButton.innerHTML = 'Alterar Nome';
   editFurnitureButton.dataset.bsToggle = 'modal';
   editFurnitureButton.dataset.bsTarget = '#editingFurnitureModal';
   

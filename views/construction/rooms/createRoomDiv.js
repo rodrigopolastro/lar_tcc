@@ -14,7 +14,6 @@ function createRoomDiv(room){
   roomTile.addEventListener('mousedown', function(){ setRoomToPaint(room.room_id, roomTile) });
 
   buttonDeleteRoom.addEventListener('click', function(){ selectFurnitureOfRoom(room.room_id) });
-  buttonDeleteRoom.innerHTML = 'Excluir Cômodo';
   buttonDeleteRoom.dataset.bsToggle = 'modal';
   buttonDeleteRoom.dataset.bsTarget = '#deletingRoomModal';
 

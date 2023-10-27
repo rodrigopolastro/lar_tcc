@@ -38,38 +38,8 @@
       <h1>Móveis Disponíveis</h1>
       <div id="allFurnitureList"><!-- All furniture list is filled dinamically by javascript --></div>
     </div>
-    
+
       <!-- Editing room Modal -->
-      <div class="modal fade" id="editingRoomModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5">Editar Cômodo</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-              <label for="modalRoomNameInput">Nome do Cômodo</label>
-              <input type="text" id="modalRoomNameInput">
-              <label for="modalRoomTileInputImg">Piso Atual</label>
-              <img src="" alt="" id="modalRoomTileInputImg" class="tile-image">
-              <h3>Pisos Disponíveis</h3>
-              <div id="modalTilesList"></div>
-              <div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                  <button id="modalUpdateRoomButton" type="button" data-bs-dismiss="modal" class="btn btn-primary">Salvar
-                    Alterações</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        
-      </div>
-    </div>
-
-    <!-- Editing room Modal -->
     <div class="modal fade" id="editingRoomModal" tabindex="-1">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -122,6 +92,46 @@
               <button type="button" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 col mx-5" data-bs-dismiss="modal" id="modalUpdateRoomButton">Salvar</button>
               <button type="button" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 col mx-5" data-bs-dismiss="modal">Cancelar</button>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal to confirm room deletion -->
+    <div class="modal fade" id="deletingRoomModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Excluir Cômodo</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <h5 id="deletingRoomMessage"></h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button id="modalDeleteRoomButton" type="button" data-bs-dismiss="modal" class="btn btn-danger">Excluir Cômodo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editing furniture Modal -->
+    <div class="modal fade" id="editingFurnitureModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Editar Nome do Móvel</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <label for="modalFurnitureNameInput">Nome do Móvel</label>
+            <input type="text" id="modalFurnitureNameInput">
+            <img src="" alt="" id="modalFurnitureImg" class="">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button id="modalUpdateFurnitureButton" type="button" data-bs-dismiss="modal" class="btn btn-primary">Salvar Alteração</button>
           </div>
         </div>
       </div>
