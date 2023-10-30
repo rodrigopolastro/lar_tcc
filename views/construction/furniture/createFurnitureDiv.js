@@ -1,30 +1,32 @@
 function createFurnitureDiv(furniture){
-  const furnitureDiv = createElementWithAttributes('div', {});
+  const furnitureDiv = createElementWithAttributes('div', {class:'border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 pb-2'});
   furnitureDiv.dataset.furnitureId = furniture.furniture_id;
   furnitureDiv.dataset.tilesWidth = furniture.tiles_width;
   furnitureDiv.dataset.tilesHeight = furniture.tiles_height;
   
-  const furnitureNameElement  = createElementWithAttributes('h4', {});
+  const furnitureNameElement  = createElementWithAttributes('h4', {class:'ms-5'});
   const furnitureNameText     = document.createTextNode(furniture.furniture_name);
   const furnitureImage        = createElementWithAttributes('img', {
     src: findFurniturePath(furniture.default_room_name, furniture.furniture_image_name), 
-    class:''
+    class:'', height:'100px', width:'100px',
   });
 
-  const editFurnitureButton   = createElementWithAttributes('button', {class:'btn btn-success'});
+  const editFurnitureButton   = createElementWithAttributes('button', {class:'border border-0 h5 btn btn-link col mx-5'});
   editFurnitureButton.addEventListener('click', function(){ selectPieceOfFurniture(furniture.furniture_id) });
-  editFurnitureButton.innerHTML = 'Alterar Nome';
   editFurnitureButton.dataset.bsToggle = 'modal';
   editFurnitureButton.dataset.bsTarget = '#editingFurnitureModal';
   
-  const deleteFurnitureButton = createElementWithAttributes('button', {class:'btn btn-danger'});
+  const buttonEditImg    =  createElementWithAttributes('img', {src: '../../assets/images/icons/pen.png'});
+
+  const deleteFurnitureButton = createElementWithAttributes('button', {class:'border border-0 h5 btn btn-link col mx-5'});
   deleteFurnitureButton.addEventListener('click', function(){ deleteFurniture(furniture.furniture_id) });
-  deleteFurnitureButton.innerHTML = 'Excluir Móvel';
+
+  const buttonDeleteImg  =  createElementWithAttributes('img', {src: '../../assets/images/icons/trash.png'});
 
   furnitureDiv.appendChild(furnitureNameElement).appendChild(furnitureNameText);
   furnitureDiv.appendChild(furnitureImage);
-  furnitureDiv.appendChild(editFurnitureButton);
-  furnitureDiv.appendChild(deleteFurnitureButton);
+  furnitureDiv.appendChild(editFurnitureButton).appendChild(buttonEditImg);
+  furnitureDiv.appendChild(deleteFurnitureButton).appendChild(buttonDeleteImg);
 
   myFurnitureList.appendChild(furnitureDiv);
 }
