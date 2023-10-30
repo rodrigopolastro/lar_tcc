@@ -103,3 +103,7 @@ ALTER TABLE Furniture
       REFERENCES Furniture_Images (furniture_image_id) 
       ON DELETE RESTRICT; 
   -- a furniture_image cannot be deleted if there is a user's furniture associated to it
+
+-- (008) Add 'diagram_image' field in 'Houses' table to store the image dataURL
+ALTER TABLE Houses
+  ADD diagram_image LONGTEXT;

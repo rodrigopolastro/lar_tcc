@@ -8,13 +8,15 @@ function selectDiagramPositions(){
     "Content-Type",
     "application/x-www-form-urlencoded",
   );
-  diagramPositionsRequest.send("operation=selectDiagramPositions");
+  diagramPositionsRequest.send("operation=selectHouseDiagram");
 }
 
 function loadDiagram(){
   if (diagramPositionsRequest.readyState === XMLHttpRequest.DONE) { 
     if (diagramPositionsRequest.status === 200) {  
-      diagramPositions = JSON.parse(diagramPositionsRequest.responseText);
+      console.log(diagramPositionsRequest.responseText)
+      const houseData = JSON.parse(diagramPositionsRequest.responseText);
+      diagramPositions = JSON.parse(houseData.diagram_positions);
       reloadDiagram();
     } else {
       alert("There was a problem with the 'diagramPositionsRequest' request.");

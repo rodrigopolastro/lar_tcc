@@ -2,6 +2,10 @@
 // saveDiagramButton.addEventListener('click', updateDiagramPositions);
 
 function updateDiagramPositions(){
+  let dataURL = houseDiagram.toDataURL();
+  console.log(dataURL)
+  // console.log(dataURL);
+
   updateDiagramPositionsRequest = new XMLHttpRequest();
   updateDiagramPositionsRequest.onreadystatechange = informDiagramSave;
   updateDiagramPositionsRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/housesController.php");
@@ -10,7 +14,8 @@ function updateDiagramPositions(){
     "application/x-www-form-urlencoded",
   );
   updateDiagramPositionsRequest.send("operation=updateDiagramPositions" + 
-                              "&diagram_positions=" + JSON.stringify(diagramPositions));
+                                    "&diagram_positions=" + JSON.stringify(diagramPositions) + 
+                                    "&diagram_image=" + dataURL);
 }
 
 function informDiagramSave(){

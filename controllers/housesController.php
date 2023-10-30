@@ -6,17 +6,18 @@
   if(isset($_POST['operation'])){
     $operation = $_POST['operation'];
     switch ($operation) {
-      case 'selectDiagramPositions':
+      case 'selectHouseDiagram':
         $house_id = 1;
-        $query_results = getDiagramPositions($house_id);
-        echo $query_results['diagram_positions'];
+        $house_data = getHouseDiagram($house_id);
+        echo json_encode($house_data);
         break;
 
       case 'updateDiagramPositions':
         $diagram_positions = $_POST['diagram_positions'];
+        $diagram_image     = $_POST['diagram_image'];
         $house_id = 1;
 
-        updateDiagramPositions($house_id, $diagram_positions);
+        updateDiagramPositions($house_id, $diagram_positions, $diagram_image);
         break;
 
     }
