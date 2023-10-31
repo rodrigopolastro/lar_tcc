@@ -15,6 +15,8 @@
       case 'updateDiagramPositions':
         $diagram_positions = $_POST['diagram_positions'];
         $diagram_image     = $_POST['diagram_image'];
+        //Replaces empty spaces with + in order to preserve the base_64 encoding
+        $diagram_image = str_replace(' ','+',$diagram_image);
         $house_id = 1;
 
         updateDiagramPositions($house_id, $diagram_positions, $diagram_image);
