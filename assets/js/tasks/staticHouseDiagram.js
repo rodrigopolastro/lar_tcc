@@ -29,14 +29,11 @@ window.addEventListener('load', () => {
 staticHouseDiagram.addEventListener("mousedown", (mouseEvent) => {
   let positionClicked = getCoordsInElement(mouseEvent);
   let key = positionClicked[0] + "-" + positionClicked[1];
-  // console.log(key)
 
   roomId = staticDiagramPositions.tiles[key];
-  selectTasks();
-  // let furnitureId = diagramPositions.furniture.allPositions[key];
-  // if(furnitureId){
-  //   selectTasks
-  // }
+  if(roomId){
+    selectTasks();
+  }
 });
 
 

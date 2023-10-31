@@ -16,11 +16,9 @@ function loadStaticDiagram(){
     if (selectHouseDiagramRequest.status === 200) {  
       // alert(selectHouseDiagramRequest.responseText)
       const houseData = JSON.parse(selectHouseDiagramRequest.responseText);
-      diagramPositions = JSON.parse(houseData.diagram_positions);
+      staticDiagramPositions = JSON.parse(houseData.diagram_positions);
       diagramDataURL = houseData.diagram_image
-      console.log(diagramDataURL)
       loadStaticDiagramImage();
-      // reloadDiagram();
     } else {
       alert("There was a problem with the 'diagramPositionsRequest' request.");
     }

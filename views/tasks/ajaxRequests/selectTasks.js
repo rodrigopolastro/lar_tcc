@@ -18,6 +18,7 @@ function selectTasks(){
   selectTasksRequest.send("operation=selectTasks&" +
                           "due_date=" + dueDate + 
                           "&room_id=" + roomId);
+  roomId = null;
 }
 
 var allTasksNumber, completedTasksNumber;
