@@ -32,7 +32,6 @@ function listFilteredTasks() {
   if (selectTasksRequest.readyState === XMLHttpRequest.DONE) { 
     if (selectTasksRequest.status === 200) {              
       const response = JSON.parse(selectTasksRequest.responseText);
-      
       if(response.is_query_successful){
         allTasksNumber = 0;
         completedTasksNumber = 0;
@@ -46,6 +45,11 @@ function listFilteredTasks() {
       } else {
         alert("Erro na consulta: " + response.value);
       }
+
+      const collapsibleTasks = document.querySelectorAll("[data-furniture-id='" + furnitureId + "']");
+      Array.from(collapsibleTasks).forEach( (task) => {
+        task.classList.add("show")
+      })
     } else {
       alert("There was a problem with the 'filterTasks' request.");
     }

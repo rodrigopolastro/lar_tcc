@@ -29,7 +29,7 @@ const staticHouseDiagram = document.getElementById('staticHouseDiagram');
 //============== GLOBAL VARIABLES ==============//
 
 // Vars required for Tasks CRUD
-var dueDate, roomId;
+var dueDate, roomId, furnitureId;
 
 // var furnitureId;
 var diagramDataURL;

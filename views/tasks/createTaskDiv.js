@@ -16,6 +16,7 @@ function createTaskDiv(task){
   const shownTaskDiv        = createElementWithAttributes('div', {class: ''})
   const hiddenInnerTaskDiv  = createElementWithAttributes('div', {class: 'card-body'});
   const hiddenOuterTaskDiv  = createElementWithAttributes('div', {class: 'collapse', id: task.task_id});
+  hiddenOuterTaskDiv.dataset.furnitureId = task.fk_furniture_id
 
   const taskName        = createElementWithAttributes('h4', {class: 'mt-1'});
   const taskDescription = createElementWithAttributes('p',  {});

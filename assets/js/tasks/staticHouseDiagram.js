@@ -31,6 +31,7 @@ staticHouseDiagram.addEventListener("mousedown", (mouseEvent) => {
   let key = positionClicked[0] + "-" + positionClicked[1];
 
   roomId = staticDiagramPositions.tiles[key];
+  furnitureId = staticDiagramPositions.furniture.allPositions[key];
   if(roomId){
     selectTasks();
   }
