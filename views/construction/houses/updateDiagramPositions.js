@@ -3,7 +3,7 @@
 
 function updateDiagramPositions(){
   let dataURL = houseDiagram.toDataURL();
-  console.log(dataURL)
+  // console.log(dataURL)
   // console.log(dataURL);
 
   updateDiagramPositionsRequest = new XMLHttpRequest();

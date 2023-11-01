@@ -14,7 +14,7 @@ function selectDiagramPositions(){
 function loadDiagram(){
   if (diagramPositionsRequest.readyState === XMLHttpRequest.DONE) { 
     if (diagramPositionsRequest.status === 200) {  
-      console.log(diagramPositionsRequest.responseText)
+      // console.log(diagramPositionsRequest.responseText)
       const houseData = JSON.parse(diagramPositionsRequest.responseText);
       diagramPositions = JSON.parse(houseData.diagram_positions);
       reloadDiagram();

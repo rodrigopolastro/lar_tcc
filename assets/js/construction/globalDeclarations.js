@@ -11,9 +11,11 @@ const DEFAULT_ROOMS = {
 }
 
 // rootTilePath helper 
-const TILES_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/tiles/";
+const TILES_DIRECTORY     = "/htdocsDirectories/lar_tcc/assets/images/tiles/";
+const WALLS_DIRECTORY     = "/htdocsDirectories/lar_tcc/assets/images/walls/";
 const FURNITURE_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/furniture/";
-const PLACEHOLDER_TILE_NAME = "placeholderTile.png";
+const PLACEHOLDER_TILE_NAME      = "placeholderTile.png";
+const PLACEHOLDER_WALL_NAME      = "placeholderWall.png";
 const PLACEHOLDER_FURNITURE_NAME = "placeholderFurniture.png";
 
 // Canvas
@@ -34,6 +36,8 @@ const myRoomsSection   = document.getElementById('myRoomsSection');
 const roomNameInput    = document.getElementById('roomNameInput');
 const roomTileInputDiv = document.getElementById('roomTileInputDiv');
 const roomTileInputImg = document.getElementById('roomTileInputImg');
+const roomWallInputDiv = document.getElementById('roomWallInputDiv');
+const roomWallInputImg = document.getElementById('roomWallInputImg');
 const createRoomButton = document.getElementById('createRoomButton');
 const roomsList        = document.getElementById('roomsList');
 const tilesPopoverContent = document.getElementById('tilesPopoverContent');
@@ -74,6 +78,7 @@ const houseDiagram        = document.getElementById('houseDiagram');
 // Vars required for Rooms CRUD
 var roomId, roomName, 
     tileId, tileName,
+    wallId, wallName,
     furnitureName,
     furnitureImageId, furnitureImageName, furnitureRoomId, furnitureId;
 

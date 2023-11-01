@@ -10,9 +10,26 @@ function isTileSelected(tileName){
 function displayPlaceholderTile(){
   tileName = PLACEHOLDER_TILE_NAME;
   roomTileInputImg.src = findTilePath(tileName);
-}
-window.addEventListener('load', displayPlaceholderTile);
 
+  
+}
+
+//WALLS IMAGES
+function findWallPath(wallName){
+  return (WALLS_DIRECTORY + wallName);
+}
+
+function displayPlaceholderWall(){
+  wallName = PLACEHOLDER_WALL_NAME;
+  roomWallInputImg.src = findWallPath(wallName);
+}
+
+// function isTileSelected(tileName){
+  //   return (tileName != PLACEHOLDER_TILE_NAME);
+  // }
+window.addEventListener('load', displayPlaceholderTile);
+window.addEventListener('load', displayPlaceholderWall);
+  
 //FURNITURE IMAGES
 function findFurniturePath(defaultRoomName, furnitureName){
   return (FURNITURE_DIRECTORY + defaultRoomName + "/" + furnitureName);

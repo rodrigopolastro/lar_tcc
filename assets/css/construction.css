@@ -2,6 +2,12 @@
   width: 100px;
 }
 
+.wall-image{
+  width: 100px;
+  height: 76px;
+  /* border-radius: 20px; */
+}
+
 .selected-tile{
   outline: 10px solid red;
 }

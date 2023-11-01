@@ -107,3 +107,27 @@ ALTER TABLE Furniture
 -- (008) Add 'diagram_image' field in 'Houses' table to store the image dataURL
 ALTER TABLE Houses
   ADD diagram_image LONGTEXT;
+
+-- (009) Create 'Walls' table and populate it
+CREATE TABLE Walls (
+  wall_id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  wall_name VARCHAR(255)
+);
+
+INSERT INTO Tiles (tile_name) VALUES
+  ('placeholderTile.png'),
+  ('parede01.png'),
+  ('parede02.png'),
+  ('parede03.png'),
+  ('parede04.png'),
+  ('parede05.png');
+
+-- (010) Add wall_id foreign key to 'Rooms' table
+ALTER TABLE Rooms
+  ADD fk_wall_id INTEGER;
+
+ALTER TABLE Rooms
+  ADD FOREIGN KEY (fk_wall_id) 
+      REFERENCES Walls (wall_id) 
+      ON DELETE RESTRICT;
+  -- a wall cannot be deleted if there is a room associated to it
