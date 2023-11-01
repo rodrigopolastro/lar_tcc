@@ -17,7 +17,6 @@ CREATE TABLE Tiles (
 );
 
 INSERT INTO Tiles (tile_name) VALUES
-  ('placeholderTile.png'),
   ('tile01.png'),
   ('tile02.png'),
   ('tile03.png'),
@@ -108,21 +107,20 @@ ALTER TABLE Furniture
 ALTER TABLE Houses
   ADD diagram_image LONGTEXT;
 
--- (009) Create 'Walls' table and populate it
+-- (009) Create 'Walls' table, populate it and add its id as 
+--       a foreign key in rooms table.
 CREATE TABLE Walls (
   wall_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   wall_name VARCHAR(255)
 );
 
-INSERT INTO Tiles (tile_name) VALUES
-  ('placeholderTile.png'),
-  ('parede01.png'),
-  ('parede02.png'),
-  ('parede03.png'),
-  ('parede04.png'),
-  ('parede05.png');
+INSERT INTO Walls (wall_name) VALUES
+  ('parede1.png'),
+  ('parede2.png'),
+  ('parede3.png'),
+  ('parede4.png'),
+  ('parede5.png');
 
--- (010) Add wall_id foreign key to 'Rooms' table
 ALTER TABLE Rooms
   ADD fk_wall_id INTEGER;
 

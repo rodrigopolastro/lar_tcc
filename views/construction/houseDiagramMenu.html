@@ -26,6 +26,7 @@
         </div>
         <button id="createRoomButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1 col">Criar Cômodo</button>
         <div id="tilesPopoverContent" class="d-none"></div>
+        <div id="wallsPopoverContent" class="d-none"></div>
       </div>
       <h1>Meus cômodos</h1>
       <div id="roomsList"><!-- Room list is filled dinamically by javascript --></div>
@@ -70,6 +71,12 @@
               <div class="col d-flex justify-content-center">
                 <img src="" alt="" id="modalRoomTileInputImg" class="tile-image">
               </div>
+              <div class="col d-flex justify-content-center">
+                <label for="modalRoomWallInputImg">Parede Atual:</label>
+              </div>
+              <div class="col d-flex justify-content-center">
+                <img src="" alt="" id="modalRoomWallInputImg" class="tile-image">
+              </div>
             </div>
             <div class="row">
               <div class="col">
@@ -81,6 +88,8 @@
                   <!-- faça o que está sendo representado abaixo no arquivo createTileImg.js-->
                   <!-- <div> "aqui vai as 9 primeiras imagens dos pisos (faz seu código lá), talvez nem seja necessário uma div aqui"  </div> -->
                   <!-- <div id="banana" class="collapse"> "aqui vai o resto das imagens, 6 atualmente" </div> -->
+                </div>
+                <div id="modalWallsList" class="collapse">
                 </div>
               </div>
               <div class="col">

@@ -21,17 +21,30 @@ function getAllFurnitureImages(){
   return $results;
 }
 
-function getAllTiles($placeholder_tile){
+function getAllTiles(){
   global $connection;
   $statement = $connection->prepare(
     "SELECT 
       tile_id, 
       tile_name 
-    FROM tiles 
-    WHERE tile_name != :placeholder_tile"
+    FROM tiles" 
   );
 
-  $statement->bindValue(':placeholder_tile', $placeholder_tile);
+  $statement->execute();
+
+  $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+  return $results;
+}
+
+function getAllWalls(){
+  global $connection;
+  $statement = $connection->prepare(
+    "SELECT 
+      wall_id, 
+      wall_name 
+    FROM walls"
+  );
+
   $statement->execute();
 
   $results = $statement->fetchAll(PDO::FETCH_ASSOC);

@@ -41,16 +41,19 @@ const roomWallInputImg = document.getElementById('roomWallInputImg');
 const createRoomButton = document.getElementById('createRoomButton');
 const roomsList        = document.getElementById('roomsList');
 const tilesPopoverContent = document.getElementById('tilesPopoverContent');
+const wallsPopoverContent = document.getElementById('wallsPopoverContent');
 
 // My Furniture Section
 const myFurnitureSection    = document.getElementById('myFurnitureSection');
 const myFurnitureList       = document.getElementById('myFurnitureList');
 
 // Editing room modal
-const modalUpdateRoomButton = document.getElementById('modalUpdateRoomButton');
 const modalRoomNameInput    = document.getElementById('modalRoomNameInput');
 const modalRoomTileInputImg = document.getElementById('modalRoomTileInputImg');
+const modalRoomWallInputImg = document.getElementById('modalRoomWallInputImg');
 const modalTilesList        = document.getElementById('modalTilesList');
+const modalWallsList        = document.getElementById('modalWallsList');
+const modalUpdateRoomButton = document.getElementById('modalUpdateRoomButton');
 
 // Deleting room modal
 const modalDeleteRoomButton = document.getElementById('modalDeleteRoomButton');

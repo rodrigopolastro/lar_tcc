@@ -7,17 +7,19 @@
     $operation = $_POST['operation'];
     switch ($operation) {
       case 'selectTiles':
-        $placeholder_tile = $_POST['placeholder_tile'];
-
-        //Select all tiles EXCEPT the placeholder
-        $tiles = getAllTiles($placeholder_tile);
+        $tiles = getAllTiles();
         echo json_encode($tiles);
         break;     
         
       case 'selectFurnitureImages':
         $furniture_images = getAllFurnitureImages();
         echo json_encode($furniture_images);
-        break;         
+        break; 
+        
+      case 'selectWalls':
+        $walls = getAllWalls();
+        echo json_encode($walls);
+        break;  
     }
   }
 ?>

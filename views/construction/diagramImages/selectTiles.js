@@ -8,8 +8,7 @@ function selectTiles(){
     "Content-Type",
     "application/x-www-form-urlencoded",
   );
-  selectTilesRequest.send("operation=selectTiles" +
-                         "&placeholder_tile=" + PLACEHOLDER_TILE_NAME);
+  selectTilesRequest.send("operation=selectTiles");
 }
 
 function listTiles(){

@@ -48,12 +48,14 @@
   <script src="/htdocsDirectories/lar_tcc/views/construction/furniture/updateFurniture.js"></script>
 
 
-  <!-- FURNITURE AND TILES IMAGES -->
-  <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/selectTiles.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/selectFurnitureImages.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/createTileImg.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/createFurnitureImg.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/furnitureAndTilesImages/createDefaultRoomsList.js"></script>
+  <!-- DIAGRAM IMAGES (Tiles, Furniture and Walls) -->
+  <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/selectTiles.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/selectFurnitureImages.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/selectWalls.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/createTileImg.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/createFurnitureImg.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/createWallImg.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/createDefaultRoomsList.js"></script>
   
   <!-- HOUSES -->
   <script src="/htdocsDirectories/lar_tcc/views/construction/houses/updateDiagramPositions.js"></script>
