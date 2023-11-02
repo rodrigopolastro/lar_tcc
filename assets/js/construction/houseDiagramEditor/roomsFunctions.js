@@ -72,6 +72,12 @@ function removeRoomTilesAndWalls(roomId){
 }
 
 function areWallPositionsAvailable(positionClicked){
+  // avoid multiple diagram reloads for the same square clicked
+  if(positionClicked[0] == lastWallPositionClicked[0] && positionClicked[1] == lastWallPositionClicked[1]){
+    return false;
+  }
+  lastWallPositionClicked = positionClicked;
+
   wallPositions = [];
   let column = positionClicked[0];
   for(let j=0; j<4; j++){

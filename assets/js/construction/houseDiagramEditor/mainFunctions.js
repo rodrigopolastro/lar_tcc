@@ -1,4 +1,4 @@
-var lastPositionClicked=[];
+var lastTilePositionClicked, lastWallPositionClicked = [];
 
 //============== INITIALIZATION ==============//
 
@@ -133,10 +133,8 @@ function updateDiagramTiles(mouseEvent) {
   //BROOOOOOOOO
   //Pleeease make apply early returns here.
   //Those 4 nested IFs are hurting my soul
-  if(positionClicked[0] != lastPositionClicked[0] || positionClicked[1] != lastPositionClicked[1]){
-    // console.log(lastPositionClicked)
-    // console.log(positionClicked)
-    lastPositionClicked = positionClicked;
+  if(positionClicked[0] != lastTilePositionClicked[0] || positionClicked[1] != lastTilePositionClicked[1]){
+    lastTilePositionClicked = positionClicked;
     let key = positionClicked[0] + "-" + positionClicked[1];
     
     if(isEraserModeOn){
