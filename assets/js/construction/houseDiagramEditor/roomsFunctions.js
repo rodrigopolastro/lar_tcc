@@ -40,12 +40,30 @@ function setRoomWallToPaint(clickedRoomId, clickedWallImg){
   setEraserMode(false);
 }
 
-function removeTilesFromRoom(roomId){
+function removeRoomTilesAndWalls(roomId){
+  //Remove all tiles
   Object.entries(diagramPositions.tiles).forEach(([key, value]) => {
     if(value == roomId){
       delete diagramPositions.tiles[key];
     }
   });
+
+  //Remove walls' starting positions
+  let startingPositions = diagramPositions.walls.startingPositions;
+  Object.keys(startingPositions).forEach((key) => {
+    if(startingPositions[key] == roomId){
+      delete diagramPositions.walls.startingPositions[key];
+    }
+  });
+
+  //Remove all wall positions
+  let allPositions = diagramPositions.walls.allPositions;
+  Object.keys(allPositions).forEach((key) => {
+    if(allPositions[key] == roomId){
+      delete diagramPositions.walls.allPositions[key];
+    }
+  });
+
   selectedRoomId = null;
   roomImgElement = null;
 

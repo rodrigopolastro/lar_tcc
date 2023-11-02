@@ -23,10 +23,7 @@ function removeFromDiagramAndRoomsList(){
         deletedRoomDiv.remove();
         
         //Remove deleted room tiles from diagram
-        removeTilesFromRoom(roomId);
-        
-        //Save diagram changes in database
-        // updateDiagramPositions();
+        removeRoomTilesAndWalls(roomId);
       } else {
         alert("Ocorreu um erro na exclusão do cômodo: room_id inválido");
       }
