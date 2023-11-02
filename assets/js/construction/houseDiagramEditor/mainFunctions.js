@@ -5,12 +5,16 @@ var lastPositionClicked=[];
 //STRUCTURE: 
 //  KEY   = "x-y" (coordinates in the diagram, both being integer numbers representing the tiles lines and colmns)
 //  VALUE = Tiles => roomId;
-//          Walls and TopWalls => imageId;
-//          Furniture => furnitureId (user furniture, not the furniture image)
+//          Walls => roomId;
+//          TopWalls => imageId;
+//          Furniture => furnitureId (user furniture, not the furniture image);
 
 var diagramPositions = {
   tiles:{},
-  walls:{},
+  walls:{
+    startingPositions:{},
+    allPositions:{}
+  },
   furniture:{
     startingPositions:{},
     allPositions:{}
@@ -38,7 +42,7 @@ houseDiagram.addEventListener("mousedown", (event) => {
       break;
 
     case 'walls':
-      // isMouseDown = true;
+      isMouseDown = true;
       if(roomImgElement || isEraserModeOn){
         updateDiagramWalls(event);   
       } else {
@@ -61,7 +65,12 @@ houseDiagram.addEventListener("mousedown", (event) => {
 });
 houseDiagram.addEventListener("mousemove", (event) => {
    if (isMouseDown) {
-    updateDiagramTiles(event);
+    if (currentLayer == 'tiles'){
+      updateDiagramTiles(event);
+    } 
+    if(currentLayer == 'walls'){
+      updateDiagramWalls(event)
+    }
    }
 });
 houseDiagram.addEventListener("mouseup", () => {
@@ -75,7 +84,10 @@ houseDiagram.addEventListener("mouseleave", () => {
 clearDiagramButton.addEventListener('click', () => {
   diagramPositions = {
     tiles:{},
-    walls:{},
+    walls:{
+      startingPositions:{},
+      allPositions:{}
+    },
     furniture:{
       startingPositions:{},
       allPositions:{}
@@ -89,11 +101,11 @@ clearDiagramButton.addEventListener('click', () => {
 eraserModeButton.addEventListener('click', function() {
   if(isEraserModeOn){
     setEraserMode(false);
-    highlightSelectedTile();
+    highlightTileOrWall();
     highlightSelectedFurniture();
   } else {
     setEraserMode(true);
-    removeLastTileHightlight();
+    removeTileOrWallHighlight();
     removeLastFurnitureHightlight();
   }
 });
@@ -152,7 +164,12 @@ function updateDiagramTiles(mouseEvent) {
 } 
 
 function updateDiagramWalls(mouseEvent) {
-  console.log("pintando parede!")
+  let positionClicked = getCoordsInElement(mouseEvent);
+  if(isEraserModeOn){
+    removeWall(positionClicked)
+  } else if(areWallPositionsAvailable(positionClicked)){
+    registerWallPositions(selectedRoomId);
+  }
 } 
 
 function updateDiagramFurniture(mouseEvent){
@@ -167,7 +184,6 @@ function updateDiagramFurniture(mouseEvent){
     } else {
       if(areFurniturePositionsAvailable(positionClicked)){
           //Data required for the furniture creation
-          createdFurnitureStartingPosition = key;
           furnitureRoomId = diagramPositions.tiles[key]
           furnitureName = furnitureNameInput.value;
           //Request to register user furniture before adding it to the diagram
@@ -185,20 +201,43 @@ function reloadDiagram(){
   //LOAD TILES
   Object.entries(diagramPositions.tiles).forEach(([key, value]) => {
     let roomDiv = document.querySelector("[data-room-id='" + value + "']");
-    let roomImg = roomDiv.querySelector("img");
+    let roomTileImg = roomDiv.querySelectorAll("img")[0]; //first img element inside room div
 
     // //Determine x/y position of this placement from key ("3-4" -> x=3, y=4)
     let positionX = Number(key.split("-")[0]);
     let positionY = Number(key.split("-")[1]);
 
     canvas.drawImage(
-      roomImg, 
+      roomTileImg, 
       positionX * TILE_SIZE,  
       positionY * TILE_SIZE, 
       TILE_SIZE,     
       TILE_SIZE       
     );
   });
+
+  //LOAD WALLS
+  Object.entries(diagramPositions.walls.startingPositions).forEach(([key, value]) => {
+    let roomDiv = document.querySelector("[data-room-id='" + value + "']");
+    let roomWallImg = roomDiv.querySelectorAll("img")[1]; //second img element inside room div
+
+    let positionX = Number(key.split("-")[0]);
+
+    let wallWidth = 1;
+    let wallHeight = 4;
+    //Load image from bottom to top (which is more intuitive for the user) instead of 
+    //the default top to bottom canvas approach
+    let positionY = Number(key.split("-")[1]) - (wallHeight - 1);
+
+    canvas.drawImage(
+      roomWallImg, 
+      positionX * TILE_SIZE,  
+      positionY * TILE_SIZE, 
+      TILE_SIZE * wallWidth,     
+      TILE_SIZE * wallHeight      
+    );
+  });
+
 
   //LOAD FURNITURE (on their starting positions)
   Object.entries(diagramPositions.furniture.startingPositions).forEach(([key, value]) => {

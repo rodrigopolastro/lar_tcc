@@ -75,7 +75,7 @@ function areFurniturePositionsAvailable(positionClicked){
 }
 
 function registerFurniturePositions(createdFurnitureId){
-  diagramPositions.furniture.startingPositions[createdFurnitureStartingPosition] = createdFurnitureId;
+  diagramPositions.furniture.startingPositions[furniturePositions[0]] = createdFurnitureId;
   for(position of furniturePositions){
     diagramPositions.furniture.allPositions[position] = createdFurnitureId;
   }

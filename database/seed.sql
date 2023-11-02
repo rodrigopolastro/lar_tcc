@@ -3,7 +3,10 @@ USE lar;
 -- Create initial values for database
 INSERT INTO Houses(diagram_positions) VALUES ('{ 
     "tiles":{}, 
-    "walls":{}, 
+    "walls":{
+        "startingPositions": {},
+        "allPositions": {}
+    }, 
     "furniture":{
         "startingPositions": {},
         "allPositions": {}
