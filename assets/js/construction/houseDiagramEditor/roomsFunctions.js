@@ -1,7 +1,22 @@
 // Triggered when a tile image is clicked in the rooms list
-function setRoomToPaint(clickedRoomId, clickedTileImg){
+function setRoomTileToPaint(clickedRoomId, clickedTileImg){
+  currentLayer = 'tiles';
   selectedRoomId = clickedRoomId;
-  tileImgElement = clickedTileImg;
+  roomImgElement = clickedTileImg;
+  
+  //Update UI to highlight selected tile
+  removeLastTileHightlight();
+  highlightSelectedTile();
+
+  // Disable eraser mode
+  setEraserMode(false);
+}
+
+// Triggered when a wall image is clicked in the rooms list
+function setRoomWallToPaint(clickedRoomId, clickedWallImg){
+  currentLayer = 'walls';
+  selectedRoomId = clickedRoomId;
+  roomImgElement = clickedWallImg;
   
   //Update UI to highlight selected tile
   removeLastTileHightlight();
@@ -18,7 +33,7 @@ function removeTilesFromRoom(roomId){
     }
   });
   selectedRoomId = null;
-  tileImgElement = null;
+  roomImgElement = null;
 
   reloadDiagram();
   updateDiagramPositions();
@@ -26,14 +41,14 @@ function removeTilesFromRoom(roomId){
 
 //Update the UI to show selected tile
 function highlightSelectedTile(){ 
-  if(tileImgElement){
-    tileImgElement.classList.add("selected-tile");
+  if(roomImgElement){
+    roomImgElement.classList.add("selected-room-img");
   }
 }
 
 function removeLastTileHightlight(){
-  let selectedTile = document.querySelector(".selected-tile");
+  let selectedTile = document.querySelector(".selected-room-img");
   if (selectedTile) {
-    selectedTile.classList.remove("selected-tile");
+    selectedTile.classList.remove("selected-room-img");
   }
 }

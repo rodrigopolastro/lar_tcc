@@ -90,7 +90,7 @@ var canvas = houseDiagram.getContext("2d");
 var isMouseDown = false;
 var isEraserModeOn = false;
 var currentLayer = 'tiles';
-var selectedRoomId, tileImgElement;
+var selectedRoomId, roomImgElement;
 var selectedFurnitureImageId, furnitureImgElement, furnitureWidth, furnitureHeight;
 var furnitureName;
 

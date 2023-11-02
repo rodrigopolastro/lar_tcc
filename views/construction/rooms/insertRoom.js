@@ -1,11 +1,11 @@
 createRoomButton.addEventListener('click', () => {
   //'isTileSelected' function is defined in 'helpers/imgPath.js'
   //It returns true if tileName is different than the PLACEHOLDER_TILE_NAME
-  if(isTileSelected(tileName)){
+  if(isTileSelected(tileName) && isWallSelected(wallName)){
     roomName = roomNameInput.value;
     insertRoom();
   } else {
-    alert("Selecione um piso!");
+    alert("Selecione o piso e a parede!");
   }
 });
 
@@ -19,12 +19,14 @@ function insertRoom(){
   );
   insertRoomRequest.send("operation=insertRoom" + 
                         "&room_name=" + roomName +
-                        "&tile_id=" + tileId);
+                        "&tile_id=" + tileId + 
+                        "&wall_id=" + wallId);
 }
 
 function displayCreatedRoom(){
   if (insertRoomRequest.readyState === XMLHttpRequest.DONE) { 
-    if (insertRoomRequest.status === 200) {   
+    if (insertRoomRequest.status === 200) { 
+      console.log(insertRoomRequest.responseText)  
       const response = JSON.parse(insertRoomRequest.responseText);
       
       if(response.is_room_created){
@@ -32,9 +34,12 @@ function displayCreatedRoom(){
           room_id: response.value,
           room_name: roomName,
           tile_id: tileId,
-          tile_name: tileName
+          tile_name: tileName,
+          wall_id: wallId,
+          wall_name: wallName
         });
         displayPlaceholderTile();
+        displayPlaceholderWall();
       } else {
         alert("Erro na criação do cômodo: " + response.value);
       }

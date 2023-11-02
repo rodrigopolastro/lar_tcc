@@ -22,10 +22,11 @@
       case 'insertRoom':
         $room_name = $_POST['room_name'];
         $tile_id   = $_POST['tile_id'];
+        $wall_id   = $_POST['wall_id'];
         $house_id  = 1;
 
         try {
-          $created_room_id = createRoom($room_name, $tile_id, $house_id);
+          $created_room_id = createRoom($room_name, $tile_id, $wall_id, $house_id);
           $response = [
             "is_room_created" => true, 
             "value" => $created_room_id

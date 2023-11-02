@@ -10,9 +10,8 @@ function isTileSelected(tileName){
 function displayPlaceholderTile(){
   tileName = PLACEHOLDER_TILE_NAME;
   roomTileInputImg.src = findTilePath(tileName);
-
-  
 }
+window.addEventListener('load', displayPlaceholderTile);
 
 //WALLS IMAGES
 function findWallPath(wallName){
@@ -24,10 +23,9 @@ function displayPlaceholderWall(){
   roomWallInputImg.src = findWallPath(wallName);
 }
 
-// function isTileSelected(tileName){
-  //   return (tileName != PLACEHOLDER_TILE_NAME);
-  // }
-window.addEventListener('load', displayPlaceholderTile);
+function isWallSelected(wallName){
+  return (wallName != PLACEHOLDER_WALL_NAME);
+}
 window.addEventListener('load', displayPlaceholderWall);
   
 //FURNITURE IMAGES

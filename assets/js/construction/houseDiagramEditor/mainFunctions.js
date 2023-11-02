@@ -30,10 +30,19 @@ houseDiagram.addEventListener("mousedown", (event) => {
   switch (currentLayer) {
     case 'tiles':
       isMouseDown = true;
-      if(tileImgElement || isEraserModeOn){
+      if(roomImgElement || isEraserModeOn){
         updateDiagramTiles(event);   
       } else {
         alert('selecione um piso para pintar!');
+      }
+      break;
+
+    case 'walls':
+      // isMouseDown = true;
+      if(roomImgElement || isEraserModeOn){
+        updateDiagramWalls(event);   
+      } else {
+        alert('selecione uma parede para pintar!');
       }
       break;
   
@@ -140,6 +149,10 @@ function updateDiagramTiles(mouseEvent) {
       }
     }
   }
+} 
+
+function updateDiagramWalls(mouseEvent) {
+  console.log("pintando parede!")
 } 
 
 function updateDiagramFurniture(mouseEvent){

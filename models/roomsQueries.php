@@ -9,9 +9,11 @@ function getAllRooms(){
       room_id, 
       room_name, 
       fk_tile_id,
-      tile_name 
+      tile_name,
+      wall_name
     FROM rooms
-    INNER JOIN tiles ON tiles.tile_id = rooms.fk_tile_id"
+    INNER JOIN tiles ON tiles.tile_id = rooms.fk_tile_id
+    INNER JOIN walls ON walls.wall_id = rooms.fk_wall_id"
   );
 
   $statement->execute();
@@ -39,15 +41,16 @@ function getRoomById($room_id){
   return $results;
 }
 // ============== ACTION QUERIES ==============
-function createRoom($room_name, $fk_tile_id, $fk_house_id){   
+function createRoom($room_name, $fk_tile_id, $fk_wall_id, $fk_house_id){   
   global $connection;
   $statement = $connection->prepare(
-    "INSERT INTO rooms (room_name, fk_tile_id, fk_house_id) 
-               VALUES (:room_name,:fk_tile_id,:fk_house_id)"
+    "INSERT INTO rooms (room_name, fk_tile_id, fk_wall_id, fk_house_id) 
+               VALUES (:room_name,:fk_tile_id,:fk_wall_id,:fk_house_id)"
     );
 
   $statement->bindValue(':room_name',$room_name);
   $statement->bindValue(':fk_tile_id',$fk_tile_id);
+  $statement->bindValue(':fk_wall_id',$fk_wall_id);
   $statement->bindValue(':fk_house_id',$fk_house_id);
   $statement->execute();
 

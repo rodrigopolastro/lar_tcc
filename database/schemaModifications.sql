@@ -17,21 +17,21 @@ CREATE TABLE Tiles (
 );
 
 INSERT INTO Tiles (tile_name) VALUES
-  ('tile01.png'),
-  ('tile02.png'),
-  ('tile03.png'),
-  ('tile04.png'),
-  ('tile05.png'),
-  ('tile06.png'),
-  ('tile07.png'),
-  ('tile08.png'),
-  ('tile09.png'),
-  ('tile10.png'),
-  ('tile11.png'),
-  ('tile12.png'),
-  ('tile13.png'),
-  ('tile14.png'),
-  ('tile15.png');
+  ('piso1.png'),
+  ('piso2.png'),
+  ('piso3.png'),
+  ('piso4.png'),
+  ('piso5.png'),
+  ('piso6.png'),
+  ('piso7.png'),
+  ('piso8.png'),
+  ('piso9.png'),
+  ('piso10.png'),
+  ('piso11.png'),
+  ('piso12.png'),
+  ('piso13.png'),
+  ('piso14.png'),
+  ('piso15.png');
 
 -- (004) Change field 'tile_name' for 'tile_id' in 'Rooms' table
 ALTER TABLE Rooms 
@@ -119,7 +119,31 @@ INSERT INTO Walls (wall_name) VALUES
   ('parede2.png'),
   ('parede3.png'),
   ('parede4.png'),
-  ('parede5.png');
+  ('parede5.png'),
+  ('parede6.png'),
+  ('parede7.png'),
+  ('parede8.png'),
+  ('parede9.png'),
+  ('parede10.png'),
+  ('parede11.png'),
+  ('parede12.png'),
+  ('parede13.png'),
+  ('parede14.png'),
+  ('parede15.png'),
+  ('parede16.png'),
+  ('parede17.png'),
+  ('parede18.png'),
+  ('parede19.png'),
+  ('parede20.png'),
+  ('parede21.png'),
+  ('parede22.png'),
+  ('parede23.png'),
+  ('parede24.png'),
+  ('parede25.png'),
+  ('parede26.png'),
+  ('parede22.png'),
+  ('parede28.png'),
+  ('parede29.png');  
 
 ALTER TABLE Rooms
   ADD fk_wall_id INTEGER;
