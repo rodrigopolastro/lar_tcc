@@ -1,0 +1,92 @@
+<!-- Editing room Modal -->
+<div class="modal fade" id="editingRoomModal" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header row m-0">
+        <div class="col"></div>
+        <div class="col-lg-5">
+          <h1 class="modal-title fs-1 text-center">Modo de Edição</h1>
+        </div>
+        <div class="col d-flex flex-row-reverse">
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row d-flex align-items-center mb-5">
+          <div class="col d-flex justify-content-center">
+            <label for="modalRoomNameInput">Nome do Cômodo:</label>
+          </div>
+          <div class="col d-flex justify-content-center">
+            <input type="text" id="modalRoomNameInput">
+          </div>
+          <div class="col d-flex justify-content-center">
+            <label for="modalRoomTileInputImg">Piso Atual:</label>
+          </div>
+          <div class="col d-flex justify-content-center">
+            <img src="" alt="" id="modalRoomTileInputImg" class="tile-image">
+          </div>
+          <div class="col d-flex justify-content-center">
+            <label for="modalRoomWallInputImg">Parede Atual:</label>
+          </div>
+          <div class="col d-flex justify-content-center">
+            <img src="" alt="" id="modalRoomWallInputImg" class="tile-image">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h3 class="text-center">Textura do Piso</h3>
+            <div id="modalTilesList" class=""></div>
+          </div>
+          <div class="col">
+            <h3 class="text-center">Textura da Parede</h3>
+            <div id="modalWallsList" class=""></div>
+          </div>
+        </div>
+        <div class="modal-footer row">
+          <button type="button" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 col mx-5" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 col mx-5" data-bs-dismiss="modal" id="modalUpdateRoomButton">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal to confirm room deletion -->
+<div class="modal fade" id="deletingRoomModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Excluir Cômodo</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <h5 id="deletingRoomMessage"></h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button id="modalDeleteRoomButton" type="button" data-bs-dismiss="modal" class="btn btn-danger">Excluir Cômodo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Editing furniture Modal -->
+<div class="modal fade" id="editingFurnitureModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Editar Nome do Móvel</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <label for="modalFurnitureNameInput">Nome do Móvel</label>
+        <input type="text" id="modalFurnitureNameInput">
+        <img src="" alt="" id="modalFurnitureImg" class="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button id="modalUpdateFurnitureButton" type="button" data-bs-dismiss="modal" class="btn btn-primary">Salvar Alteração</button>
+      </div>
+    </div>
+  </div>
+</div>

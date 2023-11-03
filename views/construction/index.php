@@ -10,6 +10,7 @@
   require findPath('views/components/header.html');
   require findPath('views/construction/houseDiagramEditor.html');
   require findPath('views/construction/houseDiagramMenu.html');
+  require findPath('views/construction/constructionModals.html');
   require findPath('views/components/footer.html');
 ?>
   <!-- Includes bootstrap javascript -->

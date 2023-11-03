@@ -95,4 +95,4 @@ var selectedFurnitureImageId, furnitureImgElement, furnitureWidth, furnitureHeig
 var furnitureName;
 
 var createdFurnitureId;
-var furniturePositions, wallPositions = [];
+var furniturePositions = [], wallPositions = [];

@@ -28,9 +28,12 @@ function getRoomById($room_id){
     "SELECT  
       room_name, 
       tile_name,
-      fk_tile_id
+      wall_name,
+      fk_tile_id,
+      fk_wall_id
     FROM rooms
     INNER JOIN tiles ON tiles.tile_id = rooms.fk_tile_id
+    INNER JOIN walls ON walls.wall_id = rooms.fk_wall_id
     WHERE room_id = :room_id"
   );
 
@@ -57,17 +60,19 @@ function createRoom($room_name, $fk_tile_id, $fk_wall_id, $fk_house_id){
   return $connection->lastInsertId();
 }
 
-function updateRoom($room_id, $fk_tile_id, $room_name){
+function updateRoom($room_id, $fk_tile_id, $fk_wall_id, $room_name){
   global $connection;
   $statement = $connection->prepare(
     "UPDATE rooms SET
       room_name  = :room_name,
-      fk_tile_id = :fk_tile_id
+      fk_tile_id = :fk_tile_id,
+      fk_wall_id = :fk_wall_id
     WHERE room_id = :room_id"
     );  
 
   $statement->bindValue(':room_id',$room_id);
   $statement->bindValue(':fk_tile_id',$fk_tile_id);
+  $statement->bindValue(':fk_wall_id',$fk_wall_id);
   $statement->bindValue(':room_name',$room_name);
   $statement->execute();
 }

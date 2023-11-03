@@ -44,10 +44,11 @@
       case 'updateRoom':
         $room_id = $_POST['room_id'];
         $tile_id = $_POST['tile_id'];
+        $wall_id = $_POST['wall_id'];
         $room_name = $_POST['room_name'];
 
         try{
-          updateRoom($room_id, $tile_id, $room_name);
+          updateRoom($room_id, $tile_id, $wall_id, $room_name);
           $response = ["is_room_updated" => true];
         } catch (PDOException $exception){
           $response = [

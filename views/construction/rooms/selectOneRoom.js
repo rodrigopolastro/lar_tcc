@@ -19,8 +19,11 @@ function displayRoomInfo() {
       
       modalRoomNameInput.value = room.room_name;
       modalRoomTileInputImg.src = findTilePath(room.tile_name);
-      tileName = room.tile_name;
+      modalRoomWallInputImg.src = findWallPath(room.wall_name);
       tileId   = room.fk_tile_id;
+      tileName = room.tile_name;
+      wallId   = room.fk_wall_id;
+      wallName = room.wall_name;
     } else {
       alert("There was a problem with the 'selectOneRoomRequest' request.");
     }

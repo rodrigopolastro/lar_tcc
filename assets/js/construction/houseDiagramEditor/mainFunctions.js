@@ -1,4 +1,4 @@
-var lastTilePositionClicked, lastWallPositionClicked = [];
+var lastTilePositionClicked = [], lastWallPositionClicked = [];
 
 //============== INITIALIZATION ==============//
 

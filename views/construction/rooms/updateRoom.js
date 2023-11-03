@@ -1,5 +1,5 @@
 modalUpdateRoomButton.addEventListener('click', () => {
-  if(roomId && tileId){
+  if(roomId && tileId && wallId){
     roomName = modalRoomNameInput.value;
     updateRoom();
   }
@@ -16,6 +16,7 @@ function updateRoom(){
   updateRoomRequest.send("operation=updateRoom" + 
                         "&room_id=" + roomId +
                         "&tile_id=" + tileId + 
+                        "&wall_id=" + wallId + 
                         "&room_name=" + roomName);
 }
 
@@ -27,7 +28,8 @@ function updateDiagramAndRoomsList(){
       if(response.is_room_updated){
         const updatedRoom = document.querySelector("[data-room-id='" + roomId + "']");
         updatedRoom.querySelector('h4').innerHTML = roomName;
-        updatedRoom.querySelector('img').src = findTilePath(tileName);
+        updatedRoom.querySelectorAll("img")[0].src = findTilePath(tileName);
+        updatedRoom.querySelectorAll('img')[1].src = findWallPath(wallName);
         
         //Reload diagram with new room tile
         reloadDiagram();
