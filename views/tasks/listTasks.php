@@ -57,8 +57,8 @@
   </div>
 </div>
 
-<h1>Tarefas</h1>
+<h1 class="txt-red">Tarefas Pendentes</h1>
 <div class="" id="uncompletedTasksList"></div>
-<h2>Tarefas Concluídas</h2>
+<h1 class="txt-green">Tarefas Concluídas</h1>
 <div class="" id="completedTasksList"></div>
 </div>

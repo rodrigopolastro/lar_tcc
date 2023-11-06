@@ -1,6 +1,6 @@
 function createTaskDiv(task){
 
-  const taskDiv             = createElementWithAttributes('div', {class: 'border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 mb-2'});
+  const taskDiv             = createElementWithAttributes('div', {class: 'rounded-4 mb-2'});
   const outerTaskDiv01      = createElementWithAttributes('div', {class: 'row'});
   const outerTaskDiv02      = createElementWithAttributes('div', {class: 'row'});
   const outerTaskDiv03      = createElementWithAttributes('div', {class: 'row'});
@@ -17,7 +17,7 @@ function createTaskDiv(task){
   const hiddenInnerTaskDiv  = createElementWithAttributes('div', {class: 'card-body'});
   const hiddenOuterTaskDiv  = createElementWithAttributes('div', {class: 'collapse', id: task.task_id});
 
-  const taskName        = createElementWithAttributes('h4', {class: 'mt-1'});
+  const taskName        = createElementWithAttributes('h4', {class: 'mt-1 txt-brown'});
   const taskDescription = createElementWithAttributes('p',  {});
   const taskDueDate     = createElementWithAttributes('p',  {});
   const taskRoom        = createElementWithAttributes('p',  {});
@@ -84,12 +84,16 @@ function createTaskDiv(task){
   innerTaskDiv09.appendChild(formDeleteTask);
 
   if (task.is_completed == true){
+    taskDiv.classList.add('bg-green')
+    taskDiv.classList.add('border-green')
     completedTasksNumber += 1;
     completeOperation.value = 'setTaskUncompleted';
     completeSubmit.value = '';
-    completeSubmit.classList.add('bg-success')
+    completeSubmit.classList.add('bg-dark-green')
     completedTasksList.appendChild(taskDiv);
   } else { 
+    taskDiv.classList.add('bg-red')
+    taskDiv.classList.add('border-red')
     // Only uncompleted tasks can be edited
     const buttonEditTask = createElementWithAttributes('button', {onclick:"selectOneTask(" + task.task_id + ")", class: 'border border-0 btn btn-link'});
     const buttonEditImage  = createElementWithAttributes('img', {src: '../../assets/images/icons/pen.png',});
