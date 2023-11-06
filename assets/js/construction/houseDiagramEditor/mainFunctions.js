@@ -45,6 +45,14 @@ houseDiagram.addEventListener("mousedown", (event) => {
       }
       break;
 
+    case 'topWalls':
+      if(topWallImgElement || isEraserModeOn){
+        updateTopWalls(event); 
+      } else {
+        alert('selecione uma parede para inserir!');
+      }
+      break;
+
     case 'none':
       alert('Você precisa adicionar móveis à sua coleção!');
       break;
@@ -166,7 +174,23 @@ function updateDiagramFurniture(mouseEvent){
   }
 }
 
+function updateTopWalls(mouseEvent){
+  let positionClicked = getCoordsInElement(mouseEvent);
+  let key = positionClicked[0] + "-" + positionClicked[1];
+
+  if(isEraserModeOn){
+    delete diagramPositions.topWalls[key]
+  } else {
+    if(!diagramPositions.topWalls.hasOwnProperty(key)){
+      // console.log(topWallImgElement.src)
+      diagramPositions.topWalls[key] = selectedTopWallName;
+    }
+  }
+  reloadDiagram()
+}
+
 function reloadDiagram(){
+  console.log(diagramPositions)
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
   //LOAD TILES
@@ -208,6 +232,23 @@ function reloadDiagram(){
       furnitureHeight * TILE_SIZE       
     );
   })
+
+  //LOAD TOP WALLS
+  Object.entries(diagramPositions.topWalls).forEach(([key, value]) => {
+    let topWallImg = document.querySelector("[data-top-wall-name='" + value + "']");
+
+    // //Determine x/y position of this placement from key ("3-4" -> x=3, y=4)
+    let positionX = Number(key.split("-")[0]);
+    let positionY = Number(key.split("-")[1]);
+
+    canvas.drawImage(
+      topWallImg, 
+      positionX * TILE_SIZE,  
+      positionY * TILE_SIZE, 
+      TILE_SIZE,     
+      TILE_SIZE       
+    );
+  });
 }
 
 

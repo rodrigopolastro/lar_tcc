@@ -1,8 +1,9 @@
   <div id="houseDiagramMenu" class="w-75">
     <div id="sectionSelector">
-      <button id="myRoomsSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus Cômodos</button>
-      <button id="myFurnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus Móveis</button>
+      <button id="myRoomsSectionButton"      class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus Cômodos</button>
+      <button id="myFurnitureSectionButton"  class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus Móveis</button>
       <button id="allFurnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Adicionar Móveis</button>
+      <button id="topWallsSectionButton"     class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Bordas das Paredes </button>
     </div>
     <div id="myRoomsSection" class="">
       <h2>Novo cômodo</h2>
@@ -37,6 +38,17 @@
       <input type="text" id="furnitureNameInput">
       <h1>Móveis Disponíveis</h1>
       <div id="allFurnitureList"><!-- All furniture list is filled dinamically by javascript --></div>
+    </div>
+
+    <div id="topWallsSection" class="d-none">
+      <h1>Bordas das Paredes</h1>
+      <div id="topWallsList">
+        <img data-top-wall-name="topWall"               width="100" src="/htdocsDirectories/lar_tcc/assets/images/topWalls/topWall.png" alt="">
+        <img data-top-wall-name="cantoSuperiorEsquerdo" width="100" src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoSuperiorEsquerdo.png" alt="">
+        <img data-top-wall-name="cantoSuperiorDireito"  width="100" src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoSuperiorDireito.png" alt="">
+        <img data-top-wall-name="cantoInferiorEsquerdo" width="100" src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoInferiorEsquerdo.png" alt="">
+        <img data-top-wall-name="cantoInferiorDireito"  width="100" src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoInferiorDireito.png" alt="">
+      </div>
     </div>
 
       <!-- Editing room Modal -->

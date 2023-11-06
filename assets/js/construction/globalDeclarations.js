@@ -26,8 +26,10 @@ const CANVAS_HEIGHT = NUMBER_OF_COLUMNS * TILE_SIZE;
 //============== OBJECTS ==============//
 
 // Section Selector
-const myRoomsSectionButton     = document.getElementById('myRoomsSectionButton');
-const myFurnitureSectionButton = document.getElementById('myFurnitureSectionButton');
+const myRoomsSectionButton      = document.getElementById('myRoomsSectionButton');
+const myFurnitureSectionButton  = document.getElementById('myFurnitureSectionButton');
+const allFurnitureSectionButton = document.getElementById('allFurnitureSectionButton');
+const topWallsSectionButton     = document.getElementById('topWallsSectionButton');
 
 // Rooms Section
 const myRoomsSection   = document.getElementById('myRoomsSection');
@@ -41,6 +43,10 @@ const tilesPopoverContent = document.getElementById('tilesPopoverContent');
 // My Furniture Section
 const myFurnitureSection    = document.getElementById('myFurnitureSection');
 const myFurnitureList       = document.getElementById('myFurnitureList');
+
+//Top Walls Section
+const topWallsSection = document.getElementById('topWallsSection');
+const topWallsList    = document.getElementById('topWallsList');
 
 // Editing room modal
 const modalUpdateRoomButton = document.getElementById('modalUpdateRoomButton');
@@ -88,3 +94,5 @@ var furnitureName;
 
 var createdFurnitureId;
 var furniturePositions, createdFurnitureStartingPosition;
+
+var topWallImgElement, selectedTopWallName;
