@@ -41,7 +41,24 @@
       <label for="furnitureNameInput">Nome do Móvel</label>
       <input type="text" id="furnitureNameInput">
       <h1>Móveis Disponíveis</h1>
-      <div id="allFurnitureList"><!-- All furniture list is filled dinamically by javascript --></div>
-    </div>
+      <div class="d-flex">
+        <div id="furnitureSelector">
+          <button id="kitchenFurnitureButton">Cozinha</button>
+          <button id="livingRoomFurnitureButton">Sala de Estar</button>
+          <button id="diningRoomFurnitureButton">Sala de Jantar</button>
+          <button id="bedroomFurnitureButton">Quarto</button>
+          <button id="bathroomFurnitureButton">Banheiro</button>
+          <button id="otherFurnitureButton">Outro</button>
+        </div>
+        <div id="allFurnitureList">
+          <div id="kitchenFurniture"></div>
+          <div id="livingRoomFurniture"></div>
+          <div id="diningRoomFurniture"></div>
+          <div id="bedroomFurniture"></div>
+          <div id="bathroomFurniture"></div>
+          <div id="otherFurniture"></div>
+        </div>
+      </div>
+      </div>
   </div> 
 </div> <!-- Closes the box what wraps the house diagram editor and menu -->

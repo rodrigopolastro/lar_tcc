@@ -14,7 +14,7 @@ function selectFurnitureImages(){
 function listFurnitureImages(){
   if (selectFurnitureImagesRequest.readyState === XMLHttpRequest.DONE) { 
     if (selectFurnitureImagesRequest.status === 200) {
-      createDefaultRoomsList();
+      // createDefaultRoomsList();
       const furnitureImages = JSON.parse(selectFurnitureImagesRequest.responseText);
       furnitureImages.forEach(furnitureImage => { createFurnitureImg(furnitureImage); })
     } else {
