@@ -1,4 +1,4 @@
-Array.from(furnitureSelector.children).forEach( (button) => {
+Array.from(furnitureSelector.querySelectorAll("button")).forEach( (button) => {
   button.addEventListener('click', (event) => {
     hideAllFurnitureLists();
 

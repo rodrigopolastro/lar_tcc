@@ -2,7 +2,8 @@ function createFurnitureImg(furnitureImage){
   const furnitureImgElement = createElementWithAttributes('img', {
     //Search furniture image by its name in the respective room folder
     src: findFurniturePath(furnitureImage.default_room_name, furnitureImage.furniture_image_name), 
-    class:''
+    class:'',
+    height: '80px'
   });
 
   // furnitureImage.addEventListener('click', function() {

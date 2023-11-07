@@ -1,10 +1,10 @@
-  <div id="houseDiagramMenu" class="w-75">
+  <div id="houseDiagramMenu" class="col-6">
     <div id="sectionSelector">
       <button id="myRoomsSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus Cômodos</button>
       <button id="myFurnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus Móveis</button>
       <button id="allFurnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Adicionar Móveis</button>
     </div>
-    <div id="myRoomsSection" class="">
+    <div id="myRoomsSection" class="d-none">
       <h2>Novo cômodo</h2>
       <div class="d-flex align-items-center border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 pt-2 pb-2 pe-2 row">
         <label for="roomNameInput">Nome do Cômodo</label>
@@ -37,26 +37,38 @@
       <div id="myFurnitureList"><!-- My furniture list is filled dinamically by javascript --></div>
     </div>
 
-    <div id="allFurnitureSection" class="d-none">
+    <div id="allFurnitureSection" class="">
       <label for="furnitureNameInput">Nome do Móvel</label>
       <input type="text" id="furnitureNameInput">
       <h1>Móveis Disponíveis</h1>
-      <div class="d-flex">
-        <div id="furnitureSelector">
-          <button id="kitchenFurnitureButton">Cozinha</button>
-          <button id="livingRoomFurnitureButton">Sala de Estar</button>
-          <button id="diningRoomFurnitureButton">Sala de Jantar</button>
-          <button id="bedroomFurnitureButton">Quarto</button>
-          <button id="bathroomFurnitureButton">Banheiro</button>
-          <button id="otherFurnitureButton">Outro</button>
+      <div class="d-flex align-items-center" style="height: 80vh">
+        <div id="furnitureSelector" class="col-3">
+          <div class="d-flex justify-content-end me-3 mb-2">
+            <button class="w-75" id="kitchenFurnitureButton">Cozinha</button>
+          </div>
+          <div class="d-flex justify-content-end me-3 mb-2">
+            <button class="w-75" id="livingRoomFurnitureButton">Sala de Estar</button>
+          </div>
+          <div class="d-flex justify-content-end me-3 mb-2">
+            <button class="w-75" id="diningRoomFurnitureButton">Sala de Jantar</button>
+          </div>
+          <div class="d-flex justify-content-end me-3 mb-2">
+            <button class="w-75" id="bedroomFurnitureButton">Quarto</button>
+          </div>
+          <div class="d-flex justify-content-end me-3 mb-2">
+            <button class="w-75" id="bathroomFurnitureButton">Banheiro</button>
+          </div>
+          <div class="d-flex justify-content-end me-3 mb-2">
+            <button class="w-75" id="otherFurnitureButton">Outro</button>
+          </div>
         </div>
-        <div id="allFurnitureList">
+        <div id="allFurnitureList" class="col-8 h-75">
           <div id="kitchenFurniture"></div>
-          <div id="livingRoomFurniture"></div>
-          <div id="diningRoomFurniture"></div>
-          <div id="bedroomFurniture"></div>
-          <div id="bathroomFurniture"></div>
-          <div id="otherFurniture"></div>
+          <div class="d-none" id="livingRoomFurniture"></div>
+          <div class="d-none" id="diningRoomFurniture"></div>
+          <div class="d-none" id="bedroomFurniture"></div>
+          <div class="d-none" id="bathroomFurniture"></div>
+          <div class="d-none" id="otherFurniture"></div>
         </div>
       </div>
       </div>
