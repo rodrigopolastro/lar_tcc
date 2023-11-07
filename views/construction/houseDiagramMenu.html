@@ -1,14 +1,14 @@
   <div id="houseDiagramMenu" class="ms-5 container-fluid overflow-auto" style="height: 690px;">
     <div id="sectionSelector">
-      <button id="myRoomsSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus Cômodos</button>
-      <button id="myFurnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus Móveis</button>
-      <button id="allFurnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Adicionar Móveis</button>
+      <button id="myRoomsSectionButton"      class="bg-green border-green rounded-3 h5 p-1 txt-green">Meus Cômodos</button>
+      <button id="myFurnitureSectionButton"  class="bg-green border-green rounded-3 h5 p-1 txt-green ms-3">Meus Móveis</button>
+      <button id="allFurnitureSectionButton" class="bg-green border-green rounded-3 h5 p-1 txt-green ms-3">Adicionar Móveis</button>
     </div>
     <div id="myRoomsSection" class="">
-      <h1>Novo cômodo</h1>
-      <div class="d-flex align-items-center border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 pt-2 pb-2 pe-2 row">
-        <label for="roomNameInput" class="col">Nome do Cômodo</label>
-        <select name="" id="roomNameInput" class="col">
+      <h1 class="txt-brown fw-bold">Novo cômodo</h1>
+      <div class="d-flex align-items-center text-center bg-cream border-brown rounded-5 pt-2 pb-2 mb-2 pe-2 row">
+        <label for="roomNameInput" class="col txt-brown fw-bold fs-5">Nome do Cômodo:</label>
+        <select name="" id="roomNameInput" class="col rounded-3 txt-red border-0 bg-cream fw-bold fs-5">
           <option value="kitchen">Cozinha</option>
           <option value="livingRoom">Sala de Estar</option>
           <option value="diningRoom'">Sala de Jantar</option>
@@ -20,15 +20,15 @@
           <!-- the 'src' attribute is filled with the placeholder image by javascript -->
           <img src="" alt="" id="roomTileInputImg" class="w-100 rounded-2">
         </div>
-        <button id="createRoomButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1 col">Criar Cômodo</button>
+        <button id="createRoomButton" class="bg-brown border-brown txt-brown fw-bold rounded-4 h4 py-2 col">Criar Cômodo</button>
         <div id="tilesPopoverContent" class="d-none"></div>
       </div>
-      <h2>Meus cômodos</h2>
+      <h1 class="txt-brown fw-bold">Meus cômodos</h1>
       <div id="roomsList"><!-- Room list is filled dinamically by javascript --></div>
     </div>
 
     <div id="myFurnitureSection" class="d-none">
-      <h1>Meus Móveis</h1>
+      <h1 class="txt-brown fw-bold">Meus Móveis</h1>
       <div id="myFurnitureList" class="" style=""><!-- My furniture list is filled dinamically by javascript --></div>
     </div>
 

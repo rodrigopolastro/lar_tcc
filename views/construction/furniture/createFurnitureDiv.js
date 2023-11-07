@@ -1,12 +1,12 @@
 function createFurnitureDiv(furniture){
-  const furnitureDiv = createElementWithAttributes('div', {class:'border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 pb-2 row', width:'200px',});
+  const furnitureDiv = createElementWithAttributes('div', {class:'bg-cream border-brown rounded-5 pb-2 mb-3 row',});
   furnitureDiv.dataset.furnitureId = furniture.furniture_id;
   furnitureDiv.dataset.tilesWidth = furniture.tiles_width;
   furnitureDiv.dataset.tilesHeight = furniture.tiles_height;
 
   const furnitureImageDiv = createElementWithAttributes('div', {class:''});
   
-  const furnitureNameElement  = createElementWithAttributes('h4', {class:'text-center'});
+  const furnitureNameElement  = createElementWithAttributes('h4', {class:'text-center txt-brown fw-bold'});
   const furnitureNameText     = document.createTextNode(furniture.furniture_name);
   const furnitureImage        = createElementWithAttributes('img', {
     src: findFurniturePath(furniture.default_room_name, furniture.furniture_image_name), 
