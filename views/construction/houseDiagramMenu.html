@@ -11,22 +11,24 @@
   </div>
   <div id="myRoomsSection" class="">
     <h1 class="txt-brown fw-bold">Novo cômodo</h1>
-    <div class="d-flex align-items-center text-center bg-cream border-brown rounded-5 pt-2 pb-2 mb-2 pe-2 row">
-      <label for="roomNameInput" class="col txt-brown fw-bold fs-4">Nome do Cômodo:</label>
-      <select name="" id="roomNameInput" class="col rounded-4 txt-red border-0 bg-red fw-bold fs-4">
-        <option value="kitchen">Cozinha</option>
-        <option value="livingRoom">Sala de Estar</option>
-        <option value="diningRoom'">Sala de Jantar</option>
-        <option value="bedroom">Quarto</option>
-        <option value="bathroom">Banheiro</option>
-        <option value="other">Outro</option> <!-- This one opens a text input when selected -->
-      </select>
-      <div id="roomTileInputDiv" class="tile-image" role="button" data-bs-toggle="popover" tabindex="0">
+    <div class="d-flex align-items-center text-center bg-cream border-brown rounded-5 p-3 mb-2">
+      <div class="d-flex flex-column">
+        <label for="roomNameInput" class="col txt-brown fw-bold fs-4">Nome do Cômodo</label>
+        <select name="" id="roomNameInput" class="col rounded-4 txt-red border-0 bg-red fw-bold fs-4">
+          <option value="kitchen">Cozinha</option>
+          <option value="livingRoom">Sala de Estar</option>
+          <option value="diningRoom'">Sala de Jantar</option>
+          <option value="bedroom">Quarto</option>
+          <option value="bathroom">Banheiro</option>
+          <option value="other">Outro</option> <!-- This one opens a text input when selected -->
+        </select>
+      </div>
+      <div id="roomTileInputDiv" class="mx-2 tile-image" role="button" data-bs-toggle="popover" tabindex="0">
         <!-- the 'src' attribute is filled with the placeholder image by javascript -->
-        <img src="" alt="" id="roomTileInputImg" class="w-100 rounded-2">
+        <img src="" alt="" id="roomTileInputImg" class="h-100 rounded-2">
       </div>
       <div id="roomWallInputDiv"
-        class="wall-image rounded-2 d-flex align-items-center justify-content-center overflow-hidden" role="button"
+        class="mx-2 wall-image rounded-2 d-flex align-items-center justify-content-center overflow-hidden" role="button"
         data-bs-toggle="" tabindex="0">
         <!-- the 'src' attribute is filled with the placeholder image by javascript -->
         <img src="" alt="" id="roomWallInputImg" class="w-100">
@@ -36,7 +38,7 @@
       <div id="wallsPopoverContent" class="d-none"></div>
     </div>
     <h1 class="txt-brown fw-bold">Meus cômodos</h1>
-    <div id="roomsList">
+    <div id="roomsList" class="row">
       <!-- Room list is filled dinamically by javascript -->
     </div>
   </div>

@@ -4,12 +4,12 @@ p{
 }
 
 .tile-image{
-  width: 100px;
+  height: 90px;
 }
 
 .wall-image{
-  max-width: 100px;
-  height: 100px; 
+  max-width: 90px;
+  height: 90px; 
   /* border-radius: 20px; */
 }
 
