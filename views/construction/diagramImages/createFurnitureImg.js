@@ -1,6 +1,6 @@
 function createFurnitureImg(furnitureImage){
   const furnitureDivElement = createElementWithAttributes('div', {
-    class: 'd-inline-block p-2 m-1 border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2'
+    class: 'd-inline-block p-2 m-1 bg-cream border-brown rounded-4'
   })
   const furnitureImgElement = createElementWithAttributes('img', {
     //Search furniture image by its name in the respective room folder
