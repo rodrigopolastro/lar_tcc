@@ -28,6 +28,7 @@
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/mainFunctions.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/roomsFunctions.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/furnitureFunctions.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/topWallsFunctions.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/sectionSelector.js"></script>
   
   <!-- ROOMS -->
