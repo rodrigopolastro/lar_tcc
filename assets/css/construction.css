@@ -1,3 +1,8 @@
+p{
+  margin: 0;
+  padding: 0;
+}
+
 .tile-image{
   width: 100px;
 }
@@ -21,17 +26,15 @@
   background: #f4f8f9;
 }
 
-p{
-  margin: 0;
-  padding: 0;
-}
-
-/* All color for the background */
+/* ////////////////////////////All color for the background//////////////////////////// */
 .bg-red{
   background-color: #F8CDBA;
 }
 .bg-green{
   background-color: rgba(32,58,48,0.1);
+}
+.bg-lime{
+  background-color: rgb(78, 164, 131)
 }
 .bg-dark-green{
   background-color: rgba(32,58,48);
@@ -42,7 +45,7 @@ p{
 .bg-cream{
   background-color: #EEE8D8;
 }
-/* colors for borders */
+/* ////////////////////////////colors for borders//////////////////////////// */
 .border-red{
   border: 4px solid #CB7367;
   box-shadow: 2px 4px 0 0 #CB7367;
@@ -55,7 +58,10 @@ p{
   border: 4px solid #482929;
   box-shadow: 2px 4px 0 0 #482929;
 }
-/* colors for text */
+.border-brown-line{
+  border: 2px solid #482929;
+}
+/* ////////////////////////////colors for text//////////////////////////// */
 .txt-red{
   color: #E47467;
 }
@@ -64,10 +70,4 @@ p{
 }
 .txt-brown{
   color: #482929;
-}
-
-
-p{
-  margin: 0;
-  padding: 0;
 }

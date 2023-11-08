@@ -1,124 +1,128 @@
-  <div id="houseDiagramMenu" class="col-6 ps-5 overflow-auto" style="height: 690px;">
-    <div id="sectionSelector">
-      <button id="myRoomsSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus
-        Cômodos</button>
-      <button id="myFurnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Meus
-        Móveis</button>
-      <button id="allFurnitureSectionButton"
-        class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Adicionar Móveis</button>
-      <button id="topWallsSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Bordas
-        das Paredes </button>
-    </div>
-    <div id="myRoomsSection" class="">
-      <h2>Novo cômodo</h2>
-      <div class="d-flex align-items-center border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 pt-2 pb-2 pe-2 row">
-        <label for="roomNameInput">Nome do Cômodo</label>
-        <select name="" id="roomNameInput">
-          <option value="kitchen">Cozinha</option>
-          <option value="livingRoom">Sala de Estar</option>
-          <option value="diningRoom'">Sala de Jantar</option>
-          <option value="bedroom">Quarto</option>
-          <option value="bathroom">Banheiro</option>
-          <option value="other">Outro</option> <!-- This one opens a text input when selected -->
-        </select>
-        <div id="roomTileInputDiv" class="tile-image" role="button" data-bs-toggle="popover" tabindex="0">
-          <!-- the 'src' attribute is filled with the placeholder image by javascript -->
-          <img src="" alt="" id="roomTileInputImg" class="w-100 rounded-2">
-        </div>
-        <div id="roomWallInputDiv"
-          class="wall-image rounded-2 d-flex align-items-center justify-content-center overflow-hidden" role="button"
-          data-bs-toggle="" tabindex="0">
-          <!-- the 'src' attribute is filled with the placeholder image by javascript -->
-          <img src="" alt="" id="roomWallInputImg" class="w-100">
-        </div>
-        <button id="createRoomButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1 col">Criar
-          Cômodo</button>
-        <div id="tilesPopoverContent" class="d-none"></div>
-        <div id="wallsPopoverContent" class="d-none"></div>
+<div id="houseDiagramMenu" class="container-fluid px-5 overflow-auto" style="height: 690px;">
+  <div id="sectionSelector">
+    <button id="myRoomsSectionButton" class="bg-green border-green rounded-3 h5 p-1 txt-green">Meus
+      Cômodos</button>
+    <button id="myFurnitureSectionButton" class="bg-green border-green rounded-3 h5 p-1 txt-green ms-3">Meus
+      Móveis</button>
+    <button id="allFurnitureSectionButton" class="bg-green border-green rounded-3 h5 p-1 txt-green ms-3">Adicionar
+      Móveis</button>
+    <button id="topWallsSectionButton" class="bg-green border-green rounded-3 h5 p-1 txt-green ms-3">Bordas
+      das Paredes </button>
+  </div>
+  <div id="myRoomsSection" class="">
+    <h1 class="txt-brown fw-bold">Novo cômodo</h1>
+    <div class="d-flex align-items-center text-center bg-cream border-brown rounded-5 pt-2 pb-2 mb-2 pe-2 row">
+      <label for="roomNameInput" class="col txt-brown fw-bold fs-4">Nome do Cômodo:</label>
+      <select name="" id="roomNameInput" class="col rounded-4 txt-red border-0 bg-red fw-bold fs-4">
+        <option value="kitchen">Cozinha</option>
+        <option value="livingRoom">Sala de Estar</option>
+        <option value="diningRoom'">Sala de Jantar</option>
+        <option value="bedroom">Quarto</option>
+        <option value="bathroom">Banheiro</option>
+        <option value="other">Outro</option> <!-- This one opens a text input when selected -->
+      </select>
+      <div id="roomTileInputDiv" class="tile-image" role="button" data-bs-toggle="popover" tabindex="0">
+        <!-- the 'src' attribute is filled with the placeholder image by javascript -->
+        <img src="" alt="" id="roomTileInputImg" class="w-100 rounded-2">
       </div>
-      <h2>Meus cômodos</h2>
-      <div id="roomsList"><!-- Room list is filled dinamically by javascript --></div>
+      <div id="roomWallInputDiv"
+        class="wall-image rounded-2 d-flex align-items-center justify-content-center overflow-hidden" role="button"
+        data-bs-toggle="" tabindex="0">
+        <!-- the 'src' attribute is filled with the placeholder image by javascript -->
+        <img src="" alt="" id="roomWallInputImg" class="w-100">
+      </div>
+      <button id="createRoomButton" class="bg-brown border-0 txt-brown fw-bold rounded-4 fs-4 col">Criar Cômodo</button>
+      <div id="tilesPopoverContent" class="d-none"></div>
+      <div id="wallsPopoverContent" class="d-none"></div>
     </div>
-
-    <div id="myFurnitureSection" class="d-none">
-      <h1>Meus Móveis</h1>
-      <div id="myFurnitureList" class="" style=""><!-- My furniture list is filled dinamically by javascript --></div>
+    <h1 class="txt-brown fw-bold">Meus cômodos</h1>
+    <div id="roomsList">
+      <!-- Room list is filled dinamically by javascript -->
     </div>
+  </div>
 
-    <div id="allFurnitureSection" class="d-none">
-      <h1>Móveis Disponíveis</h1>
-      <label for="furnitureNameInput" class="me-2">Nome do Móvel</label>
-      <input type="text" id="furnitureNameInput" class="w-50 mb-3">
-      <div class="d-flex">
-        <div id="furnitureSelector" class="col-4">
-          <div class="d-flex justify-content-center me-3 mb-2">
-            <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
-              id="kitchenFurnitureButton">
-              <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Fridge.svg" alt="">
-              <p class="col-8">Cozinha</p>
-            </button>
-          </div>
-          <div class="d-flex justify-content-center me-3 mb-2">
-            <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
-              id="livingRoomFurnitureButton">
-              <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Sofa.svg" alt="">
-              <p class="col-8">Sala de Estar</p>
-            </button>
-          </div>
-          <div class="d-flex justify-content-center me-3 mb-2">
-            <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
-              id="diningRoomFurnitureButton">
-              <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Cutlery.svg" alt="">
-              <p class="col-8">Sala de Jantar</p>
-            </button>
-          </div>
-          <div class="d-flex justify-content-center me-3 mb-2">
-            <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
-              id="bedroomFurnitureButton">
-              <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Bedroom.svg" alt="">
-              <p class="col-8">Quarto</p>
-            </button>
-          </div>
-          <div class="d-flex justify-content-center me-3 mb-2">
-            <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
-              id="bathroomFurnitureButton">
-              <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Bathtub.svg" alt="">
-              <p class="col-8">Banheiro</p>
-            </button>
-          </div>
-          <div class="d-flex justify-content-center me-3 mb-2">
-            <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
-              id="otherFurnitureButton">
-              <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Squared Menu.svg" alt="">
-              <p class="col-8">Outro</p>
-            </button>
-          </div>
+  <div id="myFurnitureSection" class="d-none">
+    <h1 class="txt-brown fw-bold">Meus Móveis</h1>
+    <div id="myFurnitureList" class="" style="">
+      <!-- My furniture list is filled dinamically by javascript -->
+    </div>
+  </div>
+
+  <div id="allFurnitureSection" class="d-none">
+    <h1>Móveis Disponíveis</h1>
+    <label for="furnitureNameInput" class="me-2">Nome do Móvel</label>
+    <input type="text" id="furnitureNameInput" class="w-50 mb-3">
+    <div class="d-flex">
+      <div id="furnitureSelector" class="col-4">
+        <div class="d-flex justify-content-center me-3 mb-2">
+          <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
+            id="kitchenFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Fridge.svg" alt="">
+            <p class="col-8">Cozinha</p>
+          </button>
         </div>
-        <div id="allFurnitureList" class="col-8 h-75">
-          <div id="kitchenFurniture"></div>
-          <div class="d-none" id="livingRoomFurniture"></div>
-          <div class="d-none" id="diningRoomFurniture"></div>
-          <div class="d-none" id="bedroomFurniture"></div>
-          <div class="d-none" id="bathroomFurniture"></div>
-          <div class="d-none" id="otherFurniture"></div>
+        <div class="d-flex justify-content-center me-3 mb-2">
+          <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
+            id="livingRoomFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Sofa.svg" alt="">
+            <p class="col-8">Sala de Estar</p>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center me-3 mb-2">
+          <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
+            id="diningRoomFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Cutlery.svg" alt="">
+            <p class="col-8">Sala de Jantar</p>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center me-3 mb-2">
+          <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
+            id="bedroomFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Bedroom.svg" alt="">
+            <p class="col-8">Quarto</p>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center me-3 mb-2">
+          <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
+            id="bathroomFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Bathtub.svg" alt="">
+            <p class="col-8">Banheiro</p>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center me-3 mb-2">
+          <button class="row align-items-center w-100 border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1"
+            id="otherFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Squared Menu.svg" alt="">
+            <p class="col-8">Outro</p>
+          </button>
         </div>
       </div>
-    </div>
-    
-    <div id="topWallsSection" class="d-none">
-      <h1>Bordas das Paredes</h1>
-      <div id="topWallsList">
-        <img data-top-wall-name="topWall" width="100" src="/htdocsDirectories/lar_tcc/assets/images/topWalls/topWall.png"
-          alt="">
-        <img data-top-wall-name="cantoSuperiorEsquerdo" width="100"
-          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoSuperiorEsquerdo.png" alt="">
-        <img data-top-wall-name="cantoSuperiorDireito" width="100"
-          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoSuperiorDireito.png" alt="">
-        <img data-top-wall-name="cantoInferiorEsquerdo" width="100"
-          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoInferiorEsquerdo.png" alt="">
-        <img data-top-wall-name="cantoInferiorDireito" width="100"
-          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoInferiorDireito.png" alt="">
+      <div id="allFurnitureList" class="col-8 h-75">
+        <div id="kitchenFurniture"></div>
+        <div class="d-none" id="livingRoomFurniture"></div>
+        <div class="d-none" id="diningRoomFurniture"></div>
+        <div class="d-none" id="bedroomFurniture"></div>
+        <div class="d-none" id="bathroomFurniture"></div>
+        <div class="d-none" id="otherFurniture"></div>
       </div>
     </div>
   </div>
+
+  <div id="topWallsSection" class="d-none">
+    <h1>Bordas das Paredes</h1>
+    <div id="topWallsList">
+      <img data-top-wall-name="topWall" width="100" src="/htdocsDirectories/lar_tcc/assets/images/topWalls/topWall.png"
+        alt="">
+      <img data-top-wall-name="cantoSuperiorEsquerdo" width="100"
+        src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoSuperiorEsquerdo.png" alt="">
+      <img data-top-wall-name="cantoSuperiorDireito" width="100"
+        src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoSuperiorDireito.png" alt="">
+      <img data-top-wall-name="cantoInferiorEsquerdo" width="100"
+        src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoInferiorEsquerdo.png" alt="">
+      <img data-top-wall-name="cantoInferiorDireito" width="100"
+        src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoInferiorDireito.png" alt="">
+    </div>
+  </div>
+</div>
+</div>
 </div> <!-- Closes the box what wraps the house diagram editor and menu -->

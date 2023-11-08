@@ -21,9 +21,9 @@ const PLACEHOLDER_FURNITURE_NAME = "placeholderFurniture.png";
 // Canvas
 const TILE_SIZE = 32;
 const NUMBER_OF_LINES = 20;
-const NUMBER_OF_COLUMNS = 20; 
-const CANVAS_WIDTH  = NUMBER_OF_LINES * TILE_SIZE; 
-const CANVAS_HEIGHT = NUMBER_OF_COLUMNS * TILE_SIZE; 
+const NUMBER_OF_COLUMNS = 23; 
+const CANVAS_WIDTH  = NUMBER_OF_COLUMNS * TILE_SIZE; 
+const CANVAS_HEIGHT = NUMBER_OF_LINES * TILE_SIZE; 
 
 //============== OBJECTS ==============//
 
