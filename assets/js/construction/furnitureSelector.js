@@ -1,9 +1,9 @@
 Array.from(furnitureSelector.querySelectorAll("button")).forEach( (button) => {
   button.addEventListener('click', (event) => {
     hideAllFurnitureLists();
-
-    buttonElement = event.target
-    let furnitureRoomId = buttonElement.id.replace("Button", "")
+    
+    let furnitureRoomId = button.id.replace("Button", "")
+    console.log(furnitureRoomId)
     let furnitureRoom = document.getElementById(furnitureRoomId)
     furnitureRoom.classList.remove("d-none")
   })

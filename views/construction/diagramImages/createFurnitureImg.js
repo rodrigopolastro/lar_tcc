@@ -1,4 +1,7 @@
 function createFurnitureImg(furnitureImage){
+  const furnitureDivElement = createElementWithAttributes('div', {
+    class: 'd-inline-block p-2 m-1 border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2'
+  })
   const furnitureImgElement = createElementWithAttributes('img', {
     //Search furniture image by its name in the respective room folder
     src: findFurniturePath(furnitureImage.default_room_name, furnitureImage.furniture_image_name), 
@@ -20,8 +23,7 @@ function createFurnitureImg(furnitureImage){
     )
   });
 
-  //These lists are created in 'createDefaultRoomsList' file
   let listId = furnitureImage.default_room_name + "Furniture";
   let listToAdd = document.getElementById(listId);
-  listToAdd.appendChild(furnitureImgElement);
+  listToAdd.appendChild(furnitureDivElement).appendChild(furnitureImgElement);
 }
