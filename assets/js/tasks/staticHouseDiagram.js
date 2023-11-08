@@ -22,7 +22,6 @@ window.addEventListener('load', () => {
   staticHouseDiagram.width = CANVAS_WIDTH;
   staticHouseDiagram.height = CANVAS_HEIGHT;
   selectHouseDiagram();
-  
 });
 
 //============== CANVAS EVENTS ==============//
@@ -32,9 +31,9 @@ staticHouseDiagram.addEventListener("mousedown", (mouseEvent) => {
 
   roomId = staticDiagramPositions.tiles[key];
   furnitureId = staticDiagramPositions.furniture.allPositions[key];
-  if(roomId){
+  // if(roomId){
     selectTasks();
-  }
+  // }
 });
 
 
