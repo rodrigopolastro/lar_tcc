@@ -72,9 +72,17 @@ const modalFurnitureNameInput = document.getElementById('modalFurnitureNameInput
 
 // All Furniture Section
 const allFurnitureSection = document.getElementById('allFurnitureSection');
+const furnitureNameInput  = document.getElementById('furnitureNameInput');
+const furnitureInputImg   = document.getElementById('furnitureInputImg');
+const furnitureSelector   = document.getElementById('furnitureSelector');
 const allFurnitureList    = document.getElementById('allFurnitureList');
-const furnitureNameInput    = document.getElementById('furnitureNameInput');
-const furnitureInputImg     = document.getElementById('furnitureInputImg');
+
+// const kitchenFurniture    = document.getElementById('kitchenFurniture');
+// const livingRoomFurniture = document.getElementById('livingRoomFurniture');
+// const diningRoomFurniture = document.getElementById('diningRoomFurniture');
+// const bedroomFurniture    = document.getElementById('bedroomFurniture');
+// const bathroomFurniture   = document.getElementById('bathroomFurniture');
+// const otherFurniture      = document.getElementById('otherFurniture');
 
 // House Diagram Editor
 const clearDiagramButton  = document.getElementById('clearDiagramButton');
