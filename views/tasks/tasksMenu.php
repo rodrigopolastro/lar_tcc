@@ -5,7 +5,7 @@
   $tomorrow  = $date->add(new DateInterval('P1D'))->format('Y-m-d');
 ?>
 <!-- This div wraps the task-menu and the task-list -->
-<div class="tasks-section px-5 container-fluid overflow-auto" style="height: 690px;">
+<div class="tasks-section ps-5 container-fluid">
   <div class="tasks-menu bg-cream border-brown rounded-5 mb-3"> 
     <!-- colocar div com bootstrap dentro dessa de cima -->
     <div class="m-3 row">

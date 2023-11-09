@@ -1,5 +1,5 @@
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <form action="." method="post">
       <input type="hidden" name="operation" value="updateTask">
@@ -55,10 +55,14 @@
       </div>
     </form>
   </div>
-</div>
+  </div>
 
-<h1 class="txt-red">Tarefas Pendentes</h1>
-<div class="" id="uncompletedTasksList"></div>
-<h1 class="txt-green">Tarefas Concluídas</h1>
-<div class="" id="completedTasksList"></div>
+  <!-- <div class="" > -->
+    <h1 class="txt-red">Tarefas Pendentes</h1>
+    <div class="overflow-y-auto" style="height: 50vh">
+      <div id="uncompletedTasksList" class="" style=""></div>
+      <h3 class="txt-green">Tarefas Concluídas</h3>
+      <div id="completedTasksList" class="" style=""></div>
+    </div>
+  <!-- </div> -->
 </div>
