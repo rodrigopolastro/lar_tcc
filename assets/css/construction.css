@@ -26,6 +26,10 @@ p{
   background: #f4f8f9;
 }
 
+.popover{
+  max-width: 400px;
+}
+
 /* ////////////////////////////All color for the background//////////////////////////// */
 .bg-red{
   background-color: #F8CDBA;
