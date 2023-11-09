@@ -66,36 +66,36 @@ INSERT INTO Furniture_Images
   ("bathroom", "chuveiroBrancoRight.png", "Chuveiro Branco", 2, 4),
   ("bathroom", "chuveiroBrancoLeft.png", "Chuveiro Branco", 2, 4),
   ("bathroom", "chuveiroBrancoFront.png", "Chuveiro Branco", 2, 4),
-  ("bathroom", "piaBanheiroBegeBack.png", "Pia Bege", 2, 3),
-  ("bathroom", "piaBanheiroBegeFront.png", "Pia Bege", 2, 3),
-  ("bathroom", "piaBanheiroBegeLeft.png", "Pia Bege", 2, 3),
-  ("bathroom", "piaBanheiroBegeRight.png", "Pia Bege", 2, 3),
-  ("bathroom", "piaBanheiroMarromRight.png", "Pia Marrom", 2, 3),
-  ("bathroom", "piaBanheiroMarromLeft.png", "Pia Marrom", 2, 3),
-  ("bathroom", "piaBanheiroMarromFront.png", "Pia Marrom", 2, 3),
-  ("bathroom", "piaBanheiroMarromBack.png", "Pia Marrom", 2, 3),
-  ("bathroom", "piaBanheiroMarromRight.png", "Pia Marrom", 2, 3),
-  ("bathroom", "vasoSanitarioBegeRight.png", "Vaso Sanitario Bege", 2, 3),
-  ("bathroom", "vasoSanitarioBegeLeft.png", "Vaso Sanitario Bege", 2, 3),
-  ("bathroom", "vasoSanitarioBegeFront.png", "Vaso Sanitario Bege", 2, 3),
-  ("bathroom", "vasoSanitarioBegeBack.png", "Vaso Sanitario Bege", 2, 3),
+  ("bathroom", "piaBanheiroBegeBack.png", "Pia Bege", 1, 2),
+  ("bathroom", "piaBanheiroBegeFront.png", "Pia Bege", 1, 2),
+  ("bathroom", "piaBanheiroBegeLeft.png", "Pia Bege", 1, 2),
+  ("bathroom", "piaBanheiroBegeRight.png", "Pia Bege", 1, 2),
+  ("bathroom", "piaBanheiroMarromRight.png", "Pia Marrom", 1, 2),
+  ("bathroom", "piaBanheiroMarromLeft.png", "Pia Marrom", 1, 2),
+  ("bathroom", "piaBanheiroMarromFront.png", "Pia Marrom", 1, 2),
+  ("bathroom", "piaBanheiroMarromBack.png", "Pia Marrom", 1, 2),
+  ("bathroom", "piaBanheiroMarromRight.png", "Pia Marrom", 1, 2),
+  ("bathroom", "vasoSanitarioBegeRight.png", "Vaso Sanitario Bege", 1, 2),
+  ("bathroom", "vasoSanitarioBegeLeft.png", "Vaso Sanitario Bege", 1, 2),
+  ("bathroom", "vasoSanitarioBegeFront.png", "Vaso Sanitario Bege", 1, 2),
+  ("bathroom", "vasoSanitarioBegeBack.png", "Vaso Sanitario Bege", 1, 2),
   ("bathroom", "banheira01.png", "Banheira", 4, 2);
 
 -- Bedroom furniture
 INSERT INTO Furniture_Images 
   (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("bedroom", "armarioPequenoBrancoFront.png", "Armario Pequeno Branco", 2, 2),
+  ("bedroom", "armarioPequenoBrancoFront.png", "Armario Pequeno Branco", 2, 3),
   ("bedroom", "armarioPequenoMarromFront.png", "Armario Pequeno Marrom", 2, 2),
-  ("bedroom", "camaCasalCinzaFront.png", "Cama Casal Cinza", 4, 4),
+  ("bedroom", "camaCasalCinzaFront.png", "Cama Casal Cinza", 3, 3),
   ("bedroom", "camaCasalMarromRight.png", "Cama Casal Marrom", 3, 3),
   ("bedroom", "camaCasalMarromLeft.png", "Cama Casal Marrom", 3, 3),
-  ("bedroom", "camaCasalMarromFront.png", "Cama Casal Marrom", 4, 4),
-  ("bedroom", "camaSolteiroBegeFront.png", "Cama Solteiro Bege", 2, 4),
+  ("bedroom", "camaCasalMarromFront.png", "Cama Casal Marrom", 3, 3),
+  ("bedroom", "camaSolteiroBegeFront.png", "Cama Solteiro Bege", 2, 3),
   ("bedroom", "camaSolteiroBegeLeft.png", "Cama Solteiro Bege", 3, 2),
   ("bedroom", "camaSolteiroBegeRight.png", "Cama Solteiro Bege", 3, 2),
   ("bedroom", "camaSolteiroMarromRight.png", "Cama Solteiro Marrom", 3, 2),
   ("bedroom", "camaSolteiroMarromLeft.png", "Cama Solteiro Marrom", 3, 2),
-  ("bedroom", "camaSolteiroMarromFront.png", "Cama Solteiro Marrom", 2, 4);
+  ("bedroom", "camaSolteiroMarromFront.png", "Cama Solteiro Marrom", 2, 3);
 
 -- Dining Room furniture
 INSERT INTO Furniture_Images 
@@ -128,9 +128,9 @@ INSERT INTO Furniture_Images
   ("livingRoom", "sofaMarromFront.png", "Sofá Marrom", 3, 2),
   ("livingRoom", "sofaMarromRight.png", "Sofá Branco", 2, 3),
   ("livingRoom", "sofaMarromLeft.png", "Sofá Branco", 2, 3),
-  ("livingRoom", "tvFront.png", "Televisão", 3, 3),
+  ("livingRoom", "tvFront.png", "Televisão", 2, 2),
   ("livingRoom", "estantePequena.png", "Estante Pequena", 2, 2),  
-  ("livingRoom", "prateleira.png", "Prateleira", 2, 2);  
+  ("livingRoom", "prateleira.png", "Prateleira", 3, 3);  
 
 -- Kitchen furniture
 INSERT INTO Furniture_Images 
@@ -139,9 +139,9 @@ INSERT INTO Furniture_Images
   ("kitchen", "piaCompleta.png", "Pia Completa", 4, 2)
   ("kitchen", "fogaoFront.png", "Fogão Branco", 2, 2),
   ("kitchen", "piaCozinhaFront.png", "Pia da Cozinha", 2, 2),
-  ("kitchen", "geladeiraFront.png", "Geladeira", 3, 2),
-  ("kitchen", "balcaoCozinhaFront.png", "Balcão", 2, 3),
-  ("kitchen", "ilhaCentro.png", "Ilha de Centro", 2, 4);
+  ("kitchen", "geladeiraFront.png", "Geladeira", 2, 3),
+  ("kitchen", "balcaoCozinhaFront.png", "Balcão", 4, 3),
+  ("kitchen", "ilhaCentro.png", "Ilha de Centro", 5, 3);
 
 -- Other furniture
 -- INSERT INTO Furniture_Images 

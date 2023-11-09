@@ -216,7 +216,7 @@ function updateTopWalls(mouseEvent){
 }
 
 function reloadDiagram(){
-  console.log(diagramPositions)
+  // console.log(diagramPositions)
   canvas.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
   //LOAD TILES
