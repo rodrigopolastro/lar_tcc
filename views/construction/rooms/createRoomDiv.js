@@ -1,5 +1,8 @@
 function createRoomDiv(room){
-  const roomDiv = createElementWithAttributes('div', {class:'d-flex align-items-center bg-cream border-brown rounded-5 pt-2 pb-3 px-3 mb-3 mx-2 row w-100', style:"max-width: 400px"});
+  const roomDiv = createElementWithAttributes('div', {
+    class:'bg-cream border-brown rounded-5 pt-2 pb-3 px-3 mb-3 me-2', 
+    style:"max-width: 400px"
+  });
   roomDiv.dataset.roomId = room.room_id;
 
   const roomNameElement  = createElementWithAttributes('h4',{class:'txt-brown fw-bold'});
@@ -7,7 +10,7 @@ function createRoomDiv(room){
 
   const roomCenterRow    = createElementWithAttributes('div', {class:'d-flex'})
   
-  const roomTileDiv      = createElementWithAttributes('div', {class:'col-4 d-flex flex-column align-items-center'})
+  const roomTileDiv      = createElementWithAttributes('div', {class:'col-4 d-flex flex-column align-items-center pe-2'})
   const roomTileImageDiv = createElementWithAttributes('div', {src: findTilePath(room.tile_name), class:'max-square mb-2'});
   const roomTileImg      = createElementWithAttributes('img', {src: findTilePath(room.tile_name), class:'h-100 rounded-2'});
   const tileNameElement  = createElementWithAttributes('h6', {class:'txt-brown text-center fw-bold'});
