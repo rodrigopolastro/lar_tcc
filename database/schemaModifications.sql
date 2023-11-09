@@ -100,14 +100,14 @@ INSERT INTO Furniture_Images
 -- Dining Room furniture
 INSERT INTO Furniture_Images 
   (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("diningRoom", "mesaGrandeBegeFrontBack.png", "Mesa Grande Bege", 2, 5),
-  ("diningRoom", "mesaGrandeBegeLeftRight.png", "Mesa Grande Bege", 5, 3),
-  ("diningRoom", "mesaGrandeBrancaFrontBack.png", "Mesa Grande Branca", 2, 5),
   ("diningRoom", "mesaGrandeBrancaLeftRight.png", "Mesa Grande Branca", 5, 3),
-  ("diningRoom", "mesaGrandeMarromFrontBack.png", "Mesa Grande Marrom", 2, 5),
+  ("diningRoom", "mesaGrandeBegeLeftRight.png", "Mesa Grande Bege", 5, 3),
   ("diningRoom", "mesaGrandeMarromLeftRight.png", "Mesa Grande Marrom", 5, 3),
-  ("diningRoom", "mesaPequenaBege.png", "Mesa Pequena Bege", 2, 2),
+  ("diningRoom", "mesaGrandeBrancaFrontBack.png", "Mesa Grande Branca", 2, 5),
+  ("diningRoom", "mesaGrandeBegeFrontBack.png", "Mesa Grande Bege", 2, 5),
+  ("diningRoom", "mesaGrandeMarromFrontBack.png", "Mesa Grande Marrom", 2, 5),
   ("diningRoom", "mesaPequenaBranca.png", "Mesa Pequena Branca", 2, 2),
+  ("diningRoom", "mesaPequenaBege.png", "Mesa Pequena Bege", 2, 2),
   ("diningRoom", "mesaPequenaBrancaRedonda.png", "Mesa Pequena Branca Redonda", 2, 2),
   ("diningRoom", "mesaPequenaMarrom.png", "Mesa Pequena Marrom", 2, 2),
   ("diningRoom", "mesaPequenaMarromEscuro.png", "Mesa Pequena Marrom Escuro", 2, 2),
@@ -136,7 +136,7 @@ INSERT INTO Furniture_Images
 INSERT INTO Furniture_Images 
   (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
   ("kitchen", "fogão01.png", "Fogão Marrom", 2, 2),
-  ("kitchen", "piaCompleta.png", "Pia Completa", 4, 2)
+  ("kitchen", "piaCompleta.png", "Pia Completa", 4, 2),
   ("kitchen", "fogaoFront.png", "Fogão Branco", 2, 2),
   ("kitchen", "piaCozinhaFront.png", "Pia da Cozinha", 2, 2),
   ("kitchen", "geladeiraFront.png", "Geladeira", 2, 3),

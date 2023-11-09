@@ -6,7 +6,7 @@ function createFurnitureImg(furnitureImage){
     //Search furniture image by its name in the respective room folder
     src: findFurniturePath(furnitureImage.default_room_name, furnitureImage.furniture_image_name), 
     class:'',
-    height: '80px'
+    height: 100
   });
 
   // furnitureImage.addEventListener('click', function() {

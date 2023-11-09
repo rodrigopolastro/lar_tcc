@@ -39,7 +39,7 @@
       <div id="wallsPopoverContent" class="d-none d-flex flex-wrap justify-content-center"></div>
     </div>
     <h1 class="txt-brown fw-bold">Meus cômodos</h1>
-    <div id="roomsList" class="d-flex flex-wrap justify-content-center" style="max-height: 50vh;">
+    <div id="roomsList" class="d-flex flex-wrap justify-content-center overflow-y-auto" style="max-height: 50vh;">
       <!-- Room list is filled dinamically by javascript -->
     </div>
   </div>
@@ -54,8 +54,8 @@
   <div id="allFurnitureSection" class="d-none txt-brown">
     <h1 class="fw-bold">Móveis Disponíveis</h1>
     <div class="bg-cream border-brown rounded-4 p-3 mb-3">
-      <label for="furnitureNameInput" class="me-2 ps-2 fs-4 fw-bold">Nome do Móvel:</label>
-      <input type="text" id="furnitureNameInput" class="rounded-4 txt-red border-0 bg-red fs-5 fw-bold"
+      <label for="furnitureNameInput" class="me-2 ps-2 fs-4 fw-bold">Novo Móvel</label>
+      <input type="text" id="furnitureNameInput" class="rounded-4 txt-red border-0 bg-red fs-5 fw-bold ps-2"
         style="width: 70%;">
     </div>
     <div class="d-flex">
@@ -92,12 +92,12 @@
             <p class="col-8">Banheiro</p>
           </button>
         </div>
-        <div class="d-flex justify-content-center me-3 mb-2 bg-green border-green rounded-4">
+        <!-- <div class="d-flex justify-content-center me-3 mb-2 bg-green border-green rounded-4">
           <button class="row align-items-center w-100 h5 p-1 bg-green border-0 rounded-4" id="otherFurnitureButton">
             <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Squared Menu.svg" alt="">
             <p class="col-8">Outro</p>
           </button>
-        </div>
+        </div> -->
       </div>
       <div id="allFurnitureList" class="col-8 h-75">
         <div id="kitchenFurniture"></div>
@@ -105,7 +105,7 @@
         <div class="d-none" id="diningRoomFurniture"></div>
         <div class="d-none" id="bedroomFurniture"></div>
         <div class="d-none" id="bathroomFurniture"></div>
-        <div class="d-none" id="otherFurniture"></div>
+        <!-- <div class="d-none" id="otherFurniture"></div> -->
       </div>
     </div>
   </div>
