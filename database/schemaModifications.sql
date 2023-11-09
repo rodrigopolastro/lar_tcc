@@ -63,35 +63,90 @@ CREATE TABLE Furniture_Images (
 -- Bathroom furniture
 INSERT INTO Furniture_Images 
   (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("bathroom", "banheira01.png", "Banheira", 2, 1);
+  ("bathroom", "chuveiroBrancoRight.png", "Chuveiro Branco", 2, 4),
+  ("bathroom", "chuveiroBrancoLeft.png", "Chuveiro Branco", 2, 4),
+  ("bathroom", "chuveiroBrancoFront.png", "Chuveiro Branco", 2, 4),
+  ("bathroom", "piaBanheiroBegeBack.png", "Pia Bege", 2, 3),
+  ("bathroom", "piaBanheiroBegeFront.png", "Pia Bege", 2, 3),
+  ("bathroom", "piaBanheiroBegeLeft.png", "Pia Bege", 2, 3),
+  ("bathroom", "piaBanheiroBegeRight.png", "Pia Bege", 2, 3),
+  ("bathroom", "piaBanheiroMarromRight.png", "Pia Marrom", 2, 3),
+  ("bathroom", "piaBanheiroMarromLeft.png", "Pia Marrom", 2, 3),
+  ("bathroom", "piaBanheiroMarromFront.png", "Pia Marrom", 2, 3),
+  ("bathroom", "piaBanheiroMarromBack.png", "Pia Marrom", 2, 3),
+  ("bathroom", "piaBanheiroMarromRight.png", "Pia Marrom", 2, 3),
+  ("bathroom", "vasoSanitarioBegeRight.png", "Vaso Sanitario Bege", 2, 3),
+  ("bathroom", "vasoSanitarioBegeLeft.png", "Vaso Sanitario Bege", 2, 3),
+  ("bathroom", "vasoSanitarioBegeFront.png", "Vaso Sanitario Bege", 2, 3),
+  ("bathroom", "vasoSanitarioBegeBack.png", "Vaso Sanitario Bege", 2, 3),
+  ("bathroom", "banheira01.png", "Banheira", 4, 2);
 
 -- Bedroom furniture
 INSERT INTO Furniture_Images 
   (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("bedroom", "armarioPequeno01Front.png", "Armário Pequeno Marrom", 1, 1),
-  ("bedroom", "armarioPequeno02Front.png", "Armário Pequeno Branco", 1, 1);
+  ("bedroom", "armarioPequenoBrancoFront.png", "Armario Pequeno Branco", 2, 2),
+  ("bedroom", "armarioPequenoMarromFront.png", "Armario Pequeno Marrom", 2, 2),
+  ("bedroom", "camaCasalCinzaFront.png", "Cama Casal Cinza", 4, 4),
+  ("bedroom", "camaCasalMarromRight.png", "Cama Casal Marrom", 3, 3),
+  ("bedroom", "camaCasalMarromLeft.png", "Cama Casal Marrom", 3, 3),
+  ("bedroom", "camaCasalMarromFront.png", "Cama Casal Marrom", 4, 4),
+  ("bedroom", "camaSolteiroBegeFront.png", "Cama Solteiro Bege", 2, 4),
+  ("bedroom", "camaSolteiroBegeLeft.png", "Cama Solteiro Bege", 3, 2),
+  ("bedroom", "camaSolteiroBegeRight.png", "Cama Solteiro Bege", 3, 2),
+  ("bedroom", "camaSolteiroMarromRight.png", "Cama Solteiro Marrom", 3, 2),
+  ("bedroom", "camaSolteiroMarromLeft.png", "Cama Solteiro Marrom", 3, 2),
+  ("bedroom", "camaSolteiroMarromFront.png", "Cama Solteiro Marrom", 2, 4);
 
 -- Dining Room furniture
 INSERT INTO Furniture_Images 
   (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("diningRoom", "mesa01.png", "Mesa de Madeira Marrom", 2, 2),
-  ("diningRoom", "mesa02.png", "Mesa de Madeira Branca", 2, 2);
+  ("diningRoom", "mesaGrandeBegeFrontBack.png", "Mesa Grande Bege", 2, 5),
+  ("diningRoom", "mesaGrandeBegeLeftRight.png", "Mesa Grande Bege", 5, 3),
+  ("diningRoom", "mesaGrandeBrancaFrontBack.png", "Mesa Grande Branca", 2, 5),
+  ("diningRoom", "mesaGrandeBrancaLeftRight.png", "Mesa Grande Branca", 5, 3),
+  ("diningRoom", "mesaGrandeMarromFrontBack.png", "Mesa Grande Marrom", 2, 5),
+  ("diningRoom", "mesaGrandeMarromLeftRight.png", "Mesa Grande Marrom", 5, 3),
+  ("diningRoom", "mesaPequenaBege.png", "Mesa Pequena Bege", 2, 2),
+  ("diningRoom", "mesaPequenaBranca.png", "Mesa Pequena Branca", 2, 2),
+  ("diningRoom", "mesaPequenaBrancaRedonda.png", "Mesa Pequena Branca Redonda", 2, 2),
+  ("diningRoom", "mesaPequenaMarrom.png", "Mesa Pequena Marrom", 2, 2),
+  ("diningRoom", "mesaPequenaMarromEscuro.png", "Mesa Pequena Marrom Escuro", 2, 2),
+  ("diningRoom", "mesaPequenaVidro.png", "Mesa Pequena de Vidro", 2, 2);
 
 -- Living Room furniture
 INSERT INTO Furniture_Images 
   (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("livingRoom", "sofa1Back.png", "Sofá Marrom", 4, 2),
-  ("livingRoom", "sofa1Front.png", "Sofá Marrom", 4, 2);
+  ("livingRoom", "sofaBegeBack.png", "Sofá Bege", 3, 2),
+  ("livingRoom", "sofaBegeFront.png", "Sofá Bege", 3, 2),
+  ("livingRoom", "sofaBegeLeft.png", "Sofá Bege", 2, 3),
+  ("livingRoom", "sofaBegeRight.png", "Sofá Bege", 2, 3),
+  ("livingRoom", "sofaBrancoBack.png", "Sofá Branco", 3, 2),
+  ("livingRoom", "sofaBrancoFront.png", "Sofá Branco", 3, 2),
+  ("livingRoom", "sofaBrancoLeft.png", "Sofá Branco", 2, 3),
+  ("livingRoom", "sofaBrancoRight.png", "Sofá Branco", 2, 3),
+  ("livingRoom", "sofaMarromBack.png", "Sofá Marrom", 3, 2),
+  ("livingRoom", "sofaMarromFront.png", "Sofá Marrom", 3, 2),
+  ("livingRoom", "sofaMarromRight.png", "Sofá Branco", 2, 3),
+  ("livingRoom", "sofaMarromLeft.png", "Sofá Branco", 2, 3),
+  ("livingRoom", "tvFront.png", "Televisão", 3, 3),
+  ("livingRoom", "estantePequena.png", "Estante Pequena", 2, 2),  
+  ("livingRoom", "prateleira.png", "Prateleira", 2, 2);  
 
+-- Kitchen furniture
 INSERT INTO Furniture_Images 
   (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("kitchen", "fogão01.png", "Fogão", 2, 2),
-  ("kitchen", "piaCompleta.png", "Pia Completa", 4, 2);
+  ("kitchen", "fogão01.png", "Fogão Marrom", 2, 2),
+  ("kitchen", "piaCompleta.png", "Pia Completa", 4, 2)
+  ("kitchen", "fogaoFront.png", "Fogão Branco", 2, 2),
+  ("kitchen", "piaCozinhaFront.png", "Pia da Cozinha", 2, 2),
+  ("kitchen", "geladeiraFront.png", "Geladeira", 3, 2),
+  ("kitchen", "balcaoCozinhaFront.png", "Balcão", 2, 3),
+  ("kitchen", "ilhaCentro.png", "Ilha de Centro", 2, 4);
 
 -- Other furniture
-INSERT INTO Furniture_Images 
-  (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
-  ("other", "estantePequena01.png", "Estante Pequena", 2, 2);  
+-- INSERT INTO Furniture_Images 
+--   (default_room_name, furniture_image_name, furniture_display_name, tiles_width, tiles_height) VALUES
+--   ()
 
 -- (007) Add furniture_image foreign key to furniture table
 ALTER TABLE Furniture
@@ -115,35 +170,21 @@ CREATE TABLE Walls (
 );
 
 INSERT INTO Walls (wall_name) VALUES
-  ('parede1.png'),
-  ('parede2.png'),
-  ('parede3.png'),
-  ('parede4.png'),
-  ('parede5.png'),
-  ('parede6.png'),
-  ('parede7.png'),
-  ('parede8.png'),
-  ('parede9.png'),
-  ('parede10.png'),
-  ('parede11.png'),
-  ('parede12.png'),
-  ('parede13.png'),
-  ('parede14.png'),
-  ('parede15.png'),
-  ('parede16.png'),
-  ('parede17.png'),
-  ('parede18.png'),
-  ('parede19.png'),
-  ('parede20.png'),
-  ('parede21.png'),
-  ('parede22.png'),
-  ('parede23.png'),
-  ('parede24.png'),
-  ('parede25.png'),
-  ('parede26.png'),
-  ('parede22.png'),
-  ('parede28.png'),
-  ('parede29.png');  
+  ('wall01.png'),
+  ('wall02.png'),
+  ('wall03.png'),
+  ('wall04.png'),
+  ('wall05.png'),
+  ('wall06.png'),
+  ('wall07.png'),
+  ('wall08.png'),
+  ('wall09.png'),
+  ('wall10.png'),
+  ('wall11.png'),
+  ('wall12.png'),
+  ('wall13.png'),
+  ('wall14.png'),
+  ('wall15.png');
 
 ALTER TABLE Rooms
   ADD fk_wall_id INTEGER;

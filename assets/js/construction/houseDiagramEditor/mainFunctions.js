@@ -269,7 +269,7 @@ function reloadDiagram(){
     let positionX = Number(key.split("-")[0]);
 
     let wallWidth = 1;
-    let wallHeight = 4;
+    let wallHeight = 3;
     //Load image from bottom to top (which is more intuitive for the user) instead of 
     //the default top to bottom canvas approach
     let positionY = Number(key.split("-")[1]) - (wallHeight - 1);

@@ -80,7 +80,7 @@ function areWallPositionsAvailable(positionClicked){
 
   wallPositions = [];
   let column = positionClicked[0];
-  for(let j=0; j<4; j++){
+  for(let j=0; j<3; j++){
     let line = positionClicked[1] - j;
     key = column + "-" + line;
 
@@ -116,7 +116,7 @@ function removeWall(positionClicked){
     
     //delete all wall positions from bottom to top
     let column = wallStartingPosition[0];
-    for(let j=0; j<4; j++){
+    for(let j=0; j<3; j++){
       let line = wallStartingPosition[1] - j;
       let key = column + "-" + line;
 
@@ -132,7 +132,7 @@ function removeWall(positionClicked){
   // find starting position by going down in the y coordinate
   function findWallStartingPosition(positionClicked){
     let x = positionClicked[0];
-    for(let j=0; j<4; j++){
+    for(let j=0; j<3; j++){
       let y = positionClicked[1] + j;
       let key = x + "-" + y;
 
