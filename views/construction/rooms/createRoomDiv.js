@@ -1,5 +1,5 @@
 function createRoomDiv(room){
-  const roomDiv = createElementWithAttributes('div', {class:'d-flex align-items-center bg-cream border-brown rounded-5 pt-2 pb-3 px-3 mb-3 mx-3 row w-100', style:"max-width: 400px"});
+  const roomDiv = createElementWithAttributes('div', {class:'d-flex align-items-center bg-cream border-brown rounded-5 pt-2 pb-3 px-3 mb-3 mx-2 row w-100', style:"max-width: 400px"});
   roomDiv.dataset.roomId = room.room_id;
 
   const roomNameElement  = createElementWithAttributes('h4',{class:'txt-brown fw-bold'});
