@@ -1,14 +1,15 @@
 function createTaskDiv(task){
 
-  const taskDiv             = createElementWithAttributes('div', {class: 'rounded-4 mb-3 mx-2 ps-2'});
+  const taskDiv             = createElementWithAttributes('div', {class: 'rounded-4 mb-3 mx-2 px-2'});
   const outerTaskDiv01      = createElementWithAttributes('div', {class: 'row py-2'});
   const outerTaskDiv02      = createElementWithAttributes('div', {class: 'row'});
   const outerTaskDiv03      = createElementWithAttributes('div', {class: 'row'});
   const innerTaskDiv01      = createElementWithAttributes('div', {class: 'col-1'});
-  const innerTaskDiv02      = createElementWithAttributes('div', {class: 'col-5 pe-5 me-5'});
-  const innerTaskDivEdit    = createElementWithAttributes('div', {class: 'col d-flex justify-content-end ms-5 ps-5'});
-  const innerTaskDiv03      = createElementWithAttributes('div', {class: 'col d-flex justify-content-end'});
-  const innerTaskDivDrop    = createElementWithAttributes('div', {class: 'col d-flex justify-content-end'});
+  const innerTaskDiv02      = createElementWithAttributes('div', {class: 'col-7'});
+  const buttonsDiv = createElementWithAttributes('div', {class: 'col-4 d-flex '}); 
+  const innerTaskDivEdit    = createElementWithAttributes('div', {class: 'col d-flex justify-content-center'});
+  const innerTaskDiv03      = createElementWithAttributes('div', {class: 'col d-flex justify-content-center'});
+  const innerTaskDivDrop    = createElementWithAttributes('div', {class: 'col d-flex justify-content-center'});
   const innerTaskDiv04      = createElementWithAttributes('div', {class: 'col ms-1'});
   const innerTaskDiv05      = createElementWithAttributes('div', {class: 'col'});
   const innerTaskDiv06      = createElementWithAttributes('div', {class: 'col-1'});
@@ -30,7 +31,6 @@ function createTaskDiv(task){
   taskCollapse.setAttribute('data-bs-toggle', 'collapse');
   taskCollapse.setAttribute('href', '#' + task.task_id);
 
-  const testeText           = document.createTextNode('Teste');
   const taskNameText        = document.createTextNode(task.task_name);
   const taskDescriptionText = document.createTextNode(task.task_description);
   const taskDueDateText     = document.createTextNode('Data: ' + task.due_date + ' | Hora: ' + task.due_time);
@@ -52,9 +52,11 @@ function createTaskDiv(task){
   taskDiv.appendChild(outerTaskDiv01);
   outerTaskDiv01.appendChild(innerTaskDiv01);
   outerTaskDiv01.appendChild(innerTaskDiv02);
-  outerTaskDiv01.appendChild(innerTaskDivEdit);
-  outerTaskDiv01.appendChild(innerTaskDiv03);
-  outerTaskDiv01.appendChild(innerTaskDivDrop);
+  
+  buttonsDiv.appendChild(innerTaskDivEdit);
+  buttonsDiv.appendChild(innerTaskDiv03);
+  buttonsDiv.appendChild(innerTaskDivDrop);
+  outerTaskDiv01.appendChild(buttonsDiv)
   outerTaskDiv01.appendChild(hiddenOuterTaskDiv).appendChild(hiddenInnerTaskDiv);
   hiddenInnerTaskDiv.appendChild(outerTaskDiv02);
   hiddenInnerTaskDiv.appendChild(outerTaskDiv03);

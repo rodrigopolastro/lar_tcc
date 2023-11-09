@@ -9,9 +9,9 @@
   <div class="tasks-menu bg-cream border-brown rounded-5 mb-3"> 
     <!-- colocar div com bootstrap dentro dessa de cima -->
     <div class="m-3 row">
-        <h2 class="txt-brown fw-bold">Filtros</h2>
-      <div class="col me-5 align-items-center d-flex">
-        <img src="../../assets/images/icons/sun.png" class="me-2">
+      <h2 class="txt-brown fw-bold">Filtros</h2>
+      <div class="col-4 d-flex justify-content-center align-items-center">
+        <img src="../../assets/images/icons/sun.svg" class="me-2 h-50" style="">
         <label for="selectTaskDate"></label>
         <select id="selectTaskDate" class="rounded-3 txt-red border-0 bg-cream fw-bold"> 
           <option value="any">Qualquer Data</option>
@@ -21,8 +21,8 @@
           <option value="other">Outra Data</option>
         </select>
       </div>
-      <div class="col align-items-center d-flex">
-        <img src="../../assets/images/icons/room.png" class="me-2">
+      <div class="col-4 d-flex justify-content-center align-items-center">
+        <img src="../../assets/images/icons/room.svg" class="me-2 h-50">
         <label for="selectTaskRoomId"></label>
         <select id="selectTaskRoomId" class="rounded-3 txt-red border-0 bg-cream fw-bold">
           <option value="any">Qualquer Cômodo</option>
@@ -34,15 +34,15 @@
             <?php endforeach ?>
         </select>
       </div>
-      <div class="col-sm-5">
-        <center class="txt-brown">
+      <div class="col-4">
+        <div class="txt-brown d-flex flex-column align-items-center">
           <h2 id="tasksCounter">
             <span id="completedTasksCounter"></span>
             /
             <span id="allTasksCounter"></span>
           </h2>
           <h6 class="fw-bold">Tarefas Concluídas</h6>
-        </center>
+        </div>
       </div>
     </div>
   </div>
