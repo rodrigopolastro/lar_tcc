@@ -28,6 +28,10 @@ p{
   max-width: 400px;
 }
 
+.topWallDiv{
+  max-width: 100px;
+}
+
 /* ////////////////////////////All color for the background//////////////////////////// */
 .bg-red{
   background-color: #F8CDBA;
