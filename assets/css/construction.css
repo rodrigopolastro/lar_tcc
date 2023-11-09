@@ -3,14 +3,13 @@ p{
   padding: 0;
 }
 
-.tile-image{
-  height: 90px;
+.max-square{
+  max-width: 90px;
+  aspect-ratio: 1 / 1;
 }
 
-.wall-image{
-  max-width: 90px;
-  height: 90px; 
-  /* border-radius: 20px; */
+.wall-img{
+  aspect-ratio: 1 / 4;
 }
 
 .selected-room-img{

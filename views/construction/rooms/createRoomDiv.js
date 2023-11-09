@@ -1,5 +1,5 @@
 function createRoomDiv(room){
-  const roomDiv = createElementWithAttributes('div', {class:'d-flex align-items-center bg-cream border-brown rounded-5 pt-2 pb-3 px-3 mb-3 mx-3 row', style:"width: 45%"});
+  const roomDiv = createElementWithAttributes('div', {class:'d-flex align-items-center bg-cream border-brown rounded-5 pt-2 pb-3 px-3 mb-3 mx-3 row w-100', style:"max-width: 400px"});
   roomDiv.dataset.roomId = room.room_id;
 
   const roomNameElement  = createElementWithAttributes('h4',{class:'txt-brown fw-bold'});
@@ -7,19 +7,20 @@ function createRoomDiv(room){
 
   const roomCenterRow    = createElementWithAttributes('div', {class:'d-flex'})
   
-  const roomTileDiv      = createElementWithAttributes('div', {class:'col  me-3'})
+  const roomTileDiv      = createElementWithAttributes('div', {class:'col-4 d-flex flex-column align-items-center'})
+  const roomTileImageDiv = createElementWithAttributes('div', {src: findTilePath(room.tile_name), class:'max-square mb-2'});
+  const roomTileImg      = createElementWithAttributes('img', {src: findTilePath(room.tile_name), class:'h-100 rounded-2'});
   const tileNameElement  = createElementWithAttributes('h6', {class:'txt-brown text-center fw-bold'});
   const tileNameText     = document.createTextNode('Piso');
-
-  const roomTileImg      = createElementWithAttributes('img', {src: findTilePath(room.tile_name), class:'tile-image rounded-2 mb-1'});
-  const roomWallDiv      = createElementWithAttributes('div', {class: 'col '})
+  
+  const roomWallDiv      = createElementWithAttributes('div', {class: 'col-4 d-flex flex-column align-items-center'})
+  const roomWallImageDiv = createElementWithAttributes('div', {class:'col max-square rounded-2 d-flex align-items-center justify-content-center overflow-hidden mb-2'})
+  const roomWallImg      = createElementWithAttributes('img', {src: findWallPath(room.wall_name), class:'wall-img w-100'});
   const wallNameElement  = createElementWithAttributes('h6', {class:'txt-brown text-center fw-bold'});
   const wallNameText     = document.createTextNode('Parede');
-  const roomWallImageDiv = createElementWithAttributes('div', {class:'col wall-image rounded-2 d-flex align-items-center justify-content-center overflow-hidden'})
-  const roomWallImg      = createElementWithAttributes('img', {src: findWallPath(room.wall_name), class:'', height: "400px"});
 
-  const buttonDeleteRoom = createElementWithAttributes('button', {class:'border border-0 h5 btn btn-link col'});
-  const buttonEditRoom   = createElementWithAttributes('button', {class:'border border-0 h5 btn btn-link col'});
+  const buttonDeleteRoom = createElementWithAttributes('button', {class:'border border-0 h5 btn btn-link col-2'});
+  const buttonEditRoom   = createElementWithAttributes('button', {class:'border border-0 h5 btn btn-link col-2'});
   const buttonDeleteImg  =  createElementWithAttributes('img',   {src: '../../assets/images/icons/trash.png'});
   const buttonEditImg    =  createElementWithAttributes('img',   {src: '../../assets/images/icons/pen.png'});
 
@@ -36,7 +37,7 @@ function createRoomDiv(room){
   buttonEditRoom.dataset.bsTarget = '#editingRoomModal';
 
   roomDiv.appendChild(roomNameElement).appendChild(roomNameText);
-  roomTileDiv.appendChild(roomTileImg);
+  roomTileDiv.appendChild(roomTileImageDiv).appendChild(roomTileImg);
   roomTileDiv.appendChild(tileNameElement).appendChild(tileNameText)
   roomWallDiv.appendChild(roomWallImageDiv).appendChild(roomWallImg);
   roomWallDiv.appendChild(wallNameElement).appendChild(wallNameText)

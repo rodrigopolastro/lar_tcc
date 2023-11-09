@@ -23,22 +23,22 @@
           <option value="other">Outro</option> <!-- This one opens a text input when selected -->
         </select>
       </div>
-      <div id="roomTileInputDiv" class="mx-2 tile-image" role="button" data-bs-toggle="popover" tabindex="0">
+      <div id="roomTileInputDiv" class="mx-2 max-square" role="button" data-bs-toggle="popover" tabindex="0">
         <!-- the 'src' attribute is filled with the placeholder image by javascript -->
-        <img src="" alt="" id="roomTileInputImg" class="h-100 rounded-2">
+        <img src="" alt="" id="roomTileInputImg" class="w-100 rounded-2">
       </div>
       <div id="roomWallInputDiv"
-        class="mx-2 wall-image rounded-2 d-flex align-items-center justify-content-center overflow-hidden" role="button"
+        class="mx-2 max-square rounded-2 d-flex align-items-center justify-content-center overflow-hidden" role="button"
         data-bs-toggle="" tabindex="0">
         <!-- the 'src' attribute is filled with the placeholder image by javascript -->
         <img src="" alt="" id="roomWallInputImg" class="w-100">
       </div>
       <button id="createRoomButton" class="bg-brown border-0 txt-brown fw-bold rounded-4 fs-4 col">Criar Cômodo</button>
       <div id="tilesPopoverContent" class="d-none d-flex flex-wrap justify-content-center"></div>
-      <div id="wallsPopoverContent" class="d-none row justify-content-center"></div>
+      <div id="wallsPopoverContent" class="d-none d-flex flex-wrap justify-content-center"></div>
     </div>
     <h1 class="txt-brown fw-bold">Meus cômodos</h1>
-    <div id="roomsList" class="row">
+    <div id="roomsList" class="d-flex flex-wrap">
       <!-- Room list is filled dinamically by javascript -->
     </div>
   </div>
