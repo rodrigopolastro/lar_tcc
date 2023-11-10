@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS lar;
 CREATE DATABASE lar;
 USE lar;
 
@@ -37,8 +38,8 @@ CREATE TABLE Furniture (
 
     FOREIGN KEY (fk_room_id)
     REFERENCES Rooms (room_id)
-    ON DELETE CASCADE
-    -- if a room is deleted, its furniture is deleted too
+    ON DELETE RESTRICT
+    -- a room cannot be deleted if there is furniture associated to it
 );
 
 CREATE TABLE Tasks (

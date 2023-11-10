@@ -1,88 +1,164 @@
-  <div id="houseDiagramMenu" class="w-75">
-    <div id="sectionSelector">
-      <button id="roomsSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Modificar Cômodos</button>
-      <button id="furnitureSectionButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1">Modificar Móveis</button>
-    </div>
-    <div id="roomsSection" class="">
-      <h2>Novo cômodo</h2>
-      <div class="d-flex align-items-center border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 pt-2 pb-2 pe-2 row">
-        <label for="roomNameInput" class="col">Nome do Cômodo</label>
-        <input type="text" id="roomNameInput" class="col">
-        <div id="roomTileInputDiv" class="tile-image" role="button" data-bs-toggle="popover" tabindex="0">
-          <!-- the 'src' attribute is filled with the placeholder image by javascript -->
-          <img src="" alt="" id="roomTileInputImg" class="w-100 rounded-2">
-        </div>
-        <!-- Div to hide the popover content -->
-        <div hidden>
-          <div id="popoverContent"></div>
-        </div>
-        <button id="createRoomButton" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 p-1 col">Criar Cômodo</button>
+<div id="houseDiagramMenu" class="container-fluid ps-4">
+  <div id="sectionSelector">
+    <button id="myRoomsSectionButton" class="bg-green border-green rounded-3 h5 p-1 txt-green me-2">
+      Cômodos</button>
+    <button id="allFurnitureSectionButton" class="bg-green border-green rounded-3 h5 p-1 txt-green me-2">
+      Móveis</button>
+    <button id="topWallsSectionButton" class="bg-green border-green rounded-3 h5 p-1 txt-green me-2">
+      Bordas
+    </button>
+    <button id="myFurnitureSectionButton" class="bg-green border-green rounded-3 h5 p-1 txt-green">
+      Meus Móveis</button>
+  </div>
+  <div id="myRoomsSection" class="">
+    <h1 class="txt-brown fw-bold">Novo cômodo</h1>
+    <div class="d-flex align-items-center text-center bg-cream border-brown rounded-5 p-3 mb-2">
+      <div class="d-flex flex-column">
+        <label for="roomNameInput" class="col txt-brown fw-bold fs-4">Nome do Cômodo</label>
+        <select name="" id="roomNameInput" class="ps-2 col rounded-4 txt-red border-0 bg-red fw-bold fs-4">
+          <option value="kitchen">Cozinha</option>
+          <option value="livingRoom">Sala de Estar</option>
+          <option value="diningRoom'">Sala de Jantar</option>
+          <option value="bedroom">Quarto</option>
+          <option value="bathroom">Banheiro</option>
+          <option value="other">Outro</option> <!-- This one opens a text input when selected -->
+        </select>
       </div>
-      <h1>Cômodos criados</h1>
+      <div id="roomTileInputDiv" class="mx-2 max-square" role="button" data-bs-toggle="popover" tabindex="0">
+        <!-- the 'src' attribute is filled with the placeholder image by javascript -->
+        <img src="" alt="" id="roomTileInputImg" class="w-100 rounded-2 m-2">
+      </div>
+      <div id="roomWallInputDiv"
+        class="mx-2 max-square rounded-2 m-2 d-flex align-items-center justify-content-center overflow-hidden" role="button"
+        data-bs-toggle="" tabindex="0">
+        <!-- the 'src' attribute is filled with the placeholder image by javascript -->
+        <img src="" alt="" id="roomWallInputImg" class="w-100">
+      </div>
+      <button id="createRoomButton" class="bg-brown border-0 txt-brown fw-bold rounded-4 fs-4 col">Criar Cômodo</button>
+      <div id="tilesPopoverContent" class="d-none d-flex flex-wrap justify-content-center"></div>
+      <div id="wallsPopoverContent" class="d-none d-flex flex-wrap justify-content-center"></div>
+    </div>
+    <h1 class="txt-brown fw-bold">Meus cômodos</h1>
+    <div id="roomsList" class="d-flex flex-wrap justify-content-center overflow-y-auto" style="max-height: 50vh;">
       <!-- Room list is filled dinamically by javascript -->
-      <div id="roomsList"></div>
-      <!-- Editing room Modal -->
-      <div class="modal fade" id="editingRoomModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header row m-0">
-              <div class="col"></div>
-              <div class="col-lg-5">
-                <h1 class="modal-title fs-1 text-center">Modo de Edição</h1>
-              </div>
-              <div class="col d-flex flex-row-reverse">
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-            </div>
-            <div class="modal-body">
-              <div class="row d-flex align-items-center mb-5">
-                <div class="col d-flex justify-content-center">
-                  <label for="modalRoomNameInput">Nome do Cômodo:</label>
-                </div>
-                <div class="col d-flex justify-content-center">
-                  <input type="text" id="modalRoomNameInput">
-                </div>
-                <div class="col d-flex justify-content-center">
-                  <label for="modalRoomTileInputImg">Piso Atual:</label>
-                </div>
-                <div class="col d-flex justify-content-center">
-                  <img src="" alt="" id="modalRoomTileInputImg" class="tile-image">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <h3 class="text-center">Textura do Piso</h3>
-                  
-                  <div id="modalTilesList" class="collapse">
-                    <!-- RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO DIOGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO RODRIGO -->
-                    <!-- remova a class="collapse" da div acima -->
-                    <!-- faça o que está sendo representado abaixo no arquivo createTileImg.js-->
-                    <!-- <div> "aqui vai as 9 primeiras imagens dos pisos (faz seu código lá), talvez nem seja necessário uma div aqui"  </div> -->
-                    <!-- <div id="banana" class="collapse"> "aqui vai o resto das imagens, 6 atualmente" </div> -->
-                  </div>
-                </div>
-                <div class="col">
-                  <h3 class="text-center">Textura da Parede</h3>
-                </div>
-                <div class="d-flex justify-content-center">
-                  <a href="#modalTilesList" class="btn" data-bs-toggle="collapse">descer</a>
-                  <!-- No href acima substitua "#modalTilesList" por o que foi colocado no id da div com o resto -->
-                  <!-- das imagens, que seguindo o exemplo seria href="#banana" -->
-                </div>
-              </div>
-              <div class="modal-footer row">
-                <button type="button" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 col mx-5" data-bs-dismiss="modal" id="modalUpdateRoomButton">Salvar</button>
-                <button type="button" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5 col mx-5" data-bs-dismiss="modal">Cancelar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="furnitureSection" class="d-none">
-      <h1>Móveis</h1>
-      <div id="furnitureList"><!-- This is filled dinamically by javascript --></div>
     </div>
   </div>
-<!-- This last div closes the box what wraps the house diagram editor and menu -->
-</div> 
+
+  <div id="myFurnitureSection" class="d-none">
+    <h1 class="txt-brown fw-bold">Meus Móveis</h1>
+    <div id="myFurnitureList" class="d-flex flex-wrap overflow-x-auto" style="max-height: 75vh;">
+      <!-- My furniture list is filled dinamically by javascript -->
+    </div>
+  </div>
+
+  <div id="allFurnitureSection" class="d-none txt-brown">
+    <h1 class="fw-bold">Móveis Disponíveis</h1>
+    <div class="bg-cream border-brown rounded-4 p-3 mb-3">
+      <label for="furnitureNameInput" class="me-2 ps-2 fs-4 fw-bold">Novo Móvel</label>
+      <input type="text" id="furnitureNameInput" class="rounded-4 txt-red border-0 bg-red fs-5 fw-bold ps-2"
+        style="width: 70%;">
+    </div>
+    <div class="d-flex">
+      <div id="furnitureSelector" class="col-4">
+        <div class="d-flex justify-content-center me-3 mb-2 bg-green border-green rounded-4">
+          <button class="row align-items-center w-100 h5 p-1 bg-green border-0 rounded-4" id="kitchenFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Fridge.svg" alt="">
+            <p class="col-8">Cozinha</p>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center me-3 mb-2 bg-green border-green rounded-4">
+          <button class="row align-items-center w-100 h5 p-1 bg-green border-0 rounded-4"
+            id="livingRoomFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Sofa.svg" alt="">
+            <p class="col-8">Sala de Estar</p>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center me-3 mb-2 bg-green border-green rounded-4">
+          <button class="row align-items-center w-100 h5 p-1 bg-green border-0 rounded-4"
+            id="diningRoomFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Cutlery.svg" alt="">
+            <p class="col-8">Sala de Jantar</p>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center me-3 mb-2 bg-green border-green rounded-4">
+          <button class="row align-items-center w-100 h5 p-1 bg-green border-0 rounded-4" id="bedroomFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Bedroom.svg" alt="">
+            <p class="col-8">Quarto</p>
+          </button>
+        </div>
+        <div class="d-flex justify-content-center me-3 mb-2 bg-green border-green rounded-4">
+          <button class="row align-items-center w-100 h5 p-1 bg-green border-0 rounded-4" id="bathroomFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Bathtub.svg" alt="">
+            <p class="col-8">Banheiro</p>
+          </button>
+        </div>
+        <!-- <div class="d-flex justify-content-center me-3 mb-2 bg-green border-green rounded-4">
+          <button class="row align-items-center w-100 h5 p-1 bg-green border-0 rounded-4" id="otherFurnitureButton">
+            <img class="col-4" src="/htdocsDirectories/lar_tcc/assets/images/icons/Squared Menu.svg" alt="">
+            <p class="col-8">Outro</p>
+          </button>
+        </div> -->
+      </div>
+      <div id="allFurnitureList" class="col-8 h-75">
+        <div id="kitchenFurniture"></div>
+        <div class="d-none" id="livingRoomFurniture"></div>
+        <div class="d-none" id="diningRoomFurniture"></div>
+        <div class="d-none" id="bedroomFurniture"></div>
+        <div class="d-none" id="bathroomFurniture"></div>
+        <!-- <div class="d-none" id="otherFurniture"></div> -->
+      </div>
+    </div>
+  </div>
+
+  <div id="topWallsSection" class="d-none">
+    <h1>Bordas das Paredes</h1>
+    <div id="topWallsList" class="d-flex flex-wrap">
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="horizontalCima" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/horizontalCima.png">
+      </div>
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="horizontalBaixo" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/horizontalBaixo.png">
+      </div>
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="formatoT" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/formatoT.png">
+      </div>
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="formatoU" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/formatoU.png">
+      </div>
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="paredeVertical" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/paredeVertical.png">
+      </div>
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="verticalDireita" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/verticalDireita.png">
+      </div>
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="verticalEsquerda" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/verticalEsquerda.png">
+      </div>
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="cantoInferiorDireito" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoInferiorDireito.png">
+      </div>
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="cantoInferiorEsquerdo" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoInferiorEsquerdo.png">
+      </div>
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="cantoSuperioDireito" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoSuperiorDireito.png">
+      </div>
+      <div class="topWallDiv bg-green border-green p-2 rounded-2 m-2">
+        <img data-top-wall-name="cantoSuperiorEsquerdo" class="w-100"
+          src="/htdocsDirectories/lar_tcc/assets/images/topWalls/cantoSuperiorEsquerdo.png">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div> <!-- Closes the box what wraps the house diagram editor and menu -->

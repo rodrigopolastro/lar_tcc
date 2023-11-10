@@ -26,11 +26,14 @@
 
   <!-- Helper Functions -->
   <script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/helpers/getCoordsInElement.js"></script>
 
   <!-- General Javascript -->
-  <script src="/htdocsDirectories/lar_tcc/assets/js/tasks/createTaskDiv.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/tasks/staticHouseDiagram.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/tasks/createTaskDiv.js"></script>
 
   <!-- AJAX Requests -->
+  <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/selectHouseDiagram.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/selectTasks.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/selectOneTask.js"></script>
 </body>

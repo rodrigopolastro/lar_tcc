@@ -1,3 +1,11 @@
+//============== CONSTANTS ==============//
+// Canvas
+const TILE_SIZE = 32;
+const NUMBER_OF_LINES = 20;
+const NUMBER_OF_COLUMNS = 23; 
+const CANVAS_WIDTH  = NUMBER_OF_COLUMNS * TILE_SIZE; 
+const CANVAS_HEIGHT = NUMBER_OF_LINES * TILE_SIZE;  
+
 //============== OBJECTS ==============//
 
 // Tasks Menu
@@ -15,7 +23,13 @@ const description_input = document.getElementById('modalTaskDescriptionInput');
 const due_date_input    = document.getElementById('modalTaskDueDateInput');
 const due_time_input    = document.getElementById('modalTaskDueTimeInput');
 
+// Static House Diagram
+const staticHouseDiagram = document.getElementById('staticHouseDiagram');
+
 //============== GLOBAL VARIABLES ==============//
 
 // Vars required for Tasks CRUD
-var dueDate, roomId;
+var dueDate, roomId, furnitureId;
+
+// var furnitureId;
+var diagramDataURL;

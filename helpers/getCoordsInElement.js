@@ -5,6 +5,7 @@ function getCoordsInElement(event) {
   let mouseXInElement = event.clientX - x;
   let mouseYInElement = event.clientY - y;
 
+  //=> [column, line]
   return [Math.floor(mouseXInElement / TILE_SIZE), Math.floor(mouseYInElement / TILE_SIZE)];
 }
 

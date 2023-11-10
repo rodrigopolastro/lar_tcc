@@ -5,15 +5,15 @@
   $tomorrow  = $date->add(new DateInterval('P1D'))->format('Y-m-d');
 ?>
 <!-- This div wraps the task-menu and the task-list -->
-<div class="tasks-section ms-5 container-fluid">
-  <div class="tasks-menu border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2"> 
+<div class="tasks-section ps-5 container-fluid">
+  <div class="tasks-menu bg-cream border-brown rounded-5 mb-3"> 
     <!-- colocar div com bootstrap dentro dessa de cima -->
     <div class="m-3 row">
-        <h3>Filtros</h3>
-      <div class="col me-5 align-items-center d-flex">
-        <img src="../../assets/images/icons/sun.png" class="me-2">
+      <h2 class="txt-brown fw-bold">Filtros</h2>
+      <div class="col-4 d-flex justify-content-center align-items-center">
+        <img src="../../assets/images/icons/sun.svg" class="me-2 h-50" style="">
         <label for="selectTaskDate"></label>
-        <select id="selectTaskDate" class="rounded-3"> 
+        <select id="selectTaskDate" class="rounded-3 txt-red border-0 bg-cream fw-bold"> 
           <option value="any">Qualquer Data</option>
           <option value="<?= $yesterday ?>">Ontem</option>
           <option value="<?= $today ?>">Hoje</option>
@@ -21,10 +21,10 @@
           <option value="other">Outra Data</option>
         </select>
       </div>
-      <div class="col align-items-center d-flex">
-        <img src="../../assets/images/icons/room.png" class="me-2">
+      <div class="col-4 d-flex justify-content-center align-items-center">
+        <img src="../../assets/images/icons/room.svg" class="me-2 h-50">
         <label for="selectTaskRoomId"></label>
-        <select id="selectTaskRoomId" class="rounded-3">
+        <select id="selectTaskRoomId" class="rounded-3 txt-red border-0 bg-cream fw-bold">
           <option value="any">Qualquer Cômodo</option>
           <option value="noRoom">Sem Cômodo</option>
           <?php
@@ -34,20 +34,20 @@
             <?php endforeach ?>
         </select>
       </div>
-      <div class="col-sm-5">
-        <center>
+      <div class="col-4">
+        <div class="txt-brown d-flex flex-column align-items-center">
           <h2 id="tasksCounter">
             <span id="completedTasksCounter"></span>
             /
             <span id="allTasksCounter"></span>
           </h2>
-          <h6>Tarefas Concluídas</h6>
-        </center>
+          <h6 class="fw-bold">Tarefas Concluídas</h6>
+        </div>
       </div>
     </div>
   </div>
   <form action="." method="post">
     <input type="hidden" name="operation" value="insertTask">
-    <input type="submit" value="Adicionar Tarefa" class="border border-4 border-start-0 border-bottom-0 rounded-2 h4 p-3">
+    <input type="submit" value="Adicionar Tarefa" class="bg-brown border-brown txt-brown fw-bold rounded-4 h4 p-3">
   </form>
   <br>

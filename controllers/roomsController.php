@@ -22,10 +22,11 @@
       case 'insertRoom':
         $room_name = $_POST['room_name'];
         $tile_id   = $_POST['tile_id'];
+        $wall_id   = $_POST['wall_id'];
         $house_id  = 1;
 
         try {
-          $created_room_id = createRoom($room_name, $tile_id, $house_id);
+          $created_room_id = createRoom($room_name, $tile_id, $wall_id, $house_id);
           $response = [
             "is_room_created" => true, 
             "value" => $created_room_id
@@ -43,10 +44,11 @@
       case 'updateRoom':
         $room_id = $_POST['room_id'];
         $tile_id = $_POST['tile_id'];
+        $wall_id = $_POST['wall_id'];
         $room_name = $_POST['room_name'];
 
         try{
-          updateRoom($room_id, $tile_id, $room_name);
+          updateRoom($room_id, $tile_id, $wall_id, $room_name);
           $response = ["is_room_updated" => true];
         } catch (PDOException $exception){
           $response = [
