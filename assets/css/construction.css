@@ -51,6 +51,13 @@ p{
 .bg-cream{
   background-color: #EEE8D8;
 }
+.bg-yellow{
+  background-color: #F2DEA7;
+}
+.bg-img-landing{
+  background-image: url("../images/background/landingPage.png");
+  background-repeat: no-repeat;
+}
 /* ////////////////////////////colors for borders//////////////////////////// */
 .border-red{
   border: 4px solid #CB7367;
@@ -76,4 +83,7 @@ p{
 }
 .txt-brown{
   color: #482929;
+}
+.txt-pink{
+  color: #F8CDBA;
 }
