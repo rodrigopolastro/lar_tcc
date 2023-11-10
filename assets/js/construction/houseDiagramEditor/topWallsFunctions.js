@@ -1,5 +1,6 @@
-Array.from(topWallsList.children).forEach(topWall => {
-    topWall.addEventListener('click', () => { setTopWallToPaint(topWall) })
+Array.from(topWallsList.children).forEach(topWallDiv => {
+    let topWallImg = topWallDiv.querySelector("img")
+    topWallDiv.addEventListener('click', () => { setTopWallToPaint(topWallImg) })
 });
 
 function setTopWallToPaint(clickedTopWallImg){
