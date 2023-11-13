@@ -31,6 +31,7 @@
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/houseDiagramEditor/topWallsFunctions.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/sectionSelector.js"></script>
   <script src="/htdocsDirectories/lar_tcc/assets/js/construction/furnitureSelector.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/assets/js/construction/roomNameSelector.js"></script>
   
   <!-- ROOMS -->
   <script src="/htdocsDirectories/lar_tcc/views/construction/rooms/createRoomDiv.js"></script>

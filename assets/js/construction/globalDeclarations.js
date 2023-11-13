@@ -34,14 +34,15 @@ const allFurnitureSectionButton = document.getElementById('allFurnitureSectionBu
 const topWallsSectionButton     = document.getElementById('topWallsSectionButton');
 
 // Rooms Section
-const myRoomsSection   = document.getElementById('myRoomsSection');
-const roomNameInput    = document.getElementById('roomNameInput');
-const roomTileInputDiv = document.getElementById('roomTileInputDiv');
-const roomTileInputImg = document.getElementById('roomTileInputImg');
-const roomWallInputDiv = document.getElementById('roomWallInputDiv');
-const roomWallInputImg = document.getElementById('roomWallInputImg');
-const createRoomButton = document.getElementById('createRoomButton');
-const roomsList        = document.getElementById('roomsList');
+const myRoomsSection    = document.getElementById('myRoomsSection');
+const roomNameInput     = document.getElementById('roomNameInput');
+const roomNameTextInput = document.getElementById('roomNameTextInput');
+const roomTileInputDiv  = document.getElementById('roomTileInputDiv');
+const roomTileInputImg  = document.getElementById('roomTileInputImg');
+const roomWallInputDiv  = document.getElementById('roomWallInputDiv');
+const roomWallInputImg  = document.getElementById('roomWallInputImg');
+const createRoomButton  = document.getElementById('createRoomButton');
+const roomsList         = document.getElementById('roomsList');
 const tilesPopoverContent = document.getElementById('tilesPopoverContent');
 const wallsPopoverContent = document.getElementById('wallsPopoverContent');
 

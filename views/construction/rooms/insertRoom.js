@@ -2,7 +2,13 @@ createRoomButton.addEventListener('click', () => {
   //'isTileSelected' function is defined in 'helpers/imgPath.js'
   //It returns true if tileName is different than the PLACEHOLDER_TILE_NAME
   if(isTileSelected(tileName) && isWallSelected(wallName)){
-    roomName = roomNameInput.value;
+    if(roomNameInput.value == 'other'){
+      roomName = roomNameTextInput.value 
+      if(!roomName){ roomName = "Novo Cômodo" }
+    } else {
+      let selectedIndex = roomNameInput.selectedIndex
+      roomName = roomNameInput[selectedIndex].innerHTML;
+    }
     insertRoom();
   } else {
     alert("Selecione o piso e a parede!");
