@@ -102,6 +102,7 @@ function registerWallPositions(createdWallId){
   diagramPositions.walls.startingPositions[wallPositions[0]] = createdWallId;
   for(position of wallPositions){
     diagramPositions.walls.allPositions[position] = createdWallId;
+    delete diagramPositions.tiles[position]; //remove tiles underneath walls
   }
 
   reloadDiagram();
