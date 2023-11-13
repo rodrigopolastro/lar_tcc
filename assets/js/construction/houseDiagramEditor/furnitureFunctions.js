@@ -45,11 +45,19 @@ function areFurniturePositionsAvailable(positionClicked){
       let column = positionClicked[0] + i;
       let key = column + "-" + line; 
       
-      // Block furniture insertion in an empty spaces (with no tiles or walls)
-      if(!diagramPositions.tiles.hasOwnProperty(key) && !diagramPositions.walls.allPositions.hasOwnProperty(key)){
-        console.log('ERRO NA INSERÇÃO DO MÓVEL: Espaço vazio em alguma outra posição.')
-        return false;
+      //furniture only requires that the first clicked line has tiles 
+      if(j == 0){
+        if(!diagramPositions.tiles.hasOwnProperty(key)){
+          console.log('ERRO NA INSERÇÃO DO MÓVEL: Linha inicial inválida')
+          return false;
+        }
       }
+
+      // Block furniture insertion in empty spaces (with no tiles or walls)
+      // if(!diagramPositions.tiles.hasOwnProperty(key) && !diagramPositions.walls.allPositions.hasOwnProperty(key)){
+      //   console.log('ERRO NA INSERÇÃO DO MÓVEL: Espaço vazio em alguma outra posição.')
+      //   return false;
+      // }
       
       // Block furniture insertion if it occupies two or more different rooms
       let tileRoomId = diagramPositions.tiles[key]

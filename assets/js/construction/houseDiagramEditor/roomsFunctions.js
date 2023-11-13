@@ -84,6 +84,12 @@ function areWallPositionsAvailable(positionClicked){
     let line = positionClicked[1] - j;
     key = column + "-" + line;
 
+    //a wall cannot be inserted at the same position of a furniture
+    if(diagramPositions.furniture.allPositions.hasOwnProperty(key)){
+      console.log('ERRO NA INSERÇÃO DA PAREDE: Há um móvel nesta posição');
+      return false;
+    }
+
     if(diagramPositions.walls.allPositions.hasOwnProperty(key)){
       console.log('ERRO NA INSERÇÃO DA PAREDE: Já há uma parede ocupando essa posição.')
       return false;
