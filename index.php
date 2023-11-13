@@ -40,8 +40,8 @@
     <div class="d-flex justify-content-between" style="width:90%;">
       <img src="/htdocsDirectories/lar_tcc/assets/images/logo.svg" alt="">
       <div>
-        <a href="login.html" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-3 me-3 fw-bold link-underline link-underline-opacity-0">Login</a>
-        <a href="signup.html" class="txt-brown fs-3 fw-bold" >ou cadastre-se</a>
+        <a href="views/login.html" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-3 me-3 fw-bold link-underline link-underline-opacity-0">Login</a>
+        <a href="views/signup.html" class="txt-brown fs-3 fw-bold" >ou cadastre-se</a>
       </div>
       </div>
   </header>
@@ -71,18 +71,31 @@
       </div>
       <img src="assets/images/background/Group.svg">
     </div>
-    <div class="w-100 bg-brown text-center txt-pink container-fluid d-flex justfy-content-center">
+    <div class="w-100 bg-brown text-center txt-pink d-flex justify-content-between">
       <div class="w-50 fw-bold txt-pink">
         <h1 class="mt-5 mb-5">Construa seu lar!</h1>
-        <div class="mb-5 d-flex align-items-center"> <img src="assets/images/icons/SofaCircle.png" class="me-2"><h3>Mais de +30 móveis para personalizar sua casa!</h3> </div>
-        <div class="mb-5 d-flex align-items-center"> <img src="assets/images/icons/PenCircle.png"  class="me-2"><h3>Crie, edite e gerencie as tarefas de cada móvel</h3> </div>
-        <div class="mb-5 d-flex align-items-center"> <img src="assets/images/icons/RoomCircle.png" class="me-2"><h3>Coloque pisos e paredes e crie quantos <br>cômodos quiser!</h3> </div>
+        <div class="mb-5 d-flex align-items-center ms-2"> <img src="assets/images/icons/SofaCircle.png" class="me-2"><h3>Mais de +30 móveis para personalizar sua casa!</h3> </div>
+        <div class="mb-5 d-flex align-items-center ms-2"> <img src="assets/images/icons/PenCircle.png"  class="me-2"><h3>Crie, edite e gerencie as tarefas de cada móvel</h3> </div>
+        <div class="mb-5 d-flex align-items-center ms-2"> <img src="assets/images/icons/RoomCircle.png" class="me-2"><h3>Coloque pisos e paredes e crie quantos <br>cômodos quiser!</h3> </div>
       </div>
-      <div class="w-50">
-        <img src="assets/images/background/landingHalf.png" style="width:101.81%">
+      <div class="">
+        <img src="assets/images/background/landingHalf.png">
       </div>
     </div>
-    <div></div>
+    <div class="w-100 bg-cream text-center d-flex justfy-content-center ">
+      <div class="w-50">
+        <img src="assets/images/background/landingHalfWoman.png" style="width:101.8%">
+      </div>
+      <div class="w-50 h-100">
+        <div class="h-50">
+          <h1 class="txt-brown fw-bold mt-5 mb-5 pt-5">Tenha mais tempo para <br>aproveitar o melhor da vida</h1>
+          <a href="views/login.html" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-4 me-3 fw-bold link-underline link-underline-opacity-0">Entre no seu LAR</a>
+        </div>
+        <div class="h-50 d-flex align-items-end">
+          <img src="">
+        </div>
+      </div>
+    </div>
 <?php require findPath('views/components/footer.html'); ?>
  
 
