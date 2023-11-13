@@ -49,8 +49,40 @@
     <div class="w-100 vh-100 bg-img-landing text-center txt-brown" style="">
       <h1 class="fw-bold"> Deixe seu <span class="txt-red">LAR</span> um Lugar mais Leve: <br> Organize tudo enquanto se diverte!</h1>
       <h3 class="txt-red"> Gerencie suas tarefas domésticas de modo <br> eficaz e prazeroso com o sistema LAR</h3>
-      
     </div>
+    <div class="w-100 vh-100 bg-dark-green text-center txt-pink container-fluid">
+      <h1 class="pt-5 pb-5 fw-bold">Torne seu lar um lugar mais feliz!</h1>
+      <div class="d-flex justify-content-center mt-5 mb-5">
+        <div class="bg-red border-red rounded-5 text-center p-3 me-5 fw-bold">
+          <img src="assets/images/icons/broom.png">
+          <h3 class="txt-green mt-5 mb-5 fw-bold">Tarefas simplificadas</h3>
+          <h4 class="txt-brown mb-5 pb-5 fw-bold">Com LAR, associe tarefas à <br>móveis de sua casa e <br>obtenha o controle do caos <br>doméstico!</h4>
+        </div>
+        <div class="bg-red border-red rounded-5 text-center p-3 ms-5 me-5">
+          <img src="assets/images/icons/Smiling.png">
+          <h3 class="txt-green mt-5 mb-5 fw-bold">Diversão na rotina <br>doméstica</h3>
+          <h4 class="txt-brown mb-5 pb-5 fw-bold">Sinta prazer organizando <br>sua casa com o visual lúdico <br>e satisfatório do LAR</h4>
+        </div>
+        <div class="bg-red border-red rounded-5 text-center p-3 ms-5">
+          <img src="assets/images/icons/couple.png">
+          <h3 class="txt-green mt-5 mb-5 fw-bold">Casa feliz, família feliz</h3>
+          <h4 class="txt-brown mb-5 pb-5 fw-bold">Uma casa limpa e <br>organizada te fará ter <br>mais momentos felizes com <br>quem você ama!</h4>
+        </div>
+      </div>
+      <img src="assets/images/background/Group.svg">
+    </div>
+    <div class="w-100 bg-brown text-center txt-pink container-fluid d-flex justfy-content-center">
+      <div class="w-50 fw-bold txt-pink">
+        <h1 class="mt-5 mb-5">Construa seu lar!</h1>
+        <div class="mb-5 d-flex align-items-center"> <img src="assets/images/icons/SofaCircle.png" class="me-2"><h3>Mais de +30 móveis para personalizar sua casa!</h3> </div>
+        <div class="mb-5 d-flex align-items-center"> <img src="assets/images/icons/PenCircle.png"  class="me-2"><h3>Crie, edite e gerencie as tarefas de cada móvel</h3> </div>
+        <div class="mb-5 d-flex align-items-center"> <img src="assets/images/icons/RoomCircle.png" class="me-2"><h3>Coloque pisos e paredes e crie quantos <br>cômodos quiser!</h3> </div>
+      </div>
+      <div class="w-50">
+        <img src="assets/images/background/landingHalf.png" style="width:101.81%">
+      </div>
+    </div>
+    <div></div>
 <?php require findPath('views/components/footer.html'); ?>
  
 
