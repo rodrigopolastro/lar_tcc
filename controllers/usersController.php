@@ -19,8 +19,9 @@
           header('Location: /htdocsDirectories/lar_tcc/views/tasks/index.php');
           exit();
         } else {
-          header('Location: /htdocsDirectories/lar_tcc/views/login.php');
-          exit();
+          global $is_login_incorrect;
+          $is_login_incorrect = true;
+          //keep in login page in order to display an error to the user
         }
         break;
 

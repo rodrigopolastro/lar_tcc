@@ -1,3 +1,12 @@
+<?php
+  global $is_login_incorrect;
+  $is_login_incorrect = false;
+
+  //Absolute path instead of relative one
+  require $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
+  require findPath('controllers/usersController.php'); 
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +19,12 @@
   <title>Página de Login</title>
 </head>
 <body>
-  <div class="d-flex justify-content-center align-items-center" style="height: 700px;">
+  <div class="d-flex flex-column justify-content-center align-items-center" style="height: 700px;">
+    <?php if($is_login_incorrect == true) { ?>
+      <div class="d-flex justify-content-center">
+        <h3>E-mail ou senha incorretos!</h3>
+      </div>
+    <?php } ?> 
     <div class="border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 p-3">
       <div class="d-flex justify-content-center ">
         <h7>Ir para a</h7>
@@ -20,7 +34,7 @@
         <h1>Faça seu Login!</h1>
       </div>
       <div class="d-flex justify-content-center mt-2">
-        <form action="/htdocsDirectories/lar_tcc/controllers/usersController.php" method="post">
+        <form action="./login.php" method="post">
           <input type="hidden" id="" name="operation" value="login">
           <input type="text" id="userEmailInput" name="user_email" placeholder="Digite seu e-mail">
           <input type="password" id="userPasswordInput" name="user_password" placeholder="Digite sua senha">
