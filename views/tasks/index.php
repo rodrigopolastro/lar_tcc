@@ -2,10 +2,12 @@
   //Absolute path instead of relative one
   require $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
   
-  //Variable to track current user in order to present the appropriate data.
-  //In the future, this value will be taken from the login and signup pages.
   session_start();
-  // echo $user;
+  //Redirect to login page if session was unset by the browser
+  if(!isset($_SESSION['house_id'])){
+    header('Location: /htdocsDirectories/lar_tcc/views/login.php');
+    exit();
+  }
 
   //Loading controllers
   require findPath('controllers/tasksController.php');
