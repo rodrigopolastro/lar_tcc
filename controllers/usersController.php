@@ -2,6 +2,7 @@
   //Absolute path instead of relative one
   require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
   require_once findPath('models/usersQueries.php');
+  require_once findPath('models/housesQueries.php');
 
   if(isset($_POST['operation'])){
     $operation = $_POST['operation'];
@@ -26,6 +27,8 @@
         break;
 
       case 'signup':
+        $house_id = createHouse();
+        echo "id da casa: " . $house_id;
         break;
     }
   }

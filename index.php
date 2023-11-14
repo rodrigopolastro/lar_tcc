@@ -35,7 +35,7 @@
     <h1> Organize seu Lar! </h1>
     <h3>Por enquanto, o login sempre passa o user_id = 1</h3>
     <a href="/htdocsDirectories/lar_tcc/views/login.php">Login</a>
-    <a href="/htdocsDirectories/lar_tcc/views/signup.html">Cadastro</a>
+    <a href="/htdocsDirectories/lar_tcc/views/signup.php">Cadastro</a>
     <hr>
   </header>
   <main>
