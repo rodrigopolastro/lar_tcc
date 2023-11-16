@@ -17,14 +17,30 @@ function displayTaskInfo() {
     // Status 200 = Request OK
     if (selectOneTaskRequest.status === 200) {                
       // Convert response from JSON format to a javascript object
+      console.log(selectOneTaskRequest.responseText)
       const editingTask = JSON.parse(selectOneTaskRequest.responseText);
 
-      // Assign task values to inputs
+      // Assign task values to text inputs
       task_id_input.value     = editingTask.task_id;
       name_input.value        = editingTask.task_name;
       description_input.value = editingTask.task_description;
       due_date_input.value    = editingTask.due_date;
       due_time_input.value    = editingTask.due_time;
+
+      
+      let roomId = editingTask.fk_room_id;
+      if(roomId){
+        modalTaskRoomIdSelect.querySelector(`option[value='${roomId}']`).selected = true;
+      } else {
+        modalTaskRoomIdSelect.selectedIndex = null;
+      }
+      
+      let furnitureId = editingTask.fk_furniture_id;
+      if(furnitureId){
+        modalTaskFurnitureIdSelect.querySelector(`option[value='${furnitureId}']`).selected = true;
+      } else {
+        modalTaskFurnitureIdSelect.selectedIndex = null;
+      }
     } else {
       alert("There was a problem with the 'getTask' request.");
     }
