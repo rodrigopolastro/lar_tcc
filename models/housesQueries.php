@@ -36,31 +36,28 @@ function updateDiagramPositions($house_id, $diagram_positions, $diagram_image){
 }
 
 function createHouse(){
+  $default_diagram_positions = '{ 
+    "tiles":{}, 
+    "walls":{
+      "startingPositions": {},
+      "allPositions": {}
+    }, 
+    "furniture":{
+      "startingPositions": {},
+      "allPositions": {}
+    }, 
+    "topWalls":{} 
+  }';
+
   global $connection;
   $statement = $connection->prepare(
-    "INSERT INTO Houses(diagram_positions) VALUES ('{
-      tiles:{} 
-    }')"
-
-    //ERROR: Too many single and double quotes!
-    //POSSIBLE SOLUTION: store the default diagram_positions in a string
-    //and pass as a parameter in this function from the controller.
-
-    // "INSERT INTO Houses(diagram_positions) VALUES ('{ 
-    //   "tiles":{}, 
-    //   "furniture":{
-    //       "startingPositions": {},
-    //       "allPositions": {}
-    //   }, 
-    //   "walls":{
-    //       "startingPositions": {},
-    //       "allPositions": {}
-    //   }, 
-    //   "topWalls":{} 
-    // }')"
-    );
-
+    "INSERT INTO Houses(diagram_positions, diagram_image) VALUES 
+      (:default_diagram_positions, '')"
+  );
+  
+  $statement->bindValue(':default_diagram_positions', $default_diagram_positions);
   $statement->execute();
+
   return $connection->lastInsertId();
 }
 ?>

@@ -22,7 +22,7 @@
   <div class="d-flex flex-column justify-content-center align-items-center" style="height: 700px;">
     <?php if($is_signup_incorrect == true) { ?>
       <div class="d-flex justify-content-center">
-        <h3>Dados incorretos!</h3>
+        <h3>E-mail já cadastrado</h3>
       </div>
     <?php } ?> 
     <div class="border border-4 border-start-0 border-bottom-0 shadow-sm rounded-2 p-3">
@@ -38,8 +38,10 @@
           <input type="hidden" id="" name="operation" value="signup">
           <input type="text" id="userEmailInput" name="user_email" placeholder="Digite seu e-mail">
           <input type="password" id="userPasswordInput" name="user_password" placeholder="Digite sua senha">
+          <input type="text" id="userFirstNameInput" name="first_name" placeholder="Primeiro Nome">
+          <input type="text" id="userLastNameInput" name="last_name" placeholder="Sobrenome">
           <div class="d-grid p-0 mt-3">
-            <input id="" type="submit" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5">
+            <input id="" type="submit" value="Criar Conta" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5">
           </div>
         </form>
       </div>

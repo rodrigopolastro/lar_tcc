@@ -2,7 +2,7 @@
 require_once findPath('database/databaseConnection.php');
 
 // ============== SELECT QUERIES ==============
-function getUser($user_email, $user_password){
+function getUserByEmail($user_email){
   global $connection;
   $statement = $connection->prepare(
     "SELECT 
@@ -12,11 +12,10 @@ function getUser($user_email, $user_password){
       first_name,
       last_name
      FROM users
-     WHERE user_email = :user_email AND user_password = :user_password"
+     WHERE user_email = :user_email"
     );  
 
   $statement->bindValue(':user_email', $user_email);
-  $statement->bindValue(':user_password', $user_password);
   $statement->execute();
 
   $results = $statement->fetch(PDO::FETCH_ASSOC);
@@ -24,4 +23,19 @@ function getUser($user_email, $user_password){
 }
 
 // ============== ACTION QUERIES ==============
+function createUser($fk_house_id, $user_email, $user_password, $first_name, $last_name){
+  global $connection;
+  $statement = $connection->prepare(
+    "INSERT INTO Users
+      (fk_house_id, user_email, user_password, first_name, last_name) VALUES 
+     (:fk_house_id,:user_email,:user_password,:first_name,:last_name)"
+  );
+  
+  $statement->bindValue(':fk_house_id', $fk_house_id);
+  $statement->bindValue(':user_email', $user_email);
+  $statement->bindValue(':user_password', $user_password);
+  $statement->bindValue(':first_name', $first_name);
+  $statement->bindValue(':last_name', $last_name);
+  $statement->execute();
+}
 ?>

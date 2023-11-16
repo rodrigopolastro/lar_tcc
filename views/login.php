@@ -39,7 +39,7 @@
           <input type="text" id="userEmailInput" name="user_email" placeholder="Digite seu e-mail">
           <input type="password" id="userPasswordInput" name="user_password" placeholder="Digite sua senha">
           <div class="d-grid p-0 mt-3">
-            <input id="" type="submit" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5">
+            <input id="" type="submit" value="Entrar" class="border border-4 border-start-0 border-bottom-0 rounded-2 h5">
           </div>
         </form>
       </div>

@@ -8,11 +8,11 @@
     $operation = $_POST['operation'];
     switch ($operation) {
       case 'login':
-        $user_email    = $_POST['user_email'];
-        $user_password = $_POST['user_password'];
+        $email    = $_POST['user_email'];
+        $password = $_POST['user_password'];
 
-        $user = getUser($user_email, $user_password);
-        if($user){
+        $user = getUserByEmail($email);
+        if($user && $user['user_password'] == $password){
           session_start();
           $_SESSION['house_id']        = $user['fk_house_id'];
           $_SESSION['user_first_name'] = $user['first_name'];
@@ -20,15 +20,34 @@
           header('Location: /htdocsDirectories/lar_tcc/views/tasks/index.php');
           exit();
         } else {
+          //display an error if user email or password are incorrect
           global $is_login_incorrect;
           $is_login_incorrect = true;
-          //keep in login page in order to display an error to the user
         }
         break;
 
       case 'signup':
-        $house_id = createHouse();
-        echo "id da casa: " . $house_id;
+        $user_email    = $_POST['user_email'];
+        $user_password = $_POST['user_password'];
+        $first_name    = $_POST['first_name'];
+        $last_name     = $_POST['last_name'];
+
+        $existing_user = getUserByEmail($user_email);
+        if($existing_user){
+          //display an error if email is already registered
+          global $is_signup_incorrect;
+          $is_signup_incorrect = true;
+        } else {
+          $house_id = createHouse();
+          createUser($house_id, $user_email, $user_password, $first_name, $last_name);
+
+          session_start();
+          $_SESSION['house_id']        = $house_id;
+          $_SESSION['user_first_name'] = $first_name;
+          $_SESSION['user_last_name']  = $last_name;
+
+          header("Location: /htdocsDirectories/lar_tcc/views/tasks/index.php");
+        }
         break;
     }
   }
