@@ -17,7 +17,8 @@
             <select id="editTaskRoomId" name="room_id" class="col me-3 rounded-3 txt-red border-0 bg-red fw-bold">
               <option value="noRoom">Nenhum Cômodo</option>
               <?php
-                $rooms = getAllRooms();
+                $house_id = $_SESSION['house_id'];
+                $rooms = getAllRooms($house_id);
                 foreach ($rooms as $room): ?>
                   <option value="<?= $room['room_id'] ?>"> <?= $room['room_name'] ?> </option>";
                 <?php endforeach ?>
@@ -31,7 +32,8 @@
             <select id="editTaskFurnitureId" name="furniture_id" class="col me-3 rounded-3 txt-red border-0 bg-red fw-bold">
               <option value="noFurniture">Nenhum Móvel</option>
               <?php
-                $furniture = getAllFurniture();
+                $house_id = $_SESSION['house_id'];
+                $furniture = getAllFurniture($house_id);
                 foreach ($furniture as $piece_of_furniture): ?>
                   <option value="<?= $piece_of_furniture['furniture_id'] ?>"> <?= $piece_of_furniture['furniture_name'] ?> </option>";
                 <?php endforeach ?>

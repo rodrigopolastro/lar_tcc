@@ -9,13 +9,14 @@
   <!-- My CSS -->
   <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/construction.css">
   <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/tasks.css">
-  <title>Olá, Fernando</title>
+  <title>Olá, <?= $_SESSION['user_first_name']?>></title>
 </head>
 <body class="container-fluid" style="width: 90%">
   <header class="mt-2 d-flex justify-content-between align-items-center" style="height: 10vh;">
     <img src="/htdocsDirectories/lar_tcc/assets/images/logo.svg" alt="">
-    <form action="/htdocsDirectories/lar_tcc/" method="post">
-      <input type="image" value="Sair" src="../../assets/images/icons/exit.svg" class="">
+    <form action="/htdocsDirectories/lar_tcc/controllers/usersController.php" method="post">
+      <input type="hidden" name="operation" value="logout">
+      <input type="image" src="../../assets/images/icons/exit.svg" class="">
     </form>
   </header>
   <main class="" style="height: 90vh;">

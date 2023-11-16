@@ -4,6 +4,7 @@
   require_once findPath('models/usersQueries.php');
   require_once findPath('models/housesQueries.php');
 
+  if(!isset($_SESSION)){ session_start(); }
   if(isset($_POST['operation'])){
     $operation = $_POST['operation'];
     switch ($operation) {
@@ -13,7 +14,6 @@
 
         $user = getUserByEmail($email);
         if($user && $user['user_password'] == $password){
-          session_start();
           $_SESSION['house_id']        = $user['fk_house_id'];
           $_SESSION['user_first_name'] = $user['first_name'];
           $_SESSION['user_last_name']  = $user['last_name'];
@@ -24,6 +24,13 @@
           global $is_login_incorrect;
           $is_login_incorrect = true;
         }
+        break;
+
+      case 'logout':
+        session_unset();
+        session_destroy();
+        header('Location: /htdocsDirectories/lar_tcc/');
+        exit();
         break;
 
       case 'signup':
@@ -41,12 +48,12 @@
           $house_id = createHouse();
           createUser($house_id, $user_email, $user_password, $first_name, $last_name);
 
-          session_start();
           $_SESSION['house_id']        = $house_id;
           $_SESSION['user_first_name'] = $first_name;
           $_SESSION['user_last_name']  = $last_name;
 
           header("Location: /htdocsDirectories/lar_tcc/views/tasks/index.php");
+          exit();
         }
         break;
     }

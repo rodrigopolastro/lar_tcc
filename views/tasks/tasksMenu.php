@@ -28,7 +28,8 @@
           <option value="any">Qualquer Cômodo</option>
           <option value="noRoom">Sem Cômodo</option>
           <?php
-            $rooms = getAllRooms();
+            $house_id = $_SESSION['house_id'];
+            $rooms = getAllRooms($house_id);
             foreach ($rooms as $room): ?>
               <option value="<?= $room['room_id'] ?>"> <?= $room['room_name'] ?> </option>";
             <?php endforeach ?>

@@ -15,7 +15,7 @@
   require findPath('controllers/furnitureController.php');
 
   //Loading views
-  require findPath('views/components/header.html');
+  require findPath('views/components/header.php');
   require findPath('views/tasks/houseDiagram.php');
   require findPath('views/tasks/tasksMenu.php');
   require findPath('views/tasks/listTasks.php');
