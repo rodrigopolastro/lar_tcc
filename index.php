@@ -1,16 +1,16 @@
 <?php
   //Absolute path instead of relative one
   require $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
-
+ 
   //Variable to track current user in order to present the appropriate data.
   //In the future, this value will be taken from the login and signup pages.
   if(isset($_POST['user_id'])){
     $logged_user_id = $_POST['user_id'];
   }
   if(isset($_POST['mode'])){
-    $mode = $_POST['mode']; 
+    $mode = $_POST['mode'];
   }
-
+ 
   if(isset($logged_user_id)){
     if($mode == 'tasks'){
       header('Location: /htdocsDirectories/lar_tcc/views/tasks/');
@@ -82,20 +82,29 @@
         <img src="assets/images/background/landingHalf.png">
       </div>
     </div>
-    <div class="w-100 bg-cream text-center d-flex justfy-content-center ">
-      <div class="w-50">
-        <img src="assets/images/background/landingHalfWoman.png" style="width:101.8%">
+    <div class="w-100 bg-cream-yellow text-center d-flex justify-content-center">
+      <div class="me-3">
+        <img src="assets/images/background/landingHalfWoman.png" style="width: 103%">
       </div>
-      <div class="w-50 h-100">
-        <div class="h-50">
+      <div class="w-50 overflow-hidden">
+        <div class="mb-5 pb-5">
           <h1 class="txt-brown fw-bold mt-5 mb-5 pt-5">Tenha mais tempo para <br>aproveitar o melhor da vida</h1>
           <a href="views/login.html" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-4 me-3 fw-bold link-underline link-underline-opacity-0">Entre no seu LAR</a>
         </div>
-        <div class="h-50 d-flex align-items-end">
-          <img src="">
+        <div class="align-bottom">
+          <img src="assets/images/background/landingHalfPots.png" style="width:98%; margin-top:22%">
         </div>
       </div>
     </div>
+    <div class="w-100 bg-dark-brown py-5 d-flex justify-content-around align-items-center">
+      <div>
+        <img src="assets/images/icons/LarLogoClear.png">
+      </div>
+      <div>
+        <h3 class="txt-cream fw-bold">TCC - 3° Desenvolvimento de Sistemas 2023 <br>ETEC Euro Albino de Souza - Mogi Guaçu - SP</h3>
+      </div>
+      <div>
+        <h3 class="txt-cream fw-bold">Arthur de Lima <br>Giovanna Silva Diogo <br>Juan Octávio Soares Barbosa <br>Otávio Casadei <br>Rodrigo Polastro da Silva</h3>
+      </div>
+    </div>
 <?php require findPath('views/components/footer.html'); ?>
- 
-
