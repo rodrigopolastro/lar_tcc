@@ -12,6 +12,7 @@ function filterFurnitureSelect(){
   );
   if(roomId == "noRoom"){
     filterFurnitureRequest.send("operation=selectFurniture");
+    furnitureId = null;
   } else {
     filterFurnitureRequest.send("operation=selectFurnitureOfRoom" + 
                                 "&room_id=" + roomId);
@@ -36,6 +37,10 @@ function updateFurnitureSelect(){
         })
         option.innerHTML = pieceOfFurniture.furniture_name;
         modalTaskFurnitureIdSelect.appendChild(option);
+
+        if(pieceOfFurniture.furniture_id == furnitureId){
+          option.selected = true;
+        }
       })
     } else {
       alert("There was a problem with the 'selectRooms' request.");

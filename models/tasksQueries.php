@@ -59,7 +59,8 @@ function getTaskById($task_id){
       is_completed,
       room_name,
       furniture_name,
-      tasks.fk_furniture_id
+      tasks.fk_furniture_id,
+      room_id
     FROM tasks 
     LEFT JOIN rooms ON rooms.room_id = tasks.fk_room_id
     LEFT JOIN furniture ON furniture.furniture_id = tasks.fk_furniture_id

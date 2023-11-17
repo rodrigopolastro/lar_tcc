@@ -3,12 +3,13 @@ function createTaskDiv(task){
   const taskName          = createElementWithAttributes('h4', {class: 'col-6 txt-brown'});
   const taskInfoDiv       = createElementWithAttributes('div', {class: 'col d-flex flex-column justify-content-center'}); 
   const hiddenTaskDetails = createElementWithAttributes('div', {class: 'collapse', id: task.task_id});
-  const detailsLowestRow  = createElementWithAttributes('div', {class: 'd-flex justify-content-between', id: task.task_id});
+  const detailsLowestRow  = createElementWithAttributes('div', {class: 'd-flex justify-content-between'});
+  hiddenTaskDetails.dataset.furnitureId = task.fk_furniture_id;
 
   const taskDescription = createElementWithAttributes('p',  { class:"pb-1"});
   const taskDueDate     = createElementWithAttributes('p',  {});
   const taskRoom        = createElementWithAttributes('p',  {});
-  const taskFurniture   = createElementWithAttributes('p',  { class:"align-middle"});
+  const taskFurniture   = createElementWithAttributes('h6', {});
   const taskCollapse    = createElementWithAttributes("a", {class:"col-1 d-flex align-items-center"});
   taskCollapse.setAttribute('data-bs-toggle', 'collapse');
   taskCollapse.setAttribute('href', '#' + task.task_id);

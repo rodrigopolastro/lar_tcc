@@ -28,19 +28,15 @@ function displayTaskInfo() {
       due_time_input.value    = editingTask.due_time;
 
       
-      let roomId = editingTask.fk_room_id;
-      if(roomId){
-        modalTaskRoomIdSelect.querySelector(`option[value='${roomId}']`).selected = true;
+      let editingTaskroomId = editingTask.room_id;
+      if(editingTaskroomId){
+        modalTaskRoomIdSelect.querySelector(`option[value='${editingTaskroomId}']`).selected = true;
       } else {
         modalTaskRoomIdSelect.selectedIndex = null;
       }
-      
-      let furnitureId = editingTask.fk_furniture_id;
-      if(furnitureId){
-        modalTaskFurnitureIdSelect.querySelector(`option[value='${furnitureId}']`).selected = true;
-      } else {
-        modalTaskFurnitureIdSelect.selectedIndex = null;
-      }
+
+      furnitureId = editingTask.fk_furniture_id;
+      filterFurnitureSelect();
     } else {
       alert("There was a problem with the 'getTask' request.");
     }
