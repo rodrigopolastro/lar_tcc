@@ -30,6 +30,7 @@
   <!-- Helper Functions -->
   <script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
   <script src="/htdocsDirectories/lar_tcc/helpers/getCoordsInElement.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/helpers/formatTaskDate.js"></script>
 
   <!-- General Javascript -->
   <script src="/htdocsDirectories/lar_tcc/assets/js/tasks/staticHouseDiagram.js"></script>
@@ -39,5 +40,7 @@
   <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/selectHouseDiagram.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/selectTasks.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/selectOneTask.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/insertTask.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/filterFurnitureSelect.js"></script>
 </body>
 </html>
