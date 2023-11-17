@@ -59,7 +59,6 @@
   <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/createTileImg.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/createFurnitureImg.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/createWallImg.js"></script>
-  <script src="/htdocsDirectories/lar_tcc/views/construction/diagramImages/createDefaultRoomsList.js"></script>
   
   <!-- HOUSES -->
   <script src="/htdocsDirectories/lar_tcc/views/construction/houses/updateDiagramPositions.js"></script>
