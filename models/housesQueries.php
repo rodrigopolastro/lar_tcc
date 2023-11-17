@@ -34,4 +34,30 @@ function updateDiagramPositions($house_id, $diagram_positions, $diagram_image){
   $statement->bindValue(':house_id', $house_id);
   $statement->execute();
 }
+
+function createHouse(){
+  $default_diagram_positions = '{ 
+    "tiles":{}, 
+    "walls":{
+      "startingPositions": {},
+      "allPositions": {}
+    }, 
+    "furniture":{
+      "startingPositions": {},
+      "allPositions": {}
+    }, 
+    "topWalls":{} 
+  }';
+
+  global $connection;
+  $statement = $connection->prepare(
+    "INSERT INTO Houses(diagram_positions, diagram_image) VALUES 
+      (:default_diagram_positions, '')"
+  );
+  
+  $statement->bindValue(':default_diagram_positions', $default_diagram_positions);
+  $statement->execute();
+
+  return $connection->lastInsertId();
+}
 ?>

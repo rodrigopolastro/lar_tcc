@@ -34,14 +34,8 @@
   <header> 
     <h1> Organize seu Lar! </h1>
     <h3>Por enquanto, o login sempre passa o user_id = 1</h3>
-    <form action="." method="post">
-      <input type="hidden" name="mode" value="tasks">
-      <input type="hidden" name="user_id" value="<?= $logged_user_id ?>">
-      <input type="submit" value="Login">
-    </form>
-    <form action="." method="post">
-      <input type="submit" value="Cadastre-se">
-    </form>
+    <a href="/htdocsDirectories/lar_tcc/views/login.php">Login</a>
+    <a href="/htdocsDirectories/lar_tcc/views/signup.php">Cadastro</a>
     <hr>
   </header>
   <main>

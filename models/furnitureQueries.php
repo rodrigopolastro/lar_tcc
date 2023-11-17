@@ -2,7 +2,7 @@
 require_once findPath('database/databaseConnection.php');
 
 // ============== SELECT QUERIES ==============
-function getAllFurniture(){ 
+function getAllFurniture($house_id){ 
   global $connection;
   $statement = $connection->prepare(
     "SELECT 
@@ -13,9 +13,12 @@ function getAllFurniture(){
       tiles_width,
       tiles_height
     FROM furniture
-    INNER JOIN furniture_images ON furniture_image_id = fk_furniture_image_id"
+    INNER JOIN furniture_images ON furniture_image_id = fk_furniture_image_id
+    INNER JOIN rooms ON rooms.room_id = furniture.fk_room_id 
+    WHERE rooms.fk_house_id = :house_id"
   );
   
+  $statement->bindValue(':house_id',$house_id);
   $statement->execute();
 
   $results = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -103,14 +106,5 @@ function deleteFurniture($furniture_id){
   $statement->execute();
 
   return $statement->rowCount();
-}
-
-function deleteAllFurniture(){
-  global $connection;
-  $statement = $connection->prepare(
-    "DELETE FROM furniture"
-    );
-
-  $statement->execute();
 }
 ?>

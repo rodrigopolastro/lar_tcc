@@ -3,11 +3,13 @@
   require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
   require_once findPath('models/furnitureQueries.php');
 
+  if(!isset($_SESSION)){ session_start(); }
   if(isset($_POST['operation'])){
     $operation = $_POST['operation'];
     switch ($operation) {
       case 'selectFurniture':
-        $furniture = getAllFurniture();
+        $house_id  = $_SESSION['house_id'];
+        $furniture = getAllFurniture($house_id);
         echo json_encode($furniture);
         break;
 
@@ -76,7 +78,11 @@
         break;
       
       case 'deleteAllFurniture':
-        deleteAllFurniture();
+        $house_id  = $_SESSION['house_id'];
+        $furniture = getAllFurniture($house_id);
+        foreach ($furniture as $pieceOfFurniture) {
+          deleteFurniture($pieceOfFurniture['furniture_id']);
+        }
         break;
     }
   }

@@ -2,7 +2,7 @@
 require_once findPath('database/databaseConnection.php');
 
 // ============== SELECT QUERIES ==============
-function getAllRooms(){
+function getAllRooms($house_id){
   global $connection;
   $statement = $connection->prepare(
     "SELECT 
@@ -13,9 +13,11 @@ function getAllRooms(){
       wall_name
     FROM rooms
     INNER JOIN tiles ON tiles.tile_id = rooms.fk_tile_id
-    INNER JOIN walls ON walls.wall_id = rooms.fk_wall_id"
+    INNER JOIN walls ON walls.wall_id = rooms.fk_wall_id
+    WHERE fk_house_id = :house_id"
   );
 
+  $statement->bindValue(':house_id',$house_id);
   $statement->execute();
 
   $results = $statement->fetchAll(PDO::FETCH_ASSOC);

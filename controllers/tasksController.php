@@ -3,16 +3,18 @@
   require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
   require_once findPath('models/tasksQueries.php');
 
+  if(!isset($_SESSION)){ session_start(); }
   if(isset($_POST['operation'])){
     $operation = $_POST['operation'];
     switch ($operation) {
       case 'selectTasks':
         $room_id = $_POST['room_id'];
         $due_date = $_POST['due_date'];
+        $house_id = $_SESSION['house_id'];
 
         try{
-          if($room_id == "noRoom"){ $filtered_tasks = getTasksWithNoRoom($due_date); }
-                             else { $filtered_tasks = getTasks($room_id, $due_date); }           
+          if($room_id == "noRoom"){ $filtered_tasks = getTasksWithNoRoom($due_date, $house_id); }
+                             else { $filtered_tasks = getTasks($room_id, $due_date, $house_id); }           
           $response = [
             "is_query_successful" => true,
             "value" => $filtered_tasks
@@ -42,7 +44,7 @@
           "due_date"         => null,
           "due_time"         => null,
           "is_completed"     => FALSE,
-          "fk_house_id"      => 1,
+          "fk_house_id"      => $_SESSION['house_id'],
           "fk_room_id"       => null,
           "fk_furniture_id"  => null
         ];

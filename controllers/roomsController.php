@@ -3,12 +3,14 @@
   require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
   require_once findPath('models/roomsQueries.php');
 
+  if(!isset($_SESSION)){ session_start(); }
   if(isset($_POST['operation'])){
     $operation = $_POST['operation'];
     switch ($operation) {
       //==== SELECT QUERIES ====
       case 'selectRooms':
-        $rooms = getAllRooms();
+        $house_id = $_SESSION['house_id'];
+        $rooms = getAllRooms($house_id);
         echo json_encode($rooms);
         break;
 
@@ -23,7 +25,7 @@
         $room_name = $_POST['room_name'];
         $tile_id   = $_POST['tile_id'];
         $wall_id   = $_POST['wall_id'];
-        $house_id  = 1;
+        $house_id  = $_SESSION['house_id'];
 
         try {
           $created_room_id = createRoom($room_name, $tile_id, $wall_id, $house_id);
