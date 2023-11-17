@@ -237,7 +237,27 @@ function reloadDiagram(){
     );
   });
 
-  
+  //LOAD WALLS
+  Object.entries(diagramPositions.walls.startingPositions).forEach(([key, value]) => {
+    let roomDiv = document.querySelector("[data-room-id='" + value + "']");
+    let roomWallImg = roomDiv.querySelectorAll("img")[1]; //second img element inside room div
+
+    let positionX = Number(key.split("-")[0]);
+
+    let wallWidth = 1;
+    let wallHeight = 3;
+    //Load image from bottom to top (which is more intuitive for the user) instead of 
+    //the default top to bottom canvas approach
+    let positionY = Number(key.split("-")[1]) - (wallHeight - 1);
+
+    canvas.drawImage(
+      roomWallImg, 
+      positionX * TILE_SIZE,  
+      positionY * TILE_SIZE, 
+      TILE_SIZE * wallWidth,     
+      TILE_SIZE * wallHeight      
+    );
+  });
   
   //LOAD FURNITURE (on their starting positions)
   Object.entries(diagramPositions.furniture.startingPositions).forEach(([key, value]) => {
@@ -261,28 +281,6 @@ function reloadDiagram(){
     );
   })
   
-  //LOAD WALLS
-  Object.entries(diagramPositions.walls.startingPositions).forEach(([key, value]) => {
-    let roomDiv = document.querySelector("[data-room-id='" + value + "']");
-    let roomWallImg = roomDiv.querySelectorAll("img")[1]; //second img element inside room div
-
-    let positionX = Number(key.split("-")[0]);
-
-    let wallWidth = 1;
-    let wallHeight = 3;
-    //Load image from bottom to top (which is more intuitive for the user) instead of 
-    //the default top to bottom canvas approach
-    let positionY = Number(key.split("-")[1]) - (wallHeight - 1);
-
-    canvas.drawImage(
-      roomWallImg, 
-      positionX * TILE_SIZE,  
-      positionY * TILE_SIZE, 
-      TILE_SIZE * wallWidth,     
-      TILE_SIZE * wallHeight      
-    );
-  });
-
   //LOAD TOP WALLS
   Object.entries(diagramPositions.topWalls).forEach(([key, value]) => {
     let topWallImg = document.querySelector("[data-top-wall-name='" + value + "']");
