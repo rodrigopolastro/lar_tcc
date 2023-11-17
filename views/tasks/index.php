@@ -37,5 +37,6 @@
   <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/selectTasks.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/selectOneTask.js"></script>
   <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/insertTask.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/views/tasks/ajaxRequests/filterFurnitureSelect.js"></script>
 </body>
 </html>
