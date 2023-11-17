@@ -15,6 +15,7 @@ const uncompletedTasksList = document.getElementById('uncompletedTasksList');
 const completedTasksList   = document.getElementById('completedTasksList');
 const completedTasksCounter = document.getElementById('completedTasksCounter');
 const allTasksCounter       = document.getElementById('allTasksCounter');
+const addTaskButton         = document.getElementById('addTaskButton');
 
 // Editing task modal
 const task_id_input     = document.getElementById('hiddenTaskIdInput');

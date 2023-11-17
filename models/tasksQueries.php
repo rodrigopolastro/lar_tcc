@@ -50,8 +50,21 @@ function getTasksWithNoRoom($due_date){
 function getTaskById($task_id){
   global $connection;
   $statement = $connection->prepare(
-    "SELECT * FROM tasks WHERE task_id = :task_id"
-    );
+    "SELECT 
+      task_id,
+      task_name,
+      task_description,
+      due_date,
+      due_time,
+      is_completed,
+      room_name,
+      furniture_name,
+      tasks.fk_furniture_id
+    FROM tasks 
+    LEFT JOIN rooms ON rooms.room_id = tasks.fk_room_id
+    LEFT JOIN furniture ON furniture.furniture_id = tasks.fk_furniture_id
+    WHERE task_id = :task_id"
+  );
 
   $statement->bindValue(':task_id',$task_id);
   $statement->execute();
@@ -77,6 +90,8 @@ function createTask($task){
   $statement->bindValue(':fk_room_id',       $task['fk_room_id']);
   $statement->bindValue(':fk_furniture_id',  $task['fk_furniture_id']);
   $statement->execute();
+
+  return $connection->lastInsertId();
 }
 
 function updateTask($task){

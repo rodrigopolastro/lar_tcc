@@ -46,8 +46,9 @@
       </div>
     </div>
   </div>
-  <form action="." method="post">
+  <!-- <form action="." method="post">
     <input type="hidden" name="operation" value="insertTask">
     <input type="submit" value="Adicionar Tarefa" class="bg-brown border-brown txt-brown fw-bold rounded-4 h4 p-3">
-  </form>
+  </form> -->
+  <button id="addTaskButton" class="bg-brown border-brown txt-brown fw-bold rounded-4 h4 p-3">Adicionar tarefa</button>
   <br>

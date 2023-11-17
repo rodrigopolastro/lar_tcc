@@ -34,20 +34,28 @@
         break;
       
       case 'insertTask':
+        $due_date = $_POST['due_date'];
+        $room_id  = $_POST['room_id'];
+
+        if($due_date == "any"){ $due_date = null; }
+        if($room_id  == "any" || $room_id == "noRoom"){ $room_id = null; }
+
         //New tasks are created according to the current filters applied.
         //This will be implemented using AJAX, but for now everything is null
         $task = [
           "task_name"        => 'Nova Tarefa',
           "task_description" => null,
-          "due_date"         => null,
+          "due_date"         => $due_date,
           "due_time"         => null,
           "is_completed"     => FALSE,
           "fk_house_id"      => 1,
-          "fk_room_id"       => null,
+          "fk_room_id"       => $room_id,
           "fk_furniture_id"  => null
         ];
 
-        createTask($task);
+        $task_id = createTask($task);
+        $created_task = getTaskById($task_id);
+        echo json_encode($created_task);
         break;
   
       case 'updateTask':
