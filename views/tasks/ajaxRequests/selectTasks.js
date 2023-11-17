@@ -4,7 +4,10 @@ selectTaskRoom.addEventListener('change', selectTasks);
 
 function selectTasks(){
   dueDate = selectTaskDate.value;
-  if(!roomId){
+  
+  if(roomId){
+    selectTaskRoom.querySelector(`option[value='${roomId}']`).selected = true;;
+  } else {
     roomId = selectTaskRoom.value;
   }
 
