@@ -40,8 +40,8 @@
     <div class="d-flex justify-content-between" style="width:90%;">
       <img src="/htdocsDirectories/lar_tcc/assets/images/logo.svg" alt="">
       <div>
-        <a href="views/login.html" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-3 me-3 fw-bold link-underline link-underline-opacity-0">Login</a>
-        <a href="views/signup.html" class="txt-brown fs-3 fw-bold" >ou cadastre-se</a>
+        <a href="views/login.php" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-3 me-3 fw-bold link-underline link-underline-opacity-0">Login</a>
+        <a href="views/signup.php" class="txt-brown fs-3 fw-bold" >ou cadastre-se</a>
       </div>
       </div>
   </header>
@@ -89,7 +89,7 @@
       <div class="w-50 overflow-hidden">
         <div class="mb-5 pb-5">
           <h1 class="txt-brown fw-bold mt-5 mb-5 pt-5">Tenha mais tempo para <br>aproveitar o melhor da vida</h1>
-          <a href="views/login.html" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-4 me-3 fw-bold link-underline link-underline-opacity-0">Entre no seu LAR</a>
+          <a href="views/login.php" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-4 me-3 fw-bold link-underline link-underline-opacity-0">Entre no seu LAR</a>
         </div>
         <div class="align-bottom">
           <img src="assets/images/background/landingHalfPots.png" style="width:98%; margin-top:22%">
