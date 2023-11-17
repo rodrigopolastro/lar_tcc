@@ -27,6 +27,7 @@
   <!-- Helper Functions -->
   <script src="/htdocsDirectories/lar_tcc/helpers/elementWithAttributes.js"></script>
   <script src="/htdocsDirectories/lar_tcc/helpers/getCoordsInElement.js"></script>
+  <script src="/htdocsDirectories/lar_tcc/helpers/formatTaskDate.js"></script>
 
   <!-- General Javascript -->
   <script src="/htdocsDirectories/lar_tcc/assets/js/tasks/staticHouseDiagram.js"></script>
