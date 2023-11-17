@@ -48,8 +48,25 @@ p{
 .bg-brown{
   background-color: #E47467;
 }
+.bg-dark-brown{
+  background-color: #482929;
+}
 .bg-cream{
   background-color: #EEE8D8;
+}
+.bg-yellow{
+  background-color: #F2DEA7;
+}
+.bg-cream-yellow{
+  background-color: #FFEFBE;
+}
+.bg-img-landing{
+  background-image: url("../images/background/landingPage.png");
+  background-repeat: no-repeat;
+}
+.bg-img-landingHalf{
+  background-image: url("../images/background/landingHalf.png");
+  background-repeat: no-repeat;
 }
 /* ////////////////////////////colors for borders//////////////////////////// */
 .border-red{
@@ -76,4 +93,10 @@ p{
 }
 .txt-brown{
   color: #482929;
+}
+.txt-pink{
+  color: #F8CDBA;
+}
+.txt-cream{
+  color: #EEE8D8;
 }
