@@ -7,7 +7,6 @@
 <!-- This div wraps the task-menu and the task-list -->
 <div class="tasks-section ps-5 container-fluid">
   <div class="tasks-menu bg-cream border-brown rounded-5 mb-3"> 
-    <!-- colocar div com bootstrap dentro dessa de cima -->
     <div class="m-3 row">
       <h2 class="txt-brown fw-bold">Filtros</h2>
       <div class="col-4 d-flex justify-content-center align-items-center">
@@ -48,4 +47,3 @@
     </div>
   </div>
   <button id="addTaskButton" class="bg-brown border-brown txt-brown fw-bold rounded-4 h4 p-3">Adicionar tarefa</button>
-  <br>

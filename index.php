@@ -1,27 +1,3 @@
-<?php
-  //Absolute path instead of relative one
-  require $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
- 
-  //Variable to track current user in order to present the appropriate data.
-  //In the future, this value will be taken from the login and signup pages.
-  if(isset($_POST['user_id'])){
-    $logged_user_id = $_POST['user_id'];
-  }
-  if(isset($_POST['mode'])){
-    $mode = $_POST['mode'];
-  }
- 
-  if(isset($logged_user_id)){
-    if($mode == 'tasks'){
-      header('Location: /htdocsDirectories/lar_tcc/views/tasks/');
-      exit();
-    } else { # mode == 'construction'
-      header('Location: /htdocsDirectories/lar_tcc/views/construction/');
-      exit();
-    }
-  }
-// If 'logged_user_id' is not set, the homepage is loaded
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -96,15 +72,8 @@
         </div>
       </div>
     </div>
-    <div class="w-100 bg-dark-brown py-5 d-flex justify-content-around align-items-center">
-      <div>
-        <img src="assets/images/icons/LarLogoClear.png">
-      </div>
-      <div>
-        <h3 class="txt-cream fw-bold">TCC - 3° Desenvolvimento de Sistemas 2023 <br>ETEC Euro Albino de Souza - Mogi Guaçu - SP</h3>
-      </div>
-      <div>
-        <h3 class="txt-cream fw-bold">Arthur de Lima <br>Giovanna Silva Diogo <br>Juan Octávio Soares Barbosa <br>Otávio Casadei <br>Rodrigo Polastro da Silva</h3>
-      </div>
-    </div>
-<?php require findPath('views/components/footer.html'); ?>
+<?php
+  //Absolute path instead of relative one
+  require $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
+  require findPath('views/components/footer.html');
+?>
