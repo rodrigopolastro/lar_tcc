@@ -15,7 +15,9 @@ function setFurnitureToPaint(clickedFurnitureId, clickedFurnitureImg, clickedFur
 //Update the UI to show selected furniture
 function highlightSelectedFurniture(){ 
   if(furnitureImgElement){
-    furnitureImgElement.classList.add("selected-furniture");
+    furnitureImgElement.parentElement.classList.remove("border-brown");
+    furnitureImgElement.parentElement.classList.remove("bg-cream");
+    furnitureImgElement.parentElement.classList.add("selected-furniture");
   }
 }
 
@@ -23,6 +25,8 @@ function removeLastFurnitureHightlight(){
   let selectedFurniture = document.querySelector(".selected-furniture");
   if (selectedFurniture) {
     selectedFurniture.classList.remove("selected-furniture");
+    selectedFurniture.classList.add("border-brown");
+    selectedFurniture.classList.add("bg-cream");
   }
 }
 
