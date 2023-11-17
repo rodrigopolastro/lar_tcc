@@ -46,11 +46,11 @@
       </div>
   </header>
   <main>
-    <div class="w-100 vh-100 bg-img-landing text-center txt-brown" style="">
+    <div class="w-100 vh-100 bg-img-landing text-center txt-brown bg-dark-green" style="">
       <h1 class="fw-bold"> Deixe seu <span class="txt-red">LAR</span> um Lugar mais Leve: <br> Organize tudo enquanto se diverte!</h1>
       <h3 class="txt-red"> Gerencie suas tarefas domésticas de modo <br> eficaz e prazeroso com o sistema LAR</h3>
     </div>
-    <div class="w-100 vh-100 bg-dark-green text-center txt-pink container-fluid">
+    <div class="w-100 vh-90 bg-dark-green text-center txt-pink container-fluid">
       <h1 class="pt-5 pb-5 fw-bold">Torne seu lar um lugar mais feliz!</h1>
       <div class="d-flex justify-content-center mt-5 mb-5">
         <div class="bg-red border-red rounded-5 text-center p-3 me-5 fw-bold">
@@ -69,7 +69,9 @@
           <h4 class="txt-brown mb-5 pb-5 fw-bold">Uma casa limpa e <br>organizada te fará ter <br>mais momentos felizes com <br>quem você ama!</h4>
         </div>
       </div>
-      <img src="assets/images/background/Group.svg">
+      <div class="pb-5">
+        <img src="assets/images/background/Group.svg"> 
+      </div>
     </div>
     <div class="w-100 bg-brown text-center txt-pink d-flex justify-content-between">
       <div class="w-50 fw-bold txt-pink">
@@ -78,13 +80,13 @@
         <div class="mb-5 d-flex align-items-center ms-2"> <img src="assets/images/icons/PenCircle.png"  class="me-2"><h3>Crie, edite e gerencie as tarefas de cada móvel</h3> </div>
         <div class="mb-5 d-flex align-items-center ms-2"> <img src="assets/images/icons/RoomCircle.png" class="me-2"><h3>Coloque pisos e paredes e crie quantos <br>cômodos quiser!</h3> </div>
       </div>
-      <div class="">
-        <img src="assets/images/background/landingHalf.png">
+      <div class="w-50 overflow-hidden">
+        <img src="assets/images/background/landingHalf.png" class="">
       </div>
     </div>
     <div class="w-100 bg-cream-yellow text-center d-flex justify-content-center">
-      <div class="me-3">
-        <img src="assets/images/background/landingHalfWoman.png" style="width: 103%">
+      <div class="w-50 overflow-hidden">
+        <img src="assets/images/background/landingHalfWoman.png">
       </div>
       <div class="w-50 overflow-hidden">
         <div class="mb-5 pb-5">
