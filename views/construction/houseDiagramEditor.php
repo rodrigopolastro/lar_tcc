@@ -1,7 +1,7 @@
 <div class="d-flex mx-3"> 
   <div id="houseDiagramEditor" class="">
     <div class="d-flex justify-content-between">
-      <h1 class="txt-brown">Lar de <?= $_SESSION['user_first_name']?></h1>
+      <h1 class="txt-brown fontGeneral fw-bold">Lar de <?= $_SESSION['user_first_name']?></h1>
       <div class="d-flex justify-content-end">
         <form action="/htdocsDirectories/lar_tcc/" method="post">
           <input type="hidden" name="user_id" value="1">

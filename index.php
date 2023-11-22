@@ -41,14 +41,14 @@
     <div class="d-flex justify-content-between" style="width:90%;">
       <img src="/htdocsDirectories/lar_tcc/assets/images/logo.svg" alt="">
       <div>
-        <a href="views/login.php" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-3 me-3 fw-bold link-underline link-underline-opacity-0">Login</a>
-        <a href="views/signup.php" class="txt-brown fs-3 fw-bold" >ou cadastre-se</a>
+        <a href="views/login.php" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-3 me-3 fw-bold link-underline link-underline-opacity-0 fontHeader">Login</a>
+        <a href="views/signup.php" class="txt-brown fs-3 fw-bold fontHeader" >ou cadastre-se</a>
       </div>
       </div>
   </header>
   <main>
     <div class="w-100 vh-100 bg-img-landing text-center txt-brown" style="">
-      <h1 class="fw-bold"> Deixe seu <span class="txt-red">LAR</span> um Lugar mais Leve: <br> Organize tudo enquanto se diverte!</h1>
+      <h1 class="fw-bold"> Deixe seu <span class="txt-red fontHeader">LAR</span> um Lugar mais Leve: <br> Organize tudo enquanto se diverte!</h1>
       <h3 class="txt-red"> Gerencie suas tarefas domésticas de modo <br> eficaz e prazeroso com o sistema LAR</h3>
     </div>
     <div class="w-100 vh-100 bg-dark-green text-center txt-pink container-fluid">

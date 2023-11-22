@@ -23,9 +23,15 @@
 
 }
 
-h1{
+html *{
     font-family: 'cheese_burgerregular';
 }
-h3{
+h1{
     font-family: 'organic_brandregular';
+}
+.fontHeader{
+    font-family: 'organic_brandregular';
+}
+.fontGeneral{
+    font-family: 'cheese_burgerregular';
 }
