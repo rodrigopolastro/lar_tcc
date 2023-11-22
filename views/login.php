@@ -27,7 +27,7 @@
           <img src="../assets/images/logo.svg" style="width: 350px;">
         </div>
         <div class="d-flex justify-content-center ">
-          <h5 class="txt-red">Voltar para a <a href="/htdocsDirectories/lar_tcc/" class="text-decoration-none txt-brown fw-bold"> Página inicial</a></h5>
+          <h5 class="txt-red">Voltar para a <a href="/htdocsDirectories/lar_tcc/index.php" class="text-decoration-none txt-brown fw-bold"> Página inicial</a></h5>
         </div>
         <div class="d-flex justify-content-center mt-2 txt-red">
           <h1>Faça seu Login!</h1>
