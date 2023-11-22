@@ -12,7 +12,7 @@
   <title>Organize seu Lar!</title>
 </head>
 <body class="container-fluid" style="max-width: 1460px">
-  <header class="mt-2 d-flex justify-content-center align-items-center bg-yellow" style="height: 10vh; width: 100%;">
+  <header class="d-flex justify-content-center align-items-center bg-yellow" style="height: 10vh; width: 100%;">
     <div class="d-flex justify-content-between" style="width:90%;">
       <img src="/htdocsDirectories/lar_tcc/assets/images/logo.svg" alt="">
       <div>
@@ -22,11 +22,12 @@
       </div>
   </header>
   <main>
-    <div class="w-100 vh-100 bg-img-landing text-center txt-brown bg-dark-green" style="">
+    <section id="hero-section" class="w-100 vh-100 bg-img-landing text-center txt-brown bg-dark-green" style="">
       <h1 class="fw-bold"> Deixe seu <span class="txt-red">LAR</span> um Lugar mais Leve: <br> Organize tudo enquanto se diverte!</h1>
-      <h3 class="txt-red"> Gerencie suas tarefas domésticas de modo <br> eficaz e prazeroso com o sistema LAR</h3>
-    </div>
-    <div class="w-100 vh-90 bg-dark-green text-center txt-pink container-fluid">
+      <h3 class="txt-red mb-5"> Gerencie suas tarefas domésticas de modo <br> eficaz e prazeroso com o sistema LAR</h3>
+      <a href="#blocks" class="bg-brown border-0 txt-cream fw-bold rounded-5 fs-1 p-4 link-underline link-underline-opacity-0">Conheça Lar</a>
+    </section>
+    <section id="blocks" class="w-100 vh-90 bg-dark-green text-center txt-pink container-fluid">
       <h1 class="pt-5 pb-5 fw-bold">Torne seu lar um lugar mais feliz!</h1>
       <div class="d-flex justify-content-center mt-5 mb-5">
         <div class="bg-red border-red rounded-5 text-center p-3 me-5 fw-bold">
@@ -48,8 +49,8 @@
       <div class="pb-5">
         <img src="assets/images/background/Group.svg"> 
       </div>
-    </div>
-    <div class="w-100 bg-brown text-center txt-pink d-flex justify-content-between">
+    </section>
+    <section id="list" class="w-100 bg-brown text-center txt-pink d-flex justify-content-between">
       <div class="w-50 fw-bold txt-pink">
         <h1 class="mt-5 mb-5">Construa seu lar!</h1>
         <div class="mb-5 d-flex align-items-center ms-2"> <img src="assets/images/icons/SofaCircle.png" class="me-2"><h3>Mais de +30 móveis para personalizar sua casa!</h3> </div>
@@ -59,21 +60,21 @@
       <div class="w-50 overflow-hidden">
         <img src="assets/images/background/landingHalf.png" class="">
       </div>
-    </div>
-    <div class="w-100 bg-cream-yellow text-center d-flex justify-content-center">
+    </section>
+    <section id="last-section" class="w-100 bg-cream-yellow text-center d-flex justify-content-center">
       <div class="w-50 overflow-hidden">
         <img src="assets/images/background/landingHalfWoman.png">
       </div>
-      <div class="w-50 overflow-hidden">
-        <div class="mb-5 pb-5">
+      <div class="w-50 d-flex flex-column justify-content-between">
+        <div class="">
           <h1 class="txt-brown fw-bold mt-5 mb-5 pt-5">Tenha mais tempo para <br>aproveitar o melhor da vida</h1>
           <a href="views/login.php" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-4 me-3 fw-bold link-underline link-underline-opacity-0">Entre no seu LAR</a>
         </div>
-        <div class="align-bottom">
+        <div class="">
           <img src="assets/images/background/landingHalfPots.png" style="width:98%; margin-top:22%">
         </div>
       </div>
-    </div>
+    </section>
 <?php
   //Absolute path instead of relative one
   require $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
