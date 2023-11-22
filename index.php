@@ -33,6 +33,7 @@
   <!-- My CSS -->
   <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/construction.css">
   <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/tasks.css">
+  <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/fonts/stylesheet.css">
   <title>Organize seu Lar!</title>
 </head>
 <body class="container-fluid" style="max-width: 1460px">
