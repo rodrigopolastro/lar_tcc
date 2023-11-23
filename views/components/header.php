@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/construction.css">
   <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/tasks.css">
   <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/fonts/stylesheet.css">
-  <title>Olá, <?= $_SESSION['user_first_name']?>></title>
+  <title>Olá, <?= $_SESSION['user_first_name'] ?></title>
 </head>
 <body>
   <header class="mt-2 d-flex justify-content-between align-items-center px-5">

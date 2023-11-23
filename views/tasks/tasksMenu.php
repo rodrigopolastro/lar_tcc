@@ -46,5 +46,5 @@
       </div>
     </div>
   </div>
-  <button id="addTaskButton" class="bg-brown border-brown txt-brown fw-bold rounded-4 h4 p-3 fontHeader">Adicionar tarefa</button>
+  <button id="addTaskButton" class="bg-brown border-brown txt-brown fw-bold rounded-4 h4 p-3 mb-4 fontHeader">Adicionar tarefa</button>
   <br>

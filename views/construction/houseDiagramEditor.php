@@ -16,7 +16,7 @@
       <img src="../../assets/images/icons/trash.png">
       Limpar Diagrama 
     </button>
-    <button id="eraserModeButton" class="bg-red border-red rounded-2 h5 p-1 txt-brown me-2 opacity-25">
+    <button id="eraserModeButton" class="bg-red border-red rounded-2 h5 p-1 txt-brown me-2 opacity-50">
       <img src="../../assets/images/icons/eraser.png">
       Borracha: <span id="eraserModeIndicator">Desligada</span>
     </button>
