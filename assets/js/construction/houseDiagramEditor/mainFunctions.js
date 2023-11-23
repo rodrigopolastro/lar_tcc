@@ -121,10 +121,14 @@ eraserModeButton.addEventListener('click', function() {
 function setEraserMode(setTo){
   if(setTo === true){
     isEraserModeOn = true;
-    eraserModeIndicator.innerHTML = 'ON'
+    eraserModeIndicator.innerHTML = 'Ligada'
+    eraserModeButton.classList.remove("opacity-25")
+    eraserModeButton.classList.add("opacity-100")
   } else {
     isEraserModeOn = false;
-    eraserModeIndicator.innerHTML = 'OFF'
+    eraserModeIndicator.innerHTML = 'Desligada'
+    eraserModeButton.classList.remove("opacity-100")
+    eraserModeButton.classList.add("opacity-25")
   }
 }
 

@@ -24,6 +24,12 @@ p{
   background: #F8CDBA;
 }
 
+.selected-section{
+  border: 6px solid #E47467;
+  box-shadow: 2px 2px 0 0 #E47467;
+  background: #F8CDBA;
+}
+
 #houseDiagram{
   background: #f4f8f9;
 }
@@ -34,6 +40,15 @@ p{
 
 .topWallDiv{
   max-width: 100px;
+}
+
+header{
+  height: 10vh;
+}
+
+#main{
+  min-height: 90vh; 
+  width: 90%;
 }
 
 /* ////////////////////////////All color for the background//////////////////////////// */
@@ -105,11 +120,3 @@ p{
   color: #EEE8D8;
 }
 
-header{
-  height: 10vh;
-}
-
-#main{
-  min-height: 90vh; 
-  width: 90%;
-}
