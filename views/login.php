@@ -16,6 +16,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <!-- My CSS -->
   <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/construction.css">
+  <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/construction.css">
+  <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/fonts/stylesheet.css">
   <title>Página de Login</title>
 </head>
 <body>
@@ -30,7 +32,7 @@
           <h5 class="txt-red">Voltar para a <a href="/htdocsDirectories/lar_tcc/index.php" class="text-decoration-none txt-brown fw-bold"> Página inicial</a></h5>
         </div>
         <div class="d-flex justify-content-center mt-2 txt-red">
-          <h1>Faça seu Login!</h1>
+          <h1 class="fw-bold fontGeneral">FAÇA SEU LOGIN</h1>
         </div>
         <?php if($is_login_incorrect == true) { ?>
           <div class="d-flex justify-content-center">

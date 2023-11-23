@@ -9,6 +9,7 @@
   <!-- My CSS -->
   <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/construction.css">
   <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/tasks.css">
+  <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/fonts/stylesheet.css">
   <title>Organize seu Lar!</title>
 </head>
 <body class="container-fluid" style="max-width: 1460px">
@@ -16,8 +17,8 @@
     <div class="d-flex justify-content-between" style="width:90%;">
       <img src="/htdocsDirectories/lar_tcc/assets/images/logo.svg" alt="">
       <div>
-        <a href="views/login.php" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-3 me-3 fw-bold link-underline link-underline-opacity-0">Login</a>
-        <a href="views/signup.php" class="txt-brown fs-3 fw-bold" >ou cadastre-se</a>
+        <a href="views/login.php" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-3 me-3 fw-bold link-underline link-underline-opacity-0 fontHeader">Login</a>
+        <a href="views/signup.php" class="txt-brown fs-3 fw-bold fontHeader" >ou cadastre-se</a>
       </div>
       </div>
   </header>

@@ -60,10 +60,10 @@
   </div>
 
   <!-- <div class="" > -->
-    <h1 class="txt-red">Tarefas Pendentes</h1>
+    <h2 class="txt-red">TAREFAS PENDENTES</h2>
     <div class="overflow-y-auto" style="height: 50vh">
       <div id="uncompletedTasksList" class="" style=""></div>
-      <h3 class="txt-green">Tarefas Concluídas</h3>
+      <h3 class="txt-green">TAREFAS CONCLUÍDAS</h3>
       <div id="completedTasksList" class="" style=""></div>
     </div>
   <!-- </div> -->
