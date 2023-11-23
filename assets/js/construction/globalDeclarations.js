@@ -113,3 +113,5 @@ var createdFurnitureId;
 var furniturePositions = [], wallPositions = [];
 
 var topWallImgElement, selectedTopWallName;
+
+var lastRoomsLayer;

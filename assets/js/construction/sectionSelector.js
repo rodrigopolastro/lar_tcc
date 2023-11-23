@@ -7,8 +7,9 @@ Array.from(sectionSelector.children).forEach( (button) => {
     sectionDiv.classList.remove("d-none")
 
     currentLayer = button.dataset.layerName;
-    roomImgElement = null;
-    removeTileOrWallHighlight();
+    if(currentLayer == "rooms"){
+      currentLayer = lastRoomsLayer;
+    }
   })
 })
 
@@ -16,5 +17,5 @@ function hideAllSections(){
   myRoomsSection.classList.add('d-none');
   myFurnitureSection.classList.add('d-none');
   allFurnitureSection.classList.add('d-none');
-  allFurnitureSection.classList.add('d-none');
+  topWallsSection.classList.add('d-none');
 }

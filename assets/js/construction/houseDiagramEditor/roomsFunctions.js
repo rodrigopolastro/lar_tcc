@@ -1,5 +1,6 @@
 // Triggered when a tile image is clicked in the rooms list
 function setRoomTileToPaint(clickedRoomId, clickedTileImg){
+  lastRoomsLayer = 'tiles';
   currentLayer = 'tiles';
   selectedRoomId = clickedRoomId;
   roomImgElement = clickedTileImg;
@@ -28,6 +29,7 @@ function removeTileOrWallHighlight(){
 
 // Triggered when a wall image is clicked in the rooms list
 function setRoomWallToPaint(clickedRoomId, clickedWallImg){
+  lastRoomsLayer = 'walls';
   currentLayer = 'walls';
   selectedRoomId = clickedRoomId;
   roomImgElement = clickedWallImg;
