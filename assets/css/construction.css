@@ -104,3 +104,12 @@ p{
 .txt-cream{
   color: #EEE8D8;
 }
+
+header{
+  height: 10vh;
+}
+
+#main{
+  min-height: 90vh; 
+  width: 90%;
+}

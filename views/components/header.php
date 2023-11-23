@@ -12,13 +12,13 @@
   <title>Olá, <?= $_SESSION['user_first_name']?></title>
 </head>
 <body>
-  <header class="mt-2 d-flex justify-content-between align-items-center px-5" style="height: 10vh;">
+  <header class="mt-2 d-flex justify-content-between align-items-center px-5">
     <img src="/htdocsDirectories/lar_tcc/assets/images/logo.svg" alt="">
     <form action="/htdocsDirectories/lar_tcc/controllers/usersController.php" method="post">
       <input type="hidden" name="operation" value="logout">
       <input type="image" src="../../assets/images/icons/exit.svg" class="">
     </form>
   </header>
-  <main style="height: 90vh; width: 90%" class="container-fluid">
+  <main id="main" class="container-fluid pb-3">
 <!-- The header file only opens the 'html', 'body' and 'main' tags, 
      which will be closed in the index and footer files. -->
