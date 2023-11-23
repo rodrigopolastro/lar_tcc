@@ -1,41 +1,20 @@
-myRoomsSectionButton.addEventListener('click', () => {
-  myRoomsSection.classList.remove('d-none');
+Array.from(sectionSelector.children).forEach( (button) => {
+  button.addEventListener('click', (event) => {
+    hideAllSections();
+    
+    let sectionId = button.id.replace("Button", "");
+    let sectionDiv = document.getElementById(sectionId);
+    sectionDiv.classList.remove("d-none")
 
-  myFurnitureSection.classList.add('d-none');
-  allFurnitureSection.classList.add('d-none');
-  topWallsSection.classList.add('d-none');
+    currentLayer = button.dataset.layerName;
+    roomImgElement = null;
+    removeTileOrWallHighlight();
+  })
+})
 
-  currentLayer = 'tiles';
-});
-
-allFurnitureSectionButton.addEventListener('click', () => {
-  allFurnitureSection.classList.remove('d-none');
-
-  myRoomsSection.classList.add('d-none');
-  myFurnitureSection.classList.add('d-none');
-  topWallsSection.classList.add('d-none');
-  
-  currentLayer = 'furniture'
-});
-
-myFurnitureSectionButton.addEventListener('click', () => {
-  myFurnitureSection.classList.remove('d-none');
-  
-  myRoomsSection.classList.add('d-none');
-  allFurnitureSection.classList.add('d-none');
-  topWallsSection.classList.add('d-none');
-  
-  //This section is only for listing the already added furniture, not to add new ones
-  currentLayer = 'none';
-});
-
-topWallsSectionButton.addEventListener('click', () => {
-  topWallsSection.classList.remove('d-none');
-  
+function hideAllSections(){
   myRoomsSection.classList.add('d-none');
   myFurnitureSection.classList.add('d-none');
   allFurnitureSection.classList.add('d-none');
-
-  currentLayer = 'topWalls';
-});
-
+  allFurnitureSection.classList.add('d-none');
+}
