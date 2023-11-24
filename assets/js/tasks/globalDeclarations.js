@@ -29,6 +29,9 @@ const modalTaskFurnitureIdSelect = document.getElementById('modalTaskFurnitureId
 // Static House Diagram
 const staticHouseDiagram = document.getElementById('staticHouseDiagram');
 
+const remainingTasksTitle = document.getElementById('remainingTasksTitle');
+const allTasksCompletedTitle = document.getElementById('allTasksCompletedTitle');
+
 //============== GLOBAL VARIABLES ==============//
 
 // Vars required for Tasks CRUD

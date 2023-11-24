@@ -5,7 +5,11 @@ selectTaskRoom.addEventListener('change', selectTasks);
 function selectTasks(){
   dueDate = selectTaskDate.value;
   
-  selectTaskRoom.querySelector(`option[value='${roomId}']`).selected = true;
+  if(roomId){
+    selectTaskRoom.querySelector(`option[value='${roomId}']`).selected = true;
+  } else {
+    roomId = selectTaskRoom.value;
+  }
 
   selectTasksRequest = new XMLHttpRequest();
   selectTasksRequest.onreadystatechange = listFilteredTasks;
@@ -39,6 +43,15 @@ function listFilteredTasks() {
           allTasksNumber += 1;
           createTaskDiv(task);
         })
+
+        if(allTasksNumber == completedTasksNumber){
+          remainingTasksTitle.classList.add('d-none');
+          allTasksCompletedTitle.classList.remove('d-none');
+        } else {
+          remainingTasksTitle.classList.remove('d-none');
+          allTasksCompletedTitle.classList.add('d-none');
+        }
+
         completedTasksCounter.innerHTML = completedTasksNumber;
         allTasksCounter.innerHTML       = allTasksNumber;
       } else {

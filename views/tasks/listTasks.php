@@ -60,11 +60,11 @@
   </div>
 
   <!-- <div class="" > -->
-    <h2 class="txt-red">TAREFAS PENDENTES</h2>
+    <h2 id="remainingTasksTitle" class="txt-red">TAREFAS PENDENTES</h2>
     <div class="overflow-y-auto" style="height: 50vh">
       <div id="uncompletedTasksList" class="" style=""></div>
       <h3 class="txt-green">TAREFAS CONCLUÍDAS</h3>
-      <!-- <h3 class="txt-green bg-green rounded-3 p-3 text-center">Tudo certo por aqui...</h3> -->
+      <h3 id="allTasksCompletedTitle" class="d-none txt-green bg-green rounded-3 p-3 text-center">Tudo certo por aqui...</h3>
       <div id="completedTasksList" class="" style=""></div>
     </div>
   <!-- </div> -->
