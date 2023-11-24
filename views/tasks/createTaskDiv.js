@@ -18,7 +18,7 @@ function createTaskDiv(task){
   const taskDescriptionText = document.createTextNode(task.task_description ? task.task_description : "Sem descrição");
   const taskRoomText        = document.createTextNode(task.room_name ? task.room_name : "Sem cômodo");
   const taskDueDateText     = document.createTextNode(formatTaskDate(task.due_date, task.due_time));
-  const taskFurnitureText   = document.createTextNode("Móvel: " + task.furniture_name);
+  const taskFurnitureText   = document.createTextNode("Móvel: " + (task.furniture_name ? task.furniture_name : "Sem móvel"));
   const taskCollapseImg    = createElementWithAttributes('img', {src: '../../assets/images/icons/arrow.png'});  
 
   const formCompleteTask  = createElementWithAttributes('form', {method: 'post', action: '.', class:"col-1"});
