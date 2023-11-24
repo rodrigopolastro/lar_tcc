@@ -1,15 +1,5 @@
 //============== CONSTANTS ==============//
 
-// Default rooms list (assign portuguese names for internal variables in english)
-const DEFAULT_ROOMS = {
-  kitchen:    "Cozinha",
-  livingRoom: "Sala de Estar",
-  diningRoom: "Sala de Jantar",
-  bedroom:    "Quarto",
-  bathroom:   "Banheiro",
-  other:      "Outro"
-}
-
 // rootTilePath helper 
 const TILES_DIRECTORY     = "/htdocsDirectories/lar_tcc/assets/images/tiles/";
 const WALLS_DIRECTORY     = "/htdocsDirectories/lar_tcc/assets/images/walls/";
@@ -78,19 +68,17 @@ const furnitureInputImg   = document.getElementById('furnitureInputImg');
 const furnitureSelector   = document.getElementById('furnitureSelector');
 const allFurnitureList    = document.getElementById('allFurnitureList');
 
-// const kitchenFurniture    = document.getElementById('kitchenFurniture');
-// const livingRoomFurniture = document.getElementById('livingRoomFurniture');
-// const diningRoomFurniture = document.getElementById('diningRoomFurniture');
-// const bedroomFurniture    = document.getElementById('bedroomFurniture');
-// const bathroomFurniture   = document.getElementById('bathroomFurniture');
-// const otherFurniture      = document.getElementById('otherFurniture');
-
 // House Diagram Editor
 const clearDiagramButton  = document.getElementById('clearDiagramButton');
 const eraserModeButton    = document.getElementById('eraserModeButton');
 const eraserModeIndicator = document.getElementById('eraserModeIndicator');
 const saveDiagramButton   = document.getElementById('saveDiagramButton');
 const houseDiagram        = document.getElementById('houseDiagram');
+
+const toastHtml = document.getElementById('toastHtml');
+const errorToastTitle = document.getElementById('errorToastTitle');
+const errorToastMessage = document.getElementById('errorToastMessage');
+const errorToast = bootstrap.Toast.getOrCreateInstance(toastHtml)
 
 //============== GLOBAL VARIABLES ==============//
 // Vars required for Rooms CRUD

@@ -11,6 +11,7 @@
 
   //Loading views
   require findPath('views/components/header.php');
+  require findPath('views/components/errorToast.html');
   require findPath('views/construction/houseDiagramEditor.php');
   require findPath('views/construction/houseDiagramMenu.html');
   require findPath('views/construction/constructionModals.html');

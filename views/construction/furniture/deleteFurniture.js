@@ -16,7 +16,7 @@ function removeFromDiagramAndFurnitureList(){
   if (deleteFurnitureRequest.readyState === XMLHttpRequest.DONE) { 
     if (deleteFurnitureRequest.status === 200) {  
       const response = JSON.parse(deleteFurnitureRequest.responseText);
-      console.log(deleteFurnitureRequest.responseText)
+      // console.log(deleteFurnitureRequest.responseText)
       if(response.is_furniture_deleted){
         const deletedFurnitureDiv = document.querySelector("[data-furniture-id='" + furnitureId + "']");
         deletedFurnitureDiv.remove();

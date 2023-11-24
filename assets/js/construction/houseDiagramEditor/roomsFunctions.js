@@ -88,17 +88,23 @@ function areWallPositionsAvailable(positionClicked){
 
     //a wall cannot be inserted at the same position of a furniture
     if(diagramPositions.furniture.allPositions.hasOwnProperty(key)){
-      console.log('ERRO NA INSERÇÃO DA PAREDE: Há um móvel nesta posição');
+      errorToastTitle.innerHTML = "Erro na Inserção da Parede"
+      errorToastMessage.innerHTML = "Há um móvel nesta posição"
+      errorToast.show();
       return false;
     }
 
     if(diagramPositions.walls.allPositions.hasOwnProperty(key)){
-      console.log('ERRO NA INSERÇÃO DA PAREDE: Já há uma parede ocupando essa posição.')
+      errorToastTitle.innerHTML = "Erro na Inserção da Parede"
+      errorToastMessage.innerHTML = "Já há uma parede ocupando essa posição."
+      errorToast.show();
       return false;
     }
 
     if(line < 0){
-      console.log('ERRO NA INSERÇÃO DA PAREDE: Limites do diagrama excedidos.')
+      errorToastTitle.innerHTML = "Erro na Inserção da Parede"
+      errorToastMessage.innerHTML = "Limites do diagrama excedidos."
+      errorToast.show();
       return false;
     }
     wallPositions.push(key)
@@ -135,7 +141,9 @@ function removeWall(positionClicked){
     reloadDiagram();
     updateDiagramPositions();
   } else {
-    console.log("ERRO NA DELEÇÃO DA PAREDE: Não há nenhuma parede na posição clicada.")
+    errorToastTitle.innerHTML = "Erro na Inserção da Parede"
+      errorToastMessage.innerHTML = "Não há nenhuma parede na posição clicada."
+      errorToast.show();
   }
     
   // find starting position by going down in the y coordinate

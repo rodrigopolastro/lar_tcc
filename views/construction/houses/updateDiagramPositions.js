@@ -21,7 +21,7 @@ function updateDiagramPositions(){
 function informDiagramSave(){
   if (updateDiagramPositionsRequest.readyState === XMLHttpRequest.DONE) { 
     if (updateDiagramPositionsRequest.status === 200) {  
-      console.log("Diagrama salvo com sucesso: \n\n" + JSON.stringify(diagramPositions));
+      // console.log("Diagrama salvo com sucesso: \n\n" + JSON.stringify(diagramPositions));
       // reloadDiagram();
     } else {
       alert("There was a problem with the 'updateDiagramPositions' request.");

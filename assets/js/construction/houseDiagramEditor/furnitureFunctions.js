@@ -52,7 +52,9 @@ function areFurniturePositionsAvailable(positionClicked){
       //furniture only requires that the first clicked line has tiles 
       if(j == 0){
         if(!diagramPositions.tiles.hasOwnProperty(key)){
-          console.log('ERRO NA INSERÇÃO DO MÓVEL: Linha inicial inválida')
+          errorToastTitle.innerHTML = "Erro na Inserção do Móvel"
+          errorToastMessage.innerHTML = "Linha inicial inválida"
+          errorToast.show();
           return false;
         }
       }
@@ -66,19 +68,25 @@ function areFurniturePositionsAvailable(positionClicked){
       // Block furniture insertion if it occupies two or more different rooms
       let tileRoomId = diagramPositions.tiles[key]
       if(tileRoomId && (tileRoomId != clickedRoomId)){
-        console.log('ERRO NA INSERÇÃO DO MÓVEL: Dois ou mais cômodos diferentes.')
+        errorToastTitle.innerHTML = "Erro na Inserção do Móvel"
+        errorToastMessage.innerHTML = "Dois ou mais cômodos diferentes."
+        errorToast.show();
         return false;
       }
       
       // Block furniture insertion if does not fit into the diagram
       if(line < 0 || column > NUMBER_OF_COLUMNS - 1){
-        console.log('ERRO NA INSERÇÃO DO MÓVEL: Limites do diagrama excedidos.')
+        errorToastTitle.innerHTML = "Erro na Inserção do Móvel"
+        errorToastMessage.innerHTML = "Limites do diagrama excedidos."
+        errorToast.show();
         return false;
       }
       
       // Block furniture insertion if there is another furniture on those positions
       if(diagramPositions.furniture.allPositions.hasOwnProperty(key)){
-        console.log('ERRO NA INSERÇÃO DO MÓVEL: Já há um móvel ocupando essa posição.')
+        errorToastTitle.innerHTML = "Erro na Inserção do Móvel"
+        errorToastMessage.innerHTML = "Já há um móvel ocupando essa posição."
+        errorToast.show();
         return false;
       } 
       furniturePositions.push(key);
