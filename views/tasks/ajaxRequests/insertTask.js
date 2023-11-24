@@ -23,6 +23,9 @@ function displayCreatedTask(){
       // console.log(insertTaskRequest.responseText)
       const createdTask = JSON.parse(insertTaskRequest.responseText);
       createTaskDiv(createdTask);  
+      let tasksNumber = allTasksCounter.innerHTML;
+      tasksNumber++;
+      allTasksCounter.innerHTML = tasksNumber;
     } else {
       alert("There was a problem with the 'insertTask' request.");
     }
