@@ -7,9 +7,8 @@
 <!-- This div wraps the task-menu and the task-list -->
 <div class="tasks-section ps-5 container-fluid">
   <div class="tasks-menu bg-cream border-brown rounded-5 mb-3"> 
-    <!-- colocar div com bootstrap dentro dessa de cima -->
     <div class="m-3 row">
-      <h2 class="txt-brown fw-bold">Filtros</h2>
+      <h1 class="txt-brown fw-bold">Filtros</h2>
       <div class="col-4 d-flex justify-content-center align-items-center">
         <img src="../../assets/images/icons/sun.svg" class="me-2 h-50" style="">
         <label for="selectTaskDate"></label>
@@ -28,7 +27,8 @@
           <option value="any">Qualquer Cômodo</option>
           <option value="noRoom">Sem Cômodo</option>
           <?php
-            $rooms = getAllRooms();
+            $house_id = $_SESSION['house_id'];
+            $rooms = getAllRooms($house_id);
             foreach ($rooms as $room): ?>
               <option value="<?= $room['room_id'] ?>"> <?= $room['room_name'] ?> </option>";
             <?php endforeach ?>
@@ -46,8 +46,5 @@
       </div>
     </div>
   </div>
-  <form action="." method="post">
-    <input type="hidden" name="operation" value="insertTask">
-    <input type="submit" value="Adicionar Tarefa" class="bg-brown border-brown txt-brown fw-bold rounded-4 h4 p-3">
-  </form>
+  <button id="addTaskButton" class="bg-brown border-brown txt-brown fw-bold rounded-4 h4 p-3 mb-4 fontHeader">Adicionar tarefa</button>
   <br>

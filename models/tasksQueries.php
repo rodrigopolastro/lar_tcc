@@ -2,7 +2,7 @@
 require_once findPath('database/databaseConnection.php');
 
 // ============== SELECT QUERIES ==============
-function getTasks($fk_room_id, $due_date){
+function getTasks($fk_room_id, $due_date, $house_id){
   global $connection;
   $statement = $connection->prepare(
     // If parameter is 'any', select all;
@@ -21,26 +21,30 @@ function getTasks($fk_room_id, $due_date){
     LEFT JOIN rooms ON rooms.room_id = tasks.fk_room_id
     LEFT JOIN furniture ON furniture.furniture_id = tasks.fk_furniture_id
     WHERE (:fk_room_id = 'any' OR tasks.fk_room_id = :fk_room_id) 
-    AND   (:due_date = 'any' OR due_date = :due_date)"
+    AND   (:due_date = 'any' OR due_date = :due_date)
+    AND tasks.fk_house_id = :house_id"
     );
 
   $statement->bindValue(':fk_room_id', $fk_room_id);
   $statement->bindValue(':due_date', $due_date);
+  $statement->bindValue(':house_id', $house_id);
   $statement->execute();
   
   $results = $statement->fetchAll(PDO::FETCH_ASSOC); #Return array indexed by column (only)
   return $results;
 }
 
-function getTasksWithNoRoom($due_date){
+function getTasksWithNoRoom($due_date, $house_id){
   global $connection;
   $statement = $connection->prepare(
     "SELECT * FROM tasks 
     WHERE (fk_room_id IS NULL)
-    AND   (:due_date = 'any' OR due_date = :due_date)"
+    AND   (:due_date = 'any' OR due_date = :due_date)
+    AND fk_house_id = :house_id"
     );
 
   $statement->bindValue(':due_date', $due_date);
+  $statement->bindValue(':house_id', $house_id);
   $statement->execute();
   
   $results = $statement->fetchAll(PDO::FETCH_ASSOC); #Return array indexed by column (only)
@@ -50,8 +54,22 @@ function getTasksWithNoRoom($due_date){
 function getTaskById($task_id){
   global $connection;
   $statement = $connection->prepare(
-    "SELECT * FROM tasks WHERE task_id = :task_id"
-    );
+    "SELECT 
+      task_id,
+      task_name,
+      task_description,
+      due_date,
+      due_time,
+      is_completed,
+      room_name,
+      furniture_name,
+      tasks.fk_furniture_id,
+      room_id
+    FROM tasks 
+    LEFT JOIN rooms ON rooms.room_id = tasks.fk_room_id
+    LEFT JOIN furniture ON furniture.furniture_id = tasks.fk_furniture_id
+    WHERE task_id = :task_id"
+  );
 
   $statement->bindValue(':task_id',$task_id);
   $statement->execute();
@@ -77,6 +95,8 @@ function createTask($task){
   $statement->bindValue(':fk_room_id',       $task['fk_room_id']);
   $statement->bindValue(':fk_furniture_id',  $task['fk_furniture_id']);
   $statement->execute();
+
+  return $connection->lastInsertId();
 }
 
 function updateTask($task){

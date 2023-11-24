@@ -13,11 +13,25 @@ p{
 }
 
 .selected-room-img{
-  outline: 10px solid red;
+  outline: 6px solid #E47467;
 }
 
 .selected-furniture{
-  outline: 10px solid blue;
+  border: 6px solid #E47467;
+  box-shadow: 2px 2px 0 0 #E47467;
+  background: #F8CDBA;
+}
+
+.selected-topWall{
+  border: 6px solid #E47467;
+  box-shadow: 2px 2px 0 0 #E47467;
+  background: #F8CDBA;
+}
+
+.selected-section{
+  border: 6px solid #E47467;
+  box-shadow: 2px 2px 0 0 #E47467;
+  background: #F8CDBA;
 }
 
 #houseDiagram{
@@ -32,6 +46,15 @@ p{
   max-width: 100px;
 }
 
+header{
+  height: 10vh;
+}
+
+#main{
+  min-height: 90vh; 
+  width: 90%;
+}
+
 /* ////////////////////////////All color for the background//////////////////////////// */
 .bg-red{
   background-color: #F8CDBA;
@@ -40,7 +63,7 @@ p{
   background-color: rgba(32,58,48,0.1);
 }
 .bg-lime{
-  background-color: rgb(78, 164, 131)
+  background-color: rgb(201, 231, 219);
 }
 .bg-dark-green{
   background-color: rgba(32,58,48);
@@ -48,8 +71,25 @@ p{
 .bg-brown{
   background-color: #E47467;
 }
+.bg-dark-brown{
+  background-color: #482929;
+}
 .bg-cream{
   background-color: #EEE8D8;
+}
+.bg-yellow{
+  background-color: #F2DEA7;
+}
+.bg-cream-yellow{
+  background-color: #FFEFBE;
+}
+.bg-img-landing{
+  background-image: url("../images/background/landingPage.png");
+  background-repeat: no-repeat;
+}
+.bg-img-landingHalf{
+  background-image: url("../images/background/landingHalf.png");
+  background-repeat: no-repeat;
 }
 /* ////////////////////////////colors for borders//////////////////////////// */
 .border-red{
@@ -77,3 +117,10 @@ p{
 .txt-brown{
   color: #482929;
 }
+.txt-pink{
+  color: #F8CDBA;
+}
+.txt-cream{
+  color: #EEE8D8;
+}
+

@@ -15,7 +15,9 @@ function setFurnitureToPaint(clickedFurnitureId, clickedFurnitureImg, clickedFur
 //Update the UI to show selected furniture
 function highlightSelectedFurniture(){ 
   if(furnitureImgElement){
-    furnitureImgElement.classList.add("selected-furniture");
+    furnitureImgElement.parentElement.classList.remove("border-brown");
+    furnitureImgElement.parentElement.classList.remove("bg-cream");
+    furnitureImgElement.parentElement.classList.add("selected-furniture");
   }
 }
 
@@ -23,6 +25,8 @@ function removeLastFurnitureHightlight(){
   let selectedFurniture = document.querySelector(".selected-furniture");
   if (selectedFurniture) {
     selectedFurniture.classList.remove("selected-furniture");
+    selectedFurniture.classList.add("border-brown");
+    selectedFurniture.classList.add("bg-cream");
   }
 }
 
@@ -45,27 +49,44 @@ function areFurniturePositionsAvailable(positionClicked){
       let column = positionClicked[0] + i;
       let key = column + "-" + line; 
       
-      // Block furniture insertion in an empty space (with no tile)
-      if(!diagramPositions.tiles.hasOwnProperty(key)){
-        console.log('ERRO NA INSERÇÃO DO MÓVEL: Espaço vazio em alguma outra posição.')
-        return false;
+      //furniture only requires that the first clicked line has tiles 
+      if(j == 0){
+        if(!diagramPositions.tiles.hasOwnProperty(key)){
+          errorToastTitle.innerHTML = "Erro na Inserção do Móvel"
+          errorToastMessage.innerHTML = "Linha inicial inválida"
+          errorToast.show();
+          return false;
+        }
       }
+
+      // Block furniture insertion in empty spaces (with no tiles or walls)
+      // if(!diagramPositions.tiles.hasOwnProperty(key) && !diagramPositions.walls.allPositions.hasOwnProperty(key)){
+      //   console.log('ERRO NA INSERÇÃO DO MÓVEL: Espaço vazio em alguma outra posição.')
+      //   return false;
+      // }
       
       // Block furniture insertion if it occupies two or more different rooms
-      if(diagramPositions.tiles[key] != clickedRoomId){
-        console.log('ERRO NA INSERÇÃO DO MÓVEL: Dois ou mais cômodos diferentes.')
+      let tileRoomId = diagramPositions.tiles[key]
+      if(tileRoomId && (tileRoomId != clickedRoomId)){
+        errorToastTitle.innerHTML = "Erro na Inserção do Móvel"
+        errorToastMessage.innerHTML = "Dois ou mais cômodos diferentes."
+        errorToast.show();
         return false;
       }
       
       // Block furniture insertion if does not fit into the diagram
       if(line < 0 || column > NUMBER_OF_COLUMNS - 1){
-        console.log('ERRO NA INSERÇÃO DO MÓVEL: Limites do diagrama excedidos.')
+        errorToastTitle.innerHTML = "Erro na Inserção do Móvel"
+        errorToastMessage.innerHTML = "Limites do diagrama excedidos."
+        errorToast.show();
         return false;
       }
       
       // Block furniture insertion if there is another furniture on those positions
       if(diagramPositions.furniture.allPositions.hasOwnProperty(key)){
-        console.log('ERRO NA INSERÇÃO DO MÓVEL: Já há um móvel ocupando essa posição.')
+        errorToastTitle.innerHTML = "Erro na Inserção do Móvel"
+        errorToastMessage.innerHTML = "Já há um móvel ocupando essa posição."
+        errorToast.show();
         return false;
       } 
       furniturePositions.push(key);

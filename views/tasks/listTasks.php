@@ -13,11 +13,12 @@
           <div class="row">
             <label for="modalTaskNameInput" class="col txt-brown fw-bold">Nome da Tarefa</label>
             <input type="text" name="task_name" id="modalTaskNameInput" class="col rounded-3 txt-red border-0 bg-red fw-bold">
-            <label for="editTaskRoomId" class="col txt-brown fw-bold">Cômodo</label>
-            <select id="editTaskRoomId" name="room_id" class="col me-3 rounded-3 txt-red border-0 bg-red fw-bold">
+            <label for="modalTaskRoomIdSelect" class="col txt-brown fw-bold">Cômodo</label>
+            <select id="modalTaskRoomIdSelect" name="room_id" class="col me-3 rounded-3 txt-red border-0 bg-red fw-bold">
               <option value="noRoom">Nenhum Cômodo</option>
               <?php
-                $rooms = getAllRooms();
+                $house_id = $_SESSION['house_id'];
+                $rooms = getAllRooms($house_id);
                 foreach ($rooms as $room): ?>
                   <option value="<?= $room['room_id'] ?>"> <?= $room['room_name'] ?> </option>";
                 <?php endforeach ?>
@@ -27,11 +28,12 @@
           <div class="row">
             <label for="modalTaskDescriptionInput" class="col txt-brown fw-bold">Descrição da Tarefa</label>
             <input type="text" name="task_description" id="modalTaskDescriptionInput" class="col rounded-3 txt-red border-0 bg-red fw-bold">
-            <label for="editTaskFurnitureId" class="col txt-brown fw-bold">Móvel</label>
-            <select id="editTaskFurnitureId" name="furniture_id" class="col me-3 rounded-3 txt-red border-0 bg-red fw-bold">
+            <label for="modalTaskFurnitureIdSelect" class="col txt-brown fw-bold">Móvel</label>
+            <select id="modalTaskFurnitureIdSelect" name="furniture_id" class="col me-3 rounded-3 txt-red border-0 bg-red fw-bold">
               <option value="noFurniture">Nenhum Móvel</option>
               <?php
-                $furniture = getAllFurniture();
+                $house_id = $_SESSION['house_id'];
+                $furniture = getAllFurniture($house_id);
                 foreach ($furniture as $piece_of_furniture): ?>
                   <option value="<?= $piece_of_furniture['furniture_id'] ?>"> <?= $piece_of_furniture['furniture_name'] ?> </option>";
                 <?php endforeach ?>
@@ -58,10 +60,11 @@
   </div>
 
   <!-- <div class="" > -->
-    <h1 class="txt-red">Tarefas Pendentes</h1>
+    <h2 id="remainingTasksTitle" class="txt-red">TAREFAS PENDENTES</h2>
     <div class="overflow-y-auto" style="height: 50vh">
       <div id="uncompletedTasksList" class="" style=""></div>
-      <h3 class="txt-green">Tarefas Concluídas</h3>
+      <h3 class="txt-green">TAREFAS CONCLUÍDAS</h3>
+      <h3 id="allTasksCompletedTitle" class="d-none txt-green bg-green rounded-3 p-3 text-center">Tudo certo por aqui...</h3>
       <div id="completedTasksList" class="" style=""></div>
     </div>
   <!-- </div> -->

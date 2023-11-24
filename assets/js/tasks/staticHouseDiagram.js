@@ -31,9 +31,9 @@ staticHouseDiagram.addEventListener("mousedown", (mouseEvent) => {
 
   roomId = staticDiagramPositions.tiles[key];
   furnitureId = staticDiagramPositions.furniture.allPositions[key];
-  // if(roomId){
-    selectTasks();
-  // }
+
+  if(!roomId){ roomId = "noRoom" }
+  selectTasks();
 });
 
 

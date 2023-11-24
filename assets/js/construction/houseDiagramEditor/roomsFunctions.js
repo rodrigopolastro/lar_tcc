@@ -1,5 +1,6 @@
 // Triggered when a tile image is clicked in the rooms list
 function setRoomTileToPaint(clickedRoomId, clickedTileImg){
+  lastRoomsLayer = 'tiles';
   currentLayer = 'tiles';
   selectedRoomId = clickedRoomId;
   roomImgElement = clickedTileImg;
@@ -28,6 +29,7 @@ function removeTileOrWallHighlight(){
 
 // Triggered when a wall image is clicked in the rooms list
 function setRoomWallToPaint(clickedRoomId, clickedWallImg){
+  lastRoomsLayer = 'walls';
   currentLayer = 'walls';
   selectedRoomId = clickedRoomId;
   roomImgElement = clickedWallImg;
@@ -84,13 +86,25 @@ function areWallPositionsAvailable(positionClicked){
     let line = positionClicked[1] - j;
     key = column + "-" + line;
 
+    //a wall cannot be inserted at the same position of a furniture
+    if(diagramPositions.furniture.allPositions.hasOwnProperty(key)){
+      errorToastTitle.innerHTML = "Erro na Inserção da Parede"
+      errorToastMessage.innerHTML = "Há um móvel nesta posição"
+      errorToast.show();
+      return false;
+    }
+
     if(diagramPositions.walls.allPositions.hasOwnProperty(key)){
-      console.log('ERRO NA INSERÇÃO DA PAREDE: Já há uma parede ocupando essa posição.')
+      errorToastTitle.innerHTML = "Erro na Inserção da Parede"
+      errorToastMessage.innerHTML = "Já há uma parede ocupando essa posição."
+      errorToast.show();
       return false;
     }
 
     if(line < 0){
-      console.log('ERRO NA INSERÇÃO DA PAREDE: Limites do diagrama excedidos.')
+      errorToastTitle.innerHTML = "Erro na Inserção da Parede"
+      errorToastMessage.innerHTML = "Limites do diagrama excedidos."
+      errorToast.show();
       return false;
     }
     wallPositions.push(key)
@@ -102,6 +116,7 @@ function registerWallPositions(createdWallId){
   diagramPositions.walls.startingPositions[wallPositions[0]] = createdWallId;
   for(position of wallPositions){
     diagramPositions.walls.allPositions[position] = createdWallId;
+    delete diagramPositions.tiles[position]; //remove tiles underneath walls
   }
 
   reloadDiagram();
@@ -126,7 +141,9 @@ function removeWall(positionClicked){
     reloadDiagram();
     updateDiagramPositions();
   } else {
-    console.log("ERRO NA DELEÇÃO DA PAREDE: Não há nenhuma parede na posição clicada.")
+    errorToastTitle.innerHTML = "Erro na Inserção da Parede"
+      errorToastMessage.innerHTML = "Não há nenhuma parede na posição clicada."
+      errorToast.show();
   }
     
   // find starting position by going down in the y coordinate
