@@ -13,12 +13,16 @@ p{
 }
 
 .selected-room-img{
-  /* outline: 10px solid rgb(32,58,48); */
   outline: 6px solid #E47467;
 }
 
 .selected-furniture{
-  /* outline: 10px solid #E47467; */
+  border: 6px solid #E47467;
+  box-shadow: 2px 2px 0 0 #E47467;
+  background: #F8CDBA;
+}
+
+.selected-topWall{
   border: 6px solid #E47467;
   box-shadow: 2px 2px 0 0 #E47467;
   background: #F8CDBA;

@@ -17,7 +17,7 @@ function displayTaskInfo() {
     // Status 200 = Request OK
     if (selectOneTaskRequest.status === 200) {                
       // Convert response from JSON format to a javascript object
-      console.log(selectOneTaskRequest.responseText)
+      // console.log(selectOneTaskRequest.responseText)
       const editingTask = JSON.parse(selectOneTaskRequest.responseText);
 
       // Assign task values to text inputs

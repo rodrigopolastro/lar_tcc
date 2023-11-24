@@ -12,7 +12,10 @@ createRoomButton.addEventListener('click', () => {
     }
     insertRoom();
   } else {
-    alert("Selecione o piso e a parede!");
+    errorToastTitle.innerHTML = "Erro na Criação do Cômodo"
+    errorToastMessage.innerHTML = "Selecione o piso e a parede!"
+    errorToast.show();
+    // alert("Selecione o piso e a parede!");
   }
 });
 
@@ -33,7 +36,7 @@ function insertRoom(){
 function displayCreatedRoom(){
   if (insertRoomRequest.readyState === XMLHttpRequest.DONE) { 
     if (insertRoomRequest.status === 200) { 
-      console.log(insertRoomRequest.responseText)  
+      // console.log(insertRoomRequest.responseText)  
       const response = JSON.parse(insertRoomRequest.responseText);
       
       if(response.is_room_created){

@@ -1,5 +1,3 @@
-var lastTilePositionClicked = [], lastWallPositionClicked = [];
-
 //============== INITIALIZATION ==============//
 
 //STRUCTURE: 
@@ -37,7 +35,9 @@ houseDiagram.addEventListener("mousedown", (event) => {
       if(roomImgElement || isEraserModeOn){
         updateDiagramTiles(event);   
       } else {
-        alert('selecione um piso para pintar!');
+        errorToastTitle.innerHTML = "Erro de Seleção"
+        errorToastMessage.innerHTML = "Selecione um piso ou parede!"
+        errorToast.show();
       }
       break;
 
@@ -46,7 +46,9 @@ houseDiagram.addEventListener("mousedown", (event) => {
       if(roomImgElement || isEraserModeOn){
         updateDiagramWalls(event);   
       } else {
-        alert('selecione uma parede para pintar!');
+        errorToastTitle.innerHTML = "Erro de Seleção"
+        errorToastMessage.innerHTML = "Selecione uma parede!"
+        errorToast.show();
       }
       break;
   
@@ -54,20 +56,21 @@ houseDiagram.addEventListener("mousedown", (event) => {
       if(furnitureImgElement || isEraserModeOn){
         updateDiagramFurniture(event); 
       } else {
-        alert('selecione um móvel para inserir!');
+        errorToastTitle.innerHTML = "Erro de Seleção"
+        errorToastMessage.innerHTML = "Selecione um móvel!"
+        errorToast.show();
       }
       break;
 
     case 'topWalls':
+      isMouseDown = true;
       if(topWallImgElement || isEraserModeOn){
         updateTopWalls(event); 
       } else {
-        alert('selecione uma parede para inserir!');
+        errorToastTitle.innerHTML = "Erro de Seleção"
+        errorToastMessage.innerHTML = "Selecione uma borda de parede!"
+        errorToast.show();
       }
-      break;
-
-    case 'none':
-      alert('Você precisa adicionar móveis à sua coleção!');
       break;
     }
 });
@@ -78,6 +81,9 @@ houseDiagram.addEventListener("mousemove", (event) => {
     } 
     if(currentLayer == 'walls'){
       updateDiagramWalls(event)
+    }
+    if(currentLayer == 'topWalls'){
+      updateTopWalls(event)
     }
    }
 });
@@ -156,10 +162,14 @@ function updateDiagramTiles(mouseEvent) {
           reloadDiagram();           
           updateDiagramPositions();
         } else {
-          console.log('ERRO NA DELEÇÃO DO PISO: Há um móvel sobre este piso.')
+          errorToastTitle.innerHTML = "Erro na Deleção do Piso"
+          errorToastMessage.innerHTML = "Há um móvel sobre este piso."
+          errorToast.show();
         }
       } else {
-        console.log('ERRO NA DELEÇÃO DO PISO: Não há nenhum piso na posição selecionada')
+        errorToastTitle.innerHTML = "Erro na Deleção do Piso"
+        errorToastMessage.innerHTML = "Não há nenhum piso na posição selecionada"
+        errorToast.show();
       }
     } else {
       if(!diagramPositions.furniture.allPositions.hasOwnProperty(key)){
@@ -167,7 +177,9 @@ function updateDiagramTiles(mouseEvent) {
         reloadDiagram();           
         updateDiagramPositions();
       } else {
-        console.log('ERRO NA INSERÇÃO DO PISO: Há um móvel sobre esta posição!')
+        errorToastTitle.innerHTML = "Erro na Deleção do Piso"
+        errorToastMessage.innerHTML = "Há um móvel sobre esta posição!"
+        errorToast.show();
       }
     }
   }
@@ -201,12 +213,21 @@ function updateDiagramFurniture(mouseEvent){
       }
     }
   } else {
-    console.log('ERRO NA MODIFICAÇÃO DO MÓVEL: Espaço vazio clicado.')
+    errorToastTitle.innerHTML = "Erro na Modificação do Móvel"
+    errorToastMessage.innerHTML = "Espaço vazio clicado."
+    errorToast.show();
   }
 }
 
 function updateTopWalls(mouseEvent){
   let positionClicked = getCoordsInElement(mouseEvent);
+  if(positionClicked[0] == lastTopWallPositionClicked[0] 
+  && positionClicked[1] == lastTopWallPositionClicked[1]){ 
+    return 
+  } else {
+    lastTopWallPositionClicked = positionClicked
+  }
+    console.log("pintou")
   let key = positionClicked[0] + "-" + positionClicked[1];
 
   if(isEraserModeOn){

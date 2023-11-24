@@ -5,11 +5,7 @@ selectTaskRoom.addEventListener('change', selectTasks);
 function selectTasks(){
   dueDate = selectTaskDate.value;
   
-  if(roomId){
-    selectTaskRoom.querySelector(`option[value='${roomId}']`).selected = true;;
-  } else {
-    roomId = selectTaskRoom.value;
-  }
+  selectTaskRoom.querySelector(`option[value='${roomId}']`).selected = true;
 
   selectTasksRequest = new XMLHttpRequest();
   selectTasksRequest.onreadystatechange = listFilteredTasks;

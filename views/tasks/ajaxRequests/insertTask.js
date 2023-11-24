@@ -20,7 +20,7 @@ function insertTask(){
 function displayCreatedTask(){
   if (insertTaskRequest.readyState === XMLHttpRequest.DONE) { 
     if (insertTaskRequest.status === 200) { 
-      console.log(insertTaskRequest.responseText)
+      // console.log(insertTaskRequest.responseText)
       const createdTask = JSON.parse(insertTaskRequest.responseText);
       createTaskDiv(createdTask);  
     } else {
