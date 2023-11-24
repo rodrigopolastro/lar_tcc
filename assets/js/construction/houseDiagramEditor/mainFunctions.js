@@ -1,5 +1,3 @@
-var lastTilePositionClicked = [], lastWallPositionClicked = [];
-
 //============== INITIALIZATION ==============//
 
 //STRUCTURE: 
@@ -65,6 +63,7 @@ houseDiagram.addEventListener("mousedown", (event) => {
       break;
 
     case 'topWalls':
+      isMouseDown = true;
       if(topWallImgElement || isEraserModeOn){
         updateTopWalls(event); 
       } else {
@@ -82,6 +81,9 @@ houseDiagram.addEventListener("mousemove", (event) => {
     } 
     if(currentLayer == 'walls'){
       updateDiagramWalls(event)
+    }
+    if(currentLayer == 'topWalls'){
+      updateTopWalls(event)
     }
    }
 });
@@ -219,6 +221,13 @@ function updateDiagramFurniture(mouseEvent){
 
 function updateTopWalls(mouseEvent){
   let positionClicked = getCoordsInElement(mouseEvent);
+  if(positionClicked[0] == lastTopWallPositionClicked[0] 
+  && positionClicked[1] == lastTopWallPositionClicked[1]){ 
+    return 
+  } else {
+    lastTopWallPositionClicked = positionClicked
+  }
+    console.log("pintou")
   let key = positionClicked[0] + "-" + positionClicked[1];
 
   if(isEraserModeOn){

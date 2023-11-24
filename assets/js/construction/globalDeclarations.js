@@ -103,3 +103,7 @@ var furniturePositions = [], wallPositions = [];
 var topWallImgElement, selectedTopWallName;
 
 var lastRoomsLayer;
+
+var lastTilePositionClicked = [], 
+    lastWallPositionClicked = [],
+    lastTopWallPositionClicked = [];
