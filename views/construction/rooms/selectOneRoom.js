@@ -3,7 +3,7 @@ function selectOneRoom(editingRoomId) {
   
   selectOneRoomRequest = new XMLHttpRequest();
   selectOneRoomRequest.onreadystatechange = displayRoomInfo;
-  selectOneRoomRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/roomsController.php");
+  selectOneRoomRequest.open("POST", "/myDirectories/lar_tcc/controllers/roomsController.php");
   selectOneRoomRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

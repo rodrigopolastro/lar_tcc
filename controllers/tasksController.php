@@ -1,6 +1,6 @@
 <?php
   //Absolute path instead of relative one
-  require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . "/myDirectories/lar_tcc/helpers/rootPath.php";
   require_once findPath('models/tasksQueries.php');
 
   if(!isset($_SESSION)){ session_start(); }

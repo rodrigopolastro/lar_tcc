@@ -13,7 +13,7 @@ function selectTasks(){
 
   selectTasksRequest = new XMLHttpRequest();
   selectTasksRequest.onreadystatechange = listFilteredTasks;
-  selectTasksRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
+  selectTasksRequest.open("POST", "/myDirectories/lar_tcc/controllers/tasksController.php");
   selectTasksRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

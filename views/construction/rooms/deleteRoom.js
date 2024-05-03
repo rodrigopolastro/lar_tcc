@@ -3,7 +3,7 @@ modalDeleteRoomButton.addEventListener('click', function() { deleteRoom() })
 function deleteRoom(){
   deleteRoomRequest = new XMLHttpRequest();
   deleteRoomRequest.onreadystatechange = removeFromDiagramAndRoomsList;
-  deleteRoomRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/roomsController.php");
+  deleteRoomRequest.open("POST", "/myDirectories/lar_tcc/controllers/roomsController.php");
   deleteRoomRequest.setRequestHeader(
       "Content-Type",
       "application/x-www-form-urlencoded",

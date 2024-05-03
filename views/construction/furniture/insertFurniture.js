@@ -2,7 +2,7 @@
 function insertFurniture(){
   insertFurnitureRequest = new XMLHttpRequest();
   insertFurnitureRequest.onreadystatechange = addFurnitureToDiagram;
-  insertFurnitureRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/furnitureController.php");
+  insertFurnitureRequest.open("POST", "/myDirectories/lar_tcc/controllers/furnitureController.php");
   insertFurnitureRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

@@ -1,9 +1,9 @@
 //============== CONSTANTS ==============//
 
 // rootTilePath helper 
-const TILES_DIRECTORY     = "/htdocsDirectories/lar_tcc/assets/images/tiles/";
-const WALLS_DIRECTORY     = "/htdocsDirectories/lar_tcc/assets/images/walls/";
-const FURNITURE_DIRECTORY = "/htdocsDirectories/lar_tcc/assets/images/furniture/";
+const TILES_DIRECTORY     = "/myDirectories/lar_tcc/assets/images/tiles/";
+const WALLS_DIRECTORY     = "/myDirectories/lar_tcc/assets/images/walls/";
+const FURNITURE_DIRECTORY = "/myDirectories/lar_tcc/assets/images/furniture/";
 const PLACEHOLDER_TILE_NAME      = "placeholderTile.png";
 const PLACEHOLDER_WALL_NAME      = "placeholderWall.png";
 const PLACEHOLDER_FURNITURE_NAME = "placeholderFurniture.png";

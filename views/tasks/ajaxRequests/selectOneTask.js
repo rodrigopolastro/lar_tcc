@@ -3,7 +3,7 @@
 function selectOneTask(editingTaskId) {
   selectOneTaskRequest = new XMLHttpRequest();
   selectOneTaskRequest.onreadystatechange = displayTaskInfo;
-  selectOneTaskRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/tasksController.php");
+  selectOneTaskRequest.open("POST", "/myDirectories/lar_tcc/controllers/tasksController.php");
   selectOneTaskRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

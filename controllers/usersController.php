@@ -1,6 +1,6 @@
 <?php
   //Absolute path instead of relative one
-  require_once $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . "/myDirectories/lar_tcc/helpers/rootPath.php";
   require_once findPath('models/usersQueries.php');
   require_once findPath('models/housesQueries.php');
 
@@ -17,7 +17,7 @@
           $_SESSION['house_id']        = $user['fk_house_id'];
           $_SESSION['user_first_name'] = $user['first_name'];
           $_SESSION['user_last_name']  = $user['last_name'];
-          header('Location: /htdocsDirectories/lar_tcc/views/tasks/index.php');
+          header('Location: /myDirectories/lar_tcc/views/tasks/index.php');
           exit();
         } else {
           //display an error if user email or password are incorrect
@@ -29,7 +29,7 @@
       case 'logout':
         session_unset();
         session_destroy();
-        header('Location: /htdocsDirectories/lar_tcc/');
+        header('Location: /myDirectories/lar_tcc/');
         exit();
         break;
 
@@ -52,7 +52,7 @@
           $_SESSION['user_first_name'] = $first_name;
           $_SESSION['user_last_name']  = $last_name;
 
-          header("Location: /htdocsDirectories/lar_tcc/views/tasks/index.php");
+          header("Location: /myDirectories/lar_tcc/views/tasks/index.php");
           exit();
         }
         break;

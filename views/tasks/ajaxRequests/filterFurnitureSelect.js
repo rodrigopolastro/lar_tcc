@@ -5,7 +5,7 @@ function filterFurnitureSelect(){
 
   filterFurnitureRequest = new XMLHttpRequest();
   filterFurnitureRequest.onreadystatechange = updateFurnitureSelect;
-  filterFurnitureRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/furnitureController.php");
+  filterFurnitureRequest.open("POST", "/myDirectories/lar_tcc/controllers/furnitureController.php");
   filterFurnitureRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

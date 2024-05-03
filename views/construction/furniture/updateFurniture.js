@@ -8,7 +8,7 @@ modalUpdateFurnitureButton.addEventListener('click', () => {
 function updateFurniture(){
   updateFurnitureRequest = new XMLHttpRequest();
   updateFurnitureRequest.onreadystatechange = updateFurnitureList;
-  updateFurnitureRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/furnitureController.php");
+  updateFurnitureRequest.open("POST", "/myDirectories/lar_tcc/controllers/furnitureController.php");
   updateFurnitureRequest.setRequestHeader(
       "Content-Type",
       "application/x-www-form-urlencoded",

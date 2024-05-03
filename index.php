@@ -5,17 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Includes bootstrap css -->
-  <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="/myDirectories/lar_tcc/assets/css/bootstrap.css">
   <!-- My CSS -->
-  <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/construction.css">
-  <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/css/tasks.css">
-  <link rel="stylesheet" href="/htdocsDirectories/lar_tcc/assets/fonts/stylesheet.css">
+  <link rel="stylesheet" href="/myDirectories/lar_tcc/assets/css/construction.css">
+  <link rel="stylesheet" href="/myDirectories/lar_tcc/assets/css/tasks.css">
+  <link rel="stylesheet" href="/myDirectories/lar_tcc/assets/fonts/stylesheet.css">
   <title>Organize seu Lar!</title>
 </head>
 <body class="container-fluid" style="max-width: 1460px">
   <header class="d-flex justify-content-center align-items-center bg-yellow" style="height: 10vh; width: 100%;">
     <div class="d-flex justify-content-between" style="width:90%;">
-      <img src="/htdocsDirectories/lar_tcc/assets/images/logo.svg" alt="">
+      <img src="/myDirectories/lar_tcc/assets/images/logo.svg" alt="">
       <div>
         <a href="views/login.php" class="bg-brown rounded-5 txt-pink py-2 px-4 fs-3 me-3 fw-bold link-underline link-underline-opacity-0 fontHeader">Login</a>
         <a href="views/signup.php" class="txt-brown fs-3 fw-bold fontHeader" >ou cadastre-se</a>
@@ -78,6 +78,6 @@
     </section>
 <?php
   //Absolute path instead of relative one
-  require $_SERVER['DOCUMENT_ROOT'] . "/htdocsDirectories/lar_tcc/helpers/rootPath.php";
+  require $_SERVER['DOCUMENT_ROOT'] . "/myDirectories/lar_tcc/helpers/rootPath.php";
   require findPath('views/components/footer.html');
 ?>

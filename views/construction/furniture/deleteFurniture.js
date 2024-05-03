@@ -3,7 +3,7 @@ function deleteFurniture(deletingFurnitureId){
 
   deleteFurnitureRequest = new XMLHttpRequest();
   deleteFurnitureRequest.onreadystatechange = removeFromDiagramAndFurnitureList;
-  deleteFurnitureRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/furnitureController.php");
+  deleteFurnitureRequest.open("POST", "/myDirectories/lar_tcc/controllers/furnitureController.php");
   deleteFurnitureRequest.setRequestHeader(
       "Content-Type",
       "application/x-www-form-urlencoded",

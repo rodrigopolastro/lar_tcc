@@ -2,7 +2,7 @@ function deleteAllFurniture(){
   
     deleteAllFurnitureRequest = new XMLHttpRequest();
     deleteAllFurnitureRequest.onreadystatechange = removeAllFurnitureFromList;
-    deleteAllFurnitureRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/furnitureController.php");
+    deleteAllFurnitureRequest.open("POST", "/myDirectories/lar_tcc/controllers/furnitureController.php");
     deleteAllFurnitureRequest.setRequestHeader(
         "Content-Type",
         "application/x-www-form-urlencoded",

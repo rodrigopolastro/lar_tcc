@@ -3,7 +3,7 @@
 function selectHouseDiagram(){
   selectHouseDiagramRequest = new XMLHttpRequest();
   selectHouseDiagramRequest.onreadystatechange = loadStaticDiagram;
-  selectHouseDiagramRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/housesController.php");
+  selectHouseDiagramRequest.open("POST", "/myDirectories/lar_tcc/controllers/housesController.php");
   selectHouseDiagramRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

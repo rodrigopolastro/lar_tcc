@@ -8,7 +8,7 @@ modalUpdateRoomButton.addEventListener('click', () => {
 function updateRoom(){
   updateRoomRequest = new XMLHttpRequest();
   updateRoomRequest.onreadystatechange = updateDiagramAndRoomsList;
-  updateRoomRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/roomsController.php");
+  updateRoomRequest.open("POST", "/myDirectories/lar_tcc/controllers/roomsController.php");
   updateRoomRequest.setRequestHeader(
       "Content-Type",
       "application/x-www-form-urlencoded",

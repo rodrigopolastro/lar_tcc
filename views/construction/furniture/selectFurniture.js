@@ -1,7 +1,7 @@
 function selectFurniture(){
   selectFurnitureRequest = new XMLHttpRequest();
   selectFurnitureRequest.onreadystatechange = listFurniture;
-  selectFurnitureRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/furnitureController.php");
+  selectFurnitureRequest.open("POST", "/myDirectories/lar_tcc/controllers/furnitureController.php");
   selectFurnitureRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

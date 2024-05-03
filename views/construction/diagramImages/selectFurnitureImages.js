@@ -3,7 +3,7 @@ window.addEventListener('load', selectFurnitureImages);
 function selectFurnitureImages(){
   selectFurnitureImagesRequest = new XMLHttpRequest();
   selectFurnitureImagesRequest.onreadystatechange = listFurnitureImages;
-  selectFurnitureImagesRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/imagesController.php");
+  selectFurnitureImagesRequest.open("POST", "/myDirectories/lar_tcc/controllers/imagesController.php");
   selectFurnitureImagesRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

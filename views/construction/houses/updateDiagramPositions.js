@@ -8,7 +8,7 @@ function updateDiagramPositions(){
 
   updateDiagramPositionsRequest = new XMLHttpRequest();
   updateDiagramPositionsRequest.onreadystatechange = informDiagramSave;
-  updateDiagramPositionsRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/housesController.php");
+  updateDiagramPositionsRequest.open("POST", "/myDirectories/lar_tcc/controllers/housesController.php");
   updateDiagramPositionsRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

@@ -3,7 +3,7 @@
 function selectDiagramPositions(){
   diagramPositionsRequest = new XMLHttpRequest();
   diagramPositionsRequest.onreadystatechange = loadDiagram;
-  diagramPositionsRequest.open("POST", "/htdocsDirectories/lar_tcc/controllers/housesController.php");
+  diagramPositionsRequest.open("POST", "/myDirectories/lar_tcc/controllers/housesController.php");
   diagramPositionsRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",
