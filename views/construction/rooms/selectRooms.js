@@ -3,7 +3,7 @@ window.addEventListener('load', selectRooms);
 function selectRooms(){
   selectRoomsRequest = new XMLHttpRequest();
   selectRoomsRequest.onreadystatechange = listRooms;
-  selectRoomsRequest.open("POST", "/myDirectories/lar_tcc/controllers/roomsController.php");
+  selectRoomsRequest.open("POST", "/lar_tcc/controllers/roomsController.php");
   selectRoomsRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

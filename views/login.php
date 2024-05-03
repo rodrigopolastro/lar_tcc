@@ -3,7 +3,7 @@
   $is_login_incorrect = false;
 
   //Absolute path instead of relative one
-  require $_SERVER['DOCUMENT_ROOT'] . "/myDirectories/lar_tcc/helpers/rootPath.php";
+  require $_SERVER['DOCUMENT_ROOT'] . "/lar_tcc/helpers/rootPath.php";
   require findPath('controllers/usersController.php'); 
 ?>
 
@@ -13,10 +13,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Includes bootstrap css -->
-    <link rel="stylesheet" href="/myDirectories/lar_tcc/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/lar_tcc/assets/css/bootstrap.css">
   <!-- My CSS -->
-  <link rel="stylesheet" href="/myDirectories/lar_tcc/assets/css/construction.css">
-  <link rel="stylesheet" href="/myDirectories/lar_tcc/assets/fonts/stylesheet.css">
+  <link rel="stylesheet" href="/lar_tcc/assets/css/construction.css">
+  <link rel="stylesheet" href="/lar_tcc/assets/fonts/stylesheet.css">
   <title>Página de Login</title>
 </head>
 <body class="d-flex position-absolute top-50 start-50 translate-middle">
@@ -30,7 +30,7 @@
           <img src="../assets/images/logo.svg" style="width: 400px;">
         </div>
         <div class="d-flex justify-content-center">
-          <h5 class="txt-red">Voltar para a <a href="/myDirectories/lar_tcc/index.php" class="text-decoration-none txt-brown fw-bold"> Página inicial</a></h5>
+          <h5 class="txt-red">Voltar para a <a href="/lar_tcc/index.php" class="text-decoration-none txt-brown fw-bold"> Página inicial</a></h5>
         </div>
       </div>
       <div class="d-flex justify-content-center mt-2 txt-red">
@@ -49,7 +49,7 @@
           <input id="" type="submit" value="Entrar" class="border-0 bg-brown rounded-4 h5 py-3 px-5 fw-bold txt-pink">
         </form>
         <div class="d-flex justify-content-center">
-          <a href="/myDirectories/lar_tcc/views/signup.php" class="text-decoration-none txt-brown fw-bold fs-5"> Não tenho conta </a>
+          <a href="/lar_tcc/views/signup.php" class="text-decoration-none txt-brown fw-bold fs-5"> Não tenho conta </a>
         </div>
       </div>
     </div>

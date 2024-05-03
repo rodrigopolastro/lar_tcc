@@ -22,7 +22,7 @@ createRoomButton.addEventListener('click', () => {
 function insertRoom(){
   insertRoomRequest = new XMLHttpRequest();
   insertRoomRequest.onreadystatechange = displayCreatedRoom;
-  insertRoomRequest.open("POST", "/myDirectories/lar_tcc/controllers/roomsController.php");
+  insertRoomRequest.open("POST", "/lar_tcc/controllers/roomsController.php");
   insertRoomRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

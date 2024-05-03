@@ -7,7 +7,7 @@ addTaskButton.addEventListener('click', () => {
 function insertTask(){
   insertTaskRequest = new XMLHttpRequest();
   insertTaskRequest.onreadystatechange = displayCreatedTask;
-  insertTaskRequest.open("POST", "/myDirectories/lar_tcc/controllers/tasksController.php");
+  insertTaskRequest.open("POST", "/lar_tcc/controllers/tasksController.php");
   insertTaskRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

@@ -3,7 +3,7 @@ function selectPieceOfFurniture(editingFurnitureId) {
   
   selectPieceOfFurnitureRequest = new XMLHttpRequest();
   selectPieceOfFurnitureRequest.onreadystatechange = displayFurnitureName;
-  selectPieceOfFurnitureRequest.open("POST", "/myDirectories/lar_tcc/controllers/furnitureController.php");
+  selectPieceOfFurnitureRequest.open("POST", "/lar_tcc/controllers/furnitureController.php");
   selectPieceOfFurnitureRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

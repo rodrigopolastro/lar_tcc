@@ -3,7 +3,7 @@ window.addEventListener('load', selectWalls);
 function selectWalls(){
   selectWallsRequest = new XMLHttpRequest();
   selectWallsRequest.onreadystatechange = listWalls;
-  selectWallsRequest.open("POST", "/myDirectories/lar_tcc/controllers/imagesController.php");
+  selectWallsRequest.open("POST", "/lar_tcc/controllers/imagesController.php");
   selectWallsRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",

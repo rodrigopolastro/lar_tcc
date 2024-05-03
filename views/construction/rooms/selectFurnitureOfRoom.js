@@ -3,7 +3,7 @@ function selectFurnitureOfRoom(room_id) {
   
   selectFurnitureOfRoomRequest = new XMLHttpRequest();
   selectFurnitureOfRoomRequest.onreadystatechange = countResults;
-  selectFurnitureOfRoomRequest.open("POST", "/myDirectories/lar_tcc/controllers/furnitureController.php");
+  selectFurnitureOfRoomRequest.open("POST", "/lar_tcc/controllers/furnitureController.php");
   selectFurnitureOfRoomRequest.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded",
