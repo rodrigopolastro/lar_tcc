@@ -1,0 +1,32 @@
+ÚLTIMAS TAREFAS ATÉ A APRESENTAÇÃO
+- Possibilitar login e cadastro de usuarios e diferenciar casas entre usuários;
+
+- Adicionar landing page de apresentação do projeto
+
+- Modificar sistema de criação de móveis para permitir inserção em cima de parede's do fundo
+
+- Adicionar AJAX no sistema de criação de tarefas (cria tarefa na data e cômodo selecionados)
+
+-  Atualizar select do cômodo na edição da tarefa com o valor atual (ao invés de zerar sempre
+
+MODIFICAÇÕES PEQUENAS
+- Permitir nome personalizado na criação de cômodo (salvar 'displayValue' do select mostrar input text caso o usuário selecionar opção 'outro')
+
+- Atualizar a UI para mostrar opções selecionadas (cor do outline para pisos, paredes, móveis, topWalls, modo borracha, modo construção ou tasks, e seção selecionada na aba de construção)
+
+- Modificar visual da div da tarefa (formatar detalhes da descrição, mostrar nada quando estiver nulo e mostrar data e hora formatados na div principal antes de abrir
+
+- Mostrar erros do alert e do console.log em um toast do bootstrap
+
+- Fazer banner com informaçães do projeto
+
+- (EXTRA) Revisar monografia toda e detalhar explicação com mais prints demonstrando todas as funcionalidades.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+USE lar;
+
+INSERT INTO Houses(house_id, diagram_positions) VALUES (777, '{ 
+    "tiles":{}, 
+    "furniture":{
+        "startingPositions": {},
+        "allPositions": {}
+    }, 
+    "walls":{
+        "startingPositions": {},
+        "allPositions": {}
+    }, 
+    "topWalls":{} 
+}');
+
+INSERT INTO Users(user_id, fk_house_id, user_email, user_password, first_name, last_name) 
+VALUES (777, 'exemplo@gmail.com', '12345', 'Exemplo', 'Exemplo');
+
+INSERT INTO lar.rooms (room_id, fk_house_id,room_name,fk_tile_id,fk_wall_id) VALUES
+ (101, 777,'Meu Quarto',7,10),
+ (102, 777,'Sala de Estar',9,11),
+ (103, 777,'Sala de Jantar',13,1),
+ (104, 777,'Cozinha',6,9),
+ (105, 777,'Quarto de Hóspedes',2,6),
+ (106, 777,'Banheiro',1,15);
